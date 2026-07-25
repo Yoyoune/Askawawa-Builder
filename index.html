@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Populus Builder</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Populus Builder</h1>
+  <div class="topbar-actions">
+    <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
+    <button id="resetBtn" title="Retirer tout l'équipement">Réinitialiser</button>
+  </div>
+</header>
+
+<main class="layout">
+  <div class="left-column">
+    <section class="builds-panel" id="buildsPanel">
+      <h2>Mes builds</h2>
+      <div class="builds-save-row">
+        <input type="text" id="buildNameInput" placeholder="Nom du build...">
+        <button id="saveBuildBtn" type="button">Enregistrer</button>
+      </div>
+      <div id="savedBuildsList"></div>
+    </section>
+
+    <section class="paperdoll" id="paperdoll" aria-label="Emplacements d'équipement"></section>
+  </div>
+
+  <section class="browser" id="browser">
+    <div class="browser-empty" id="browserEmpty">
+      Cliquez sur un emplacement d'équipement pour voir les objets disponibles, ou sur ✎ pour régler le jet / la forgemagie d'un objet équipé.
+    </div>
+    <div class="browser-content hidden" id="browserContent">
+      <div class="browser-header">
+        <h2 id="browserTitle">—</h2>
+        <button id="browserClose" aria-label="Fermer">×</button>
+      </div>
+      <div class="browser-controls">
+        <input type="search" id="searchInput" placeholder="Rechercher un objet...">
+        <select id="sortSelect">
+          <option value="level-asc">Niveau croissant</option>
+          <option value="level-desc">Niveau décroissant</option>
+          <option value="name-asc">Nom (A-Z)</option>
+        </select>
+      </div>
+      <div class="item-list" id="itemList"></div>
+    </div>
+    <div class="detail-content hidden" id="detailContent">
+      <div class="browser-header">
+        <h2 id="detailTitle">—</h2>
+        <button id="detailClose" aria-label="Fermer">×</button>
+      </div>
+      <div class="detail-body" id="detailBody"></div>
+    </div>
+  </section>
+
+  <aside class="stats" id="stats">
+    <h2>Personnage</h2>
+    <div id="baseStatsContent"></div>
+
+    <h2>Parchotage</h2>
+    <div class="parchotage-grid" id="parchotageGrid"></div>
+
+    <h2>Statistiques totales</h2>
+    <div id="statsContent"></div>
+
+    <h2>Panoplies</h2>
+    <div id="setsContent"></div>
+  </aside>
+</main>
+
+<div class="modal-overlay hidden" id="setModalOverlay">
+  <div class="modal" id="setModal">
+    <div class="browser-header">
+      <h2 id="setModalTitle">—</h2>
+      <button id="setModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="setModalBody"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
