@@ -430,6 +430,7 @@ button:hover { border-color: var(--accent); }
 
 .set-item-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   padding: 6px 0;
@@ -451,6 +452,78 @@ button:hover { border-color: var(--accent); }
   font-size: 13px;
   margin-bottom: 4px;
 }
+
+/* ---- Sets browser ---- */
+.sets-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-chip {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.filter-chip:hover { border-color: var(--accent); }
+.filter-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1b1d24;
+  font-weight: 600;
+}
+
+.set-card {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+.set-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.set-card-header .set-card-title { font-weight: 600; font-size: 14px; }
+.set-card-header .set-card-count { color: var(--text-dim); font-size: 12px; }
+
+.set-item-row .equip-item-btn {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.set-item-row .equip-item-btn:hover { border-color: var(--accent); background: #2f2a1e; }
+.set-item-row .set-item-effects {
+  font-size: 11px;
+  color: var(--text-dim);
+  flex-basis: 100%;
+  margin-top: -4px;
+}
+
+.set-card-equip-all {
+  margin-top: 8px;
+  width: 100%;
+  background: var(--accent);
+  color: #1b1d24;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.set-card-equip-all:hover { background: #e0bc63; }
 
 /* ---- Item detail / roll+forgemagie editor ---- */
 .detail-content {

@@ -27,11 +27,26 @@ const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 
+// "bonus" filters check the set's bonus tiers; "item" filters check whether any
+// individual piece in the set grants that stat; "other" catches sets with none of
+// the four main stats on any of their items.
+const SET_FILTER_DEFS = [
+  { key: "pa", label: "Bonus pano PA", kind: "bonus", stat: "PA" },
+  { key: "pm", label: "Bonus pano PM", kind: "bonus", stat: "PM" },
+  { key: "force", label: "Pano Force", kind: "item", stat: "Force" },
+  { key: "intelligence", label: "Pano Intelligence", kind: "item", stat: "Intelligence" },
+  { key: "chance", label: "Pano Chance", kind: "item", stat: "Chance" },
+  { key: "agilite", label: "Pano Agilité", kind: "item", stat: "Agilité" },
+  { key: "autre", label: "Autre pano", kind: "other" },
+];
+
 let ITEMS = [];
 let ITEMS_BY_SLOT = new Map();
 let ITEMS_BY_ID = new Map();
 let SETS_BY_ID = new Map();
+let SET_FLAGS = new Map();
 let EFFECT_LABELS = [];
+let activeSetFilters = new Set();
 
 /** uiSlotId -> item object (or undefined) */
 let equipped = {};
@@ -67,6 +82,8 @@ async function main() {
   EFFECT_LABELS = [...labelSet].sort((a, b) => a.localeCompare(b));
   buildEffectCatalogDatalist();
 
+  for (const set of SETS_BY_ID.values()) SET_FLAGS.set(set.id, computeSetFlags(set));
+
   loadEquipped();
   loadCustomization();
   loadSavedBuilds();
@@ -75,9 +92,13 @@ async function main() {
   renderBaseStats();
   renderStats();
   renderSavedBuildsList();
+  renderSetsFilterChips();
 
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
   document.getElementById("detailClose").addEventListener("click", closeSidePanel);
+  document.getElementById("setsBrowserClose").addEventListener("click", closeSidePanel);
+  document.getElementById("setsSearchBtn").addEventListener("click", openSetsBrowser);
+  document.getElementById("setsSearchInput").addEventListener("input", renderSetsList);
   document.getElementById("setModalClose").addEventListener("click", closeSetPreview);
   document.getElementById("setModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "setModalOverlay") closeSetPreview();
@@ -362,6 +383,7 @@ function showSidePanel(which) {
   document.getElementById("browserEmpty").classList.toggle("hidden", which !== "empty");
   document.getElementById("browserContent").classList.toggle("hidden", which !== "list");
   document.getElementById("detailContent").classList.toggle("hidden", which !== "detail");
+  document.getElementById("setsBrowserContent").classList.toggle("hidden", which !== "sets");
 }
 
 function closeSidePanel() {
@@ -794,6 +816,179 @@ function openSetPreview(setId) {
 
 function closeSetPreview() {
   document.getElementById("setModalOverlay").classList.add("hidden");
+}
+
+// ---------- Sets browser ----------
+
+function computeSetFlags(set) {
+  const bonusLabels = new Set();
+  for (const tier of set.bonuses || []) for (const eff of tier) bonusLabels.add(stripSign(eff.label));
+
+  const itemLabels = new Set();
+  for (const itemId of set.itemIds) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item) continue;
+    for (const eff of item.effects || []) itemLabels.add(stripSign(eff.label));
+  }
+
+  const force = itemLabels.has("Force");
+  const intelligence = itemLabels.has("Intelligence");
+  const chance = itemLabels.has("Chance");
+  const agilite = itemLabels.has("Agilité");
+
+  return {
+    pa: bonusLabels.has("PA"),
+    pm: bonusLabels.has("PM"),
+    force,
+    intelligence,
+    chance,
+    agilite,
+    autre: !force && !intelligence && !chance && !agilite,
+  };
+}
+
+function renderSetsFilterChips() {
+  const row = document.getElementById("setsFilterRow");
+  row.innerHTML = "";
+  for (const def of SET_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeSetFilters.has(def.key)) activeSetFilters.delete(def.key);
+      else activeSetFilters.add(def.key);
+      chip.classList.toggle("active", activeSetFilters.has(def.key));
+      renderSetsList();
+    });
+    row.appendChild(chip);
+  }
+}
+
+function openSetsBrowser() {
+  activeUiSlot = null;
+  showSidePanel("sets");
+  document.getElementById("setsSearchInput").value = "";
+  renderPaperdoll();
+  renderSetsList();
+}
+
+function renderSetsList() {
+  const listEl = document.getElementById("setsList");
+  const search = document.getElementById("setsSearchInput").value.trim().toLowerCase();
+
+  let sets = [...SETS_BY_ID.values()].filter(s => s.itemIds.length > 0);
+  if (search) sets = sets.filter(s => s.name.toLowerCase().includes(search));
+  if (activeSetFilters.size > 0) {
+    sets = sets.filter(s => {
+      const flags = SET_FLAGS.get(s.id);
+      return flags && [...activeSetFilters].some(key => flags[key]);
+    });
+  }
+  sets.sort((a, b) => a.name.localeCompare(b.name));
+
+  listEl.innerHTML = "";
+  if (sets.length === 0) {
+    listEl.innerHTML = '<div class="stat-empty">Aucune panoplie trouvée.</div>';
+    return;
+  }
+
+  const frag = document.createDocumentFragment();
+  for (const set of sets.slice(0, 150)) frag.appendChild(renderSetCard(set));
+  listEl.appendChild(frag);
+}
+
+function renderSetCard(set) {
+  const card = document.createElement("div");
+  card.className = "set-card";
+
+  const header = document.createElement("div");
+  header.className = "set-card-header";
+  header.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">${set.itemIds.length} pièces</span>`;
+  header.querySelector(".set-card-title").textContent = set.name;
+  card.appendChild(header);
+
+  for (const itemId of set.itemIds) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item) continue;
+
+    const row = document.createElement("div");
+    row.className = "set-item-row";
+    row.appendChild(itemIconEl(item, "🎒", "item-icon"));
+
+    const name = document.createElement("span");
+    name.className = "set-item-name";
+    name.textContent = item.name;
+    row.appendChild(name);
+
+    const level = document.createElement("span");
+    level.className = "set-item-level";
+    level.textContent = `Nv. ${item.level}`;
+    row.appendChild(level);
+
+    const equipBtn = document.createElement("button");
+    equipBtn.type = "button";
+    equipBtn.className = "equip-item-btn";
+    equipBtn.textContent = "Équiper";
+    equipBtn.addEventListener("click", () => equipSingleItem(item));
+    row.appendChild(equipBtn);
+
+    if (item.effects && item.effects.length) {
+      const eff = document.createElement("div");
+      eff.className = "set-item-effects";
+      eff.innerHTML = item.effects.map(effectHtml).join(" · ");
+      row.appendChild(eff);
+    }
+
+    card.appendChild(row);
+  }
+
+  (set.bonuses || []).forEach((tierEffects, idx) => {
+    const count = idx + 1;
+    if (count < 2) return; // 1 piece never grants a set bonus
+
+    const tier = document.createElement("div");
+    tier.className = "set-tier";
+    const title = document.createElement("div");
+    title.className = "set-tier-title";
+    title.textContent = `${count} pièces`;
+    tier.appendChild(title);
+
+    if (tierEffects && tierEffects.length > 0) {
+      const eff = document.createElement("div");
+      eff.className = "item-effects";
+      eff.innerHTML = tierEffects.map(effectHtml).join("");
+      tier.appendChild(eff);
+    } else {
+      const none = document.createElement("div");
+      none.className = "stat-empty";
+      none.textContent = "Pas de bonus à ce nombre de pièces.";
+      tier.appendChild(none);
+    }
+    card.appendChild(tier);
+  });
+
+  const equipAllBtn = document.createElement("button");
+  equipAllBtn.type = "button";
+  equipAllBtn.className = "set-card-equip-all";
+  equipAllBtn.textContent = "Équiper la panoplie entière";
+  equipAllBtn.addEventListener("click", () => equipEntireSet(set.id));
+  card.appendChild(equipAllBtn);
+
+  return card;
+}
+
+function equipSingleItem(item) {
+  const candidates = UI_SLOTS.filter(s => s.dataSlot === item.slot).map(s => s.id);
+  if (candidates.length === 0) return;
+
+  const target = candidates.find(id => !equipped[id]) || candidates[0];
+  unequipSlot(target);
+  equipped[target] = item;
+
+  saveEquipped();
+  renderPaperdoll();
+  renderStats();
 }
 
 // ---------- Personnage / Parchotage ----------

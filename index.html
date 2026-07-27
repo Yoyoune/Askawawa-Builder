@@ -11,6 +11,7 @@
   <h1>Askawawa Builder</h1>
   <div class="topbar-actions">
     <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
+    <button id="setsSearchBtn" type="button">📦 Panoplies</button>
     <button id="resetBtn" title="Retirer tout l'équipement">Réinitialiser</button>
   </div>
 </header>
@@ -54,6 +55,17 @@
         <button id="detailClose" aria-label="Fermer">×</button>
       </div>
       <div class="detail-body" id="detailBody"></div>
+    </div>
+    <div class="sets-browser-content hidden" id="setsBrowserContent">
+      <div class="browser-header">
+        <h2>Panoplies</h2>
+        <button id="setsBrowserClose" aria-label="Fermer">×</button>
+      </div>
+      <div class="browser-controls">
+        <input type="search" id="setsSearchInput" placeholder="Rechercher une panoplie...">
+      </div>
+      <div class="sets-filter-row" id="setsFilterRow"></div>
+      <div class="item-list" id="setsList"></div>
     </div>
   </section>
 
