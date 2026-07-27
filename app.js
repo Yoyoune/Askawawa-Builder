@@ -505,7 +505,7 @@ function renderItemCard(item, isEquipped, charLevel) {
   if (item.conditions && item.conditions.length) {
     const cond = document.createElement("div");
     cond.className = "item-conditions";
-    cond.textContent = "Cond. : " + item.conditions.map(c => `${c.label} ${c.operator} ${c.value}`).join(", ");
+    cond.textContent = "Cond. : " + item.conditions.map(formatCondition).join(", ");
     body.appendChild(cond);
   }
 
@@ -732,6 +732,17 @@ function isWeaponEffect(label) {
 
 function stripSign(label) {
   return (label || "").replace(/^[+\-]\s*/, "").trim();
+}
+
+/** "PO" (Objet possédé) conditions reference another item by id - resolve that to its name instead of showing the raw id. */
+function formatCondition(c) {
+  if (c.code === "PO") {
+    const refItem = ITEMS_BY_ID.get(parseInt(c.value, 10));
+    const itemName = refItem ? refItem.name : `objet #${c.value}`;
+    if (c.operator === "!") return `Ne pas être équipé de ${itemName}`;
+    if (c.operator === "=") return `Être équipé de ${itemName}`;
+  }
+  return `${c.label} ${c.operator} ${c.value}`;
 }
 
 function escapeHtml(s) {
