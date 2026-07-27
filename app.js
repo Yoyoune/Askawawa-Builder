@@ -718,11 +718,16 @@ function effectValueText(effect) {
 
 function effectHtml(effect) {
   const negative = effect.operator === "-";
-  const cls = negative ? "neg" : "pos";
+  const cls = isWeaponEffect(effect.label) ? "weapon" : (negative ? "neg" : "pos");
   const label = stripSign(effect.label);
   const valueText = effectValueText(effect);
   const sign = negative ? "-" : "+";
   return `<span class="eff ${cls}">${sign}${valueText} ${escapeHtml(label)}</span>`;
+}
+
+/** Raw weapon damage/steal/heal-return rolls, e.g. "(dommages Air)", "(vol Terre)", "(PV rendus)" - Category=2 in the game data, always parenthesized. */
+function isWeaponEffect(label) {
+  return (label || "").trim().startsWith("(");
 }
 
 function stripSign(label) {
@@ -899,7 +904,8 @@ function getEffectComparableValue(effect) {
 
 function populateStatFilterSelect() {
   const select = document.getElementById("statFilterSelect");
-  select.innerHTML = EFFECT_LABELS.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
+  const options = EFFECT_LABELS.filter(l => !isWeaponEffect(l));
+  select.innerHTML = options.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
 }
 
 function addStatFilter() {

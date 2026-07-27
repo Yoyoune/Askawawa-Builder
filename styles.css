@@ -9,6 +9,7 @@
   --accent-dim: #7a6633;
   --positive: #6fbf73;
   --negative: #d9686b;
+  --weapon: #5b9bd5;
   --radius: 8px;
 }
 
@@ -352,8 +353,9 @@ button:hover { border-color: var(--accent); }
   flex-wrap: wrap;
   gap: 4px 10px;
 }
-.item-effects .eff.pos { color: var(--positive); }
-.item-effects .eff.neg { color: var(--negative); }
+.eff.pos { color: var(--positive); }
+.eff.neg { color: var(--negative); }
+.eff.weapon { color: var(--weapon); }
 
 .item-conditions {
   margin-top: 4px;
