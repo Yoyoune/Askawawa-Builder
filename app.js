@@ -962,7 +962,7 @@ function renderSetsList() {
   if (activeSetFilters.size > 0) {
     sets = sets.filter(s => {
       const flags = SET_FLAGS.get(s.id);
-      return flags && [...activeSetFilters].some(key => flags[key]);
+      return flags && [...activeSetFilters].every(key => flags[key]);
     });
   }
   if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
