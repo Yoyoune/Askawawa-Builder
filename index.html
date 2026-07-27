@@ -63,8 +63,21 @@
       </div>
       <div class="browser-controls">
         <input type="search" id="setsSearchInput" placeholder="Rechercher une panoplie...">
+        <select id="setsSortSelect">
+          <option value="level-asc">Niveau croissant</option>
+          <option value="level-desc">Niveau décroissant</option>
+          <option value="name-asc">Nom (A-Z)</option>
+        </select>
       </div>
       <div class="sets-filter-row" id="setsFilterRow"></div>
+      <div class="stat-filter-builder">
+        <div class="stat-filter-add-row">
+          <select id="statFilterSelect"></select>
+          <input type="number" id="statFilterValue" value="0" min="0" placeholder="Valeur mini">
+          <button id="addStatFilterBtn" type="button">+ Ajouter</button>
+        </div>
+        <div class="stat-filter-active" id="activeStatFilters"></div>
+      </div>
       <div class="item-list" id="setsList"></div>
     </div>
   </section>

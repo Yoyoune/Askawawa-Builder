@@ -478,6 +478,61 @@ button:hover { border-color: var(--accent); }
   font-weight: 600;
 }
 
+.stat-filter-builder {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.stat-filter-add-row {
+  display: flex;
+  gap: 6px;
+}
+.stat-filter-add-row select, .stat-filter-add-row input {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+.stat-filter-add-row select { flex: 1; min-width: 0; }
+.stat-filter-add-row input[type=number] { width: 100px; }
+.stat-filter-add-row button {
+  background: var(--accent);
+  color: #1b1d24;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.stat-filter-active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.stat-filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2f2a1e;
+  border: 1px solid var(--accent-dim);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 4px 6px 4px 12px;
+  font-size: 12px;
+}
+.stat-filter-chip button {
+  background: none;
+  border: none;
+  color: var(--negative);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
 .set-card {
   padding: 12px;
   border: 1px solid var(--border);

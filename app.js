@@ -45,8 +45,12 @@ let ITEMS_BY_SLOT = new Map();
 let ITEMS_BY_ID = new Map();
 let SETS_BY_ID = new Map();
 let SET_FLAGS = new Map();
+/** setId -> highest item level in that set */
+let SET_MAX_LEVEL = new Map();
 let EFFECT_LABELS = [];
 let activeSetFilters = new Set();
+/** [{ stat, minValue }] */
+let activeStatFilters = [];
 
 /** uiSlotId -> item object (or undefined) */
 let equipped = {};
@@ -82,7 +86,10 @@ async function main() {
   EFFECT_LABELS = [...labelSet].sort((a, b) => a.localeCompare(b));
   buildEffectCatalogDatalist();
 
-  for (const set of SETS_BY_ID.values()) SET_FLAGS.set(set.id, computeSetFlags(set));
+  for (const set of SETS_BY_ID.values()) {
+    SET_FLAGS.set(set.id, computeSetFlags(set));
+    SET_MAX_LEVEL.set(set.id, computeSetMaxLevel(set));
+  }
 
   loadEquipped();
   loadCustomization();
@@ -93,12 +100,15 @@ async function main() {
   renderStats();
   renderSavedBuildsList();
   renderSetsFilterChips();
+  populateStatFilterSelect();
 
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
   document.getElementById("detailClose").addEventListener("click", closeSidePanel);
   document.getElementById("setsBrowserClose").addEventListener("click", closeSidePanel);
   document.getElementById("setsSearchBtn").addEventListener("click", openSetsBrowser);
   document.getElementById("setsSearchInput").addEventListener("input", renderSetsList);
+  document.getElementById("setsSortSelect").addEventListener("change", renderSetsList);
+  document.getElementById("addStatFilterBtn").addEventListener("click", addStatFilter);
   document.getElementById("setModalClose").addEventListener("click", closeSetPreview);
   document.getElementById("setModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "setModalOverlay") closeSetPreview();
@@ -847,6 +857,78 @@ function computeSetFlags(set) {
   };
 }
 
+function computeSetMaxLevel(set) {
+  let max = 0;
+  for (const itemId of set.itemIds) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (item && item.level > max) max = item.level;
+  }
+  return max;
+}
+
+function getEffectComparableValue(effect) {
+  if (effect.value !== undefined) return effect.value;
+  if (effect.max !== undefined) return effect.max;
+  if (effect.min !== undefined) return effect.min;
+  return 0;
+}
+
+function populateStatFilterSelect() {
+  const select = document.getElementById("statFilterSelect");
+  select.innerHTML = EFFECT_LABELS.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
+}
+
+function addStatFilter() {
+  const stat = document.getElementById("statFilterSelect").value;
+  const valueInput = document.getElementById("statFilterValue");
+  const minValue = parseInt(valueInput.value, 10) || 0;
+  if (!stat) return;
+
+  const existingIdx = activeStatFilters.findIndex(f => f.stat === stat);
+  if (existingIdx >= 0) activeStatFilters[existingIdx].minValue = minValue;
+  else activeStatFilters.push({ stat, minValue });
+
+  renderActiveStatFilters();
+  renderSetsList();
+}
+
+function removeStatFilter(stat) {
+  activeStatFilters = activeStatFilters.filter(f => f.stat !== stat);
+  renderActiveStatFilters();
+  renderSetsList();
+}
+
+function renderActiveStatFilters() {
+  const container = document.getElementById("activeStatFilters");
+  container.innerHTML = "";
+  for (const f of activeStatFilters) {
+    const chip = document.createElement("span");
+    chip.className = "stat-filter-chip";
+    const label = document.createElement("span");
+    label.textContent = `${f.stat} ≥ ${f.minValue}`;
+    chip.appendChild(label);
+    const rm = document.createElement("button");
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.title = "Retirer ce filtre";
+    rm.addEventListener("click", () => removeStatFilter(f.stat));
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  }
+}
+
+/** A set matches only if EVERY active characteristic filter is satisfied by at least one of its items. */
+function setMatchesStatFilters(set) {
+  if (activeStatFilters.length === 0) return true;
+  return activeStatFilters.every(({ stat, minValue }) =>
+    set.itemIds.some(itemId => {
+      const item = ITEMS_BY_ID.get(itemId);
+      if (!item) return false;
+      return (item.effects || []).some(eff => stripSign(eff.label) === stat && getEffectComparableValue(eff) >= minValue);
+    })
+  );
+}
+
 function renderSetsFilterChips() {
   const row = document.getElementById("setsFilterRow");
   row.innerHTML = "";
@@ -876,6 +958,7 @@ function openSetsBrowser() {
 function renderSetsList() {
   const listEl = document.getElementById("setsList");
   const search = document.getElementById("setsSearchInput").value.trim().toLowerCase();
+  const sort = document.getElementById("setsSortSelect").value;
 
   let sets = [...SETS_BY_ID.values()].filter(s => s.itemIds.length > 0);
   if (search) sets = sets.filter(s => s.name.toLowerCase().includes(search));
@@ -885,7 +968,11 @@ function renderSetsList() {
       return flags && [...activeSetFilters].some(key => flags[key]);
     });
   }
-  sets.sort((a, b) => a.name.localeCompare(b.name));
+  sets = sets.filter(setMatchesStatFilters);
+
+  if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
+  else if (sort === "level-desc") sets.sort((a, b) => SET_MAX_LEVEL.get(b.id) - SET_MAX_LEVEL.get(a.id));
+  else sets.sort((a, b) => a.name.localeCompare(b.name));
 
   listEl.innerHTML = "";
   if (sets.length === 0) {
@@ -904,7 +991,7 @@ function renderSetCard(set) {
 
   const header = document.createElement("div");
   header.className = "set-card-header";
-  header.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">${set.itemIds.length} pièces</span>`;
+  header.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">Nv. ${SET_MAX_LEVEL.get(set.id)} · ${set.itemIds.length} pièces</span>`;
   header.querySelector(".set-card-title").textContent = set.name;
   card.appendChild(header);
 
