@@ -1266,6 +1266,45 @@ function renderStats() {
       setsEl.appendChild(block);
     }
   }
+
+  renderResourceNeeds();
+}
+
+function renderResourceNeeds() {
+  const el = document.getElementById("resourcesContent");
+  if (!el) return;
+  el.innerHTML = "";
+
+  // itemId -> { name, iconId, quantity }
+  const totals = new Map();
+  for (const item of Object.values(equipped)) {
+    for (const ing of item.recipe || []) {
+      const existing = totals.get(ing.itemId);
+      if (existing) existing.quantity += ing.quantity;
+      else totals.set(ing.itemId, { name: ing.name, iconId: ing.iconId, quantity: ing.quantity });
+    }
+  }
+
+  if (totals.size === 0) {
+    el.innerHTML = '<div class="stat-empty">Équipez un objet dont la recette est connue pour voir les ressources nécessaires.</div>';
+    return;
+  }
+
+  const sorted = [...totals.values()].sort((a, b) => a.name.localeCompare(b.name));
+  for (const res of sorted) {
+    const row = document.createElement("div");
+    row.className = "resource-row";
+    row.appendChild(itemIconEl({ iconId: res.iconId }, "🧱", "item-icon"));
+    const name = document.createElement("span");
+    name.className = "resource-name";
+    name.textContent = res.name;
+    row.appendChild(name);
+    const qty = document.createElement("span");
+    qty.className = "resource-qty";
+    qty.textContent = `× ${res.quantity}`;
+    row.appendChild(qty);
+    el.appendChild(row);
+  }
 }
 
 main().catch(err => {

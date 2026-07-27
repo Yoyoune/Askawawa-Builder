@@ -151,6 +151,35 @@ button:hover { border-color: var(--accent); }
 .build-row button.delete-btn { color: var(--negative); }
 .build-row button.delete-btn:hover { border-color: var(--negative); }
 
+/* ---- Ressources nécessaires ---- */
+.resources-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.resources-panel h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+.resource-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.resource-row:last-child { border-bottom: none; }
+.resource-row .item-icon { width: 28px; height: 28px; flex-shrink: 0; }
+.resource-row .resource-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.resource-row .resource-qty { color: var(--accent); font-weight: 600; white-space: nowrap; }
+
 /* ---- Paperdoll ---- */
 .paperdoll {
   background: var(--panel);
