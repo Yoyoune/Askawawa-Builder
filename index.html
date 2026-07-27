@@ -47,6 +47,14 @@
           <option value="name-asc">Nom (A-Z)</option>
         </select>
       </div>
+      <div class="stat-filter-builder">
+        <div class="stat-filter-add-row">
+          <select id="statFilterSelect"></select>
+          <input type="number" id="statFilterValue" value="0" min="0" placeholder="Valeur mini">
+          <button id="addStatFilterBtn" type="button">+ Ajouter</button>
+        </div>
+        <div class="stat-filter-active" id="activeStatFilters"></div>
+      </div>
       <div class="item-list" id="itemList"></div>
     </div>
     <div class="detail-content hidden" id="detailContent">
@@ -70,14 +78,6 @@
         </select>
       </div>
       <div class="sets-filter-row" id="setsFilterRow"></div>
-      <div class="stat-filter-builder">
-        <div class="stat-filter-add-row">
-          <select id="statFilterSelect"></select>
-          <input type="number" id="statFilterValue" value="0" min="0" placeholder="Valeur mini">
-          <button id="addStatFilterBtn" type="button">+ Ajouter</button>
-        </div>
-        <div class="stat-filter-active" id="activeStatFilters"></div>
-      </div>
       <div class="item-list" id="setsList"></div>
     </div>
   </section>

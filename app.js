@@ -422,6 +422,7 @@ function renderItemList() {
 
   let list = (ITEMS_BY_SLOT.get(uiSlot.dataSlot) || []).slice();
   if (search) list = list.filter(i => i.name.toLowerCase().includes(search));
+  list = list.filter(itemMatchesStatFilters);
 
   if (sort === "level-asc") list.sort((a, b) => a.level - b.level);
   else if (sort === "level-desc") list.sort((a, b) => b.level - a.level);
@@ -889,13 +890,13 @@ function addStatFilter() {
   else activeStatFilters.push({ stat, minValue });
 
   renderActiveStatFilters();
-  renderSetsList();
+  renderItemList();
 }
 
 function removeStatFilter(stat) {
   activeStatFilters = activeStatFilters.filter(f => f.stat !== stat);
   renderActiveStatFilters();
-  renderSetsList();
+  renderItemList();
 }
 
 function renderActiveStatFilters() {
@@ -917,15 +918,11 @@ function renderActiveStatFilters() {
   }
 }
 
-/** A set matches only if EVERY active characteristic filter is satisfied by at least one of its items. */
-function setMatchesStatFilters(set) {
+/** An item matches only if EVERY active characteristic filter is satisfied by one of its own effects. */
+function itemMatchesStatFilters(item) {
   if (activeStatFilters.length === 0) return true;
   return activeStatFilters.every(({ stat, minValue }) =>
-    set.itemIds.some(itemId => {
-      const item = ITEMS_BY_ID.get(itemId);
-      if (!item) return false;
-      return (item.effects || []).some(eff => stripSign(eff.label) === stat && getEffectComparableValue(eff) >= minValue);
-    })
+    (item.effects || []).some(eff => stripSign(eff.label) === stat && getEffectComparableValue(eff) >= minValue)
   );
 }
 
@@ -968,8 +965,6 @@ function renderSetsList() {
       return flags && [...activeSetFilters].some(key => flags[key]);
     });
   }
-  sets = sets.filter(setMatchesStatFilters);
-
   if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
   else if (sort === "level-desc") sets.sort((a, b) => SET_MAX_LEVEL.get(b.id) - SET_MAX_LEVEL.get(a.id));
   else sets.sort((a, b) => a.name.localeCompare(b.name));
