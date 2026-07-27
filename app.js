@@ -23,6 +23,29 @@ const UI_SLOTS = [
 // Not vanilla Dofus values - this server is rebalanced.
 const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse", "PA", "PM", "Portée"];
 
+// Fixed display order for "Statistiques totales" (not sorted by value). Anything not
+// listed here falls back to the end, alphabetically, so a new/unrecognized effect label
+// still shows up instead of being silently dropped.
+const STAT_ORDER = [
+  "PA", "PM", "Portée", "Invocations",
+  "Vitalité", "Sagesse", "Chance", "Intelligence", "Agilité", "Force", "Puissance",
+  // Raw weapon damage/steal rolls (parenthesized labels, Category=2 in the game data) -
+  // logically come before bonus damage since they're the weapon's base hit.
+  "(dommages Terre)", "(dommages Feu)", "(dommages Eau)", "(dommages Air)", "(dommages Neutre)",
+  "(vol Terre)", "(vol Feu)", "(vol Eau)", "(vol Air)", "(vol Neutre)", "(PV rendus)",
+  "Dommages", "Dommages Terre", "Dommages Feu", "Dommages Eau", "Dommages Air", "Dommages Neutre",
+  "Dommages Critiques", "Dommages Poussée", "Dommages Pièges", "Puissance (pièges)",
+  "% Dommages mêlée", "% Dommages distance", "% Dommages d'armes", "% Dommages aux sorts",
+  "% Critique",
+  "% Résistance Terre", "% Résistance Feu", "% Résistance Eau", "% Résistance Air", "% Résistance Neutre",
+  "% Résistance mêlée", "% Résistance distance",
+  "Résistance Terre", "Résistance Feu", "Résistance Eau", "Résistance Air", "Résistance Neutre",
+  "Résistance Critiques", "Résistance Poussée",
+  "Initiative", "Prospection", "Fuite", "Tacle",
+  "Esquive PA", "Esquive PM", "Retrait PA", "Retrait PM",
+  "Soins", "Pods",
+];
+
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
@@ -1181,7 +1204,13 @@ function renderStats() {
 
   const statsEl = document.getElementById("statsContent");
   statsEl.innerHTML = "";
-  const sortedEntries = [...combined.entries()].filter(([, v]) => v !== 0).sort((a, b) => b[1] - a[1]);
+  const sortedEntries = [...combined.entries()].filter(([, v]) => v !== 0).sort((a, b) => {
+    const ia = STAT_ORDER.indexOf(a[0]);
+    const ib = STAT_ORDER.indexOf(b[0]);
+    const ra = ia === -1 ? STAT_ORDER.length : ia;
+    const rb = ib === -1 ? STAT_ORDER.length : ib;
+    return ra !== rb ? ra - rb : a[0].localeCompare(b[0]);
+  });
   if (sortedEntries.length === 0) {
     statsEl.innerHTML = '<div class="stat-empty">Équipez un objet pour voir les statistiques.</div>';
   } else {
