@@ -459,7 +459,7 @@ function renderItemList() {
 
   const equippedItem = equipped[activeUiSlot];
   const frag = document.createDocumentFragment();
-  for (const item of list.slice(0, 300)) {
+  for (const item of list) {
     frag.appendChild(renderItemCard(item, equippedItem && equippedItem.id === item.id, charLevel));
   }
   listEl.appendChild(frag);
@@ -1016,7 +1016,7 @@ function renderSetsList() {
   }
 
   const frag = document.createDocumentFragment();
-  for (const set of sets.slice(0, 150)) frag.appendChild(renderSetCard(set));
+  for (const set of sets) frag.appendChild(renderSetCard(set));
   listEl.appendChild(frag);
 }
 
