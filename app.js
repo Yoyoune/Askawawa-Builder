@@ -85,6 +85,8 @@ let forgemagie = {};
 let parchotage = {};
 /** [{ name, charLevel, equipped: {uiSlotId:itemId}, rollOverrides, forgemagie, parchotage, savedAt }] */
 let savedBuilds = [];
+/** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
+let activeBuildName = null;
 
 let activeUiSlot = null;
 
@@ -150,9 +152,10 @@ async function main() {
     const input = document.getElementById("buildNameInput");
     const name = input.value.trim();
     if (!name) return;
-    if (savedBuilds.some(b => b.name === name) && !confirm(`Un build nommé "${name}" existe déjà. L'écraser ?`)) return;
+    const exists = savedBuilds.some(b => b.name === name);
+    if (exists && name !== activeBuildName && !confirm(`Un build nommé "${name}" existe déjà. L'écraser ?`)) return;
     saveCurrentAsBuild(name);
-    input.value = "";
+    activeBuildName = name;
   };
   document.getElementById("saveBuildBtn").addEventListener("click", doSaveBuild);
   document.getElementById("buildNameInput").addEventListener("keydown", (ev) => {
@@ -171,6 +174,8 @@ async function main() {
     equipped = {};
     rollOverrides = {};
     forgemagie = {};
+    activeBuildName = null;
+    document.getElementById("buildNameInput").value = "";
     saveEquipped();
     saveCustomization();
     renderPaperdoll();
@@ -289,6 +294,9 @@ function loadBuildByName(name) {
   parchotage = JSON.parse(JSON.stringify(build.parchotage || {}));
   if (build.charLevel) document.getElementById("charLevel").value = build.charLevel;
 
+  activeBuildName = name;
+  document.getElementById("buildNameInput").value = name;
+
   saveEquipped();
   saveCustomization();
   closeSidePanel();
@@ -301,6 +309,10 @@ function loadBuildByName(name) {
 function deleteBuildByName(name) {
   if (!confirm(`Supprimer le build "${name}" ?`)) return;
   savedBuilds = savedBuilds.filter(b => b.name !== name);
+  if (activeBuildName === name) {
+    activeBuildName = null;
+    document.getElementById("buildNameInput").value = "";
+  }
   persistSavedBuilds();
   renderSavedBuildsList();
 }
