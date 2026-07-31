@@ -525,12 +525,12 @@ button:hover { border-color: var(--accent); }
   letter-spacing: 0.5px;
   color: var(--text-dim);
 }
-.compare-header-row span, .compare-row span { flex: 1; text-align: right; }
+.compare-header-row span, .compare-row span { flex: 1; text-align: right; padding: 2px 6px; border-radius: 3px; }
 .compare-header-row span:first-child, .compare-row span:first-child { flex: 1.6; text-align: left; }
-.compare-row.compare-pos { background: rgba(111, 191, 115, 0.12); color: var(--positive); }
-.compare-row.compare-neg { background: rgba(217, 104, 107, 0.12); color: var(--negative); }
-.compare-row.compare-eq { background: rgba(91, 155, 213, 0.12); color: var(--weapon); }
-.compare-row span:first-child { color: var(--text); }
+.compare-row span.compare-pos { background: rgba(111, 191, 115, 0.18); color: var(--positive); }
+.compare-row span.compare-neg { background: rgba(217, 104, 107, 0.18); color: var(--negative); }
+.compare-row span.compare-eq { background: rgba(91, 155, 213, 0.18); color: var(--weapon); }
+.compare-row span:first-child { color: var(--text); background: none; }
 
 .set-item-row {
   display: flex;

@@ -409,7 +409,7 @@ function renderComparison() {
   const statsB = statsForBuild(buildB);
 
   const labels = new Set([...statsA.keys(), ...statsB.keys()]);
-  const entries = [...labels].map(label => [label, statsA.get(label) || 0, statsB.get(label) || 0]);
+  const entries = [...labels].filter(l => !isWeaponEffect(l)).map(label => [label, statsA.get(label) || 0, statsB.get(label) || 0]);
   const filtered = entries.filter(([, a, b]) => a !== 0 || b !== 0);
   const sorted = sortStatEntries(filtered);
 
@@ -423,12 +423,12 @@ function renderComparison() {
     return;
   }
 
+  const cellClass = (v, other) => v > other ? "compare-pos" : v < other ? "compare-neg" : "compare-eq";
+  const fmt = (v) => (v >= 0 ? "+" : "") + v;
   for (const [label, valueA, valueB] of sorted) {
     const row = document.createElement("div");
-    const cls = valueA > valueB ? "compare-pos" : valueA < valueB ? "compare-neg" : "compare-eq";
-    row.className = "compare-row " + cls;
-    const fmt = (v) => (v >= 0 ? "+" : "") + v;
-    row.innerHTML = `<span>${escapeHtml(label)}</span><span>${fmt(valueA)}</span><span>${fmt(valueB)}</span>`;
+    row.className = "compare-row";
+    row.innerHTML = `<span>${escapeHtml(label)}</span><span class="${cellClass(valueA, valueB)}">${fmt(valueA)}</span><span class="${cellClass(valueB, valueA)}">${fmt(valueB)}</span>`;
     resultEl.appendChild(row);
   }
 }
