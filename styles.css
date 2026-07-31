@@ -846,6 +846,20 @@ button:hover { border-color: var(--accent); }
   text-align: right;
 }
 
+.parchotage-budget-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.parchotage-budget-row #parchotageBudgetValue.pos { color: var(--accent); }
+.parchotage-budget-row #parchotageBudgetValue.neg { color: var(--negative); }
+
 /* ---- Stats ---- */
 .stats {
   background: var(--panel);

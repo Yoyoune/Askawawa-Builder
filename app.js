@@ -21,7 +21,7 @@ const UI_SLOTS = [
 
 // Server-specific base-stat formulas (Game/Actors/Stats/StatsFields.cs:227-247).
 // Not vanilla Dofus values - this server is rebalanced.
-const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse", "PA", "PM", "Portée"];
+const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse"];
 
 // Some paperdoll slots actually cover two distinct item pools that share the same
 // equip location in-game (familier vs dragodinde ride the same slot; dofus vs trophée
@@ -211,6 +211,7 @@ async function main() {
   document.getElementById("charLevel").addEventListener("input", () => {
     renderItemList();
     renderBaseStats();
+    updateParchotageBudget();
     renderStats();
   });
   document.getElementById("resetBtn").addEventListener("click", () => {
@@ -773,8 +774,9 @@ function renderItemCard(item, isEquipped, charLevel) {
   }
 
   card.addEventListener("click", () => {
-    unequipSlot(activeUiSlot);
-    equipped[activeUiSlot] = item;
+    const targetSlot = resolveEquipTargetSlot(activeUiSlot);
+    unequipSlot(targetSlot);
+    equipped[targetSlot] = item;
     saveEquipped();
     renderPaperdoll();
     renderItemList();
@@ -782,6 +784,19 @@ function renderItemCard(item, isEquipped, charLevel) {
   });
 
   return card;
+}
+
+// For grouped slots (the 6 dofus/trophée slots), equipping a new item while the
+// clicked slot is already filled goes to the next empty slot in the group instead
+// of overwriting it - only falls back to overwriting once the whole group is full.
+function resolveEquipTargetSlot(uiSlotId) {
+  const uiSlot = UI_SLOTS.find(s => s.id === uiSlotId);
+  if (uiSlot.group && equipped[uiSlotId]) {
+    const groupSlotIds = UI_SLOTS.filter(s => s.group === uiSlot.group).map(s => s.id);
+    const emptySlot = groupSlotIds.find(id => !equipped[id]);
+    if (emptySlot) return emptySlot;
+  }
+  return uiSlotId;
 }
 
 // ---------- Item detail (roll + forgemagie editor) ----------
@@ -1388,7 +1403,7 @@ function computeBaseStats(level) {
   return {
     "PA": level < 100 ? 6 : 7,
     "PM": 3,
-    "Vitalité": 50 + 5 * level,
+    "Vitalité": 55 + 5 * level,
   };
 }
 
@@ -1402,9 +1417,29 @@ function renderBaseStats() {
   `;
 }
 
+function characteristicPointsBudget(level) {
+  return Math.max(0, 5 * level - 5);
+}
+
+function updateParchotageBudget() {
+  const el = document.getElementById("parchotageBudgetValue");
+  if (!el) return;
+  const budget = characteristicPointsBudget(getCharLevel());
+  const spent = PARCHOTAGE_STATS.reduce((sum, s) => sum + (parchotage[s] || 0), 0);
+  const remaining = budget - spent;
+  el.textContent = `${remaining} / ${budget}`;
+  el.className = remaining < 0 ? "neg" : "pos";
+}
+
 function renderParchotageGrid() {
   const grid = document.getElementById("parchotageGrid");
   grid.innerHTML = "";
+
+  const budgetRow = document.createElement("div");
+  budgetRow.className = "parchotage-budget-row";
+  budgetRow.innerHTML = '<span>Points à répartir</span><span id="parchotageBudgetValue"></span>';
+  grid.appendChild(budgetRow);
+
   for (const stat of PARCHOTAGE_STATS) {
     const field = document.createElement("label");
     field.className = "parchotage-field";
@@ -1412,17 +1447,27 @@ function renderParchotageGrid() {
     span.textContent = stat;
     const input = document.createElement("input");
     input.type = "number";
+    input.min = 0;
     input.value = parchotage[stat] || 0;
     input.addEventListener("input", () => {
-      const v = parseInt(input.value, 10);
-      parchotage[stat] = isNaN(v) ? 0 : v;
+      let v = parseInt(input.value, 10);
+      if (isNaN(v) || v < 0) v = 0;
+      const budget = characteristicPointsBudget(getCharLevel());
+      const spentOthers = PARCHOTAGE_STATS.filter(s => s !== stat).reduce((sum, s) => sum + (parchotage[s] || 0), 0);
+      const maxAllowed = Math.max(0, budget - spentOthers);
+      if (v > maxAllowed) v = maxAllowed;
+      input.value = v;
+      parchotage[stat] = v;
       saveCustomization();
+      updateParchotageBudget();
       renderStats();
     });
     field.appendChild(span);
     field.appendChild(input);
     grid.appendChild(field);
   }
+
+  updateParchotageBudget();
 }
 
 // ---------- Stats ----------
