@@ -846,6 +846,18 @@ button:hover { border-color: var(--accent); }
   text-align: right;
 }
 
+.parchotage-field-points {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.parchotage-field-points span:first-child { flex: 1; }
+.parchotage-points-result {
+  flex-basis: 100%;
+  text-align: right;
+  font-size: 11px;
+  color: var(--accent);
+}
+
 .parchotage-budget-row {
   grid-column: 1 / -1;
   display: flex;

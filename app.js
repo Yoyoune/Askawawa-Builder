@@ -1456,6 +1456,38 @@ function characteristicPointsBudget(level) {
   return Math.max(0, 5 * level - 5);
 }
 
+// In-game exchange rate: spending pool points on Vitalité/Sagesse gives a flat
+// multiple back; the 4 elemental stats (Force/Intelligence/Chance/Agilité) get
+// progressively cheaper per point of stat as the stat value climbs past each
+// 100-point tier (0-100: x1, 100-200: x2, 200-300: x3, 300+: x4).
+const CHARACTERISTIC_FLAT_RATES = { "Vitalité": 1, "Sagesse": 3 };
+const ELEMENTAL_CHARACTERISTIC_STATS = new Set(["Force", "Intelligence", "Chance", "Agilité"]);
+const ELEMENTAL_STAT_TIERS = [
+  { span: 100, rate: 1 },
+  { span: 100, rate: 2 },
+  { span: 100, rate: 3 },
+];
+const ELEMENTAL_STAT_TIER_RATE_BEYOND = 4;
+
+function poolPointsToStatValue(stat, poolPoints) {
+  const points = poolPoints || 0;
+  if (points <= 0) return 0;
+  if (CHARACTERISTIC_FLAT_RATES[stat]) return points * CHARACTERISTIC_FLAT_RATES[stat];
+  if (!ELEMENTAL_CHARACTERISTIC_STATS.has(stat)) return points;
+
+  let remaining = points;
+  let value = 0;
+  for (const tier of ELEMENTAL_STAT_TIERS) {
+    if (remaining <= 0) break;
+    const tierPoolCost = tier.span / tier.rate;
+    const used = Math.min(remaining, tierPoolCost);
+    value += used * tier.rate;
+    remaining -= used;
+  }
+  if (remaining > 0) value += remaining * ELEMENTAL_STAT_TIER_RATE_BEYOND;
+  return Math.round(value);
+}
+
 function updateCharacteristicPointsBudget() {
   const el = document.getElementById("pointsBudgetValue");
   if (!el) return;
@@ -1478,13 +1510,16 @@ function renderCharacteristicPointsGrid() {
 
   for (const stat of PARCHOTAGE_STATS) {
     const field = document.createElement("label");
-    field.className = "parchotage-field";
+    field.className = "parchotage-field parchotage-field-points";
     const span = document.createElement("span");
     span.textContent = stat;
     const input = document.createElement("input");
     input.type = "number";
     input.min = 0;
     input.value = characteristicPoints[stat] || 0;
+    const result = document.createElement("span");
+    result.className = "parchotage-points-result";
+    result.textContent = `→ ${poolPointsToStatValue(stat, characteristicPoints[stat] || 0)}`;
     input.addEventListener("input", () => {
       let v = parseInt(input.value, 10);
       if (isNaN(v) || v < 0) v = 0;
@@ -1494,12 +1529,14 @@ function renderCharacteristicPointsGrid() {
       if (v > maxAllowed) v = maxAllowed;
       input.value = v;
       characteristicPoints[stat] = v;
+      result.textContent = `→ ${poolPointsToStatValue(stat, v)}`;
       saveCustomization();
       updateCharacteristicPointsBudget();
       renderStats();
     });
     field.appendChild(span);
     field.appendChild(input);
+    field.appendChild(result);
     grid.appendChild(field);
   }
 
@@ -1569,7 +1606,8 @@ function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parc
     if (value) combined.set(stat, (combined.get(stat) || 0) + value);
   }
   for (const [stat, value] of Object.entries(characteristicPointsObj || {})) {
-    if (value) combined.set(stat, (combined.get(stat) || 0) + value);
+    const converted = poolPointsToStatValue(stat, value);
+    if (converted) combined.set(stat, (combined.get(stat) || 0) + converted);
   }
   return combined;
 }
