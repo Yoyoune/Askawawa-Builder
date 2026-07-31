@@ -1456,10 +1456,12 @@ function characteristicPointsBudget(level) {
   return Math.max(0, 5 * level - 5);
 }
 
-// In-game exchange rate: spending pool points on Vitalité/Sagesse gives a flat
-// multiple back; the 4 elemental stats (Force/Intelligence/Chance/Agilité) get
-// progressively cheaper per point of stat as the stat value climbs past each
-// 100-point tier (0-100: x1, 100-200: x2, 200-300: x3, 300+: x4).
+// In-game exchange rate: the number typed for each stat IS the stat value you'll
+// get. What it costs out of the shared pool is what scales - Vitalité costs 1
+// pool point per point, Sagesse costs 3, and the 4 elemental stats (Force/
+// Intelligence/Chance/Agilité) get progressively more expensive per point as the
+// stat value climbs past each 100-point tier (0-100: x1, 100-200: x2, 200-300:
+// x3, 300+: x4) - e.g. 200 Agilité costs 100*1 + 100*2 = 300 pool points.
 const CHARACTERISTIC_FLAT_RATES = { "Vitalité": 1, "Sagesse": 3 };
 const ELEMENTAL_CHARACTERISTIC_STATS = new Set(["Force", "Intelligence", "Chance", "Agilité"]);
 const ELEMENTAL_STAT_TIERS = [
@@ -1469,30 +1471,53 @@ const ELEMENTAL_STAT_TIERS = [
 ];
 const ELEMENTAL_STAT_TIER_RATE_BEYOND = 4;
 
-function poolPointsToStatValue(stat, poolPoints) {
-  const points = poolPoints || 0;
-  if (points <= 0) return 0;
-  if (CHARACTERISTIC_FLAT_RATES[stat]) return points * CHARACTERISTIC_FLAT_RATES[stat];
-  if (!ELEMENTAL_CHARACTERISTIC_STATS.has(stat)) return points;
+function statValueToPoolCost(stat, statValue) {
+  const v = statValue || 0;
+  if (v <= 0) return 0;
+  if (CHARACTERISTIC_FLAT_RATES[stat]) return v * CHARACTERISTIC_FLAT_RATES[stat];
+  if (!ELEMENTAL_CHARACTERISTIC_STATS.has(stat)) return v;
 
-  let remaining = points;
-  let value = 0;
+  let remaining = v;
+  let cost = 0;
   for (const tier of ELEMENTAL_STAT_TIERS) {
     if (remaining <= 0) break;
-    const tierPoolCost = tier.span / tier.rate;
-    const used = Math.min(remaining, tierPoolCost);
-    value += used * tier.rate;
+    const used = Math.min(remaining, tier.span);
+    cost += used * tier.rate;
     remaining -= used;
   }
-  if (remaining > 0) value += remaining * ELEMENTAL_STAT_TIER_RATE_BEYOND;
-  return Math.round(value);
+  if (remaining > 0) cost += remaining * ELEMENTAL_STAT_TIER_RATE_BEYOND;
+  return cost;
+}
+
+// Inverse of statValueToPoolCost: the highest stat value affordable with a given
+// pool budget, used to clamp input as the user types past what's left.
+function maxStatValueForPoolBudget(stat, budget) {
+  const b = Math.max(0, budget || 0);
+  if (CHARACTERISTIC_FLAT_RATES[stat]) return Math.floor(b / CHARACTERISTIC_FLAT_RATES[stat]);
+  if (!ELEMENTAL_CHARACTERISTIC_STATS.has(stat)) return b;
+
+  let remainingBudget = b;
+  let value = 0;
+  for (const tier of ELEMENTAL_STAT_TIERS) {
+    const tierFullCost = tier.span * tier.rate;
+    if (remainingBudget >= tierFullCost) {
+      value += tier.span;
+      remainingBudget -= tierFullCost;
+    } else {
+      value += remainingBudget / tier.rate;
+      remainingBudget = 0;
+      break;
+    }
+  }
+  if (remainingBudget > 0) value += remainingBudget / ELEMENTAL_STAT_TIER_RATE_BEYOND;
+  return Math.floor(value);
 }
 
 function updateCharacteristicPointsBudget() {
   const el = document.getElementById("pointsBudgetValue");
   if (!el) return;
   const budget = characteristicPointsBudget(getCharLevel());
-  const spent = PARCHOTAGE_STATS.reduce((sum, s) => sum + (characteristicPoints[s] || 0), 0);
+  const spent = PARCHOTAGE_STATS.reduce((sum, s) => sum + statValueToPoolCost(s, characteristicPoints[s]), 0);
   const remaining = budget - spent;
   el.textContent = `${remaining} / ${budget}`;
   el.className = remaining < 0 ? "neg" : "pos";
@@ -1519,17 +1544,17 @@ function renderCharacteristicPointsGrid() {
     input.value = characteristicPoints[stat] || 0;
     const result = document.createElement("span");
     result.className = "parchotage-points-result";
-    result.textContent = `→ ${poolPointsToStatValue(stat, characteristicPoints[stat] || 0)}`;
+    result.textContent = `coût : ${statValueToPoolCost(stat, characteristicPoints[stat] || 0)}`;
     input.addEventListener("input", () => {
       let v = parseInt(input.value, 10);
       if (isNaN(v) || v < 0) v = 0;
       const budget = characteristicPointsBudget(getCharLevel());
-      const spentOthers = PARCHOTAGE_STATS.filter(s => s !== stat).reduce((sum, s) => sum + (characteristicPoints[s] || 0), 0);
-      const maxAllowed = Math.max(0, budget - spentOthers);
+      const spentOthers = PARCHOTAGE_STATS.filter(s => s !== stat).reduce((sum, s) => sum + statValueToPoolCost(s, characteristicPoints[s]), 0);
+      const maxAllowed = maxStatValueForPoolBudget(stat, budget - spentOthers);
       if (v > maxAllowed) v = maxAllowed;
       input.value = v;
       characteristicPoints[stat] = v;
-      result.textContent = `→ ${poolPointsToStatValue(stat, v)}`;
+      result.textContent = `coût : ${statValueToPoolCost(stat, v)}`;
       saveCustomization();
       updateCharacteristicPointsBudget();
       renderStats();
@@ -1606,8 +1631,7 @@ function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parc
     if (value) combined.set(stat, (combined.get(stat) || 0) + value);
   }
   for (const [stat, value] of Object.entries(characteristicPointsObj || {})) {
-    const converted = poolPointsToStatValue(stat, value);
-    if (converted) combined.set(stat, (combined.get(stat) || 0) + converted);
+    if (value) combined.set(stat, (combined.get(stat) || 0) + value);
   }
   return combined;
 }
