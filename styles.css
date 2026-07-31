@@ -359,6 +359,25 @@ button:hover { border-color: var(--accent); }
 }
 .browser-controls input { flex: 1; }
 
+.level-range-row {
+  display: flex;
+  gap: 14px;
+  padding: 0 16px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.level-range-row label { display: flex; align-items: center; gap: 6px; }
+.level-range-row input {
+  width: 64px;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 5px 7px;
+  font-size: 13px;
+}
+
 .item-list {
   overflow-y: auto;
   max-height: 70vh;
@@ -495,6 +514,24 @@ button:hover { border-color: var(--accent); }
 
 /* ---- Compare builds modal ---- */
 .modal-wide { max-width: 760px; }
+.modal-narrow { max-width: 340px; }
+.category-choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.category-choice-btn:hover { border-color: var(--accent); background: #2f2a1e; }
+.category-choice-btn:last-child { margin-bottom: 0; }
+.category-choice-icon { font-size: 20px; }
 .compare-builds-btn { width: 100%; margin: 8px 0; }
 .compare-select-row {
   display: flex;

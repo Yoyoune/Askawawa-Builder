@@ -54,6 +54,10 @@
           <option value="name-asc">Nom (A-Z)</option>
         </select>
       </div>
+      <div class="level-range-row">
+        <label>Niv. min <input type="number" id="levelMinInput" min="1" max="200" placeholder="Min"></label>
+        <label>Niv. max <input type="number" id="levelMaxInput" min="1" max="200" placeholder="Max"></label>
+      </div>
       <div class="stat-filter-builder">
         <div class="stat-filter-add-row">
           <select id="statFilterSelect"></select>
@@ -84,6 +88,10 @@
           <option value="name-asc">Nom (A-Z)</option>
         </select>
       </div>
+      <div class="level-range-row">
+        <label>Niv. min <input type="number" id="setsLevelMinInput" min="1" max="200" placeholder="Min"></label>
+        <label>Niv. max <input type="number" id="setsLevelMaxInput" min="1" max="200" placeholder="Max"></label>
+      </div>
       <div class="sets-filter-row" id="setsFilterRow"></div>
       <div class="item-list" id="setsList"></div>
     </div>
@@ -111,6 +119,16 @@
       <button id="setModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body" id="setModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="categoryPickerOverlay">
+  <div class="modal modal-narrow" id="categoryPickerModal">
+    <div class="browser-header">
+      <h2 id="categoryPickerTitle">—</h2>
+      <button id="categoryPickerClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="categoryPickerBody"></div>
   </div>
 </div>
 

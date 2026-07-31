@@ -23,6 +23,40 @@ const UI_SLOTS = [
 // Not vanilla Dofus values - this server is rebalanced.
 const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse", "PA", "PM", "Portée"];
 
+// Some paperdoll slots actually cover two distinct item pools that share the same
+// equip location in-game (familier vs dragodinde ride the same slot; dofus vs trophée
+// too). Clicking those slots opens a category picker before the item browser.
+const SLOT_CATEGORY_CHOICES = {
+  familier: [
+    { key: "familier", label: "Familier / Montilier", icon: "🐾" },
+    { key: "dragodinde", label: "Dragodinde", icon: "🐔" },
+  ],
+  dofus: [
+    { key: "dofus", label: "Dofus", icon: "🔮" },
+    { key: "trophee", label: "Trophée", icon: "🏆" },
+  ],
+};
+const CATEGORY_LABELS = {
+  familier: "Familier / Montilier",
+  dragodinde: "Dragodinde",
+  dofus: "Dofus",
+  trophee: "Trophée",
+};
+// items_types.Id for the "Trophée" item type (superType 13, shared with real Dofus).
+const TROPHEE_TYPE_ID = 151;
+
+function itemMatchesCategory(item, category) {
+  if (category === "trophee") return item.slot === "dofus" && item.typeId === TROPHEE_TYPE_ID;
+  if (category === "dofus") return item.slot === "dofus" && item.typeId !== TROPHEE_TYPE_ID;
+  return item.slot === category;
+}
+
+// Dragodinde shares the "familier" paperdoll slot in-game, but has its own item.slot
+// value so it can be filtered separately in the browser (see SLOT_CATEGORY_CHOICES).
+function dataSlotForItem(item) {
+  return item.slot === "dragodinde" ? "familier" : item.slot;
+}
+
 // Fixed display order for "Statistiques totales" (not sorted by value). Anything not
 // listed here falls back to the end, alphabetically, so a new/unrecognized effect label
 // still shows up instead of being silently dropped.
@@ -89,6 +123,8 @@ let savedBuilds = [];
 let activeBuildName = null;
 
 let activeUiSlot = null;
+/** resolved category key for the open browser: a plain dataSlot, or "dragodinde"/"trophee" */
+let activeCategory = null;
 
 async function main() {
   const [items, sets] = await Promise.all([
@@ -133,6 +169,14 @@ async function main() {
   document.getElementById("setsSearchBtn").addEventListener("click", openSetsBrowser);
   document.getElementById("setsSearchInput").addEventListener("input", renderSetsList);
   document.getElementById("setsSortSelect").addEventListener("change", renderSetsList);
+  document.getElementById("setsLevelMinInput").addEventListener("input", renderSetsList);
+  document.getElementById("setsLevelMaxInput").addEventListener("input", renderSetsList);
+  document.getElementById("levelMinInput").addEventListener("input", renderItemList);
+  document.getElementById("levelMaxInput").addEventListener("input", renderItemList);
+  document.getElementById("categoryPickerClose").addEventListener("click", closeCategoryPicker);
+  document.getElementById("categoryPickerOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "categoryPickerOverlay") closeCategoryPicker();
+  });
   document.getElementById("addStatFilterBtn").addEventListener("click", addStatFilter);
   document.getElementById("setModalClose").addEventListener("click", closeSetPreview);
   document.getElementById("setModalOverlay").addEventListener("click", (ev) => {
@@ -146,7 +190,7 @@ async function main() {
   document.getElementById("compareSelectA").addEventListener("change", renderComparison);
   document.getElementById("compareSelectB").addEventListener("change", renderComparison);
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -569,26 +613,62 @@ function closeSidePanel() {
   renderPaperdoll();
 }
 
-function openBrowser(uiSlotId) {
-  activeUiSlot = uiSlotId;
-  showSidePanel("list");
+function openBrowser(uiSlotId, category) {
   const uiSlot = UI_SLOTS.find(s => s.id === uiSlotId);
-  document.getElementById("browserTitle").textContent = uiSlot.label;
+  const choices = SLOT_CATEGORY_CHOICES[uiSlot.dataSlot];
+  if (choices && !category) {
+    openCategoryPicker(uiSlot, choices);
+    return;
+  }
+  activeUiSlot = uiSlotId;
+  activeCategory = category || uiSlot.dataSlot;
+  showSidePanel("list");
+  document.getElementById("browserTitle").textContent = CATEGORY_LABELS[activeCategory] || uiSlot.label;
   document.getElementById("searchInput").value = "";
+  document.getElementById("levelMinInput").value = "";
+  document.getElementById("levelMaxInput").value = "";
   renderItemList();
   renderPaperdoll();
 }
 
+function openCategoryPicker(uiSlot, choices) {
+  document.getElementById("categoryPickerTitle").textContent = uiSlot.label;
+  const body = document.getElementById("categoryPickerBody");
+  body.innerHTML = "";
+  for (const choice of choices) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "category-choice-btn";
+    btn.innerHTML = `<span class="category-choice-icon">${choice.icon}</span><span>${escapeHtml(choice.label)}</span>`;
+    btn.addEventListener("click", () => {
+      closeCategoryPicker();
+      openBrowser(uiSlot.id, choice.key);
+    });
+    body.appendChild(btn);
+  }
+  document.getElementById("categoryPickerOverlay").classList.remove("hidden");
+}
+
+function closeCategoryPicker() {
+  document.getElementById("categoryPickerOverlay").classList.add("hidden");
+}
+
 function renderItemList() {
   if (!activeUiSlot || document.getElementById("browserContent").classList.contains("hidden")) return;
-  const uiSlot = UI_SLOTS.find(s => s.id === activeUiSlot);
   const listEl = document.getElementById("itemList");
   const search = document.getElementById("searchInput").value.trim().toLowerCase();
   const sort = document.getElementById("sortSelect").value;
   const charLevel = getCharLevel();
+  const levelMin = parseInt(document.getElementById("levelMinInput").value, 10);
+  const levelMax = parseInt(document.getElementById("levelMaxInput").value, 10);
 
-  let list = (ITEMS_BY_SLOT.get(uiSlot.dataSlot) || []).slice();
+  let list;
+  if (activeCategory === "trophee") list = (ITEMS_BY_SLOT.get("dofus") || []).filter(i => i.typeId === TROPHEE_TYPE_ID);
+  else if (activeCategory === "dofus") list = (ITEMS_BY_SLOT.get("dofus") || []).filter(i => i.typeId !== TROPHEE_TYPE_ID);
+  else list = (ITEMS_BY_SLOT.get(activeCategory) || []).slice();
   if (search) list = list.filter(i => i.name.toLowerCase().includes(search));
+  if (!isNaN(levelMin)) list = list.filter(i => i.level >= levelMin);
+  if (!isNaN(levelMax)) list = list.filter(i => i.level <= levelMax);
   list = list.filter(itemMatchesStatFilters);
 
   if (sort === "level-asc") list.sort((a, b) => a.level - b.level);
@@ -924,7 +1004,7 @@ function equipEntireSet(setId) {
   for (const itemId of set.itemIds) {
     const item = ITEMS_BY_ID.get(itemId);
     if (!item) continue;
-    const candidates = UI_SLOTS.filter(s => s.dataSlot === item.slot).map(s => s.id);
+    const candidates = UI_SLOTS.filter(s => s.dataSlot === dataSlotForItem(item)).map(s => s.id);
     if (candidates.length === 0) continue;
 
     let target = candidates.find(id => !equipped[id] && !usedThisPass.has(id));
@@ -1160,8 +1240,13 @@ function renderSetsList() {
   const search = document.getElementById("setsSearchInput").value.trim().toLowerCase();
   const sort = document.getElementById("setsSortSelect").value;
 
+  const levelMin = parseInt(document.getElementById("setsLevelMinInput").value, 10);
+  const levelMax = parseInt(document.getElementById("setsLevelMaxInput").value, 10);
+
   let sets = [...SETS_BY_ID.values()].filter(s => s.itemIds.length > 0);
   if (search) sets = sets.filter(s => s.name.toLowerCase().includes(search));
+  if (!isNaN(levelMin)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) >= levelMin);
+  if (!isNaN(levelMax)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) <= levelMax);
   if (activeSetFilters.size > 0) {
     sets = sets.filter(s => {
       const flags = SET_FLAGS.get(s.id);
@@ -1285,7 +1370,7 @@ function renderSetCard(set) {
 }
 
 function equipSingleItem(item) {
-  const candidates = UI_SLOTS.filter(s => s.dataSlot === item.slot).map(s => s.id);
+  const candidates = UI_SLOTS.filter(s => s.dataSlot === dataSlotForItem(item)).map(s => s.id);
   if (candidates.length === 0) return;
 
   const target = candidates.find(id => !equipped[id]) || candidates[0];
