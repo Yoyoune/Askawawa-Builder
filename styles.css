@@ -242,6 +242,18 @@ button:hover { border-color: var(--accent); }
   margin-top: 1px;
 }
 
+.slot .slot-set-btn {
+  margin-top: 3px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.slot .slot-set-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
+
 .slot .remove-btn {
   position: absolute;
   top: -6px;

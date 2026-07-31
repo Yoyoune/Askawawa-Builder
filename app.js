@@ -470,6 +470,19 @@ function renderSlotEl(uiSlot) {
     level.textContent = "Nv. " + item.level;
     el.appendChild(level);
 
+    if (item.itemSetId && item.itemSetId > 0 && SETS_BY_ID.has(item.itemSetId)) {
+      const setBtn = document.createElement("button");
+      setBtn.className = "slot-set-btn";
+      setBtn.type = "button";
+      setBtn.textContent = "Panoplie";
+      setBtn.title = "Voir la panoplie";
+      setBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        openSetPreview(item.itemSetId);
+      });
+      el.appendChild(setBtn);
+    }
+
     const editBtn = document.createElement("button");
     editBtn.className = "edit-btn";
     editBtn.textContent = "✎";
@@ -922,6 +935,15 @@ function openSetPreview(setId) {
     level.className = "set-item-level";
     level.textContent = `Nv. ${item.level}`;
     row.appendChild(level);
+    const equipBtn = document.createElement("button");
+    equipBtn.type = "button";
+    equipBtn.className = "equip-item-btn";
+    equipBtn.textContent = "Équiper";
+    equipBtn.addEventListener("click", () => {
+      equipSingleItem(item);
+      openSetPreview(setId);
+    });
+    row.appendChild(equipBtn);
     itemsSection.appendChild(row);
   }
   body.appendChild(itemsSection);
@@ -953,6 +975,16 @@ function openSetPreview(setId) {
     bonusSection.appendChild(tier);
   });
   body.appendChild(bonusSection);
+
+  const equipAllBtn = document.createElement("button");
+  equipAllBtn.type = "button";
+  equipAllBtn.className = "set-card-equip-all";
+  equipAllBtn.textContent = "Équiper la panoplie entière";
+  equipAllBtn.addEventListener("click", () => {
+    equipEntireSet(setId);
+    openSetPreview(setId);
+  });
+  body.appendChild(equipAllBtn);
 
   document.getElementById("setModalOverlay").classList.remove("hidden");
 }
