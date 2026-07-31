@@ -66,7 +66,7 @@ const STAT_ORDER = [
   // Raw weapon damage/steal rolls (parenthesized labels, Category=2 in the game data) -
   // logically come before bonus damage since they're the weapon's base hit.
   "(dommages Terre)", "(dommages Feu)", "(dommages Eau)", "(dommages Air)", "(dommages Neutre)",
-  "(vol Terre)", "(vol Feu)", "(vol Eau)", "(vol Air)", "(vol Neutre)", "(PV rendus)",
+  "(vol Terre)", "(vol Feu)", "(vol Eau)", "(vol Air)", "(vol Neutre)", "(PV rendus)", "(Retrait PA)",
   "Dommages", "Dommages Terre", "Dommages Feu", "Dommages Eau", "Dommages Air", "Dommages Neutre",
   "Dommages Critiques", "Dommages Poussée", "Dommages Pièges", "Puissance (pièges)",
   "% Dommages mêlée", "% Dommages distance", "% Dommages d'armes", "% Dommages aux sorts",
