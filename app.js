@@ -396,8 +396,7 @@ function renderSavedBuildsList() {
     return;
   }
 
-  const sorted = [...savedBuilds].sort((a, b) => a.name.localeCompare(b.name));
-  for (const build of sorted) {
+  savedBuilds.forEach((build, idx) => {
     const row = document.createElement("div");
     row.className = "build-row";
 
@@ -409,6 +408,22 @@ function renderSavedBuildsList() {
 
     const actions = document.createElement("div");
     actions.className = "build-actions";
+
+    const upBtn = document.createElement("button");
+    upBtn.className = "move-btn";
+    upBtn.textContent = "▲";
+    upBtn.title = "Monter";
+    upBtn.disabled = idx === 0;
+    upBtn.addEventListener("click", () => moveBuild(idx, -1));
+    actions.appendChild(upBtn);
+
+    const downBtn = document.createElement("button");
+    downBtn.className = "move-btn";
+    downBtn.textContent = "▼";
+    downBtn.title = "Descendre";
+    downBtn.disabled = idx === savedBuilds.length - 1;
+    downBtn.addEventListener("click", () => moveBuild(idx, 1));
+    actions.appendChild(downBtn);
 
     const loadBtn = document.createElement("button");
     loadBtn.className = "load-btn";
@@ -432,7 +447,15 @@ function renderSavedBuildsList() {
 
     row.appendChild(actions);
     listEl.appendChild(row);
-  }
+  });
+}
+
+function moveBuild(idx, direction) {
+  const target = idx + direction;
+  if (target < 0 || target >= savedBuilds.length) return;
+  [savedBuilds[idx], savedBuilds[target]] = [savedBuilds[target], savedBuilds[idx]];
+  persistSavedBuilds();
+  renderSavedBuildsList();
 }
 
 // ---------- Compare builds ----------

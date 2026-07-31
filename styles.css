@@ -164,6 +164,9 @@ button:hover { border-color: var(--accent); }
 .build-row button.rename-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
 .build-row button.delete-btn { color: var(--negative); }
 .build-row button.delete-btn:hover { border-color: var(--negative); }
+.build-row button.move-btn { padding: 4px 6px; font-size: 10px; line-height: 1; }
+.build-row button.move-btn:hover:not(:disabled) { border-color: var(--accent); }
+.build-row button.move-btn:disabled { opacity: 0.3; cursor: default; }
 
 /* ---- Ressources nécessaires ---- */
 .resources-panel {
