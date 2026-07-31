@@ -947,7 +947,7 @@ button:hover { border-color: var(--accent); }
 }
 .stats h2:not(:first-child) { margin-top: 18px; }
 
-.collapsible-section:not(:first-child) { margin-top: 18px; }
+.stats .collapsible-section:not(:first-child) { margin-top: 18px; }
 .collapsible-header {
   cursor: pointer;
   display: flex;
@@ -969,6 +969,7 @@ button:hover { border-color: var(--accent); }
   padding: 3px 0;
   font-size: 13px;
 }
+.stat-row .stat-icon { margin-right: 5px; }
 .stat-row .val.pos { color: var(--positive); }
 .stat-row .val.neg { color: var(--negative); }
 .stat-empty { color: var(--text-dim); font-size: 13px; }

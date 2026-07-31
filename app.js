@@ -80,6 +80,32 @@ const STAT_ORDER = [
   "Soins", "Pods",
 ];
 
+// Small visual icon shown before each stat name in "Statistiques totales". Elemental
+// stats/damages/resistances match by element name substring rather than needing one
+// entry per exact label (covers "Dommages Terre", "(dommages Terre)", "% Résistance
+// Terre", "Résistance Terre", etc. with a single rule).
+const ELEMENT_ICONS = { "Terre": "🟤", "Feu": "🔥", "Eau": "💧", "Air": "💨", "Neutre": "⚪" };
+const STAT_ICONS = {
+  "PA": "🔷", "PM": "🟢", "Portée": "🎯", "Invocations": "🐺",
+  "Vitalité": "❤️", "Sagesse": "🦉", "Chance": "💧", "Intelligence": "🔥", "Agilité": "💨", "Force": "🟤",
+  "Puissance": "💥", "Dommages": "⚔️", "Dommages Critiques": "🎯", "Dommages Poussée": "👊",
+  "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
+  "% Dommages mêlée": "⚔️", "% Dommages distance": "🏹", "% Dommages d'armes": "🗡️", "% Dommages aux sorts": "✨",
+  "% Critique": "🎯", "% Résistance mêlée": "🛡️", "% Résistance distance": "🛡️",
+  "Résistance Critiques": "🛡️", "Résistance Poussée": "🛡️",
+  "Initiative": "⏱️", "Prospection": "🔍", "Fuite": "🏃", "Tacle": "🦶",
+  "Esquive PA": "🌀", "Esquive PM": "🌀", "Retrait PA": "⛓️", "Retrait PM": "⛓️",
+  "Soins": "➕", "Pods": "🎒", "(PV rendus)": "❤️", "(Retrait PA)": "⛓️",
+};
+
+function statIcon(label) {
+  if (STAT_ICONS[label]) return STAT_ICONS[label];
+  for (const [element, icon] of Object.entries(ELEMENT_ICONS)) {
+    if (label.includes(element)) return icon;
+  }
+  return "";
+}
+
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
@@ -1758,7 +1784,8 @@ function renderStats() {
     for (const [label, value] of sortedEntries) {
       const row = document.createElement("div");
       row.className = "stat-row";
-      row.innerHTML = `<span>${escapeHtml(label)}</span><span class="val ${value >= 0 ? "pos" : "neg"}">${value >= 0 ? "+" : ""}${value}</span>`;
+      const icon = statIcon(label);
+      row.innerHTML = `<span>${icon ? `<span class="stat-icon">${icon}</span>` : ""}${escapeHtml(label)}</span><span class="val ${value >= 0 ? "pos" : "neg"}">${value >= 0 ? "+" : ""}${value}</span>`;
       statsEl.appendChild(row);
     }
   }
