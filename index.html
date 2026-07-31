@@ -25,11 +25,14 @@
         <input type="text" id="buildNameInput" placeholder="Nom du build...">
         <button id="saveBuildBtn" type="button">Enregistrer</button>
       </div>
-      <button id="compareBuildsBtn" type="button" class="compare-builds-btn">⚖️ Comparer 2 builds</button>
-      <div id="savedBuildsList"></div>
     </section>
 
     <section class="paperdoll" id="paperdoll" aria-label="Emplacements d'équipement"></section>
+
+    <section class="saved-builds-panel" id="savedBuildsPanel">
+      <button id="compareBuildsBtn" type="button" class="compare-builds-btn">⚖️ Comparer 2 builds</button>
+      <div id="savedBuildsList"></div>
+    </section>
 
     <section class="resources-panel" id="resourcesPanel">
       <h2>Ressources nécessaires</h2>
@@ -99,14 +102,20 @@
   </section>
 
   <aside class="stats" id="stats">
-    <h2>Personnage</h2>
-    <div id="baseStatsContent"></div>
+    <div class="collapsible-section collapsed">
+      <h2 class="collapsible-header">Personnage <span class="collapse-chevron">▸</span></h2>
+      <div class="collapsible-content"><div id="baseStatsContent"></div></div>
+    </div>
 
-    <h2>Parchotage</h2>
-    <div class="parchotage-grid" id="parchotageGrid"></div>
+    <div class="collapsible-section collapsed">
+      <h2 class="collapsible-header">Parchotage <span class="collapse-chevron">▸</span></h2>
+      <div class="collapsible-content"><div class="parchotage-grid" id="parchotageGrid"></div></div>
+    </div>
 
-    <h2>Points à répartir</h2>
-    <div class="parchotage-grid" id="pointsGrid"></div>
+    <div class="collapsible-section collapsed">
+      <h2 class="collapsible-header">Points à répartir <span class="collapse-chevron">▸</span></h2>
+      <div class="collapsible-content"><div class="parchotage-grid" id="pointsGrid"></div></div>
+    </div>
 
     <h2>Statistiques totales</h2>
     <div id="statsContent"></div>

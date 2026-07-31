@@ -181,6 +181,9 @@ async function main() {
     if (ev.target.id === "categoryPickerOverlay") closeCategoryPicker();
   });
   document.getElementById("addStatFilterBtn").addEventListener("click", addStatFilter);
+  document.querySelectorAll(".collapsible-header").forEach(header => {
+    header.addEventListener("click", () => header.closest(".collapsible-section").classList.toggle("collapsed"));
+  });
   document.getElementById("setModalClose").addEventListener("click", closeSetPreview);
   document.getElementById("setModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "setModalOverlay") closeSetPreview();
@@ -427,7 +430,8 @@ function renderSavedBuildsList() {
 
     const loadBtn = document.createElement("button");
     loadBtn.className = "load-btn";
-    loadBtn.textContent = "Charger";
+    loadBtn.textContent = "📂";
+    loadBtn.title = "Charger";
     loadBtn.addEventListener("click", () => loadBuildByName(build.name));
     actions.appendChild(loadBtn);
 

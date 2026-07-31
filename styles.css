@@ -135,6 +135,18 @@ button:hover { border-color: var(--accent); }
   cursor: pointer;
   white-space: nowrap;
 }
+
+.saved-builds-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+#savedBuildsList {
+  max-height: 420px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
 .builds-save-row button:hover { background: #e0bc63; }
 
 .build-row {
@@ -164,9 +176,10 @@ button:hover { border-color: var(--accent); }
 .build-row button.rename-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
 .build-row button.delete-btn { color: var(--negative); }
 .build-row button.delete-btn:hover { border-color: var(--negative); }
-.build-row button.move-btn { padding: 4px 6px; font-size: 10px; line-height: 1; }
+.build-row button.move-btn { padding: 4px 3px; font-size: 9px; line-height: 1; width: 18px; }
 .build-row button.move-btn:hover:not(:disabled) { border-color: var(--accent); }
 .build-row button.move-btn:disabled { opacity: 0.3; cursor: default; }
+.build-row button.load-btn { padding: 4px 6px; font-size: 13px; line-height: 1; }
 
 /* ---- Ressources nécessaires ---- */
 .resources-panel {
@@ -933,6 +946,22 @@ button:hover { border-color: var(--accent); }
   padding-bottom: 6px;
 }
 .stats h2:not(:first-child) { margin-top: 18px; }
+
+.collapsible-section:not(:first-child) { margin-top: 18px; }
+.collapsible-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.collapse-chevron {
+  font-size: 11px;
+  color: var(--text-dim);
+  transition: transform .15s;
+}
+.collapsible-section:not(.collapsed) .collapse-chevron { transform: rotate(90deg); }
+.collapsible-section.collapsed .collapsible-content { display: none; }
 
 .stat-row {
   display: flex;
