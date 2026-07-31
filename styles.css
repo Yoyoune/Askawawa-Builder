@@ -290,6 +290,15 @@ button:hover { border-color: var(--accent); }
 }
 .slot .edit-btn:hover { background: #e0bc63; }
 
+.slot .fm-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 12px;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .paperdoll-dofus {
   grid-column: 1 / -1;
   display: grid;

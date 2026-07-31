@@ -550,6 +550,14 @@ function renderSlotEl(uiSlot) {
 
   el.appendChild(itemIconEl(item, uiSlot.icon, "icon"));
 
+  if (item && forgemagie[uiSlot.id] && forgemagie[uiSlot.id].length > 0) {
+    const fmBadge = document.createElement("span");
+    fmBadge.className = "fm-badge";
+    fmBadge.textContent = "🔥";
+    fmBadge.title = "Forgemagie appliquée";
+    el.appendChild(fmBadge);
+  }
+
   if (item) {
     const name = document.createElement("div");
     name.className = "item-name";
@@ -906,6 +914,7 @@ function renderDetail(uiSlotId) {
       forgemagie[uiSlotId].splice(idx, 1);
       saveCustomization();
       renderDetail(uiSlotId);
+      renderPaperdoll();
       renderStats();
     });
     row.appendChild(rm);
@@ -940,6 +949,7 @@ function renderDetail(uiSlotId) {
     labelInput.value = "";
     valueInput.value = "";
     renderDetail(uiSlotId);
+    renderPaperdoll();
     renderStats();
   });
   addRow.appendChild(labelInput);
