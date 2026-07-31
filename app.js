@@ -115,9 +115,11 @@ let equipped = {};
 let rollOverrides = {};
 /** uiSlotId -> [{ label, value }] */
 let forgemagie = {};
-/** statLabel -> manually added points */
+/** statLabel -> manually added points (free-form, unrelated to the level-based budget) */
 let parchotage = {};
-/** [{ name, charLevel, equipped: {uiSlotId:itemId}, rollOverrides, forgemagie, parchotage, savedAt }] */
+/** statLabel -> points allocated from the level-based characteristic point budget */
+let characteristicPoints = {};
+/** [{ name, charLevel, equipped: {uiSlotId:itemId}, rollOverrides, forgemagie, parchotage, characteristicPoints, savedAt }] */
 let savedBuilds = [];
 /** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
 let activeBuildName = null;
@@ -157,6 +159,7 @@ async function main() {
   loadSavedBuilds();
   renderPaperdoll();
   renderParchotageGrid();
+  renderCharacteristicPointsGrid();
   renderBaseStats();
   renderStats();
   renderSavedBuildsList();
@@ -211,7 +214,7 @@ async function main() {
   document.getElementById("charLevel").addEventListener("input", () => {
     renderItemList();
     renderBaseStats();
-    updateParchotageBudget();
+    updateCharacteristicPointsBudget();
     renderStats();
   });
   document.getElementById("resetBtn").addEventListener("click", () => {
@@ -285,13 +288,14 @@ function loadCustomization() {
     rollOverrides = data.rollOverrides || {};
     forgemagie = data.forgemagie || {};
     parchotage = data.parchotage || {};
+    characteristicPoints = data.characteristicPoints || {};
   } catch (e) {
     console.warn("Could not restore saved customization", e);
   }
 }
 
 function saveCustomization() {
-  localStorage.setItem(STORAGE_KEY_CUSTOM, JSON.stringify({ rollOverrides, forgemagie, parchotage }));
+  localStorage.setItem(STORAGE_KEY_CUSTOM, JSON.stringify({ rollOverrides, forgemagie, parchotage, characteristicPoints }));
 }
 
 function loadSavedBuilds() {
@@ -319,6 +323,7 @@ function saveCurrentAsBuild(name) {
     rollOverrides: JSON.parse(JSON.stringify(rollOverrides)),
     forgemagie: JSON.parse(JSON.stringify(forgemagie)),
     parchotage: JSON.parse(JSON.stringify(parchotage)),
+    characteristicPoints: JSON.parse(JSON.stringify(characteristicPoints)),
     savedAt: new Date().toISOString(),
   };
   const existingIdx = savedBuilds.findIndex(b => b.name === name);
@@ -337,6 +342,7 @@ function loadBuildByName(name) {
   rollOverrides = JSON.parse(JSON.stringify(build.rollOverrides || {}));
   forgemagie = JSON.parse(JSON.stringify(build.forgemagie || {}));
   parchotage = JSON.parse(JSON.stringify(build.parchotage || {}));
+  characteristicPoints = JSON.parse(JSON.stringify(build.characteristicPoints || {}));
   if (build.charLevel) document.getElementById("charLevel").value = build.charLevel;
 
   activeBuildName = name;
@@ -347,6 +353,7 @@ function loadBuildByName(name) {
   closeSidePanel();
   renderPaperdoll();
   renderParchotageGrid();
+  renderCharacteristicPointsGrid();
   renderBaseStats();
   renderStats();
 }
@@ -463,7 +470,8 @@ function statsForBuild(build) {
     build.rollOverrides || {},
     build.forgemagie || {},
     build.parchotage || {},
-    build.charLevel || 200
+    build.charLevel || 200,
+    build.characteristicPoints || {}
   );
 }
 
@@ -1417,27 +1425,55 @@ function renderBaseStats() {
   `;
 }
 
+// ---------- Parchotage (free-form scroll points, no budget) ----------
+
+function renderParchotageGrid() {
+  const grid = document.getElementById("parchotageGrid");
+  grid.innerHTML = "";
+  for (const stat of PARCHOTAGE_STATS) {
+    const field = document.createElement("label");
+    field.className = "parchotage-field";
+    const span = document.createElement("span");
+    span.textContent = stat;
+    const input = document.createElement("input");
+    input.type = "number";
+    input.value = parchotage[stat] || 0;
+    input.addEventListener("input", () => {
+      const v = parseInt(input.value, 10);
+      parchotage[stat] = isNaN(v) ? 0 : v;
+      saveCustomization();
+      renderStats();
+    });
+    field.appendChild(span);
+    field.appendChild(input);
+    grid.appendChild(field);
+  }
+}
+
+// ---------- Points de caractéristiques à répartir (level-based budget) ----------
+
 function characteristicPointsBudget(level) {
   return Math.max(0, 5 * level - 5);
 }
 
-function updateParchotageBudget() {
-  const el = document.getElementById("parchotageBudgetValue");
+function updateCharacteristicPointsBudget() {
+  const el = document.getElementById("pointsBudgetValue");
   if (!el) return;
   const budget = characteristicPointsBudget(getCharLevel());
-  const spent = PARCHOTAGE_STATS.reduce((sum, s) => sum + (parchotage[s] || 0), 0);
+  const spent = PARCHOTAGE_STATS.reduce((sum, s) => sum + (characteristicPoints[s] || 0), 0);
   const remaining = budget - spent;
   el.textContent = `${remaining} / ${budget}`;
   el.className = remaining < 0 ? "neg" : "pos";
 }
 
-function renderParchotageGrid() {
-  const grid = document.getElementById("parchotageGrid");
+function renderCharacteristicPointsGrid() {
+  const grid = document.getElementById("pointsGrid");
+  if (!grid) return;
   grid.innerHTML = "";
 
   const budgetRow = document.createElement("div");
   budgetRow.className = "parchotage-budget-row";
-  budgetRow.innerHTML = '<span>Points à répartir</span><span id="parchotageBudgetValue"></span>';
+  budgetRow.innerHTML = '<span>Points à répartir</span><span id="pointsBudgetValue"></span>';
   grid.appendChild(budgetRow);
 
   for (const stat of PARCHOTAGE_STATS) {
@@ -1448,18 +1484,18 @@ function renderParchotageGrid() {
     const input = document.createElement("input");
     input.type = "number";
     input.min = 0;
-    input.value = parchotage[stat] || 0;
+    input.value = characteristicPoints[stat] || 0;
     input.addEventListener("input", () => {
       let v = parseInt(input.value, 10);
       if (isNaN(v) || v < 0) v = 0;
       const budget = characteristicPointsBudget(getCharLevel());
-      const spentOthers = PARCHOTAGE_STATS.filter(s => s !== stat).reduce((sum, s) => sum + (parchotage[s] || 0), 0);
+      const spentOthers = PARCHOTAGE_STATS.filter(s => s !== stat).reduce((sum, s) => sum + (characteristicPoints[s] || 0), 0);
       const maxAllowed = Math.max(0, budget - spentOthers);
       if (v > maxAllowed) v = maxAllowed;
       input.value = v;
-      parchotage[stat] = v;
+      characteristicPoints[stat] = v;
       saveCustomization();
-      updateParchotageBudget();
+      updateCharacteristicPointsBudget();
       renderStats();
     });
     field.appendChild(span);
@@ -1467,7 +1503,7 @@ function renderParchotageGrid() {
     grid.appendChild(field);
   }
 
-  updateParchotageBudget();
+  updateCharacteristicPointsBudget();
 }
 
 // ---------- Stats ----------
@@ -1518,7 +1554,7 @@ function computeActiveSets(equippedMap = equipped) {
   return result;
 }
 
-function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parchotageObj, charLevel) {
+function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parchotageObj, charLevel, characteristicPointsObj) {
   const base = computeBaseStats(charLevel);
   const itemTotals = computeItemStats(equippedMap, rollOverridesObj, forgemagieObj);
   const activeSets = computeActiveSets(equippedMap);
@@ -1530,6 +1566,9 @@ function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parc
     for (const effect of tierEffects) addEffectToTotals(combined, effect);
   }
   for (const [stat, value] of Object.entries(parchotageObj)) {
+    if (value) combined.set(stat, (combined.get(stat) || 0) + value);
+  }
+  for (const [stat, value] of Object.entries(characteristicPointsObj || {})) {
     if (value) combined.set(stat, (combined.get(stat) || 0) + value);
   }
   return combined;
@@ -1546,7 +1585,7 @@ function sortStatEntries(entries) {
 }
 
 function renderStats() {
-  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel());
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const activeSets = computeActiveSets(equipped);
 
   const statsEl = document.getElementById("statsContent");
