@@ -1149,11 +1149,31 @@ function renderSetCard(set) {
   const card = document.createElement("div");
   card.className = "set-card";
 
+  const summary = document.createElement("div");
+  summary.className = "set-card-summary";
+
   const header = document.createElement("div");
   header.className = "set-card-header";
   header.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">Nv. ${SET_MAX_LEVEL.get(set.id)} · ${set.itemIds.length} pièces</span>`;
   header.querySelector(".set-card-title").textContent = set.name;
-  card.appendChild(header);
+  summary.appendChild(header);
+
+  const iconsRow = document.createElement("div");
+  iconsRow.className = "set-card-icons";
+  for (const itemId of set.itemIds) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item) continue;
+    const icon = itemIconEl(item, "🎒", "item-icon");
+    icon.title = item.name;
+    iconsRow.appendChild(icon);
+  }
+  summary.appendChild(iconsRow);
+
+  summary.addEventListener("click", () => card.classList.toggle("expanded"));
+  card.appendChild(summary);
+
+  const details = document.createElement("div");
+  details.className = "set-card-details";
 
   for (const itemId of set.itemIds) {
     const item = ITEMS_BY_ID.get(itemId);
@@ -1187,7 +1207,7 @@ function renderSetCard(set) {
       row.appendChild(eff);
     }
 
-    card.appendChild(row);
+    details.appendChild(row);
   }
 
   (set.bonuses || []).forEach((tierEffects, idx) => {
@@ -1212,7 +1232,7 @@ function renderSetCard(set) {
       none.textContent = "Pas de bonus à ce nombre de pièces.";
       tier.appendChild(none);
     }
-    card.appendChild(tier);
+    details.appendChild(tier);
   });
 
   const equipAllBtn = document.createElement("button");
@@ -1220,8 +1240,9 @@ function renderSetCard(set) {
   equipAllBtn.className = "set-card-equip-all";
   equipAllBtn.textContent = "Équiper la panoplie entière";
   equipAllBtn.addEventListener("click", () => equipEntireSet(set.id));
-  card.appendChild(equipAllBtn);
+  details.appendChild(equipAllBtn);
 
+  card.appendChild(details);
   return card;
 }
 
