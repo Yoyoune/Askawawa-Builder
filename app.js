@@ -84,18 +84,18 @@ const STAT_ORDER = [
 // stats/damages/resistances match by element name substring rather than needing one
 // entry per exact label (covers "Dommages Terre", "(dommages Terre)", "% Résistance
 // Terre", "Résistance Terre", etc. with a single rule).
-const ELEMENT_ICONS = { "Terre": "🟤", "Feu": "🔥", "Eau": "💧", "Air": "💨", "Neutre": "⚪" };
+const ELEMENT_ICONS = { "Terre": "🌱", "Feu": "🔥", "Eau": "💧", "Air": "☁️", "Neutre": "☯️" };
 const STAT_ICONS = {
-  "PA": "🔷", "PM": "🟢", "Portée": "🎯", "Invocations": "🐺",
-  "Vitalité": "❤️", "Sagesse": "🦉", "Chance": "💧", "Intelligence": "🔥", "Agilité": "💨", "Force": "🟤",
-  "Puissance": "💥", "Dommages": "⚔️", "Dommages Critiques": "🎯", "Dommages Poussée": "👊",
+  "PA": "⭐", "PM": "💎", "Portée": "👁️", "Invocations": "🐗",
+  "Vitalité": "❤️", "Sagesse": "🌙", "Chance": "💧", "Intelligence": "🔥", "Agilité": "☁️", "Force": "🌱",
+  "Puissance": "⚡", "Dommages": "✨", "Dommages Critiques": "🎯", "Dommages Poussée": "➡️",
   "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
-  "% Dommages mêlée": "⚔️", "% Dommages distance": "🏹", "% Dommages d'armes": "🗡️", "% Dommages aux sorts": "✨",
-  "% Critique": "🎯", "% Résistance mêlée": "🛡️", "% Résistance distance": "🛡️",
-  "Résistance Critiques": "🛡️", "Résistance Poussée": "🛡️",
-  "Initiative": "⏱️", "Prospection": "🔍", "Fuite": "🏃", "Tacle": "🦶",
-  "Esquive PA": "🌀", "Esquive PM": "🌀", "Retrait PA": "⛓️", "Retrait PM": "⛓️",
-  "Soins": "➕", "Pods": "🎒", "(PV rendus)": "❤️", "(Retrait PA)": "⛓️",
+  "% Dommages mêlée": "👊", "% Dommages distance": "🏹", "% Dommages d'armes": "⚔️", "% Dommages aux sorts": "⭐",
+  "% Critique": "❗", "% Résistance mêlée": "👊", "% Résistance distance": "🏹",
+  "Résistance Critiques": "❗", "Résistance Poussée": "➡️",
+  "Initiative": "🪶", "Prospection": "🔍", "Fuite": "➡️", "Tacle": "🚩",
+  "Esquive PA": "🛡️", "Esquive PM": "🛡️", "Retrait PA": "🔷", "Retrait PM": "🔶",
+  "Soins": "➕", "Pods": "🎒", "(PV rendus)": "❤️", "(Retrait PA)": "🔷",
 };
 
 function statIcon(label) {
