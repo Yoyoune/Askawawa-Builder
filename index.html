@@ -25,6 +25,7 @@
         <input type="text" id="buildNameInput" placeholder="Nom du build...">
         <button id="saveBuildBtn" type="button">Enregistrer</button>
       </div>
+      <button id="compareBuildsBtn" type="button" class="compare-builds-btn">⚖️ Comparer 2 builds</button>
       <div id="savedBuildsList"></div>
     </section>
 
@@ -110,6 +111,23 @@
       <button id="setModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body" id="setModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="compareModalOverlay">
+  <div class="modal modal-wide" id="compareModal">
+    <div class="browser-header">
+      <h2>Comparer 2 builds</h2>
+      <button id="compareModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="compare-select-row">
+        <select id="compareSelectA"></select>
+        <span class="compare-vs">vs</span>
+        <select id="compareSelectB"></select>
+      </div>
+      <div id="compareResult"></div>
+    </div>
   </div>
 </div>
 

@@ -136,8 +136,15 @@ async function main() {
   document.getElementById("setModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "setModalOverlay") closeSetPreview();
   });
+  document.getElementById("compareBuildsBtn").addEventListener("click", openCompareModal);
+  document.getElementById("compareModalClose").addEventListener("click", closeCompareModal);
+  document.getElementById("compareModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "compareModalOverlay") closeCompareModal();
+  });
+  document.getElementById("compareSelectA").addEventListener("change", renderComparison);
+  document.getElementById("compareSelectB").addEventListener("change", renderComparison);
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") closeSetPreview();
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -207,6 +214,15 @@ function equippedToIds() {
   return ids;
 }
 
+function equippedFromIds(ids) {
+  const map = {};
+  for (const [uiSlotId, itemId] of Object.entries(ids || {})) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (item) map[uiSlotId] = item;
+  }
+  return map;
+}
+
 function saveEquipped() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(equippedToIds()));
 }
@@ -267,11 +283,7 @@ function loadBuildByName(name) {
   const build = savedBuilds.find(b => b.name === name);
   if (!build) return;
 
-  equipped = {};
-  for (const [uiSlotId, itemId] of Object.entries(build.equipped || {})) {
-    const item = ITEMS_BY_ID.get(itemId);
-    if (item) equipped[uiSlotId] = item;
-  }
+  equipped = equippedFromIds(build.equipped);
   rollOverrides = JSON.parse(JSON.stringify(build.rollOverrides || {}));
   forgemagie = JSON.parse(JSON.stringify(build.forgemagie || {}));
   parchotage = JSON.parse(JSON.stringify(build.parchotage || {}));
@@ -330,6 +342,82 @@ function renderSavedBuildsList() {
 
     row.appendChild(actions);
     listEl.appendChild(row);
+  }
+}
+
+// ---------- Compare builds ----------
+
+function populateCompareSelects() {
+  const sorted = [...savedBuilds].sort((a, b) => a.name.localeCompare(b.name));
+  const options = sorted.map(b => `<option value="${escapeHtml(b.name)}">${escapeHtml(b.name)}</option>`).join("");
+  const selA = document.getElementById("compareSelectA");
+  const selB = document.getElementById("compareSelectB");
+  const prevA = selA.value, prevB = selB.value;
+  selA.innerHTML = options;
+  selB.innerHTML = options;
+  if (sorted.some(b => b.name === prevA)) selA.value = prevA;
+  if (sorted.some(b => b.name === prevB)) selB.value = prevB;
+  else if (sorted.length > 1) selB.value = sorted[1].name;
+}
+
+function openCompareModal() {
+  if (savedBuilds.length < 2) {
+    alert("Il faut au moins 2 builds enregistrés pour pouvoir les comparer.");
+    return;
+  }
+  populateCompareSelects();
+  renderComparison();
+  document.getElementById("compareModalOverlay").classList.remove("hidden");
+}
+
+function closeCompareModal() {
+  document.getElementById("compareModalOverlay").classList.add("hidden");
+}
+
+function statsForBuild(build) {
+  return computeCombinedStats(
+    equippedFromIds(build.equipped),
+    build.rollOverrides || {},
+    build.forgemagie || {},
+    build.parchotage || {},
+    build.charLevel || 200
+  );
+}
+
+function renderComparison() {
+  const resultEl = document.getElementById("compareResult");
+  const nameA = document.getElementById("compareSelectA").value;
+  const nameB = document.getElementById("compareSelectB").value;
+  const buildA = savedBuilds.find(b => b.name === nameA);
+  const buildB = savedBuilds.find(b => b.name === nameB);
+  resultEl.innerHTML = "";
+  if (!buildA || !buildB) return;
+
+  const statsA = statsForBuild(buildA);
+  const statsB = statsForBuild(buildB);
+
+  const labels = new Set([...statsA.keys(), ...statsB.keys()]);
+  const entries = [...labels].map(label => [label, statsA.get(label) || 0, statsB.get(label) || 0]);
+  const filtered = entries.filter(([, a, b]) => a !== 0 || b !== 0);
+  const sorted = sortStatEntries(filtered);
+
+  const header = document.createElement("div");
+  header.className = "compare-header-row";
+  header.innerHTML = `<span>Statistique</span><span>${escapeHtml(buildA.name)}</span><span>${escapeHtml(buildB.name)}</span>`;
+  resultEl.appendChild(header);
+
+  if (sorted.length === 0) {
+    resultEl.innerHTML += '<div class="stat-empty">Aucune statistique à comparer.</div>';
+    return;
+  }
+
+  for (const [label, valueA, valueB] of sorted) {
+    const row = document.createElement("div");
+    const cls = valueA > valueB ? "compare-pos" : valueA < valueB ? "compare-neg" : "compare-eq";
+    row.className = "compare-row " + cls;
+    const fmt = (v) => (v >= 0 ? "+" : "") + v;
+    row.innerHTML = `<span>${escapeHtml(label)}</span><span>${fmt(valueA)}</span><span>${fmt(valueB)}</span>`;
+    resultEl.appendChild(row);
   }
 }
 
@@ -1172,23 +1260,23 @@ function addEffectToTotals(totals, effect, overrideValue) {
   totals.set(label, (totals.get(label) || 0) + sign * value);
 }
 
-function computeItemStats() {
+function computeItemStats(equippedMap = equipped, rollOverridesObj = rollOverrides, forgemagieObj = forgemagie) {
   const totals = new Map();
-  for (const [uiSlotId, item] of Object.entries(equipped)) {
+  for (const [uiSlotId, item] of Object.entries(equippedMap)) {
     (item.effects || []).forEach((effect, idx) => {
-      const override = rollOverrides[uiSlotId] && rollOverrides[uiSlotId][idx];
+      const override = rollOverridesObj[uiSlotId] && rollOverridesObj[uiSlotId][idx];
       addEffectToTotals(totals, effect, override);
     });
-    for (const fm of forgemagie[uiSlotId] || []) {
+    for (const fm of forgemagieObj[uiSlotId] || []) {
       totals.set(fm.label, (totals.get(fm.label) || 0) + fm.value);
     }
   }
   return totals;
 }
 
-function computeActiveSets() {
+function computeActiveSets(equippedMap = equipped) {
   const countBySet = new Map();
-  for (const item of Object.values(equipped)) {
+  for (const item of Object.values(equippedMap)) {
     if (!item.itemSetId || item.itemSetId <= 0) continue;
     countBySet.set(item.itemSetId, (countBySet.get(item.itemSetId) || 0) + 1);
   }
@@ -1204,10 +1292,10 @@ function computeActiveSets() {
   return result;
 }
 
-function renderStats() {
-  const base = computeBaseStats(getCharLevel());
-  const itemTotals = computeItemStats();
-  const activeSets = computeActiveSets();
+function computeCombinedStats(equippedMap, rollOverridesObj, forgemagieObj, parchotageObj, charLevel) {
+  const base = computeBaseStats(charLevel);
+  const itemTotals = computeItemStats(equippedMap, rollOverridesObj, forgemagieObj);
+  const activeSets = computeActiveSets(equippedMap);
 
   const combined = new Map();
   for (const [label, value] of Object.entries(base)) combined.set(label, value);
@@ -1215,19 +1303,29 @@ function renderStats() {
   for (const { tierEffects } of activeSets) {
     for (const effect of tierEffects) addEffectToTotals(combined, effect);
   }
-  for (const [stat, value] of Object.entries(parchotage)) {
+  for (const [stat, value] of Object.entries(parchotageObj)) {
     if (value) combined.set(stat, (combined.get(stat) || 0) + value);
   }
+  return combined;
+}
 
-  const statsEl = document.getElementById("statsContent");
-  statsEl.innerHTML = "";
-  const sortedEntries = [...combined.entries()].filter(([, v]) => v !== 0).sort((a, b) => {
+function sortStatEntries(entries) {
+  return entries.sort((a, b) => {
     const ia = STAT_ORDER.indexOf(a[0]);
     const ib = STAT_ORDER.indexOf(b[0]);
     const ra = ia === -1 ? STAT_ORDER.length : ia;
     const rb = ib === -1 ? STAT_ORDER.length : ib;
     return ra !== rb ? ra - rb : a[0].localeCompare(b[0]);
   });
+}
+
+function renderStats() {
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel());
+  const activeSets = computeActiveSets(equipped);
+
+  const statsEl = document.getElementById("statsContent");
+  statsEl.innerHTML = "";
+  const sortedEntries = sortStatEntries([...combined.entries()].filter(([, v]) => v !== 0));
   if (sortedEntries.length === 0) {
     statsEl.innerHTML = '<div class="stat-empty">Équipez un objet pour voir les statistiques.</div>';
   } else {
