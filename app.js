@@ -80,19 +80,20 @@ const STAT_ORDER = [
   "Soins", "Pods",
 ];
 
-// Small visual icon shown before each stat name in "Statistiques totales". Elemental
-// stats/damages/resistances match by element name substring rather than needing one
-// entry per exact label (covers "Dommages Terre", "(dommages Terre)", "% Résistance
-// Terre", "Résistance Terre", etc. with a single rule).
-const ELEMENT_ICONS = { "Terre": "🌱", "Feu": "🔥", "Eau": "💧", "Air": "☁️", "Neutre": "☯️" };
+// Small visual icon shown before each stat name in "Statistiques totales". Three
+// separate icon sets per element so the SAME element never looks identical across
+// categories - e.g. Intelligence (🔥) vs Dommages Feu (💥) vs Résistance Feu (🛡️) -
+// matched by element name substring rather than needing one entry per exact label.
+const ELEMENT_ICONS = { "Terre": "🟤", "Feu": "🔥", "Eau": "💧", "Air": "🍃", "Neutre": "⚪" };
+const DAMAGE_ELEMENT_ICONS = { "Terre": "🪨", "Feu": "💥", "Eau": "🌊", "Air": "🌪️", "Neutre": "⚔️" };
 const STAT_ICONS = {
-  "PA": "⭐", "PM": "💎", "Portée": "👁️", "Invocations": "🐗",
-  "Vitalité": "❤️", "Sagesse": "🌙", "Chance": "💧", "Intelligence": "🔥", "Agilité": "☁️", "Force": "🌱",
+  "PA": "⭐", "PM": "🟢", "Portée": "👁️", "Invocations": "🐗",
+  "Vitalité": "❤️", "Sagesse": "💜", "Chance": "💧", "Intelligence": "🔥", "Agilité": "🍃", "Force": "🟤",
   "Puissance": "⚡", "Dommages": "✨", "Dommages Critiques": "🎯", "Dommages Poussée": "➡️",
   "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
   "% Dommages mêlée": "👊", "% Dommages distance": "🏹", "% Dommages d'armes": "⚔️", "% Dommages aux sorts": "⭐",
-  "% Critique": "❗", "% Résistance mêlée": "👊", "% Résistance distance": "🏹",
-  "Résistance Critiques": "❗", "Résistance Poussée": "➡️",
+  "% Critique": "❗", "% Résistance mêlée": "🛡️", "% Résistance distance": "🛡️",
+  "Résistance Critiques": "🛡️", "Résistance Poussée": "🛡️",
   "Initiative": "🪶", "Prospection": "🔍", "Fuite": "➡️", "Tacle": "🚩",
   "Esquive PA": "🛡️", "Esquive PM": "🛡️", "Retrait PA": "🔷", "Retrait PM": "🔶",
   "Soins": "➕", "Pods": "🎒", "(PV rendus)": "❤️", "(Retrait PA)": "🔷",
@@ -100,7 +101,12 @@ const STAT_ICONS = {
 
 function statIcon(label) {
   if (STAT_ICONS[label]) return STAT_ICONS[label];
-  for (const [element, icon] of Object.entries(ELEMENT_ICONS)) {
+
+  if (label.includes("Résistance")) return "🛡️";
+
+  const isDamage = label.startsWith("(dommages") || label.startsWith("(vol") || label.startsWith("Dommages ");
+  const elementIcons = isDamage ? DAMAGE_ELEMENT_ICONS : ELEMENT_ICONS;
+  for (const [element, icon] of Object.entries(elementIcons)) {
     if (label.includes(element)) return icon;
   }
   return "";
@@ -1777,7 +1783,7 @@ function renderStats() {
 
   const statsEl = document.getElementById("statsContent");
   statsEl.innerHTML = "";
-  const sortedEntries = sortStatEntries([...combined.entries()].filter(([, v]) => v !== 0));
+  const sortedEntries = sortStatEntries([...combined.entries()].filter(([label, v]) => v !== 0 && !isWeaponEffect(label)));
   if (sortedEntries.length === 0) {
     statsEl.innerHTML = '<div class="stat-empty">Équipez un objet pour voir les statistiques.</div>';
   } else {
