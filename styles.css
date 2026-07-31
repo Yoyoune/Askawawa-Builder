@@ -161,6 +161,7 @@ button:hover { border-color: var(--accent); }
 }
 .build-row button.load-btn { border-color: var(--accent-dim); }
 .build-row button.load-btn:hover { border-color: var(--accent); background: #2f2a1e; }
+.build-row button.rename-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
 .build-row button.delete-btn { color: var(--negative); }
 .build-row button.delete-btn:hover { border-color: var(--negative); }
 

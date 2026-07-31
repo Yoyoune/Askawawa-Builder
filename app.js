@@ -306,6 +306,25 @@ function loadBuildByName(name) {
   renderStats();
 }
 
+function renameBuildByName(oldName) {
+  const newName = prompt("Nouveau nom du build :", oldName);
+  if (newName === null) return;
+  const trimmed = newName.trim();
+  if (!trimmed || trimmed === oldName) return;
+  if (savedBuilds.some(b => b.name === trimmed) && !confirm(`Un build nommé "${trimmed}" existe déjà. L'écraser ?`)) return;
+
+  savedBuilds = savedBuilds.filter(b => b.name !== trimmed);
+  const build = savedBuilds.find(b => b.name === oldName);
+  if (build) build.name = trimmed;
+
+  if (activeBuildName === oldName) {
+    activeBuildName = trimmed;
+    document.getElementById("buildNameInput").value = trimmed;
+  }
+  persistSavedBuilds();
+  renderSavedBuildsList();
+}
+
 function deleteBuildByName(name) {
   if (!confirm(`Supprimer le build "${name}" ?`)) return;
   savedBuilds = savedBuilds.filter(b => b.name !== name);
@@ -344,6 +363,13 @@ function renderSavedBuildsList() {
     loadBtn.textContent = "Charger";
     loadBtn.addEventListener("click", () => loadBuildByName(build.name));
     actions.appendChild(loadBtn);
+
+    const renameBtn = document.createElement("button");
+    renameBtn.className = "rename-btn";
+    renameBtn.textContent = "✎";
+    renameBtn.title = "Renommer";
+    renameBtn.addEventListener("click", () => renameBuildByName(build.name));
+    actions.appendChild(renameBtn);
 
     const delBtn = document.createElement("button");
     delBtn.className = "delete-btn";
