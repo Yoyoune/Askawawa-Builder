@@ -465,6 +465,11 @@ function renderSlotEl(uiSlot) {
     name.textContent = item.name;
     el.appendChild(name);
 
+    const level = document.createElement("div");
+    level.className = "item-level";
+    level.textContent = "Nv. " + item.level;
+    el.appendChild(level);
+
     const editBtn = document.createElement("button");
     editBtn.className = "edit-btn";
     editBtn.textContent = "✎";
