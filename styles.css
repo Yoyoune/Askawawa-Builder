@@ -352,6 +352,27 @@ button:hover { border-color: var(--accent); }
   cursor: pointer;
 }
 
+.currently-equipped {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-alt);
+}
+.currently-equipped-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.currently-equipped-card {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.currently-equipped-card .item-icon { width: 36px; height: 36px; }
+.currently-equipped-body { flex: 1; min-width: 0; }
+.currently-equipped-name { font-weight: 600; font-size: 13px; }
+
 .browser-controls {
   display: flex;
   gap: 8px;
@@ -682,6 +703,15 @@ button:hover { border-color: var(--accent); }
   font-size: 14px;
   line-height: 1;
   padding: 0 4px;
+}
+.stat-filter-chip-value {
+  width: 48px;
+  background: var(--panel-alt);
+  border: 1px solid var(--accent-dim);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 12px;
 }
 
 .set-card {

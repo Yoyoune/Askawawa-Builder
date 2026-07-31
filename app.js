@@ -643,9 +643,54 @@ function openBrowser(uiSlotId, category) {
   document.getElementById("browserTitle").textContent = CATEGORY_LABELS[activeCategory] || uiSlot.label;
   document.getElementById("searchInput").value = "";
   document.getElementById("levelMinInput").value = "";
-  document.getElementById("levelMaxInput").value = "";
+  document.getElementById("levelMaxInput").value = getCharLevel();
+  document.getElementById("sortSelect").value = "level-desc";
   renderItemList();
+  renderCurrentlyEquipped();
   renderPaperdoll();
+}
+
+// Shows the item currently equipped in the browsed slot next to the browser title,
+// so it's easy to compare against while scrolling alternatives. Not shown for the
+// dofus/trophée group since there are 6 slots and no single one to compare against.
+function renderCurrentlyEquipped() {
+  const el = document.getElementById("currentlyEquipped");
+  if (!el) return;
+  const uiSlot = UI_SLOTS.find(s => s.id === activeUiSlot);
+  const item = uiSlot && uiSlot.group !== "dofus" ? equipped[activeUiSlot] : null;
+
+  if (!item) {
+    el.classList.add("hidden");
+    el.innerHTML = "";
+    return;
+  }
+
+  el.classList.remove("hidden");
+  el.innerHTML = "";
+
+  const label = document.createElement("div");
+  label.className = "currently-equipped-label";
+  label.textContent = "Actuellement équipé";
+  el.appendChild(label);
+
+  const card = document.createElement("div");
+  card.className = "currently-equipped-card";
+  card.appendChild(itemIconEl(item, "🎒", "item-icon"));
+
+  const body = document.createElement("div");
+  body.className = "currently-equipped-body";
+  const name = document.createElement("div");
+  name.className = "currently-equipped-name";
+  name.textContent = `${item.name} (Nv. ${item.level})`;
+  body.appendChild(name);
+  if (item.effects && item.effects.length) {
+    const eff = document.createElement("div");
+    eff.className = "item-effects";
+    eff.innerHTML = item.effects.map(effectHtml).join("");
+    body.appendChild(eff);
+  }
+  card.appendChild(body);
+  el.appendChild(card);
 }
 
 function openCategoryPicker(uiSlot, choices) {
@@ -796,6 +841,7 @@ function renderItemCard(item, isEquipped, charLevel) {
     saveEquipped();
     renderPaperdoll();
     renderItemList();
+    renderCurrentlyEquipped();
     renderStats();
   });
 
@@ -1183,15 +1229,18 @@ function computeSetMaxLevel(set) {
 }
 
 function getEffectComparableValue(effect) {
-  if (effect.value !== undefined) return effect.value;
-  if (effect.max !== undefined) return effect.max;
-  if (effect.min !== undefined) return effect.min;
-  return 0;
+  const sign = effect.operator === "-" ? -1 : 1;
+  let raw;
+  if (effect.value !== undefined) raw = effect.value;
+  else if (effect.max !== undefined) raw = effect.max;
+  else if (effect.min !== undefined) raw = effect.min;
+  else raw = 0;
+  return sign * raw;
 }
 
 function populateStatFilterSelect() {
   const select = document.getElementById("statFilterSelect");
-  const options = EFFECT_LABELS.filter(l => !isWeaponEffect(l));
+  const options = sortStatEntries(EFFECT_LABELS.filter(l => !isWeaponEffect(l)).map(l => [l])).map(([l]) => l);
   select.innerHTML = options.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
 }
 
@@ -1222,8 +1271,18 @@ function renderActiveStatFilters() {
     const chip = document.createElement("span");
     chip.className = "stat-filter-chip";
     const label = document.createElement("span");
-    label.textContent = `${f.stat} ≥ ${f.minValue}`;
+    label.textContent = `${f.stat} ≥ `;
     chip.appendChild(label);
+    const valueInput = document.createElement("input");
+    valueInput.type = "number";
+    valueInput.className = "stat-filter-chip-value";
+    valueInput.value = f.minValue;
+    valueInput.addEventListener("input", () => {
+      const v = parseInt(valueInput.value, 10);
+      f.minValue = isNaN(v) ? 0 : v;
+      renderItemList();
+    });
+    chip.appendChild(valueInput);
     const rm = document.createElement("button");
     rm.type = "button";
     rm.textContent = "×";
@@ -1264,6 +1323,9 @@ function openSetsBrowser() {
   activeUiSlot = null;
   showSidePanel("sets");
   document.getElementById("setsSearchInput").value = "";
+  document.getElementById("setsLevelMinInput").value = "";
+  document.getElementById("setsLevelMaxInput").value = getCharLevel();
+  document.getElementById("setsSortSelect").value = "level-desc";
   renderPaperdoll();
   renderSetsList();
 }
