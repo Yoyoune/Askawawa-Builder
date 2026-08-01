@@ -970,6 +970,7 @@ button:hover { border-color: var(--accent); }
   font-size: 13px;
 }
 .stat-row .stat-icon { margin-right: 5px; }
+.stat-icon-svg { vertical-align: -2px; }
 .stat-row .val.pos { color: var(--positive); }
 .stat-row .val.neg { color: var(--negative); }
 .stat-empty { color: var(--text-dim); font-size: 13px; }

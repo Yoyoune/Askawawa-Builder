@@ -80,42 +80,79 @@ const STAT_ORDER = [
   "Soins", "Pods",
 ];
 
-// Small visual icon shown before each stat name in "Statistiques totales". Three
-// separate icon sets per element so the SAME element never looks identical across
-// categories - e.g. Intelligence (🔥) vs Dommages Feu (💥) vs Résistance Feu (🛡️) -
-// matched by element name substring rather than needing one entry per exact label.
-const ELEMENT_ICONS = { "Terre": "🟤", "Feu": "🔥", "Eau": "💧", "Air": "🍃", "Neutre": "⚪" };
-// Colored squares, same hue family as the element itself (not reusing the
-// characteristic's own glyph) - a plain square for raw damage, a shield+square
-// combo for resistance so "Résistance Feu" reads as "shield of fire's color".
-const DAMAGE_ELEMENT_ICONS = { "Terre": "🟫", "Feu": "🟥", "Eau": "🟦", "Air": "🟩", "Neutre": "⬜" };
-const RESISTANCE_ELEMENT_ICONS = { "Terre": "🛡️🟫", "Feu": "🛡️🟥", "Eau": "🛡️🟦", "Air": "🛡️🟩", "Neutre": "🛡️⬜" };
-const STAT_ICONS = {
-  "PA": "🔵", "PM": "🟢", "Portée": "👁️", "Invocations": "🐗",
-  "Vitalité": "❤️", "Sagesse": "💜", "Chance": "💧", "Intelligence": "🔥", "Agilité": "🍃", "Force": "🟤",
-  "Puissance": "⚡", "Dommages": "✨", "Dommages Critiques": "🎯", "Dommages Poussée": "➡️",
-  "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
-  "% Dommages mêlée": "👊", "% Dommages distance": "🏹", "% Dommages d'armes": "⚔️", "% Dommages aux sorts": "⭐",
-  "% Critique": "❗", "% Résistance mêlée": "🛡️", "% Résistance distance": "🛡️",
-  "Résistance Critiques": "🛡️", "Résistance Poussée": "🛡️",
-  "Initiative": "🪶", "Prospection": "🔍", "Fuite": "🟩", "Tacle": "🟩",
-  "Esquive PA": "🔵", "Esquive PM": "🟢", "Retrait PA": "🔵", "Retrait PM": "🟢",
-  "Soins": "➕", "Pods": "🎒", "(PV rendus)": "❤️", "(Retrait PA)": "🔵",
+// Small visual icon shown before each stat name in "Statistiques totales". Emoji
+// can't be recolored, so exact colors (a blue star, a solid red shield, a shield
+// with only its outline red, a purple square with a white arrow inside...) are
+// built as tiny inline SVGs instead, using the same palette as the rest of the UI.
+const ICON_BLUE = "#5b9bd5", ICON_GREEN = "#6fbf73", ICON_RED = "#d9686b",
+  ICON_PURPLE = "#b07cd6", ICON_WHITE = "#e8e8e8", ICON_BROWN = "#a97c50", ICON_GRAY = "#8a8a8a";
+const ELEMENT_COLORS = { "Terre": ICON_BROWN, "Feu": ICON_RED, "Eau": ICON_BLUE, "Air": ICON_GREEN, "Neutre": ICON_WHITE };
+
+const ICON_SHAPES = {
+  star: c => `<polygon points="12,2 14.9,9.1 22.5,9.5 16.5,14.3 18.6,21.5 12,17.3 5.4,21.5 7.5,14.3 1.5,9.5 9.1,9.1" fill="${c}"/>`,
+  triangleRight: c => `<polygon points="6,3 20,12 6,21" fill="${c}"/>`,
+  triangleLeft: c => `<polygon points="18,3 4,12 18,21" fill="${c}"/>`,
+  spiral: c => `<path d="M12 3 a9 9 0 1 0 8.5 12 M12 3 a5.3 5.3 0 1 1 -4.8 7.5" fill="none" stroke="${c}" stroke-width="1.8" stroke-linecap="round"/>`,
+  arrowSmall: c => `<polygon points="6,9.5 13,9.5 13,7 18,12 13,17 13,14.5 6,14.5" fill="${c}"/>`,
+  cross: c => `<path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" fill="${c}"/>`,
+  shield: c => `<path d="M12 2 L20 5.5 V11 C20 16.5 16.8 20.5 12 22 C7.2 20.5 4 16.5 4 11 V5.5 Z" fill="${c}"/>`,
+  shieldOutline: c => `<path d="M12 2 L20 5.5 V11 C20 16.5 16.8 20.5 12 22 C7.2 20.5 4 16.5 4 11 V5.5 Z" fill="none" stroke="${c}" stroke-width="1.8"/>`,
+  exclam: c => `<rect x="11.1" y="6.5" width="1.8" height="7" rx="0.9" fill="${c}"/><rect x="11.1" y="15.3" width="1.8" height="2" rx="0.9" fill="${c}"/>`,
+  square: c => `<rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="${c}"/>`,
+};
+
+function svg(...parts) {
+  return `<svg viewBox="0 0 24 24" width="13" height="13" class="stat-icon-svg">${parts.join("")}</svg>`;
+}
+
+const STAT_ICON_SVG = {
+  "PA": svg(ICON_SHAPES.star(ICON_BLUE)),
+  "PM": svg(ICON_SHAPES.star(ICON_GREEN)),
+  "Sagesse": svg(ICON_SHAPES.spiral(ICON_PURPLE)),
+  "Fuite": svg(ICON_SHAPES.triangleRight(ICON_GREEN)),
+  "Tacle": svg(ICON_SHAPES.triangleLeft(ICON_GREEN)),
+  "Esquive PA": svg(ICON_SHAPES.triangleRight(ICON_BLUE)),
+  "Esquive PM": svg(ICON_SHAPES.triangleRight(ICON_GREEN)),
+  "Retrait PA": svg(ICON_SHAPES.triangleLeft(ICON_BLUE)),
+  "Retrait PM": svg(ICON_SHAPES.triangleLeft(ICON_GREEN)),
+  "(Retrait PA)": svg(ICON_SHAPES.triangleLeft(ICON_BLUE)),
+  "Soins": svg(ICON_SHAPES.cross(ICON_RED)),
+  "Dommages Poussée": svg(ICON_SHAPES.square(ICON_PURPLE), ICON_SHAPES.arrowSmall(ICON_WHITE)),
+  "Résistance Poussée": svg(ICON_SHAPES.shield(ICON_PURPLE), ICON_SHAPES.arrowSmall(ICON_WHITE)),
+  "Résistance Critiques": svg(ICON_SHAPES.shieldOutline(ICON_RED), ICON_SHAPES.exclam(ICON_RED)),
+  "% Résistance mêlée": svg(ICON_SHAPES.shield(ICON_GRAY)),
+  "% Résistance distance": svg(ICON_SHAPES.shield(ICON_GRAY)),
 };
 
 function statIcon(label) {
-  if (STAT_ICONS[label]) return STAT_ICONS[label];
+  if (STAT_ICON_SVG[label]) return STAT_ICON_SVG[label];
 
   if (label.includes("Résistance")) {
-    for (const [element, icon] of Object.entries(RESISTANCE_ELEMENT_ICONS)) {
-      if (label.includes(element)) return icon;
+    for (const [element, color] of Object.entries(ELEMENT_COLORS)) {
+      if (label.includes(element)) return svg(ICON_SHAPES.shield(color));
     }
-    return "🛡️";
+    return svg(ICON_SHAPES.shield(ICON_GRAY));
   }
 
   const isDamage = label.startsWith("(dommages") || label.startsWith("(vol") || label.startsWith("Dommages ");
-  const elementIcons = isDamage ? DAMAGE_ELEMENT_ICONS : ELEMENT_ICONS;
-  for (const [element, icon] of Object.entries(elementIcons)) {
+  if (isDamage) {
+    for (const [element, color] of Object.entries(ELEMENT_COLORS)) {
+      if (label.includes(element)) return svg(ICON_SHAPES.square(color));
+    }
+  }
+
+  const EMOJI_FALLBACK = {
+    "Portée": "👁️", "Invocations": "🐗", "Vitalité": "❤️", "Chance": "💧",
+    "Intelligence": "🔥", "Agilité": "🍃", "Force": "🟤", "Puissance": "⚡",
+    "Dommages": "✨", "Dommages Critiques": "🎯", "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
+    "% Dommages mêlée": "👊", "% Dommages distance": "🏹", "% Dommages d'armes": "⚔️", "% Dommages aux sorts": "⭐",
+    "% Critique": "❗", "Initiative": "🪶", "Prospection": "🔍",
+    "Pods": "🎒", "(PV rendus)": "❤️",
+  };
+  if (EMOJI_FALLBACK[label]) return EMOJI_FALLBACK[label];
+
+  const ELEMENT_EMOJI = { "Terre": "🟤", "Feu": "🔥", "Eau": "💧", "Air": "🍃", "Neutre": "⚪" };
+  for (const [element, icon] of Object.entries(ELEMENT_EMOJI)) {
     if (label.includes(element)) return icon;
   }
   return "";
