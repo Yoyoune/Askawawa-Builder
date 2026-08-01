@@ -84,7 +84,7 @@ const STAT_ORDER = [
 // can't be recolored, so exact colors (a blue star, a solid red shield, a shield
 // with only its outline red, a purple square with a white arrow inside...) are
 // built as tiny inline SVGs instead, using the same palette as the rest of the UI.
-const ICON_BLUE = "#5b9bd5", ICON_GREEN = "#6fbf73", ICON_RED = "#d9686b",
+const ICON_BLUE = "#5b9bd5", ICON_GREEN = "#6fbf73", ICON_GREEN_DARK = "#3d7a42", ICON_RED = "#d9686b",
   ICON_PURPLE = "#b07cd6", ICON_WHITE = "#e8e8e8", ICON_BROWN = "#a97c50", ICON_GRAY = "#8a8a8a";
 const ELEMENT_COLORS = { "Terre": ICON_BROWN, "Feu": ICON_RED, "Eau": ICON_BLUE, "Air": ICON_GREEN, "Neutre": ICON_WHITE };
 
@@ -107,14 +107,14 @@ function svg(...parts) {
 
 const STAT_ICON_SVG = {
   "PA": svg(ICON_SHAPES.star(ICON_BLUE)),
-  "PM": svg(ICON_SHAPES.star(ICON_GREEN)),
+  "PM": svg(ICON_SHAPES.star(ICON_GREEN_DARK)),
   "Sagesse": svg(ICON_SHAPES.spiral(ICON_PURPLE)),
   "Fuite": svg(ICON_SHAPES.triangleRight(ICON_GREEN)),
   "Tacle": svg(ICON_SHAPES.triangleLeft(ICON_GREEN)),
   "Esquive PA": svg(ICON_SHAPES.triangleRight(ICON_BLUE)),
-  "Esquive PM": svg(ICON_SHAPES.triangleRight(ICON_GREEN)),
+  "Esquive PM": svg(ICON_SHAPES.triangleRight(ICON_GREEN_DARK)),
   "Retrait PA": svg(ICON_SHAPES.triangleLeft(ICON_BLUE)),
-  "Retrait PM": svg(ICON_SHAPES.triangleLeft(ICON_GREEN)),
+  "Retrait PM": svg(ICON_SHAPES.triangleLeft(ICON_GREEN_DARK)),
   "(Retrait PA)": svg(ICON_SHAPES.triangleLeft(ICON_BLUE)),
   "Soins": svg(ICON_SHAPES.cross(ICON_RED)),
   "Dommages Poussée": svg(ICON_SHAPES.square(ICON_PURPLE), ICON_SHAPES.arrowSmall(ICON_WHITE)),
@@ -174,6 +174,20 @@ const SET_FILTER_DEFS = [
   { key: "agilite", label: "Pano Agilité", kind: "item", stat: "Agilité" },
   { key: "autre", label: "Autre pano", kind: "other" },
 ];
+
+// Which equipment slots a panoplie must contain at least one piece of (dofus/familier
+// excluded per request - only "real" equipment slots make sense to filter by here).
+const SLOT_TYPE_FILTER_DEFS = [
+  { key: "coiffe", label: "Coiffe" },
+  { key: "cape", label: "Cape" },
+  { key: "amulette", label: "Amulette" },
+  { key: "arme", label: "Arme" },
+  { key: "bouclier", label: "Bouclier" },
+  { key: "anneau", label: "Anneau" },
+  { key: "ceinture", label: "Ceinture" },
+  { key: "bottes", label: "Bottes" },
+];
+let activeSlotTypeFilters = new Set();
 
 let ITEMS = [];
 let ITEMS_BY_SLOT = new Map();
@@ -242,6 +256,7 @@ async function main() {
   renderStats();
   renderSavedBuildsList();
   renderSetsFilterChips();
+  renderSetsSlotTypeFilterChips();
   populateStatFilterSelect();
 
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
@@ -1424,6 +1439,36 @@ function renderSetsFilterChips() {
   }
 }
 
+function renderSetsSlotTypeFilterChips() {
+  const row = document.getElementById("setsSlotFilterRow");
+  if (!row) return;
+  row.innerHTML = "";
+  for (const def of SLOT_TYPE_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeSlotTypeFilters.has(def.key)) activeSlotTypeFilters.delete(def.key);
+      else activeSlotTypeFilters.add(def.key);
+      chip.classList.toggle("active", activeSlotTypeFilters.has(def.key));
+      renderSetsList();
+    });
+    row.appendChild(chip);
+  }
+}
+
+/** A set matches only if it contains at least one item for EVERY active slot-type filter. */
+function setMatchesSlotTypeFilters(set) {
+  if (activeSlotTypeFilters.size === 0) return true;
+  return [...activeSlotTypeFilters].every(slot =>
+    set.itemIds.some(id => {
+      const item = ITEMS_BY_ID.get(id);
+      return item && item.slot === slot;
+    })
+  );
+}
+
 function openSetsBrowser() {
   activeUiSlot = null;
   showSidePanel("sets");
@@ -1453,6 +1498,7 @@ function renderSetsList() {
       return flags && [...activeSetFilters].every(key => flags[key]);
     });
   }
+  sets = sets.filter(setMatchesSlotTypeFilters);
   if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
   else if (sort === "level-desc") sets.sort((a, b) => SET_MAX_LEVEL.get(b.id) - SET_MAX_LEVEL.get(a.id));
   else sets.sort((a, b) => a.name.localeCompare(b.name));

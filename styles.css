@@ -649,6 +649,13 @@ button:hover { border-color: var(--accent); }
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
 }
+.sets-filter-label {
+  padding: 8px 16px 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+}
 .filter-chip {
   background: var(--panel-alt);
   border: 1px solid var(--border);
