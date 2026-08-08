@@ -23,22 +23,17 @@ const UI_SLOTS = [
 // Not vanilla Dofus values - this server is rebalanced.
 const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse"];
 
-// Some paperdoll slots actually cover two distinct item pools that share the same
-// equip location in-game (familier vs dragodinde ride the same slot; dofus vs trophée
-// too). Clicking those slots opens a category picker before the item browser.
+// The dofus slot covers two distinct item pools that share the same equip location
+// in-game (dofus vs trophée). Clicking it opens a category picker before the item
+// browser.
 const SLOT_CATEGORY_CHOICES = {
-  familier: [
-    { key: "familier", label: "Familier / Montilier", icon: "🐾" },
-    { key: "dragodinde", label: "Dragodinde", icon: "🐔" },
-  ],
   dofus: [
     { key: "dofus", label: "Dofus", icon: "🔮" },
     { key: "trophee", label: "Trophée", icon: "🏆" },
   ],
 };
 const CATEGORY_LABELS = {
-  familier: "Familier / Montilier",
-  dragodinde: "Dragodinde",
+  familier: "Familier",
   dofus: "Dofus",
   trophee: "Trophée",
 };
