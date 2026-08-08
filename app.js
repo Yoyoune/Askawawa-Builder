@@ -283,8 +283,12 @@ async function main() {
   });
   document.getElementById("compareSelectA").addEventListener("change", renderComparison);
   document.getElementById("compareSelectB").addEventListener("change", renderComparison);
+  document.getElementById("compatibleSetsClose").addEventListener("click", closeCompatibleSetsModal);
+  document.getElementById("compatibleSetsModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "compatibleSetsModalOverlay") closeCompatibleSetsModal();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -1464,6 +1468,197 @@ function setMatchesSlotTypeFilters(set) {
   );
 }
 
+// ---------- Compatible panoplies (wearable together) ----------
+
+function computeSetSlotTypes(set) {
+  const types = new Set();
+  for (const id of set.itemIds) {
+    const item = ITEMS_BY_ID.get(id);
+    if (item) types.add(item.slot);
+  }
+  return types;
+}
+
+/**
+ * Two panoplies are "compatible" if their equipment slots don't clash - you can't
+ * wear two coiffes at once, but the 2 anneau slots mean a ring type on both sides
+ * never counts as a conflict. "full" = zero conflicting slot types; "partial" = at
+ * least one conflict but still 2+ slot types that aren't shared between the two.
+ */
+function classifySetCompatibility(setA, setB) {
+  const typesA = computeSetSlotTypes(setA);
+  const typesB = computeSetSlotTypes(setB);
+  const conflicting = [...typesA].filter(t => t !== "anneau" && typesB.has(t));
+  const nonCommon = new Set([...typesA, ...typesB].filter(t => !(typesA.has(t) && typesB.has(t))));
+  if (conflicting.length === 0) return "full";
+  if (nonCommon.size >= 2) return "partial";
+  return "none";
+}
+
+function openCompatibleSetsModal(setId) {
+  const refSet = SETS_BY_ID.get(setId);
+  if (!refSet) return;
+  document.getElementById("compatibleSetsTitle").textContent = `Panoplies compatibles avec ${refSet.name}`;
+
+  const candidates = [...SETS_BY_ID.values()].filter(s => s.id !== setId && s.itemIds.length > 0);
+  const partial = [], full = [];
+  for (const s of candidates) {
+    const cls = classifySetCompatibility(refSet, s);
+    if (cls === "partial") partial.push(s);
+    else if (cls === "full") full.push(s);
+  }
+
+  const partialCol = document.getElementById("compatiblePartialColumn");
+  partialCol.innerHTML = "";
+  partialCol.appendChild(buildSetFilterPanel(`Partiellement compatibles (${partial.length})`, partial));
+
+  const fullCol = document.getElementById("compatibleFullColumn");
+  fullCol.innerHTML = "";
+  fullCol.appendChild(buildSetFilterPanel(`Totalement compatibles (${full.length})`, full));
+
+  document.getElementById("compatibleSetsModalOverlay").classList.remove("hidden");
+}
+
+function closeCompatibleSetsModal() {
+  document.getElementById("compatibleSetsModalOverlay").classList.add("hidden");
+}
+
+/** Builds a self-contained mini panoplie browser (search/sort/level range/filter chips
+ * + results) over a fixed candidate list, with its own local filter state - used to
+ * give each column of the compatible-panoplies modal the same filters as the main
+ * panoplie search, independently of each other. */
+function buildSetFilterPanel(title, candidateSets) {
+  const root = document.createElement("div");
+  root.className = "compatible-panel";
+
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  root.appendChild(heading);
+
+  const controls = document.createElement("div");
+  controls.className = "browser-controls";
+  const searchInput = document.createElement("input");
+  searchInput.type = "search";
+  searchInput.placeholder = "Rechercher une panoplie...";
+  const sortSelect = document.createElement("select");
+  sortSelect.innerHTML = `
+    <option value="level-asc">Niveau croissant</option>
+    <option value="level-desc" selected>Niveau décroissant</option>
+    <option value="name-asc">Nom (A-Z)</option>`;
+  controls.appendChild(searchInput);
+  controls.appendChild(sortSelect);
+  root.appendChild(controls);
+
+  const levelRow = document.createElement("div");
+  levelRow.className = "level-range-row";
+  const levelMinInput = document.createElement("input");
+  levelMinInput.type = "number";
+  levelMinInput.placeholder = "Min";
+  const levelMaxInput = document.createElement("input");
+  levelMaxInput.type = "number";
+  levelMaxInput.placeholder = "Max";
+  const minLabel = document.createElement("label");
+  minLabel.textContent = "Niv. min ";
+  minLabel.appendChild(levelMinInput);
+  const maxLabel = document.createElement("label");
+  maxLabel.textContent = "Niv. max ";
+  maxLabel.appendChild(levelMaxInput);
+  levelRow.appendChild(minLabel);
+  levelRow.appendChild(maxLabel);
+  root.appendChild(levelRow);
+
+  const activeBonusFilters = new Set();
+  const bonusFilterRow = document.createElement("div");
+  bonusFilterRow.className = "sets-filter-row";
+  for (const def of SET_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeBonusFilters.has(def.key)) activeBonusFilters.delete(def.key);
+      else activeBonusFilters.add(def.key);
+      chip.classList.toggle("active", activeBonusFilters.has(def.key));
+      rerender();
+    });
+    bonusFilterRow.appendChild(chip);
+  }
+  root.appendChild(bonusFilterRow);
+
+  const slotLabel = document.createElement("div");
+  slotLabel.className = "sets-filter-label";
+  slotLabel.textContent = "Contient au moins un(e) :";
+  root.appendChild(slotLabel);
+
+  const activeSlotFilters = new Set();
+  const slotFilterRow = document.createElement("div");
+  slotFilterRow.className = "sets-filter-row";
+  for (const def of SLOT_TYPE_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeSlotFilters.has(def.key)) activeSlotFilters.delete(def.key);
+      else activeSlotFilters.add(def.key);
+      chip.classList.toggle("active", activeSlotFilters.has(def.key));
+      rerender();
+    });
+    slotFilterRow.appendChild(chip);
+  }
+  root.appendChild(slotFilterRow);
+
+  const listEl = document.createElement("div");
+  listEl.className = "item-list";
+  root.appendChild(listEl);
+
+  function rerender() {
+    const search = searchInput.value.trim().toLowerCase();
+    const sort = sortSelect.value;
+    const levelMin = parseInt(levelMinInput.value, 10);
+    const levelMax = parseInt(levelMaxInput.value, 10);
+
+    let sets = candidateSets.slice();
+    if (search) sets = sets.filter(s => s.name.toLowerCase().includes(search));
+    if (!isNaN(levelMin)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) >= levelMin);
+    if (!isNaN(levelMax)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) <= levelMax);
+    if (activeBonusFilters.size > 0) {
+      sets = sets.filter(s => {
+        const flags = SET_FLAGS.get(s.id);
+        return flags && [...activeBonusFilters].every(key => flags[key]);
+      });
+    }
+    if (activeSlotFilters.size > 0) {
+      sets = sets.filter(s => [...activeSlotFilters].every(slot =>
+        s.itemIds.some(id => {
+          const item = ITEMS_BY_ID.get(id);
+          return item && item.slot === slot;
+        })
+      ));
+    }
+    if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
+    else if (sort === "level-desc") sets.sort((a, b) => SET_MAX_LEVEL.get(b.id) - SET_MAX_LEVEL.get(a.id));
+    else sets.sort((a, b) => a.name.localeCompare(b.name));
+
+    listEl.innerHTML = "";
+    if (sets.length === 0) {
+      listEl.innerHTML = '<div class="stat-empty">Aucune panoplie trouvée.</div>';
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    for (const set of sets) frag.appendChild(renderSetCard(set));
+    listEl.appendChild(frag);
+  }
+
+  searchInput.addEventListener("input", rerender);
+  sortSelect.addEventListener("change", rerender);
+  levelMinInput.addEventListener("input", rerender);
+  levelMaxInput.addEventListener("input", rerender);
+
+  rerender();
+  return root;
+}
+
 function openSetsBrowser() {
   activeUiSlot = null;
   showSidePanel("sets");
@@ -1518,8 +1713,23 @@ function renderSetCard(set) {
 
   const header = document.createElement("div");
   header.className = "set-card-header";
-  header.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">Nv. ${SET_MAX_LEVEL.get(set.id)} · ${set.itemIds.length} pièces</span>`;
-  header.querySelector(".set-card-title").textContent = set.name;
+
+  const titleGroup = document.createElement("div");
+  titleGroup.className = "set-card-title-group";
+  titleGroup.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">Nv. ${SET_MAX_LEVEL.get(set.id)} · ${set.itemIds.length} pièces</span>`;
+  titleGroup.querySelector(".set-card-title").textContent = set.name;
+  header.appendChild(titleGroup);
+
+  const compatBtn = document.createElement("button");
+  compatBtn.type = "button";
+  compatBtn.className = "set-card-compat-btn";
+  compatBtn.textContent = "Panoplies compatibles";
+  compatBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    openCompatibleSetsModal(set.id);
+  });
+  header.appendChild(compatBtn);
+
   summary.appendChild(header);
 
   const iconsRow = document.createElement("div");

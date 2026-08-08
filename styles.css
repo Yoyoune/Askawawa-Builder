@@ -561,6 +561,62 @@ button:hover { border-color: var(--accent); }
 /* ---- Compare builds modal ---- */
 .modal-wide { max-width: 760px; }
 .modal-narrow { max-width: 340px; }
+.modal-xwide { max-width: 1180px; width: 96vw; }
+.compatible-sets-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-height: 80vh;
+}
+.compatible-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.compatible-panel h3 {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--panel-alt);
+  border-bottom: 1px solid var(--border);
+}
+.compatible-panel .browser-controls,
+.compatible-panel .level-range-row,
+.compatible-panel .sets-filter-row,
+.compatible-panel .sets-filter-label {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.compatible-panel .item-list { overflow-y: auto; max-height: none; flex: 1; }
+@media (max-width: 900px) {
+  .compatible-sets-body { grid-template-columns: 1fr; max-height: none; }
+}
+
+.set-card-title-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.set-card-compat-btn {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+.set-card-compat-btn:hover { border-color: var(--accent); }
 .category-choice-btn {
   display: flex;
   align-items: center;
