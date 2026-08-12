@@ -904,7 +904,13 @@ function renderItemCard(item, isEquipped, charLevel) {
     if (item.minRange !== undefined && item.weaponRange !== undefined) {
       bits.push(item.minRange === item.weaponRange ? `Portée ${item.weaponRange}` : `Portée ${item.minRange}-${item.weaponRange}`);
     }
-    if (item.criticalHitProbability) bits.push(`Critique 1/${item.criticalHitProbability}`);
+    if (item.criticalHitProbability) {
+      // On this server criticalHitProbability is a direct percentage, not a "1 in N"
+      // denominator (confirmed against the real in-game tooltip: "Critique 20%").
+      let crit = `Critique ${item.criticalHitProbability}%`;
+      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages)`;
+      bits.push(crit);
+    }
     w.textContent = bits.join(" · ");
     body.appendChild(w);
   }
