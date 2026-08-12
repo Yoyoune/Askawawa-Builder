@@ -1139,6 +1139,11 @@ function effectValueText(effect) {
 }
 
 function effectHtml(effect) {
+  // Weapon "lost AP" effect: shown as "-1 PA" (matching what it actually does to the
+  // target) rather than the raw "+1 (Retrait PA)" the underlying label/operator imply.
+  if (effect.label === "(Retrait PA)") {
+    return `<span class="eff weapon">-${effectValueText(effect)} PA</span>`;
+  }
   const negative = effect.operator === "-";
   const cls = isWeaponEffect(effect.label) ? "weapon" : (negative ? "neg" : "pos");
   const label = stripSign(effect.label);
