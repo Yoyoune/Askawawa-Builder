@@ -183,6 +183,7 @@ const SLOT_TYPE_FILTER_DEFS = [
   { key: "bottes", label: "Bottes" },
 ];
 let activeSlotTypeFilters = new Set();
+let activeSlotTypeExcludeFilters = new Set();
 
 let ITEMS = [];
 let ITEMS_BY_SLOT = new Map();
@@ -252,6 +253,7 @@ async function main() {
   renderSavedBuildsList();
   renderSetsFilterChips();
   renderSetsSlotTypeFilterChips();
+  renderSetsSlotTypeExcludeFilterChips();
   populateStatFilterSelect();
 
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
@@ -1272,6 +1274,14 @@ function openSetPreview(setId) {
       openSetPreview(setId);
     });
     row.appendChild(equipBtn);
+
+    if (item.effects && item.effects.length) {
+      const eff = document.createElement("div");
+      eff.className = "set-item-effects";
+      eff.innerHTML = item.effects.map(effectHtml).join(" · ");
+      row.appendChild(eff);
+    }
+
     itemsSection.appendChild(row);
   }
   body.appendChild(itemsSection);
@@ -1469,11 +1479,41 @@ function renderSetsSlotTypeFilterChips() {
   }
 }
 
+function renderSetsSlotTypeExcludeFilterChips() {
+  const row = document.getElementById("setsSlotExcludeFilterRow");
+  if (!row) return;
+  row.innerHTML = "";
+  for (const def of SLOT_TYPE_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeSlotTypeExcludeFilters.has(def.key)) activeSlotTypeExcludeFilters.delete(def.key);
+      else activeSlotTypeExcludeFilters.add(def.key);
+      chip.classList.toggle("active", activeSlotTypeExcludeFilters.has(def.key));
+      renderSetsList();
+    });
+    row.appendChild(chip);
+  }
+}
+
 /** A set matches only if it contains at least one item for EVERY active slot-type filter. */
 function setMatchesSlotTypeFilters(set) {
   if (activeSlotTypeFilters.size === 0) return true;
   return [...activeSlotTypeFilters].every(slot =>
     set.itemIds.some(id => {
+      const item = ITEMS_BY_ID.get(id);
+      return item && item.slot === slot;
+    })
+  );
+}
+
+/** A set matches only if it contains NO item of ANY active exclude-slot-type filter. */
+function setMatchesSlotTypeExcludeFilters(set) {
+  if (activeSlotTypeExcludeFilters.size === 0) return true;
+  return [...activeSlotTypeExcludeFilters].every(slot =>
+    !set.itemIds.some(id => {
       const item = ITEMS_BY_ID.get(id);
       return item && item.slot === slot;
     })
@@ -1620,6 +1660,29 @@ function buildSetFilterPanel(title, candidateSets) {
   }
   root.appendChild(slotFilterRow);
 
+  const excludeLabel = document.createElement("div");
+  excludeLabel.className = "sets-filter-label";
+  excludeLabel.textContent = "Ne contient pas de/d' :";
+  root.appendChild(excludeLabel);
+
+  const activeSlotExcludeFilters = new Set();
+  const slotExcludeFilterRow = document.createElement("div");
+  slotExcludeFilterRow.className = "sets-filter-row";
+  for (const def of SLOT_TYPE_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (activeSlotExcludeFilters.has(def.key)) activeSlotExcludeFilters.delete(def.key);
+      else activeSlotExcludeFilters.add(def.key);
+      chip.classList.toggle("active", activeSlotExcludeFilters.has(def.key));
+      rerender();
+    });
+    slotExcludeFilterRow.appendChild(chip);
+  }
+  root.appendChild(slotExcludeFilterRow);
+
   const listEl = document.createElement("div");
   listEl.className = "item-list";
   root.appendChild(listEl);
@@ -1643,6 +1706,14 @@ function buildSetFilterPanel(title, candidateSets) {
     if (activeSlotFilters.size > 0) {
       sets = sets.filter(s => [...activeSlotFilters].every(slot =>
         s.itemIds.some(id => {
+          const item = ITEMS_BY_ID.get(id);
+          return item && item.slot === slot;
+        })
+      ));
+    }
+    if (activeSlotExcludeFilters.size > 0) {
+      sets = sets.filter(s => [...activeSlotExcludeFilters].every(slot =>
+        !s.itemIds.some(id => {
           const item = ITEMS_BY_ID.get(id);
           return item && item.slot === slot;
         })
@@ -1701,6 +1772,7 @@ function renderSetsList() {
     });
   }
   sets = sets.filter(setMatchesSlotTypeFilters);
+  sets = sets.filter(setMatchesSlotTypeExcludeFilters);
   if (sort === "level-asc") sets.sort((a, b) => SET_MAX_LEVEL.get(a.id) - SET_MAX_LEVEL.get(b.id));
   else if (sort === "level-desc") sets.sort((a, b) => SET_MAX_LEVEL.get(b.id) - SET_MAX_LEVEL.get(a.id));
   else sets.sort((a, b) => a.name.localeCompare(b.name));
