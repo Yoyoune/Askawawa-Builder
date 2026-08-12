@@ -1146,7 +1146,13 @@ function effectHtml(effect) {
   }
   const negative = effect.operator === "-";
   const cls = isWeaponEffect(effect.label) ? "weapon" : (negative ? "neg" : "pos");
-  const label = stripSign(effect.label);
+  let label = stripSign(effect.label);
+  // Blue weapon-roll labels are always parenthesized ("(dommages Terre)", "(vol Feu)",
+  // "(PV rendus)") to drive isWeaponEffect() detection - the parens aren't needed once
+  // the blue color already marks them as distinct from real characteristics.
+  if (cls === "weapon" && label.startsWith("(") && label.endsWith(")")) {
+    label = label.slice(1, -1);
+  }
   const valueText = effectValueText(effect);
   const sign = negative ? "-" : "+";
   return `<span class="eff ${cls}">${sign}${valueText} ${escapeHtml(label)}</span>`;
