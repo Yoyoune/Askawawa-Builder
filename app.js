@@ -1154,7 +1154,8 @@ function effectHtml(effect) {
     label = label.slice(1, -1);
   }
   const valueText = effectValueText(effect);
-  const sign = negative ? "-" : "+";
+  // Blue weapon rolls skip the leading "+" too - "8 à 14 dommages Air", not "+8 à 14".
+  const sign = cls === "weapon" ? "" : (negative ? "-" : "+");
   return `<span class="eff ${cls}">${sign}${valueText} ${escapeHtml(label)}</span>`;
 }
 
