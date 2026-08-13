@@ -1953,6 +1953,19 @@ function renderSetCard(set) {
   titleGroup.querySelector(".set-card-title").textContent = set.name;
   header.appendChild(titleGroup);
 
+  const headerActions = document.createElement("div");
+  headerActions.className = "set-card-header-actions";
+
+  const quickEquipBtn = document.createElement("button");
+  quickEquipBtn.type = "button";
+  quickEquipBtn.className = "set-card-compat-btn";
+  quickEquipBtn.textContent = "Équiper la panoplie entière";
+  quickEquipBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    equipEntireSet(set.id);
+  });
+  headerActions.appendChild(quickEquipBtn);
+
   const compatBtn = document.createElement("button");
   compatBtn.type = "button";
   compatBtn.className = "set-card-compat-btn";
@@ -1961,7 +1974,9 @@ function renderSetCard(set) {
     ev.stopPropagation();
     openCompatibleSetsModal(set.id);
   });
-  header.appendChild(compatBtn);
+  headerActions.appendChild(compatBtn);
+
+  header.appendChild(headerActions);
 
   summary.appendChild(header);
 

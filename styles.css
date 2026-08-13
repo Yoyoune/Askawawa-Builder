@@ -643,6 +643,8 @@ button:hover { border-color: var(--accent); }
   margin-left: 8px;
 }
 .set-card-compat-btn:hover { border-color: var(--accent); }
+.set-card-header-actions { display: flex; gap: 6px; flex-shrink: 0; margin-left: 8px; }
+.set-card-header-actions .set-card-compat-btn { margin-left: 0; }
 .category-choice-btn {
   display: flex;
   align-items: center;
