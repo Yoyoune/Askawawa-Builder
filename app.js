@@ -1272,18 +1272,31 @@ function insertWeaponDivider(colLines, colStart, boundaryIndex) {
 }
 
 /**
+ * Stable-partitions an effect list so every raw weapon damage/vol/AP-loss roll
+ * (isWeaponEffect) comes first, in its original relative order, followed by the
+ * item's real stats, also in their original relative order. The export usually
+ * already lists weapon rolls first, but not always (varies per weapon row) - this
+ * makes the builder's display consistent regardless of that raw ordering.
+ */
+function weaponEffectsFirst(effects) {
+  const weapon = [], rest = [];
+  for (const e of effects) (isWeaponEffect(e.label) ? weapon : rest).push(e);
+  return weapon.concat(rest);
+}
+
+/**
  * Renders an effect list as a 2-column layout: fills the left column top-to-bottom,
  * then the right column, keeping the same number of rows per column (the right
  * column gets one fewer line when the count is odd). Used for item/panoplie effect
  * displays - NOT the FM panel, which stays a single column for readability.
  *
- * Raw weapon damage/vol/AP-loss rolls always sit first in an item's effect list
- * (see DecodeItemEffects on the export side) - a horizontal divider is inserted
- * right after the last one, splitting them visually from the item's real stats.
+ * Raw weapon damage/vol/AP-loss rolls are always sorted first (see
+ * weaponEffectsFirst) - a horizontal divider is inserted right after the last one,
+ * splitting them visually from the item's real stats.
  */
 function effectsGridHtml(effects, options) {
   options = options || {};
-  effects = effects || [];
+  effects = weaponEffectsFirst(effects || []);
   const lines = effects.map(effectLineHtml);
   if (options.specialSpellDescription) {
     lines.push(specialSpellLineHtml(options.specialSpellName, options.specialSpellDescription));
