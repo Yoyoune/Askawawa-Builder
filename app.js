@@ -80,7 +80,7 @@ const STAT_ORDER = [
 // with only its outline red, a purple square with a white arrow inside...) are
 // built as tiny inline SVGs instead, using the same palette as the rest of the UI.
 const ICON_BLUE = "#5b9bd5", ICON_GREEN = "#6fbf73", ICON_GREEN_DARK = "#3d7a42", ICON_RED = "#d9686b",
-  ICON_PURPLE = "#b07cd6", ICON_WHITE = "#e8e8e8", ICON_BROWN = "#a97c50", ICON_GRAY = "#8a8a8a";
+  ICON_PURPLE = "#b07cd6", ICON_WHITE = "#e8e8e8", ICON_BROWN = "#a97c50", ICON_GRAY = "#8a8a8a", ICON_YELLOW = "#f2c94c";
 const ELEMENT_COLORS = { "Terre": ICON_BROWN, "Feu": ICON_RED, "Eau": ICON_BLUE, "Air": ICON_GREEN, "Neutre": ICON_WHITE };
 
 const ICON_SHAPES = {
@@ -807,7 +807,7 @@ function renderCurrentlyEquipped() {
   if (item.effects && item.effects.length) {
     const eff = document.createElement("div");
     eff.className = "item-effects";
-    eff.innerHTML = item.effects.map(effectHtml).join("");
+    eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
     body.appendChild(eff);
   }
   card.appendChild(body);
@@ -889,10 +889,10 @@ function renderItemCard(item, isEquipped, charLevel) {
   head.querySelector(".name").textContent = item.name;
   body.appendChild(head);
 
-  if (item.effects && item.effects.length) {
+  if ((item.effects && item.effects.length) || item.specialSpellDescription) {
     const eff = document.createElement("div");
     eff.className = "item-effects";
-    eff.innerHTML = item.effects.map(effectHtml).join("");
+    eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
     body.appendChild(eff);
   }
 
@@ -1037,7 +1037,8 @@ function renderDetail(uiSlotId) {
 
       const labelSpan = document.createElement("span");
       labelSpan.className = "roll-label";
-      labelSpan.textContent = stripSign(effect.label) + " ";
+      const rollIcon = effectLineIcon(effect.label);
+      labelSpan.innerHTML = (rollIcon ? `<span class="stat-icon">${rollIcon}</span>` : "") + escapeHtml(stripSign(effect.label)) + " ";
       const rangeSpan = document.createElement("span");
       rangeSpan.className = "roll-range";
       rangeSpan.textContent = `(${effect.min} à ${effect.max})`;
@@ -1062,7 +1063,8 @@ function renderDetail(uiSlotId) {
       row.appendChild(input);
     } else {
       row.className = "fixed-effect-row";
-      row.textContent = effectPlainText(effect);
+      const fixedIcon = effectLineIcon(effect.label);
+      row.innerHTML = (fixedIcon ? `<span class="stat-icon">${fixedIcon}</span>` : "") + escapeHtml(effectPlainText(effect));
     }
     effSection.appendChild(row);
   });
@@ -1078,7 +1080,8 @@ function renderDetail(uiSlotId) {
     const row = document.createElement("div");
     row.className = "fm-row";
     const span = document.createElement("span");
-    span.textContent = `${fm.value >= 0 ? "+" : ""}${fm.value} ${fm.label}`;
+    const fmIcon = effectLineIcon(fm.label);
+    span.innerHTML = (fmIcon ? `<span class="stat-icon">${fmIcon}</span>` : "") + escapeHtml(`${fm.value >= 0 ? "+" : ""}${fm.value} ${fm.label}`);
     row.appendChild(span);
     const rm = document.createElement("button");
     rm.textContent = "×";
@@ -1170,6 +1173,58 @@ function effectHtml(effect) {
 /** Raw weapon damage/steal/heal-return rolls, e.g. "(dommages Air)", "(vol Terre)", "(PV rendus)" - Category=2 in the game data, always parenthesized. */
 function isWeaponEffect(label) {
   return (label || "").trim().startsWith("(");
+}
+
+// Weapon/spell damage & lifesteal lines use the same icon as the matching elemental
+// characteristic instead of a distinct "damage" icon (e.g. Feu damage/vol -> the
+// Intelligence icon) - only in effect descriptions, not in "Statistiques totales"
+// (which keeps its own damage-square icon, see statIcon()).
+const ELEMENT_TO_CHARACTERISTIC = { "Terre": "Force", "Feu": "Intelligence", "Eau": "Chance", "Air": "Agilité" };
+
+function effectLineIcon(label) {
+  // Raw effect labels carry their own sign ("- Initiative", "- Tacle") - strip it so
+  // lookups match the unsigned keys in STAT_ICON_SVG/EMOJI_FALLBACK (e.g. "Initiative").
+  label = stripSign(label || "");
+  const isDamage = label.startsWith("(dommages") || label.startsWith("(vol") || label.startsWith("Dommages ");
+  if (isDamage) {
+    for (const [element, characteristic] of Object.entries(ELEMENT_TO_CHARACTERISTIC)) {
+      if (label.includes(element)) return statIcon(characteristic);
+    }
+  }
+  return statIcon(label);
+}
+
+function effectLineHtml(effect) {
+  const icon = effectLineIcon(effect.label);
+  const iconHtml = icon ? `<span class="stat-icon">${icon}</span>` : "";
+  return `<span class="eff-line">${iconHtml}${effectHtml(effect)}</span>`;
+}
+
+const SPECIAL_SPELL_STAR_ICON = svg(ICON_SHAPES.star(ICON_YELLOW));
+
+function specialSpellLineHtml(name, description) {
+  if (!description) return "";
+  const text = name ? `${name} : ${description}` : description;
+  return `<span class="eff-line eff-line-spell"><span class="stat-icon">${SPECIAL_SPELL_STAR_ICON}</span><span class="eff spell">${escapeHtml(text)}</span></span>`;
+}
+
+/**
+ * Renders an effect list as a 2-column layout: fills the left column top-to-bottom,
+ * then the right column, keeping the same number of rows per column (the right
+ * column gets one fewer line when the count is odd). Used for item/panoplie effect
+ * displays - NOT the FM panel, which stays a single column for readability.
+ */
+function effectsGridHtml(effects, options) {
+  options = options || {};
+  const lines = (effects || []).map(effectLineHtml);
+  if (options.specialSpellDescription) {
+    lines.push(specialSpellLineHtml(options.specialSpellName, options.specialSpellDescription));
+  }
+  if (lines.length === 0) return "";
+  const half = Math.ceil(lines.length / 2);
+  const col1 = lines.slice(0, half).join("");
+  const col2 = lines.slice(half).join("");
+  return `<div class="effects-grid"><div class="effects-col">${col1}</div>${col2 ? `<div class="effects-col">${col2}</div>` : ""}</div>`;
 }
 
 function stripSign(label) {
@@ -1281,10 +1336,10 @@ function openSetPreview(setId) {
     });
     row.appendChild(equipBtn);
 
-    if (item.effects && item.effects.length) {
+    if ((item.effects && item.effects.length) || item.specialSpellDescription) {
       const eff = document.createElement("div");
       eff.className = "set-item-effects";
-      eff.innerHTML = item.effects.map(effectHtml).join(" · ");
+      eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
       row.appendChild(eff);
     }
 
@@ -1308,7 +1363,7 @@ function openSetPreview(setId) {
     if (tierEffects && tierEffects.length > 0) {
       const eff = document.createElement("div");
       eff.className = "item-effects";
-      eff.innerHTML = tierEffects.map(effectHtml).join("");
+      eff.innerHTML = effectsGridHtml(tierEffects);
       tier.appendChild(eff);
     } else {
       const none = document.createElement("div");
@@ -1864,10 +1919,10 @@ function renderSetCard(set) {
     equipBtn.addEventListener("click", () => equipSingleItem(item));
     row.appendChild(equipBtn);
 
-    if (item.effects && item.effects.length) {
+    if ((item.effects && item.effects.length) || item.specialSpellDescription) {
       const eff = document.createElement("div");
       eff.className = "set-item-effects";
-      eff.innerHTML = item.effects.map(effectHtml).join(" · ");
+      eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
       row.appendChild(eff);
     }
 
@@ -1888,7 +1943,7 @@ function renderSetCard(set) {
     if (tierEffects && tierEffects.length > 0) {
       const eff = document.createElement("div");
       eff.className = "item-effects";
-      eff.innerHTML = tierEffects.map(effectHtml).join("");
+      eff.innerHTML = effectsGridHtml(tierEffects);
       tier.appendChild(eff);
     } else {
       const none = document.createElement("div");
@@ -2199,7 +2254,7 @@ function renderStats() {
       if (tierEffects.length > 0) {
         const eff = document.createElement("div");
         eff.className = "item-effects";
-        eff.innerHTML = tierEffects.map(effectHtml).join("");
+        eff.innerHTML = effectsGridHtml(tierEffects);
         block.appendChild(eff);
       } else {
         const none = document.createElement("div");
