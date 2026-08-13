@@ -289,8 +289,12 @@ async function main() {
   document.getElementById("compatibleSetsModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "compatibleSetsModalOverlay") closeCompatibleSetsModal();
   });
+  document.getElementById("recipeModalClose").addEventListener("click", closeRecipeModal);
+  document.getElementById("recipeModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "recipeModalOverlay") closeRecipeModal();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -936,18 +940,35 @@ function renderItemCard(item, isEquipped, charLevel) {
   row.appendChild(body);
   card.appendChild(row);
 
-  if (item.itemSetId && item.itemSetId > 0) {
-    const set = SETS_BY_ID.get(item.itemSetId);
+  const set = item.itemSetId && item.itemSetId > 0 ? SETS_BY_ID.get(item.itemSetId) : null;
+  const hasRecipe = item.recipe && item.recipe.length > 0;
+
+  if (set || hasRecipe) {
+    const setRow = document.createElement("div");
+    setRow.className = "set-badge";
+
     if (set) {
-      const setRow = document.createElement("div");
-      setRow.className = "set-badge";
       const setLabel = document.createElement("span");
       setLabel.textContent = `📦 ${set.name} (${set.itemIds.length} pièces)`;
       setRow.appendChild(setLabel);
+    }
 
-      const actions = document.createElement("div");
-      actions.className = "set-badge-actions";
+    const actions = document.createElement("div");
+    actions.className = "set-badge-actions";
 
+    if (hasRecipe) {
+      const recipeBtn = document.createElement("button");
+      recipeBtn.type = "button";
+      recipeBtn.className = "secondary";
+      recipeBtn.textContent = "Recette";
+      recipeBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        openRecipeModal(item.id);
+      });
+      actions.appendChild(recipeBtn);
+    }
+
+    if (set) {
       const previewBtn = document.createElement("button");
       previewBtn.type = "button";
       previewBtn.className = "secondary";
@@ -966,10 +987,10 @@ function renderItemCard(item, isEquipped, charLevel) {
         equipEntireSet(item.itemSetId);
       });
       actions.appendChild(setBtn);
-
-      setRow.appendChild(actions);
-      card.appendChild(setRow);
     }
+
+    setRow.appendChild(actions);
+    card.appendChild(setRow);
   }
 
   card.addEventListener("click", () => {
@@ -1384,6 +1405,14 @@ function openSetPreview(setId) {
     level.className = "set-item-level";
     level.textContent = `Nv. ${item.level}`;
     row.appendChild(level);
+    if (item.recipe && item.recipe.length) {
+      const recipeBtn = document.createElement("button");
+      recipeBtn.type = "button";
+      recipeBtn.className = "equip-item-btn";
+      recipeBtn.textContent = "Recette";
+      recipeBtn.addEventListener("click", () => openRecipeModal(item.id));
+      row.appendChild(recipeBtn);
+    }
     const equipBtn = document.createElement("button");
     equipBtn.type = "button";
     equipBtn.className = "equip-item-btn";
@@ -1970,6 +1999,14 @@ function renderSetCard(set) {
     level.textContent = `Nv. ${item.level}`;
     row.appendChild(level);
 
+    if (item.recipe && item.recipe.length) {
+      const recipeBtn = document.createElement("button");
+      recipeBtn.type = "button";
+      recipeBtn.className = "equip-item-btn";
+      recipeBtn.textContent = "Recette";
+      recipeBtn.addEventListener("click", () => openRecipeModal(item.id));
+      row.appendChild(recipeBtn);
+    }
     const equipBtn = document.createElement("button");
     equipBtn.type = "button";
     equipBtn.className = "equip-item-btn";
@@ -2325,6 +2362,40 @@ function renderStats() {
   }
 
   renderResourceNeeds();
+}
+
+function openRecipeModal(itemId) {
+  const item = ITEMS_BY_ID.get(itemId);
+  if (!item) return;
+
+  document.getElementById("recipeModalTitle").textContent = `Recette : ${item.name}`;
+  const body = document.getElementById("recipeModalBody");
+  body.innerHTML = "";
+
+  if (!item.recipe || item.recipe.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Recette inconnue pour cet objet.</div>';
+  } else {
+    for (const ing of item.recipe) {
+      const row = document.createElement("div");
+      row.className = "resource-row";
+      row.appendChild(itemIconEl({ iconId: ing.iconId }, "🧱", "item-icon"));
+      const name = document.createElement("span");
+      name.className = "resource-name";
+      name.textContent = ing.name;
+      row.appendChild(name);
+      const qty = document.createElement("span");
+      qty.className = "resource-qty";
+      qty.textContent = `× ${ing.quantity}`;
+      row.appendChild(qty);
+      body.appendChild(row);
+    }
+  }
+
+  document.getElementById("recipeModalOverlay").classList.remove("hidden");
+}
+
+function closeRecipeModal() {
+  document.getElementById("recipeModalOverlay").classList.add("hidden");
 }
 
 function renderResourceNeeds() {
