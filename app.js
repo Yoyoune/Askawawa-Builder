@@ -1757,6 +1757,7 @@ function buildSetFilterPanel(title, candidateSets) {
   const levelMaxInput = document.createElement("input");
   levelMaxInput.type = "number";
   levelMaxInput.placeholder = "Max";
+  levelMaxInput.value = getCharLevel();
   const minLabel = document.createElement("label");
   minLabel.textContent = "Niv. min ";
   minLabel.appendChild(levelMinInput);
