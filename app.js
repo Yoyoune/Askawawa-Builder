@@ -1232,23 +1232,57 @@ function specialSpellLineHtml(name, description) {
   return `<span class="eff-line eff-line-spell"><span class="stat-icon">${SPECIAL_SPELL_STAR_ICON}</span><span class="eff spell">${escapeHtml(text)}</span></span>`;
 }
 
+const WEAPON_DIVIDER_HTML = '<hr class="eff-weapon-divider">';
+
+/**
+ * Inserts the weapon/stats divider into one column's line array, if the weapon/stat
+ * boundary (a global index into the full effect list) falls strictly inside this
+ * column's own [start, start+lines.length) range. No-op if the whole column is one
+ * side of the boundary (all weapon lines, or none).
+ */
+function insertWeaponDivider(colLines, colStart, boundaryIndex) {
+  const local = boundaryIndex - colStart;
+  if (local > 0 && local < colLines.length) {
+    const result = colLines.slice();
+    result.splice(local, 0, WEAPON_DIVIDER_HTML);
+    return result;
+  }
+  return colLines;
+}
+
 /**
  * Renders an effect list as a 2-column layout: fills the left column top-to-bottom,
  * then the right column, keeping the same number of rows per column (the right
  * column gets one fewer line when the count is odd). Used for item/panoplie effect
  * displays - NOT the FM panel, which stays a single column for readability.
+ *
+ * Raw weapon damage/vol/AP-loss rolls always sit first in an item's effect list
+ * (see DecodeItemEffects on the export side) - a horizontal divider is inserted
+ * right after the last one, splitting them visually from the item's real stats.
  */
 function effectsGridHtml(effects, options) {
   options = options || {};
-  const lines = (effects || []).map(effectLineHtml);
+  effects = effects || [];
+  const lines = effects.map(effectLineHtml);
   if (options.specialSpellDescription) {
     lines.push(specialSpellLineHtml(options.specialSpellName, options.specialSpellDescription));
   }
   if (lines.length === 0) return "";
+
+  let weaponLineCount = 0;
+  for (const e of effects) {
+    if (!isWeaponEffect(e.label)) break;
+    weaponLineCount++;
+  }
+
   const half = Math.ceil(lines.length / 2);
-  const col1 = lines.slice(0, half).join("");
-  const col2 = lines.slice(half).join("");
-  return `<div class="effects-grid"><div class="effects-col">${col1}</div>${col2 ? `<div class="effects-col">${col2}</div>` : ""}</div>`;
+  let col1 = lines.slice(0, half);
+  let col2 = lines.slice(half);
+  if (weaponLineCount > 0 && weaponLineCount < effects.length) {
+    col1 = insertWeaponDivider(col1, 0, weaponLineCount);
+    col2 = insertWeaponDivider(col2, half, weaponLineCount);
+  }
+  return `<div class="effects-grid"><div class="effects-col">${col1.join("")}</div>${col2.length ? `<div class="effects-col">${col2.join("")}</div>` : ""}</div>`;
 }
 
 function stripSign(label) {

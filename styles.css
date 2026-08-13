@@ -502,11 +502,14 @@ button:hover { border-color: var(--accent); }
    top-to-bottom first, then the right column, via effectsGridHtml() in app.js. */
 .effects-grid { display: flex; gap: 4px 18px; width: 100%; }
 .effects-col { display: flex; flex-direction: column; gap: 4px; flex: 1 1 0; min-width: 0; }
-.eff-line { display: flex; align-items: baseline; gap: 4px; min-width: 0; }
+.eff-line { display: flex; align-items: baseline; gap: 2px; min-width: 0; }
+.eff-weapon-divider { width: 100%; border: none; border-top: 2px solid #e8e9ee; margin: 2px 0; }
 .eff-line .eff { min-width: 0; overflow-wrap: break-word; }
 .eff-line-spell .eff.spell { font-style: italic; }
 
-.stat-icon { margin-right: 5px; display: inline-flex; align-items: center; flex-shrink: 0; }
+/* Fixed-width icon slot: emoji and SVG icons have different natural widths, so
+   without a fixed box the text after them starts at a different x per line. */
+.stat-icon { margin-right: 3px; display: inline-flex; align-items: center; justify-content: center; width: 20px; flex-shrink: 0; }
 
 .item-conditions {
   margin-top: 4px;
@@ -1068,7 +1071,7 @@ button:hover { border-color: var(--accent); }
 }
 .stat-row .stat-icon { margin-right: 5px; }
 .stat-icon-svg { vertical-align: -2px; }
-.stat-row .val.pos { color: var(--positive); }
+.stat-row .val.pos { color: var(--text-dim); }
 .stat-row .val.neg { color: var(--negative); }
 .stat-empty { color: var(--text-dim); font-size: 13px; }
 
