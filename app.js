@@ -319,13 +319,24 @@ async function main() {
     equipped = {};
     rollOverrides = {};
     forgemagie = {};
+    parchotage = {};
+    characteristicPoints = {};
     activeBuildName = null;
     document.getElementById("buildNameInput").value = "";
     saveEquipped();
     saveCustomization();
     renderPaperdoll();
+    renderParchotageGrid();
+    renderCharacteristicPointsGrid();
     renderStats();
     closeSidePanel();
+  });
+
+  document.getElementById("parchotageMaxBtn").addEventListener("click", () => {
+    parchotage = { "Sagesse": 100, "Vitalité": 130, "Intelligence": 130, "Chance": 130, "Force": 130, "Agilité": 130 };
+    saveCustomization();
+    renderParchotageGrid();
+    renderStats();
   });
 }
 
@@ -1149,24 +1160,37 @@ function effectValueText(effect) {
   return v !== undefined ? String(v) : "";
 }
 
+// Raw weapon damage/vol-de-vie lines are colored by their element (matching the
+// elemental characteristic each one borrows its icon from), not a single flat blue.
+const WEAPON_ELEMENT_CLASS = { "Terre": "weapon-terre", "Feu": "weapon-feu", "Eau": "weapon-eau", "Air": "weapon-air", "Neutre": "weapon-neutre" };
+
+function weaponEffectClass(label) {
+  for (const [element, cls] of Object.entries(WEAPON_ELEMENT_CLASS)) {
+    if (label.includes(element)) return cls;
+  }
+  return "weapon"; // no element in the label (e.g. "(PV rendus)") - flat blue fallback
+}
+
 function effectHtml(effect) {
   // Weapon "lost AP" effect: shown as "-1 PA" (matching what it actually does to the
   // target) rather than the raw "+1 (Retrait PA)" the underlying label/operator imply.
+  // Its own darker blue keeps it visually distinct from the "Eau" damage/vol lines.
   if (effect.label === "(Retrait PA)") {
-    return `<span class="eff weapon">-${effectValueText(effect)} PA</span>`;
+    return `<span class="eff weapon-pa">-${effectValueText(effect)} PA</span>`;
   }
   const negative = effect.operator === "-";
-  const cls = isWeaponEffect(effect.label) ? "weapon" : (negative ? "neg" : "pos");
+  const isWeapon = isWeaponEffect(effect.label);
+  const cls = isWeapon ? weaponEffectClass(effect.label) : (negative ? "neg" : "pos");
   let label = stripSign(effect.label);
-  // Blue weapon-roll labels are always parenthesized ("(dommages Terre)", "(vol Feu)",
+  // Weapon-roll labels are always parenthesized ("(dommages Terre)", "(vol Feu)",
   // "(PV rendus)") to drive isWeaponEffect() detection - the parens aren't needed once
-  // the blue color already marks them as distinct from real characteristics.
-  if (cls === "weapon" && label.startsWith("(") && label.endsWith(")")) {
+  // the color already marks them as distinct from real characteristics.
+  if (isWeapon && label.startsWith("(") && label.endsWith(")")) {
     label = label.slice(1, -1);
   }
   const valueText = effectValueText(effect);
-  // Blue weapon rolls skip the leading "+" too - "8 à 14 dommages Air", not "+8 à 14".
-  const sign = cls === "weapon" ? "" : (negative ? "-" : "+");
+  // Weapon rolls skip the leading "+" too - "8 à 14 dommages Air", not "+8 à 14".
+  const sign = isWeapon ? "" : (negative ? "-" : "+");
   return `<span class="eff ${cls}">${sign}${valueText} ${escapeHtml(label)}</span>`;
 }
 

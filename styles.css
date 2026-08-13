@@ -10,6 +10,12 @@
   --positive: #6fbf73;
   --negative: #d9686b;
   --weapon: #5b9bd5;
+  --weapon-pa: #2f5d85;
+  --elem-terre: #a97c50;
+  --elem-feu: #d9686b;
+  --elem-eau: #5b9bd5;
+  --elem-air: #6fbf73;
+  --elem-neutre: #e8e8e8;
   --radius: 8px;
 }
 
@@ -481,9 +487,15 @@ button:hover { border-color: var(--accent); }
   flex-wrap: wrap;
   gap: 4px 10px;
 }
-.eff.pos { color: var(--positive); }
+.eff.pos { color: var(--text-dim); }
 .eff.neg { color: var(--negative); }
 .eff.weapon { color: var(--weapon); }
+.eff.weapon-pa { color: var(--weapon-pa); }
+.eff.weapon-terre { color: var(--elem-terre); }
+.eff.weapon-feu { color: var(--elem-feu); }
+.eff.weapon-eau { color: var(--elem-eau); }
+.eff.weapon-air { color: var(--elem-air); }
+.eff.weapon-neutre { color: var(--elem-neutre); }
 .eff.spell { color: #f2c94c; }
 
 /* 2-column effect layout (item cards, panoplie item/bonus lists) - left column fills
@@ -952,6 +964,17 @@ button:hover { border-color: var(--accent); }
 }
 
 /* ---- Personnage / Parchotage ---- */
+.parchotage-max-btn {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.parchotage-max-btn:hover { border-color: var(--accent); background: #2f2a1e; }
 .parchotage-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
