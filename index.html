@@ -47,6 +47,7 @@
     <div class="browser-content hidden" id="browserContent">
       <div class="browser-header">
         <h2 id="browserTitle">—</h2>
+        <button id="hiddenItemsBtn" type="button" class="hidden-btn">Cachés</button>
         <button id="browserClose" aria-label="Fermer">×</button>
       </div>
       <div class="currently-equipped hidden" id="currentlyEquipped"></div>
@@ -82,6 +83,7 @@
     <div class="sets-browser-content hidden" id="setsBrowserContent">
       <div class="browser-header">
         <h2>Panoplies</h2>
+        <button id="hiddenSetsBtn" type="button" class="hidden-btn">Cachées</button>
         <button id="setsBrowserClose" aria-label="Fermer">×</button>
       </div>
       <div class="browser-controls">
@@ -176,6 +178,19 @@
       <button id="recipeModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body" id="recipeModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="hiddenModalOverlay">
+  <div class="modal modal-narrow" id="hiddenModal">
+    <div class="browser-header">
+      <h2 id="hiddenModalTitle">—</h2>
+      <button id="hiddenModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body">
+      <button id="unhideAllBtn" type="button" class="parchotage-max-btn">Démasquer tout</button>
+      <div id="hiddenModalBody"></div>
+    </div>
   </div>
 </div>
 

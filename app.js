@@ -299,8 +299,15 @@ async function main() {
   document.getElementById("recipeModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "recipeModalOverlay") closeRecipeModal();
   });
+  document.getElementById("hiddenItemsBtn").addEventListener("click", openHiddenItemsModal);
+  document.getElementById("hiddenSetsBtn").addEventListener("click", openHiddenSetsModal);
+  document.getElementById("hiddenModalClose").addEventListener("click", closeHiddenModal);
+  document.getElementById("hiddenModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "hiddenModalOverlay") closeHiddenModal();
+  });
+  document.getElementById("unhideAllBtn").addEventListener("click", unhideAllInCurrentModal);
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -880,6 +887,7 @@ function closeCategoryPicker() {
 
 function renderItemList() {
   if (!activeUiSlot || document.getElementById("browserContent").classList.contains("hidden")) return;
+  updateHiddenButtonsLabel();
   const listEl = document.getElementById("itemList");
   const search = document.getElementById("searchInput").value.trim().toLowerCase();
   const sort = document.getElementById("sortSelect").value;
@@ -1956,6 +1964,7 @@ function openSetsBrowser() {
 }
 
 function renderSetsList() {
+  updateHiddenButtonsLabel();
   const listEl = document.getElementById("setsList");
   const search = document.getElementById("setsSearchInput").value.trim().toLowerCase();
   const sort = document.getElementById("setsSortSelect").value;
@@ -2478,6 +2487,107 @@ function openRecipeModal(itemId) {
 
 function closeRecipeModal() {
   document.getElementById("recipeModalOverlay").classList.add("hidden");
+}
+
+// "items" or "sets" - which list the modal's shared "Démasquer tout" button acts on.
+let hiddenModalMode = null;
+
+/** Hidden items belonging to the currently browsed category (dofus/trophée share one ITEMS_BY_SLOT bucket, split via itemMatchesCategory). */
+function hiddenItemsInCurrentCategory() {
+  const bucket = activeCategory === "trophee" || activeCategory === "dofus" ? "dofus" : activeCategory;
+  return (ITEMS_BY_SLOT.get(bucket) || []).filter(i => hiddenItemIds.has(i.id) && itemMatchesCategory(i, activeCategory));
+}
+
+function updateHiddenButtonsLabel() {
+  const itemsBtn = document.getElementById("hiddenItemsBtn");
+  if (itemsBtn) itemsBtn.textContent = `Cachés (${hiddenItemsInCurrentCategory().length})`;
+
+  const setsBtn = document.getElementById("hiddenSetsBtn");
+  if (setsBtn) setsBtn.textContent = `Cachées (${hiddenSetIds.size})`;
+}
+
+function openHiddenItemsModal() {
+  hiddenModalMode = "items";
+  document.getElementById("hiddenModalTitle").textContent = "Objets cachés";
+  renderHiddenModalBody();
+  document.getElementById("hiddenModalOverlay").classList.remove("hidden");
+}
+
+function openHiddenSetsModal() {
+  hiddenModalMode = "sets";
+  document.getElementById("hiddenModalTitle").textContent = "Panoplies cachées";
+  renderHiddenModalBody();
+  document.getElementById("hiddenModalOverlay").classList.remove("hidden");
+}
+
+function closeHiddenModal() {
+  document.getElementById("hiddenModalOverlay").classList.add("hidden");
+}
+
+function renderHiddenModalBody() {
+  const body = document.getElementById("hiddenModalBody");
+  body.innerHTML = "";
+
+  const entries = hiddenModalMode === "items"
+    ? hiddenItemsInCurrentCategory()
+    : [...SETS_BY_ID.values()].filter(s => hiddenSetIds.has(s.id));
+
+  if (entries.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Rien de caché ici.</div>';
+    return;
+  }
+
+  for (const entry of entries) {
+    const row = document.createElement("div");
+    row.className = "set-item-row";
+    if (hiddenModalMode === "items") {
+      row.appendChild(itemIconEl(entry, "🎒", "item-icon"));
+    } else {
+      const icon = document.createElement("span");
+      icon.className = "item-icon icon-fallback";
+      icon.textContent = "📦";
+      row.appendChild(icon);
+    }
+    const name = document.createElement("span");
+    name.className = "set-item-name";
+    name.textContent = entry.name;
+    row.appendChild(name);
+
+    const unhideBtn = document.createElement("button");
+    unhideBtn.type = "button";
+    unhideBtn.className = "equip-item-btn";
+    unhideBtn.textContent = "Démasquer";
+    unhideBtn.addEventListener("click", () => {
+      if (hiddenModalMode === "items") {
+        hiddenItemIds.delete(entry.id);
+        saveHidden();
+        renderItemList();
+      } else {
+        hiddenSetIds.delete(entry.id);
+        saveHidden();
+        renderSetsList();
+      }
+      updateHiddenButtonsLabel();
+      renderHiddenModalBody();
+    });
+    row.appendChild(unhideBtn);
+
+    body.appendChild(row);
+  }
+}
+
+function unhideAllInCurrentModal() {
+  if (hiddenModalMode === "items") {
+    for (const i of hiddenItemsInCurrentCategory()) hiddenItemIds.delete(i.id);
+    saveHidden();
+    renderItemList();
+  } else if (hiddenModalMode === "sets") {
+    hiddenSetIds = new Set();
+    saveHidden();
+    renderSetsList();
+  }
+  updateHiddenButtonsLabel();
+  renderHiddenModalBody();
 }
 
 function renderResourceNeeds() {

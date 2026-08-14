@@ -373,6 +373,18 @@ button:hover { border-color: var(--accent); }
   color: var(--text-dim);
   cursor: pointer;
 }
+.browser-header button.hidden-btn {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: 12px;
+}
+.browser-header button.hidden-btn:hover { border-color: var(--accent); color: var(--text); }
 
 .currently-equipped {
   padding: 10px 16px;
