@@ -614,6 +614,7 @@ button:hover { border-color: var(--accent); }
 
 /* ---- Compare builds modal ---- */
 .modal-wide { max-width: 760px; }
+.modal-medium { max-width: 480px; }
 .modal-narrow { max-width: 340px; }
 .modal-xwide { max-width: 1180px; width: 96vw; }
 .compatible-sets-body {
@@ -1184,4 +1185,5 @@ button:hover { border-color: var(--accent); }
 }
 .spell-card-params-item { display: flex; align-items: center; gap: 6px; }
 .spell-card-params-item::before { content: "•"; color: var(--text-dim); }
+.spell-card-params-item.has-icon::before { content: none; }
 .spell-card-effects { margin-top: 10px; }

@@ -2706,14 +2706,13 @@ function openWeaponDamageModal() {
   }
 
   const sim = computeWeaponDamageSimulation(weapon);
-  const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
-  const nonDamageEffects = (weapon.effects || []).filter(e => !isWeaponEffect(e.label));
 
-  const paramsItems = [`${weapon.apCost} PA`];
+  const paramsItems = [paramIconItem("PA", `${weapon.apCost} PA`)];
   if (weapon.minRange !== undefined && weapon.weaponRange !== undefined) {
-    paramsItems.push(weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`);
+    const rangeText = weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`;
+    paramsItems.push(paramIconItem("Portée", rangeText));
   }
-  paramsItems.push(`Critique ${sim.critRate}%`);
+  paramsItems.push(paramIconItem("% Critique", `Critique ${sim.critRate}%`));
 
   const card = document.createElement("div");
   card.className = "spell-card";
@@ -2724,14 +2723,12 @@ function openWeaponDamageModal() {
         <div class="spell-card-level">Niveau ${weapon.level}</div>
       </div>
     </div>
-    ${meleeDistanceHtml(isMelee)}
-    <hr class="spell-card-hr">
     ${damageTwoColumnHtml(sim)}
     <hr class="spell-card-hr">
     <div class="spell-card-params">
-      ${paramsItems.map(p => `<div class="spell-card-params-item">${escapeHtml(p)}</div>`).join("")}
+      ${paramsItems.join("")}
     </div>
-    ${nonDamageEffects.length ? `<div class="spell-card-effects">${effectsGridHtml(nonDamageEffects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>` : ""}
+    <div class="spell-card-effects">${effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
   `;
   body.appendChild(card);
   document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
@@ -2778,11 +2775,15 @@ function gradeTabsHtml(spell, activeGrade) {
     `<span class="spell-card-grade${g === activeGrade ? " active" : ""}">${i + 1}</span>`).join("")}</div>`;
 }
 
-function meleeDistanceHtml(isMelee) {
-  return `<div class="melee-distance-row">
-    <div class="melee-distance-item${isMelee ? " active" : ""}"><span class="melee-distance-dot"></span>Mêlée</div>
-    <div class="melee-distance-item${!isMelee ? " active" : ""}"><span class="melee-distance-dot"></span>Distance</div>
-  </div>`;
+/** One params-list bullet, using the same stat icon as everywhere else instead of a plain "•" when one exists for statLabel. */
+function paramIconItem(statLabel, text) {
+  const icon = statIcon(statLabel);
+  return `<div class="spell-card-params-item${icon ? " has-icon" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${escapeHtml(text)}</div>`;
+}
+
+/** Same bullet style, no icon - for params with no matching stat (Portée modifiable, Lancer en ligne, ...). */
+function plainParamItem(text) {
+  return `<div class="spell-card-params-item">${escapeHtml(text)}</div>`;
 }
 
 function renderSpellVariantCard(spell, level) {
@@ -2794,20 +2795,19 @@ function renderSpellVariantCard(spell, level) {
     return card;
   }
 
-  const isMelee = grade.minRange <= 1 && grade.range <= 1;
   const sim = computeSpellGradeDamageSimulation(grade);
   const nonDamageEffects = (grade.effects || []).filter(e => !isWeaponEffect(e.label));
 
   const paramsItems = [
-    `${grade.apCost} PA`,
-    grade.minRange === grade.range ? `Portée ${grade.range}` : `Portée ${grade.minRange}-${grade.range}`,
-    grade.rangeCanBeBoosted ? "Portée modifiable" : "Portée fixe",
-    grade.castInLine ? "Lancer en ligne" : "Lancer libre",
-    `Critique ${sim.critRate}%`,
+    paramIconItem("PA", `${grade.apCost} PA`),
+    paramIconItem("Portée", grade.minRange === grade.range ? `Portée ${grade.range}` : `Portée ${grade.minRange}-${grade.range}`),
+    plainParamItem(grade.rangeCanBeBoosted ? "Portée modifiable" : "Portée fixe"),
+    plainParamItem(grade.castInLine ? "Lancer en ligne" : "Lancer libre"),
+    paramIconItem("% Critique", `Critique ${sim.critRate}%`),
   ];
-  if (grade.castInDiagonal) paramsItems.push("Diagonale");
-  if (grade.maxCastPerTurn) paramsItems.push(`${grade.maxCastPerTurn} lancer${grade.maxCastPerTurn > 1 ? "s" : ""} par tour`);
-  if (grade.maxStack) paramsItems.push(`Cumul : ${grade.maxStack}`);
+  if (grade.castInDiagonal) paramsItems.push(plainParamItem("Diagonale"));
+  if (grade.maxCastPerTurn) paramsItems.push(plainParamItem(`${grade.maxCastPerTurn} lancer${grade.maxCastPerTurn > 1 ? "s" : ""} par tour`));
+  if (grade.maxStack) paramsItems.push(plainParamItem(`Cumul : ${grade.maxStack}`));
 
   card.innerHTML = `
     <div class="spell-card-header">
@@ -2818,12 +2818,10 @@ function renderSpellVariantCard(spell, level) {
       ${gradeTabsHtml(spell, grade)}
     </div>
     ${spell.description ? `<div class="spell-card-top"><div class="spell-card-description">${escapeHtml(spell.description)}</div></div>` : ""}
-    ${meleeDistanceHtml(isMelee)}
-    <hr class="spell-card-hr">
     ${damageTwoColumnHtml(sim)}
     <hr class="spell-card-hr">
     <div class="spell-card-params">
-      ${paramsItems.map(p => `<div class="spell-card-params-item">${escapeHtml(p)}</div>`).join("")}
+      ${paramsItems.join("")}
     </div>
     ${nonDamageEffects.length ? `<div class="spell-card-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
   `;
