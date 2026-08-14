@@ -223,11 +223,15 @@ let activeUiSlot = null;
 /** resolved category key for the open browser: a plain dataSlot, or "dragodinde"/"trophee" */
 let activeCategory = null;
 
+let BREEDS = [];
+
 async function main() {
-  const [items, sets] = await Promise.all([
+  const [items, sets, breeds] = await Promise.all([
     fetch("data/items.json").then(r => r.json()),
     fetch("data/sets.json").then(r => r.json()),
+    fetch("data/spells.json").then(r => r.json()),
   ]);
+  BREEDS = breeds;
 
   ITEMS = items;
   const labelSet = new Set();
@@ -313,8 +317,17 @@ async function main() {
   document.getElementById("weaponDamageModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "weaponDamageModalOverlay") closeWeaponDamageModal();
   });
+  document.getElementById("classSpellsBtn").addEventListener("click", openClassPicker);
+  document.getElementById("classPickerModalClose").addEventListener("click", closeClassPicker);
+  document.getElementById("classPickerModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "classPickerModalOverlay") closeClassPicker();
+  });
+  document.getElementById("classSpellsModalClose").addEventListener("click", closeClassSpells);
+  document.getElementById("classSpellsModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "classSpellsModalOverlay") closeClassSpells();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -1438,39 +1451,46 @@ function itemHasUnmetConditions(item) {
 const DAMAGE_ELEMENT_CHARACTERISTIC = { "Terre": "Force", "Neutre": "Force", "Feu": "Intelligence", "Eau": "Chance", "Air": "Agilité" };
 const DAMAGE_ELEMENT_PHYSMAGIC = { "Terre": "Dommages physiques", "Neutre": "Dommages physiques", "Feu": "Dommages magiques", "Eau": "Dommages magiques", "Air": "Dommages magiques" };
 
-function simulateWeaponDamageLine(effect, element, combinedStats, isCritical, weapon) {
+/**
+ * Generic version of the formula, shared by weapon strikes and spell casts - only the
+ * "done damage %" branch differs (weapon vs spell) and whether melee/ranged applies.
+ * opts: { isMelee, isWeaponAttack, critFlatBonus (weapon's own criticalHitBonus, added
+ * after the whole formula only on the critical roll - spells don't have this). }
+ */
+function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
   const stat = combinedStats.get(DAMAGE_ELEMENT_CHARACTERISTIC[element]) || 0;
   const puissance = combinedStats.get("Puissance") || 0;
-  const weaponFlatBonusPercent = combinedStats.get("Dommages d'armes") || 0; // rare stat, inside the % bracket
+  const weaponFlatBonusPercent = opts.isWeaponAttack ? (combinedStats.get("Dommages d'armes") || 0) : 0; // rare, inside the % bracket
   const flatBonus = combinedStats.get("Dommages") || 0;
-  const critFlatBonus = isCritical ? (combinedStats.get("Dommages Critiques") || 0) : 0;
+  const critFlatBonusStat = isCritical ? (combinedStats.get("Dommages Critiques") || 0) : 0;
   const physMagicBonus = combinedStats.get(DAMAGE_ELEMENT_PHYSMAGIC[element]) || 0;
   const eltBonus = combinedStats.get(`Dommages ${element}`) || 0;
   const mult = combinedStats.get("DamageMultiplicator") || 0; // not a real gear stat on this server, kept for completeness
-  const weaponDonePercent = combinedStats.get("% Dommages d'armes") || 0;
-  const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
-  const meleeOrRangedDonePercent = isMelee
+  const doneDamagePercent = opts.isWeaponAttack
+    ? (combinedStats.get("% Dommages d'armes") || 0)
+    : (combinedStats.get("% Dommages aux sorts") || 0);
+  const meleeOrRangedDonePercent = opts.isMelee
     ? (combinedStats.get("% Dommages mêlée") || 0)
     : (combinedStats.get("% Dommages distance") || 0);
 
   function apply(roll) {
     let amount = (roll * (100 + stat + puissance + weaponFlatBonusPercent) / 100
-      + (flatBonus + critFlatBonus + physMagicBonus + eltBonus)) * (100 + mult) / 100;
-    if (weaponDonePercent) amount *= (1 + weaponDonePercent / 100);
+      + (flatBonus + critFlatBonusStat + physMagicBonus + eltBonus)) * (100 + mult) / 100;
+    if (doneDamagePercent) amount *= (1 + doneDamagePercent / 100);
     if (meleeOrRangedDonePercent) amount *= (1 + meleeOrRangedDonePercent / 100);
     let result = Math.max(0, Math.floor(amount));
-    if (isCritical && weapon.criticalHitBonus) result += weapon.criticalHitBonus;
+    if (isCritical && opts.critFlatBonus) result += opts.critFlatBonus;
     return result;
   }
 
   return { min: apply(effect.min), max: apply(effect.max) };
 }
 
-/** Weapon's own raw "(dommages X)"/"(vol X)" roll lines, paired with their element. */
-function weaponDamageRollLines(weapon) {
+/** Any "(dommages X)"/"(vol X)" roll line in an effect list (weapon or spell), paired with its element. */
+function damageRollLines(effects) {
   const elements = ["Terre", "Feu", "Eau", "Air", "Neutre"];
   const lines = [];
-  for (const effect of weapon.effects || []) {
+  for (const effect of effects || []) {
     if (!isWeaponEffect(effect.label)) continue;
     const element = elements.find(e => effect.label.includes(e));
     if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
@@ -1483,10 +1503,26 @@ function weaponDamageRollLines(weapon) {
 function computeWeaponDamageSimulation(weapon) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
-  const lines = weaponDamageRollLines(weapon).map(({ effect, element, kind }) => ({
+  const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
+  const opts = { isMelee, isWeaponAttack: true, critFlatBonus: weapon.criticalHitBonus || 0 };
+  const lines = damageRollLines(weapon.effects).map(({ effect, element, kind }) => ({
     element, kind,
-    normal: simulateWeaponDamageLine(effect, element, combined, false, weapon),
-    critical: simulateWeaponDamageLine(effect, element, combined, true, weapon),
+    normal: simulateDamageLine(effect, element, combined, false, opts),
+    critical: simulateDamageLine(effect, element, combined, true, opts),
+  }));
+  return { critRate, lines };
+}
+
+/** Same simulation for one spell grade - isMelee/isWeaponAttack differ, no weapon criticalHitBonus. */
+function computeSpellGradeDamageSimulation(grade) {
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
+  const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
+  const isMelee = grade.minRange <= 1 && grade.range <= 1;
+  const opts = { isMelee, isWeaponAttack: false, critFlatBonus: 0 };
+  const lines = damageRollLines(grade.effects).map(({ effect, element, kind }) => ({
+    element, kind,
+    normal: simulateDamageLine(effect, element, combined, false, opts),
+    critical: simulateDamageLine(effect, element, combined, true, opts),
   }));
   return { critRate, lines };
 }
@@ -2719,6 +2755,116 @@ function openWeaponDamageModal() {
 
 function closeWeaponDamageModal() {
   document.getElementById("weaponDamageModalOverlay").classList.add("hidden");
+}
+
+// ---------- Classe / sorts ----------
+
+function openClassPicker() {
+  const body = document.getElementById("classPickerModalBody");
+  body.innerHTML = "";
+  for (const breed of BREEDS) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "category-choice-btn";
+    btn.innerHTML = `<span>${escapeHtml(breed.name)}</span>`;
+    btn.addEventListener("click", () => {
+      closeClassPicker();
+      openClassSpells(breed.id);
+    });
+    body.appendChild(btn);
+  }
+  document.getElementById("classPickerModalOverlay").classList.remove("hidden");
+}
+
+function closeClassPicker() {
+  document.getElementById("classPickerModalOverlay").classList.add("hidden");
+}
+
+/** Picks the highest grade unlocked at or below the character's level, falling back to the lowest grade if the character hasn't reached the spell's first grade yet. */
+function pickGradeForLevel(spell, level) {
+  if (!spell.grades || spell.grades.length === 0) return null;
+  const eligible = spell.grades.filter(g => g.minPlayerLevel <= level);
+  if (eligible.length > 0) return eligible[eligible.length - 1];
+  return spell.grades[0];
+}
+
+function spellParamsLine(grade) {
+  const bits = [`${grade.apCost} PA`];
+  bits.push(grade.minRange === grade.range ? `Portée ${grade.range}` : `Portée ${grade.minRange}-${grade.range}`);
+  bits.push(grade.rangeCanBeBoosted ? "Portée modifiable" : "Portée fixe");
+  bits.push(grade.castInLine ? "Lancer en ligne" : "Lancer libre");
+  if (grade.castInDiagonal) bits.push("Diagonale");
+  return bits.join(" · ");
+}
+
+function renderSpellDamageLines(grade) {
+  const lines = damageRollLines(grade.effects);
+  if (lines.length === 0) return "";
+  const sim = computeSpellGradeDamageSimulation(grade);
+  const rows = lines.map((line, idx) => {
+    const icon = effectLineIcon(`(${line.kind} ${line.element})`);
+    const kindLabel = line.kind === "vol" ? "Vol de vie" : "Dommages";
+    const result = sim.lines[idx];
+    return `<div class="item-card">
+      <div class="item-card-head"><span class="name">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${kindLabel} ${line.element}</span></div>
+      <div class="item-effects">
+        <span class="eff weapon">Base : ${line.effect.min} à ${line.effect.max}</span>
+        <span class="eff pos">Normal : ${result.normal.min} à ${result.normal.max}</span>
+        <span class="eff spell">Critique : ${result.critical.min} à ${result.critical.max}</span>
+      </div>
+    </div>`;
+  });
+  return `<div class="detail-section"><h3>Dégâts</h3>${rows.join("")}</div>`;
+}
+
+function renderSpellVariantCard(spell, level) {
+  const grade = pickGradeForLevel(spell, level);
+  const card = document.createElement("div");
+  card.className = "compatible-panel";
+  if (!grade) {
+    card.innerHTML = `<h3>${escapeHtml(spell.name)}</h3><div class="stat-empty">Aucune donnée de grade.</div>`;
+    return card;
+  }
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
+  const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
+
+  const nonDamageEffects = (grade.effects || []).filter(e => !isWeaponEffect(e.label));
+
+  card.innerHTML = `
+    <h3>${escapeHtml(spell.name)} <span class="set-card-count">Nv. ${grade.minPlayerLevel}${spell.obtainLevel !== grade.minPlayerLevel ? ` (débloqué Nv. ${spell.obtainLevel})` : ""}</span></h3>
+    ${spell.description ? `<div class="item-conditions">${escapeHtml(spell.description)}</div>` : ""}
+    <div class="detail-section">
+      <h3>Paramètres</h3>
+      <div class="item-effects">${escapeHtml(spellParamsLine(grade))} · Critique ${critRate}% (taux actuel avec le stuff)</div>
+      ${nonDamageEffects.length ? `<div class="item-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
+    </div>
+    ${renderSpellDamageLines(grade)}
+  `;
+  return card;
+}
+
+function openClassSpells(breedId) {
+  const breed = BREEDS.find(b => b.id === breedId);
+  if (!breed) return;
+  document.getElementById("classSpellsModalTitle").textContent = breed.name;
+  const body = document.getElementById("classSpellsModalBody");
+  body.innerHTML = "";
+  const level = getCharLevel();
+
+  for (const spell of breed.spells) {
+    const row = document.createElement("div");
+    row.className = "compatible-sets-body";
+    row.style.marginBottom = "16px";
+    row.appendChild(renderSpellVariantCard(spell, level));
+    if (spell.variant) row.appendChild(renderSpellVariantCard(spell.variant, level));
+    body.appendChild(row);
+  }
+
+  document.getElementById("classSpellsModalOverlay").classList.remove("hidden");
+}
+
+function closeClassSpells() {
+  document.getElementById("classSpellsModalOverlay").classList.add("hidden");
 }
 
 function renderHiddenModalBody() {

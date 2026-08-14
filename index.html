@@ -10,9 +10,10 @@
 <header class="topbar">
   <h1>Askawawa Builder</h1>
   <div class="topbar-actions">
+    <button id="weaponDamageBtn" type="button">🗡️ Dégâts arme</button>
+    <button id="classSpellsBtn" type="button">📘 Classe</button>
     <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
     <button id="setsSearchBtn" type="button">📦 Panoplies</button>
-    <button id="weaponDamageBtn" type="button">🗡️ Dégâts arme</button>
     <a id="wikiBtn" class="topbar-link-btn" href="docs/wiki-askawawa.pdf" target="_blank" rel="noopener">📖 Wiki</a>
     <button id="resetBtn" title="Retirer tout l'équipement">Réinitialiser</button>
   </div>
@@ -179,6 +180,26 @@
       <button id="recipeModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body" id="recipeModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="classPickerModalOverlay">
+  <div class="modal modal-narrow" id="classPickerModal">
+    <div class="browser-header">
+      <h2>Classe</h2>
+      <button id="classPickerModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="classPickerModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="classSpellsModalOverlay">
+  <div class="modal modal-xwide" id="classSpellsModal">
+    <div class="browser-header">
+      <h2 id="classSpellsModalTitle">—</h2>
+      <button id="classSpellsModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="classSpellsModalBody"></div>
   </div>
 </div>
 
