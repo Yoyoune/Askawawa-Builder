@@ -308,8 +308,13 @@ async function main() {
     if (ev.target.id === "hiddenModalOverlay") closeHiddenModal();
   });
   document.getElementById("unhideAllBtn").addEventListener("click", unhideAllInCurrentModal);
+  document.getElementById("weaponDamageBtn").addEventListener("click", openWeaponDamageModal);
+  document.getElementById("weaponDamageModalClose").addEventListener("click", closeWeaponDamageModal);
+  document.getElementById("weaponDamageModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "weaponDamageModalOverlay") closeWeaponDamageModal();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -1420,6 +1425,70 @@ function itemHasUnmetConditions(item) {
   if (!item.conditions || item.conditions.length === 0) return false;
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   return item.conditions.some(c => conditionIsUnmet(c, combined));
+}
+
+// ---------- Weapon damage simulation ----------
+// Reproduces FightActor.CalculateDamageBonuses (server source) for a weapon strike:
+//   dmg = max(0, (roll * (100 + STAT + Puissance + "Dommages d'armes") / 100
+//               + ("Dommages" + "Dommages Critiques"[si crit] + "Dommages physiques/magiques" + "Dommages <élément>"))
+//              * (100 + DamageMultiplicator) / 100)
+//       * (1 + "% Dommages d'armes"/100) * (1 + "% Dommages mêlée ou distance"/100)
+// No target is selected in a stat planner, so resistances (which only apply to a
+// defender) are never subtracted - this matches what the in-game tooltip itself shows.
+const DAMAGE_ELEMENT_CHARACTERISTIC = { "Terre": "Force", "Neutre": "Force", "Feu": "Intelligence", "Eau": "Chance", "Air": "Agilité" };
+const DAMAGE_ELEMENT_PHYSMAGIC = { "Terre": "Dommages physiques", "Neutre": "Dommages physiques", "Feu": "Dommages magiques", "Eau": "Dommages magiques", "Air": "Dommages magiques" };
+
+function simulateWeaponDamageLine(effect, element, combinedStats, isCritical, weapon) {
+  const stat = combinedStats.get(DAMAGE_ELEMENT_CHARACTERISTIC[element]) || 0;
+  const puissance = combinedStats.get("Puissance") || 0;
+  const weaponFlatBonusPercent = combinedStats.get("Dommages d'armes") || 0; // rare stat, inside the % bracket
+  const flatBonus = combinedStats.get("Dommages") || 0;
+  const critFlatBonus = isCritical ? (combinedStats.get("Dommages Critiques") || 0) : 0;
+  const physMagicBonus = combinedStats.get(DAMAGE_ELEMENT_PHYSMAGIC[element]) || 0;
+  const eltBonus = combinedStats.get(`Dommages ${element}`) || 0;
+  const mult = combinedStats.get("DamageMultiplicator") || 0; // not a real gear stat on this server, kept for completeness
+  const weaponDonePercent = combinedStats.get("% Dommages d'armes") || 0;
+  const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
+  const meleeOrRangedDonePercent = isMelee
+    ? (combinedStats.get("% Dommages mêlée") || 0)
+    : (combinedStats.get("% Dommages distance") || 0);
+
+  function apply(roll) {
+    let amount = (roll * (100 + stat + puissance + weaponFlatBonusPercent) / 100
+      + (flatBonus + critFlatBonus + physMagicBonus + eltBonus)) * (100 + mult) / 100;
+    if (weaponDonePercent) amount *= (1 + weaponDonePercent / 100);
+    if (meleeOrRangedDonePercent) amount *= (1 + meleeOrRangedDonePercent / 100);
+    let result = Math.max(0, Math.floor(amount));
+    if (isCritical && weapon.criticalHitBonus) result += weapon.criticalHitBonus;
+    return result;
+  }
+
+  return { min: apply(effect.min), max: apply(effect.max) };
+}
+
+/** Weapon's own raw "(dommages X)"/"(vol X)" roll lines, paired with their element. */
+function weaponDamageRollLines(weapon) {
+  const elements = ["Terre", "Feu", "Eau", "Air", "Neutre"];
+  const lines = [];
+  for (const effect of weapon.effects || []) {
+    if (!isWeaponEffect(effect.label)) continue;
+    const element = elements.find(e => effect.label.includes(e));
+    if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
+    const kind = effect.label.includes("vol") ? "vol" : "dommages";
+    lines.push({ effect, element, kind });
+  }
+  return lines;
+}
+
+function computeWeaponDamageSimulation(weapon) {
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
+  const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
+  const lines = weaponDamageRollLines(weapon).map(({ effect, element, kind }) => ({
+    element, kind,
+    normal: simulateWeaponDamageLine(effect, element, combined, false, weapon),
+    critical: simulateWeaponDamageLine(effect, element, combined, true, weapon),
+  }));
+  return { critRate, lines };
 }
 
 function escapeHtml(s) {
@@ -2566,6 +2635,90 @@ function openHiddenSetsModal() {
 
 function closeHiddenModal() {
   document.getElementById("hiddenModalOverlay").classList.add("hidden");
+}
+
+function openWeaponDamageModal() {
+  const weapon = equipped["arme"];
+  const body = document.getElementById("weaponDamageModalBody");
+  body.innerHTML = "";
+
+  if (!weapon) {
+    body.innerHTML = '<div class="stat-empty">Équipez une arme pour voir la simulation de dégâts.</div>';
+    document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
+    return;
+  }
+
+  const sim = computeWeaponDamageSimulation(weapon);
+
+  const leftCol = document.createElement("div");
+  leftCol.className = "compatible-sets-column";
+  const leftTitle = document.createElement("h3");
+  leftTitle.textContent = "Arme équipée";
+  leftCol.appendChild(leftTitle);
+
+  const card = document.createElement("div");
+  card.className = "item-card";
+  const row = document.createElement("div");
+  row.className = "item-card-row";
+  row.appendChild(itemIconEl(weapon, "🎒", "item-icon"));
+  const cardBody = document.createElement("div");
+  cardBody.className = "item-card-body";
+  const head = document.createElement("div");
+  head.className = "item-card-head";
+  head.innerHTML = `<span class="name"></span><span class="level">Nv. ${weapon.level}</span>`;
+  head.querySelector(".name").textContent = weapon.name;
+  cardBody.appendChild(head);
+  if (weapon.effects && weapon.effects.length) {
+    const eff = document.createElement("div");
+    eff.className = "item-effects";
+    eff.innerHTML = effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription });
+    cardBody.appendChild(eff);
+  }
+  const info = document.createElement("div");
+  info.className = "item-effects";
+  const bits = [];
+  if (weapon.apCost !== undefined) bits.push(`${weapon.apCost} PA`);
+  if (weapon.minRange !== undefined && weapon.weaponRange !== undefined) {
+    bits.push(weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`);
+  }
+  bits.push(`Critique ${sim.critRate}% (taux actuel avec le stuff)`);
+  info.textContent = bits.join(" · ");
+  cardBody.appendChild(info);
+  row.appendChild(cardBody);
+  card.appendChild(row);
+  leftCol.appendChild(card);
+
+  const rightCol = document.createElement("div");
+  rightCol.className = "compatible-sets-column";
+  const rightTitle = document.createElement("h3");
+  rightTitle.textContent = "Dégâts simulés par coup";
+  rightCol.appendChild(rightTitle);
+
+  if (sim.lines.length === 0) {
+    rightCol.innerHTML += '<div class="stat-empty">Cette arme n\'a pas de ligne de dégâts/vol de vie.</div>';
+  } else {
+    for (const line of sim.lines) {
+      const lineEl = document.createElement("div");
+      lineEl.className = "item-card";
+      const icon = effectLineIcon(`(${line.kind} ${line.element})`);
+      const kindLabel = line.kind === "vol" ? "Vol de vie" : "Dommages";
+      lineEl.innerHTML = `
+        <div class="item-card-head"><span class="name">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${kindLabel} ${line.element}</span></div>
+        <div class="item-effects">
+          <span class="eff pos">Normal : ${line.normal.min} à ${line.normal.max}</span>
+          <span class="eff spell">Critique : ${line.critical.min} à ${line.critical.max}</span>
+        </div>`;
+      rightCol.appendChild(lineEl);
+    }
+  }
+
+  body.appendChild(leftCol);
+  body.appendChild(rightCol);
+  document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
+}
+
+function closeWeaponDamageModal() {
+  document.getElementById("weaponDamageModalOverlay").classList.add("hidden");
 }
 
 function renderHiddenModalBody() {

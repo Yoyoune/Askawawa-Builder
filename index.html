@@ -12,6 +12,7 @@
   <div class="topbar-actions">
     <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
     <button id="setsSearchBtn" type="button">📦 Panoplies</button>
+    <button id="weaponDamageBtn" type="button">🗡️ Dégâts arme</button>
     <a id="wikiBtn" class="topbar-link-btn" href="docs/wiki-askawawa.pdf" target="_blank" rel="noopener">📖 Wiki</a>
     <button id="resetBtn" title="Retirer tout l'équipement">Réinitialiser</button>
   </div>
@@ -178,6 +179,16 @@
       <button id="recipeModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body" id="recipeModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="weaponDamageModalOverlay">
+  <div class="modal modal-wide" id="weaponDamageModal">
+    <div class="browser-header">
+      <h2>Dégâts arme</h2>
+      <button id="weaponDamageModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body compatible-sets-body" id="weaponDamageModalBody"></div>
   </div>
 </div>
 
