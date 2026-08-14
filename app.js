@@ -2770,7 +2770,10 @@ function openWeaponDamageModal() {
     const rangeText = weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`;
     paramsItems.push(paramIconItem("Portée", rangeText));
   }
-  paramsItems.push(paramIconItem("% Critique", `Critique ${sim.critRate}%`));
+  let critText = `Critique ${sim.critRate}%`;
+  if (weapon.criticalHitBonus) critText += ` (+${weapon.criticalHitBonus} Dommages)`;
+  paramsItems.push(paramIconItem("% Critique", critText));
+  if (weapon.maxCastPerTurn) paramsItems.push(plainParamItem(`${weapon.maxCastPerTurn} utilisation${weapon.maxCastPerTurn > 1 ? "s" : ""} par tour`));
 
   const card = document.createElement("div");
   card.className = "spell-card";
