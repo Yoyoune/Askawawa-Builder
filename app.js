@@ -1573,6 +1573,27 @@ function itemIconEl(item, fallbackGlyph, className) {
   return img;
 }
 
+/** Same fallback pattern as itemIconEl, but for a spell's own icon (separate id namespace/folder, extracted from the client's gfx/spells/all.swf via FFDec). */
+function spellIconEl(spell, fallbackGlyph, className) {
+  if (!spell || !spell.iconId) {
+    const span = document.createElement("span");
+    span.className = className + " icon-fallback";
+    span.textContent = fallbackGlyph;
+    return span;
+  }
+  const img = document.createElement("img");
+  img.className = className;
+  img.src = `icons/spells/${spell.iconId}.png`;
+  img.alt = "";
+  img.addEventListener("error", () => {
+    const span = document.createElement("span");
+    span.className = className + " icon-fallback";
+    span.textContent = fallbackGlyph;
+    img.replaceWith(span);
+  });
+  return img;
+}
+
 // ---------- Panoplie ----------
 
 function equipEntireSet(setId) {
@@ -2728,6 +2749,7 @@ function openWeaponDamageModal() {
     <div class="spell-card-params">
       ${paramsItems.join("")}
     </div>
+    <hr class="spell-card-hr">
     <div class="spell-card-effects">${effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
   `;
   body.appendChild(card);
@@ -2811,7 +2833,8 @@ function renderSpellVariantCard(spell, level) {
 
   card.innerHTML = `
     <div class="spell-card-header">
-      <div>
+      <span class="spell-card-icon-slot"></span>
+      <div class="spell-card-header-text">
         <div class="spell-card-title">${escapeHtml(spell.name)}</div>
         <div class="spell-card-level">Niveau ${grade.minPlayerLevel}${spell.obtainLevel !== grade.minPlayerLevel ? ` (débloqué Nv. ${spell.obtainLevel})` : ""}</div>
       </div>
@@ -2823,8 +2846,9 @@ function renderSpellVariantCard(spell, level) {
     <div class="spell-card-params">
       ${paramsItems.join("")}
     </div>
-    ${nonDamageEffects.length ? `<div class="spell-card-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
+    ${nonDamageEffects.length ? `<hr class="spell-card-hr"><div class="spell-card-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
   `;
+  card.querySelector(".spell-card-icon-slot").replaceWith(spellIconEl(spell, "✨", "spell-card-icon"));
   return card;
 }
 

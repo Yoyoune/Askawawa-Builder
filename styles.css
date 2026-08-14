@@ -1139,6 +1139,7 @@ button:hover { border-color: var(--accent); }
   justify-content: space-between;
   gap: 10px;
 }
+.spell-card-header-text { flex: 1; min-width: 0; }
 .spell-card-title { font-size: 17px; font-weight: 700; color: var(--text); }
 .spell-card-level { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
 .spell-card-grades { display: flex; gap: 4px; flex-shrink: 0; }
