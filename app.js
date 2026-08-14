@@ -1507,6 +1507,7 @@ function computeWeaponDamageSimulation(weapon) {
   const opts = { isMelee, isWeaponAttack: true, critFlatBonus: weapon.criticalHitBonus || 0 };
   const lines = damageRollLines(weapon.effects).map(({ effect, element, kind }) => ({
     element, kind,
+    base: { min: effect.min, max: effect.max },
     normal: simulateDamageLine(effect, element, combined, false, opts),
     critical: simulateDamageLine(effect, element, combined, true, opts),
   }));
@@ -1521,31 +1522,67 @@ function computeSpellGradeDamageSimulation(grade) {
   const opts = { isMelee, isWeaponAttack: false, critFlatBonus: 0 };
   const lines = damageRollLines(grade.effects).map(({ effect, element, kind }) => ({
     element, kind,
+    base: { min: effect.min, max: effect.max },
     normal: simulateDamageLine(effect, element, combined, false, opts),
     critical: simulateDamageLine(effect, element, combined, true, opts),
   }));
   return { critRate, lines };
 }
 
+function damageLineHtml(line, key) {
+  const icon = effectLineIcon(`(${line.kind} ${line.element})`);
+  const v = line[key];
+  return `<span class="damage-two-col-line${key === "critical" ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
+}
+
 /**
  * Renders a damage simulation as 2 plain columns - "Dégâts non critiques" left,
  * "Dégâts critiques" right - one value line per damage roll, icon-only (no repeated
  * "Dommages Terre :" text per line): which line is which element is conveyed by the
- * icon and by the two columns lining up row-for-row.
+ * icon and by the two columns lining up row-for-row. "réel" (default) shows values
+ * simulated from the current build's stats; "base" shows the spell/weapon's raw roll,
+ * identical in both columns since the base roll has no separate crit variant.
  */
-function damageTwoColumnHtml(sim) {
+function damageTwoColumnHtml(sim, mode) {
   if (sim.lines.length === 0) return '<div class="stat-empty">Pas de ligne de dégâts/vol de vie.</div>';
-  const lineHtml = (line, key) => {
-    const icon = effectLineIcon(`(${line.kind} ${line.element})`);
-    const v = line[key];
-    return `<span class="damage-two-col-line${key === "critical" ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
-  };
-  const normalCol = sim.lines.map(l => lineHtml(l, "normal")).join("");
-  const critCol = sim.lines.map(l => lineHtml(l, "critical")).join("");
+  const key1 = mode === "base" ? "base" : "normal";
+  const key2 = mode === "base" ? "base" : "critical";
+  const col1 = sim.lines.map(l => damageLineHtml(l, key1)).join("");
+  const col2 = sim.lines.map(l => damageLineHtml(l, key2)).join("");
   return `<div class="damage-two-col">
-    <div class="damage-two-col-col"><h4>Dégâts non critiques</h4>${normalCol}</div>
-    <div class="damage-two-col-col"><h4>Dégâts critiques</h4>${critCol}</div>
+    <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts non critiques"}</h4>${col1}</div>
+    <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts critiques"}</h4>${col2}</div>
   </div>`;
+}
+
+/**
+ * Damage section with a "Base"/"Réel" toggle pair on the right, same row as the
+ * column headers. Both renderings are built upfront and toggled via a "hidden" class -
+ * cheap since the underlying sim values are already computed, and avoids re-rendering
+ * on click. Call wireDamageToggle(cardEl) once the returned HTML is in the DOM.
+ */
+function damageSectionHtml(sim) {
+  return `
+    <div class="damage-toggle-row">
+      <div class="damage-toggle-buttons">
+        <button type="button" class="damage-toggle-btn active" data-mode="reel">Réel</button>
+        <button type="button" class="damage-toggle-btn" data-mode="base">Base</button>
+      </div>
+    </div>
+    <div class="damage-content" data-mode="reel">${damageTwoColumnHtml(sim, "reel")}</div>
+    <div class="damage-content hidden" data-mode="base">${damageTwoColumnHtml(sim, "base")}</div>
+  `;
+}
+
+function wireDamageToggle(cardEl) {
+  const buttons = cardEl.querySelectorAll(".damage-toggle-btn");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const mode = btn.dataset.mode;
+      buttons.forEach(b => b.classList.toggle("active", b === btn));
+      cardEl.querySelectorAll(".damage-content").forEach(c => c.classList.toggle("hidden", c.dataset.mode !== mode));
+    });
+  });
 }
 
 function escapeHtml(s) {
@@ -2744,7 +2781,7 @@ function openWeaponDamageModal() {
         <div class="spell-card-level">Niveau ${weapon.level}</div>
       </div>
     </div>
-    ${damageTwoColumnHtml(sim)}
+    ${damageSectionHtml(sim)}
     <hr class="spell-card-hr">
     <div class="spell-card-params">
       ${paramsItems.join("")}
@@ -2752,6 +2789,7 @@ function openWeaponDamageModal() {
     <hr class="spell-card-hr">
     <div class="spell-card-effects">${effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
   `;
+  wireDamageToggle(card);
   body.appendChild(card);
   document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
 }
@@ -2841,7 +2879,7 @@ function renderSpellVariantCard(spell, level) {
       ${gradeTabsHtml(spell, grade)}
     </div>
     ${spell.description ? `<div class="spell-card-top"><div class="spell-card-description">${escapeHtml(spell.description)}</div></div>` : ""}
-    ${damageTwoColumnHtml(sim)}
+    ${damageSectionHtml(sim)}
     <hr class="spell-card-hr">
     <div class="spell-card-params">
       ${paramsItems.join("")}
@@ -2849,6 +2887,7 @@ function renderSpellVariantCard(spell, level) {
     ${nonDamageEffects.length ? `<hr class="spell-card-hr"><div class="spell-card-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
   `;
   card.querySelector(".spell-card-icon-slot").replaceWith(spellIconEl(spell, "✨", "spell-card-icon"));
+  wireDamageToggle(card);
   return card;
 }
 

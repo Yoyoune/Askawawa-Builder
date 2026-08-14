@@ -1171,6 +1171,20 @@ button:hover { border-color: var(--accent); }
 
 .spell-card-hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
 
+.damage-toggle-row { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+.damage-toggle-buttons { display: flex; gap: 4px; }
+.damage-toggle-btn {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 4px;
+  padding: 2px 9px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.damage-toggle-btn.active { background: var(--positive); border-color: var(--positive); color: #1b1d24; font-weight: 600; }
+.damage-content.hidden { display: none; }
+
 .damage-two-col { display: flex; gap: 18px; }
 .damage-two-col-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .damage-two-col-col h4 { margin: 0 0 2px; font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; }
