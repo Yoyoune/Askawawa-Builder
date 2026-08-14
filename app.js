@@ -168,6 +168,8 @@ const SET_FILTER_DEFS = [
   { key: "intelligence", label: "Pano Intelligence", kind: "item", stat: "Intelligence" },
   { key: "chance", label: "Pano Chance", kind: "item", stat: "Chance" },
   { key: "agilite", label: "Pano Agilité", kind: "item", stat: "Agilité" },
+  { key: "dopou", label: "DoPou", kind: "item", stat: "Dommages Poussée" },
+  { key: "docri", label: "DoCri", kind: "item", stat: "Dommages Critiques" },
   { key: "autre", label: "Autre pano", kind: "other" },
 ];
 
@@ -1603,6 +1605,8 @@ function computeSetFlags(set) {
     intelligence,
     chance,
     agilite,
+    dopou: itemLabels.has("Dommages Poussée"),
+    docri: itemLabels.has("Dommages Critiques"),
     autre: !force && !intelligence && !chance && !agilite,
   };
 }
