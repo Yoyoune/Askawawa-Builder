@@ -1527,6 +1527,27 @@ function computeSpellGradeDamageSimulation(grade) {
   return { critRate, lines };
 }
 
+/**
+ * Renders a damage simulation as 2 plain columns - "Dégâts non critiques" left,
+ * "Dégâts critiques" right - one value line per damage roll, icon-only (no repeated
+ * "Dommages Terre :" text per line): which line is which element is conveyed by the
+ * icon and by the two columns lining up row-for-row.
+ */
+function damageTwoColumnHtml(sim) {
+  if (sim.lines.length === 0) return '<div class="stat-empty">Pas de ligne de dégâts/vol de vie.</div>';
+  const lineHtml = (line, key) => {
+    const icon = effectLineIcon(`(${line.kind} ${line.element})`);
+    const v = line[key];
+    return `<span class="damage-two-col-line${key === "critical" ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
+  };
+  const normalCol = sim.lines.map(l => lineHtml(l, "normal")).join("");
+  const critCol = sim.lines.map(l => lineHtml(l, "critical")).join("");
+  return `<div class="damage-two-col">
+    <div class="damage-two-col-col"><h4>Dégâts non critiques</h4>${normalCol}</div>
+    <div class="damage-two-col-col"><h4>Dégâts critiques</h4>${critCol}</div>
+  </div>`;
+}
+
 function escapeHtml(s) {
   return (s || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
@@ -2685,71 +2706,34 @@ function openWeaponDamageModal() {
   }
 
   const sim = computeWeaponDamageSimulation(weapon);
+  const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
+  const nonDamageEffects = (weapon.effects || []).filter(e => !isWeaponEffect(e.label));
 
-  const leftCol = document.createElement("div");
-  leftCol.className = "compatible-sets-column";
-  const leftTitle = document.createElement("h3");
-  leftTitle.textContent = "Arme équipée";
-  leftCol.appendChild(leftTitle);
+  const paramsItems = [`${weapon.apCost} PA`];
+  if (weapon.minRange !== undefined && weapon.weaponRange !== undefined) {
+    paramsItems.push(weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`);
+  }
+  paramsItems.push(`Critique ${sim.critRate}%`);
 
   const card = document.createElement("div");
-  card.className = "item-card";
-  const row = document.createElement("div");
-  row.className = "item-card-row";
-  row.appendChild(itemIconEl(weapon, "🎒", "item-icon"));
-  const cardBody = document.createElement("div");
-  cardBody.className = "item-card-body";
-  const head = document.createElement("div");
-  head.className = "item-card-head";
-  head.innerHTML = `<span class="name"></span><span class="level">Nv. ${weapon.level}</span>`;
-  head.querySelector(".name").textContent = weapon.name;
-  cardBody.appendChild(head);
-  if (weapon.effects && weapon.effects.length) {
-    const eff = document.createElement("div");
-    eff.className = "item-effects";
-    eff.innerHTML = effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription });
-    cardBody.appendChild(eff);
-  }
-  const info = document.createElement("div");
-  info.className = "item-effects";
-  const bits = [];
-  if (weapon.apCost !== undefined) bits.push(`${weapon.apCost} PA`);
-  if (weapon.minRange !== undefined && weapon.weaponRange !== undefined) {
-    bits.push(weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`);
-  }
-  bits.push(`Critique ${sim.critRate}% (taux actuel avec le stuff)`);
-  info.textContent = bits.join(" · ");
-  cardBody.appendChild(info);
-  row.appendChild(cardBody);
-  card.appendChild(row);
-  leftCol.appendChild(card);
-
-  const rightCol = document.createElement("div");
-  rightCol.className = "compatible-sets-column";
-  const rightTitle = document.createElement("h3");
-  rightTitle.textContent = "Dégâts simulés par coup";
-  rightCol.appendChild(rightTitle);
-
-  if (sim.lines.length === 0) {
-    rightCol.innerHTML += '<div class="stat-empty">Cette arme n\'a pas de ligne de dégâts/vol de vie.</div>';
-  } else {
-    for (const line of sim.lines) {
-      const lineEl = document.createElement("div");
-      lineEl.className = "item-card";
-      const icon = effectLineIcon(`(${line.kind} ${line.element})`);
-      const kindLabel = line.kind === "vol" ? "Vol de vie" : "Dommages";
-      lineEl.innerHTML = `
-        <div class="item-card-head"><span class="name">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${kindLabel} ${line.element}</span></div>
-        <div class="item-effects">
-          <span class="eff pos">Normal : ${line.normal.min} à ${line.normal.max}</span>
-          <span class="eff spell">Critique : ${line.critical.min} à ${line.critical.max}</span>
-        </div>`;
-      rightCol.appendChild(lineEl);
-    }
-  }
-
-  body.appendChild(leftCol);
-  body.appendChild(rightCol);
+  card.className = "spell-card";
+  card.innerHTML = `
+    <div class="spell-card-header">
+      <div>
+        <div class="spell-card-title">${escapeHtml(weapon.name)}</div>
+        <div class="spell-card-level">Niveau ${weapon.level}</div>
+      </div>
+    </div>
+    ${meleeDistanceHtml(isMelee)}
+    <hr class="spell-card-hr">
+    ${damageTwoColumnHtml(sim)}
+    <hr class="spell-card-hr">
+    <div class="spell-card-params">
+      ${paramsItems.map(p => `<div class="spell-card-params-item">${escapeHtml(p)}</div>`).join("")}
+    </div>
+    ${nonDamageEffects.length ? `<div class="spell-card-effects">${effectsGridHtml(nonDamageEffects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>` : ""}
+  `;
+  body.appendChild(card);
   document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
 }
 
@@ -2788,57 +2772,60 @@ function pickGradeForLevel(spell, level) {
   return spell.grades[0];
 }
 
-function spellParamsLine(grade) {
-  const bits = [`${grade.apCost} PA`];
-  bits.push(grade.minRange === grade.range ? `Portée ${grade.range}` : `Portée ${grade.minRange}-${grade.range}`);
-  bits.push(grade.rangeCanBeBoosted ? "Portée modifiable" : "Portée fixe");
-  bits.push(grade.castInLine ? "Lancer en ligne" : "Lancer libre");
-  if (grade.castInDiagonal) bits.push("Diagonale");
-  return bits.join(" · ");
+function gradeTabsHtml(spell, activeGrade) {
+  if (!spell.grades || spell.grades.length <= 1) return "";
+  return `<div class="spell-card-grades">${spell.grades.map((g, i) =>
+    `<span class="spell-card-grade${g === activeGrade ? " active" : ""}">${i + 1}</span>`).join("")}</div>`;
 }
 
-function renderSpellDamageLines(grade) {
-  const lines = damageRollLines(grade.effects);
-  if (lines.length === 0) return "";
-  const sim = computeSpellGradeDamageSimulation(grade);
-  const rows = lines.map((line, idx) => {
-    const icon = effectLineIcon(`(${line.kind} ${line.element})`);
-    const kindLabel = line.kind === "vol" ? "Vol de vie" : "Dommages";
-    const result = sim.lines[idx];
-    return `<div class="item-card">
-      <div class="item-card-head"><span class="name">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${kindLabel} ${line.element}</span></div>
-      <div class="item-effects">
-        <span class="eff weapon">Base : ${line.effect.min} à ${line.effect.max}</span>
-        <span class="eff pos">Normal : ${result.normal.min} à ${result.normal.max}</span>
-        <span class="eff spell">Critique : ${result.critical.min} à ${result.critical.max}</span>
-      </div>
-    </div>`;
-  });
-  return `<div class="detail-section"><h3>Dégâts</h3>${rows.join("")}</div>`;
+function meleeDistanceHtml(isMelee) {
+  return `<div class="melee-distance-row">
+    <div class="melee-distance-item${isMelee ? " active" : ""}"><span class="melee-distance-dot"></span>Mêlée</div>
+    <div class="melee-distance-item${!isMelee ? " active" : ""}"><span class="melee-distance-dot"></span>Distance</div>
+  </div>`;
 }
 
 function renderSpellVariantCard(spell, level) {
   const grade = pickGradeForLevel(spell, level);
   const card = document.createElement("div");
-  card.className = "compatible-panel";
+  card.className = "spell-card";
   if (!grade) {
-    card.innerHTML = `<h3>${escapeHtml(spell.name)}</h3><div class="stat-empty">Aucune donnée de grade.</div>`;
+    card.innerHTML = `<div class="spell-card-title">${escapeHtml(spell.name)}</div><div class="stat-empty">Aucune donnée de grade.</div>`;
     return card;
   }
-  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
-  const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
 
+  const isMelee = grade.minRange <= 1 && grade.range <= 1;
+  const sim = computeSpellGradeDamageSimulation(grade);
   const nonDamageEffects = (grade.effects || []).filter(e => !isWeaponEffect(e.label));
 
+  const paramsItems = [
+    `${grade.apCost} PA`,
+    grade.minRange === grade.range ? `Portée ${grade.range}` : `Portée ${grade.minRange}-${grade.range}`,
+    grade.rangeCanBeBoosted ? "Portée modifiable" : "Portée fixe",
+    grade.castInLine ? "Lancer en ligne" : "Lancer libre",
+    `Critique ${sim.critRate}%`,
+  ];
+  if (grade.castInDiagonal) paramsItems.push("Diagonale");
+  if (grade.maxCastPerTurn) paramsItems.push(`${grade.maxCastPerTurn} lancer${grade.maxCastPerTurn > 1 ? "s" : ""} par tour`);
+  if (grade.maxStack) paramsItems.push(`Cumul : ${grade.maxStack}`);
+
   card.innerHTML = `
-    <h3>${escapeHtml(spell.name)} <span class="set-card-count">Nv. ${grade.minPlayerLevel}${spell.obtainLevel !== grade.minPlayerLevel ? ` (débloqué Nv. ${spell.obtainLevel})` : ""}</span></h3>
-    ${spell.description ? `<div class="item-conditions">${escapeHtml(spell.description)}</div>` : ""}
-    <div class="detail-section">
-      <h3>Paramètres</h3>
-      <div class="item-effects">${escapeHtml(spellParamsLine(grade))} · Critique ${critRate}% (taux actuel avec le stuff)</div>
-      ${nonDamageEffects.length ? `<div class="item-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
+    <div class="spell-card-header">
+      <div>
+        <div class="spell-card-title">${escapeHtml(spell.name)}</div>
+        <div class="spell-card-level">Niveau ${grade.minPlayerLevel}${spell.obtainLevel !== grade.minPlayerLevel ? ` (débloqué Nv. ${spell.obtainLevel})` : ""}</div>
+      </div>
+      ${gradeTabsHtml(spell, grade)}
     </div>
-    ${renderSpellDamageLines(grade)}
+    ${spell.description ? `<div class="spell-card-top"><div class="spell-card-description">${escapeHtml(spell.description)}</div></div>` : ""}
+    ${meleeDistanceHtml(isMelee)}
+    <hr class="spell-card-hr">
+    ${damageTwoColumnHtml(sim)}
+    <hr class="spell-card-hr">
+    <div class="spell-card-params">
+      ${paramsItems.map(p => `<div class="spell-card-params-item">${escapeHtml(p)}</div>`).join("")}
+    </div>
+    ${nonDamageEffects.length ? `<div class="spell-card-effects">${effectsGridHtml(nonDamageEffects)}</div>` : ""}
   `;
   return card;
 }

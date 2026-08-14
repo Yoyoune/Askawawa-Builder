@@ -17,6 +17,7 @@
   --elem-air: #6fbf73;
   --elem-neutre: #e8e8e8;
   --radius: 8px;
+  --grade-inactive: #4a4d5a;
 }
 
 * { box-sizing: border-box; }
@@ -1123,3 +1124,64 @@ button:hover { border-color: var(--accent); }
 @media (max-width: 1100px) {
   .layout { grid-template-columns: 1fr; }
 }
+
+/* ---- Spell/weapon simulation cards (Dégâts arme, Classe) ---- */
+.spell-card {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.spell-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.spell-card-title { font-size: 17px; font-weight: 700; color: var(--text); }
+.spell-card-level { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.spell-card-grades { display: flex; gap: 4px; flex-shrink: 0; }
+.spell-card-grade {
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 5px;
+  font-size: 11px; font-weight: 600;
+  background: var(--panel);
+  color: var(--text-dim);
+}
+.spell-card-grade.active { background: var(--positive); color: #1b1d24; }
+
+.spell-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.spell-card-icon { width: 44px; height: 44px; object-fit: contain; image-rendering: pixelated; border-radius: 6px; flex-shrink: 0; }
+.spell-card-icon.icon-fallback { display: flex; align-items: center; justify-content: center; font-size: 26px; background: var(--panel); }
+.spell-card-description { font-size: 12px; color: var(--text-dim); flex: 1; }
+
+.melee-distance-row { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
+.melee-distance-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-dim); }
+.melee-distance-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grade-inactive); flex-shrink: 0; }
+.melee-distance-item.active { color: var(--text); }
+.melee-distance-item.active .melee-distance-dot { background: var(--positive); }
+
+.spell-card-hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+.damage-two-col { display: flex; gap: 18px; }
+.damage-two-col-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.damage-two-col-col h4 { margin: 0 0 2px; font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; }
+.damage-two-col-line { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
+.damage-two-col-line.critical { color: var(--accent); }
+
+.spell-card-params {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.spell-card-params-item { display: flex; align-items: center; gap: 6px; }
+.spell-card-params-item::before { content: "•"; color: var(--text-dim); }
+.spell-card-effects { margin-top: 10px; }
