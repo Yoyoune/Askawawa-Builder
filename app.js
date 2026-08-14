@@ -156,6 +156,7 @@ function statIcon(label) {
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
+const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
 
 // "bonus" filters check the set's bonus tiers; "item" filters check whether any
 // individual piece in the set grants that stat; "other" catches sets with none of
@@ -211,6 +212,10 @@ let characteristicPoints = {};
 let savedBuilds = [];
 /** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
 let activeBuildName = null;
+/** itemId set - hidden from the item browser until "Réinitialiser" is pressed */
+let hiddenItemIds = new Set();
+/** setId set - hidden from the panoplie browser until "Réinitialiser" is pressed */
+let hiddenSetIds = new Set();
 
 let activeUiSlot = null;
 /** resolved category key for the open browser: a plain dataSlot, or "dragodinde"/"trophee" */
@@ -245,6 +250,7 @@ async function main() {
   loadEquipped();
   loadCustomization();
   loadSavedBuilds();
+  loadHidden();
   renderPaperdoll();
   renderParchotageGrid();
   renderCharacteristicPointsGrid();
@@ -325,14 +331,19 @@ async function main() {
     forgemagie = {};
     parchotage = {};
     characteristicPoints = {};
+    hiddenItemIds = new Set();
+    hiddenSetIds = new Set();
     activeBuildName = null;
     document.getElementById("buildNameInput").value = "";
     saveEquipped();
     saveCustomization();
+    saveHidden();
     renderPaperdoll();
     renderParchotageGrid();
     renderCharacteristicPointsGrid();
     renderStats();
+    renderItemList();
+    renderSetsList();
     closeSidePanel();
   });
 
@@ -408,6 +419,22 @@ function loadCustomization() {
 
 function saveCustomization() {
   localStorage.setItem(STORAGE_KEY_CUSTOM, JSON.stringify({ rollOverrides, forgemagie, parchotage, characteristicPoints }));
+}
+
+function loadHidden() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_HIDDEN);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    hiddenItemIds = new Set(data.items || []);
+    hiddenSetIds = new Set(data.sets || []);
+  } catch (e) {
+    console.warn("Could not restore hidden items/panoplies", e);
+  }
+}
+
+function saveHidden() {
+  localStorage.setItem(STORAGE_KEY_HIDDEN, JSON.stringify({ items: [...hiddenItemIds], sets: [...hiddenSetIds] }));
 }
 
 function loadSavedBuilds() {
@@ -864,6 +891,7 @@ function renderItemList() {
   if (activeCategory === "trophee") list = (ITEMS_BY_SLOT.get("dofus") || []).filter(i => i.typeId === TROPHEE_TYPE_ID);
   else if (activeCategory === "dofus") list = (ITEMS_BY_SLOT.get("dofus") || []).filter(i => i.typeId !== TROPHEE_TYPE_ID);
   else list = (ITEMS_BY_SLOT.get(activeCategory) || []).slice();
+  list = list.filter(i => !hiddenItemIds.has(i.id));
   if (search) list = list.filter(i => i.name.toLowerCase().includes(search));
   if (!isNaN(levelMin)) list = list.filter(i => i.level >= levelMin);
   if (!isNaN(levelMax)) list = list.filter(i => i.level <= levelMax);
@@ -900,8 +928,20 @@ function renderItemCard(item, isEquipped, charLevel) {
 
   const head = document.createElement("div");
   head.className = "item-card-head";
-  head.innerHTML = `<span class="name"></span><span class="level">Nv. ${item.level}</span>`;
+  head.innerHTML = `<span class="name"></span><span class="item-card-head-right"><span class="level">Nv. ${item.level}</span></span>`;
   head.querySelector(".name").textContent = item.name;
+  const hideBtn = document.createElement("button");
+  hideBtn.type = "button";
+  hideBtn.className = "hide-btn";
+  hideBtn.title = "Cacher cet objet";
+  hideBtn.textContent = "Cacher";
+  hideBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    hiddenItemIds.add(item.id);
+    saveHidden();
+    renderItemList();
+  });
+  head.querySelector(".item-card-head-right").appendChild(hideBtn);
   body.appendChild(head);
 
   if ((item.effects && item.effects.length) || item.specialSpellDescription) {
@@ -1923,7 +1963,7 @@ function renderSetsList() {
   const levelMin = parseInt(document.getElementById("setsLevelMinInput").value, 10);
   const levelMax = parseInt(document.getElementById("setsLevelMaxInput").value, 10);
 
-  let sets = [...SETS_BY_ID.values()].filter(s => s.itemIds.length > 0);
+  let sets = [...SETS_BY_ID.values()].filter(s => s.itemIds.length > 0 && !hiddenSetIds.has(s.id));
   if (search) sets = sets.filter(s => s.name.toLowerCase().includes(search));
   if (!isNaN(levelMin)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) >= levelMin);
   if (!isNaN(levelMax)) sets = sets.filter(s => SET_MAX_LEVEL.get(s.id) <= levelMax);
@@ -1988,6 +2028,19 @@ function renderSetCard(set) {
     openCompatibleSetsModal(set.id);
   });
   headerActions.appendChild(compatBtn);
+
+  const hideSetBtn = document.createElement("button");
+  hideSetBtn.type = "button";
+  hideSetBtn.className = "hide-btn";
+  hideSetBtn.title = "Cacher cette panoplie";
+  hideSetBtn.textContent = "Cacher";
+  hideSetBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    hiddenSetIds.add(set.id);
+    saveHidden();
+    renderSetsList();
+  });
+  headerActions.appendChild(hideSetBtn);
 
   header.appendChild(headerActions);
 

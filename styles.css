@@ -478,6 +478,19 @@ button:hover { border-color: var(--accent); }
 }
 .item-card-head .name { font-weight: 600; }
 .item-card-head .level { color: var(--text-dim); font-size: 12px; white-space: nowrap; }
+.item-card-head-right { display: flex; align-items: baseline; gap: 8px; flex-shrink: 0; }
+
+.hide-btn {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.hide-btn:hover { border-color: var(--negative); color: var(--negative); }
 
 .item-effects {
   margin-top: 6px;
