@@ -330,6 +330,7 @@ async function main() {
     renderBaseStats();
     updateCharacteristicPointsBudget();
     renderStats();
+    renderPaperdoll();
   });
   document.getElementById("resetBtn").addEventListener("click", () => {
     if (!confirm("Retirer tout l'équipement (et les réglages de jet/forgemagie) ?")) return;
@@ -715,7 +716,8 @@ function unequipSlot(uiSlotId) {
 function renderSlotEl(uiSlot) {
   const item = equipped[uiSlot.id];
   const el = document.createElement("div");
-  el.className = "slot" + (item ? " filled" : "") + (activeUiSlot === uiSlot.id ? " selected" : "");
+  el.className = "slot" + (item ? " filled" : "") + (activeUiSlot === uiSlot.id ? " selected" : "") +
+    (itemHasUnmetConditions(item) ? " unmet-conditions" : "");
   el.title = item ? item.name : uiSlot.label;
 
   el.appendChild(itemIconEl(item, uiSlot.icon, "icon"));
@@ -1380,6 +1382,42 @@ function formatCondition(c) {
     if (c.operator === "=") return `Être équipé de ${itemName}`;
   }
   return `${c.label} ${c.operator} ${c.value}`;
+}
+
+// Only these condition codes can actually be checked against the build (a plain
+// stat-planning tool has no idea about guild/quest/alignment/account state etc.) -
+// everything else is assumed met rather than flagged, to avoid false positives.
+const CONDITION_STAT_LABELS = {
+  "CA": "Agilité", "CC": "Chance", "CS": "Force", "CI": "Intelligence",
+  "CW": "Sagesse", "CV": "Vitalité", "CM": "PM", "CP": "PA",
+};
+
+function conditionIsUnmet(c, combinedStats) {
+  if (c.code === "PO") {
+    const has = Object.values(equipped).some(it => it.id === parseInt(c.value, 10));
+    if (c.operator === "=") return !has;
+    if (c.operator === "!") return has;
+    return false;
+  }
+  const statLabel = CONDITION_STAT_LABELS[c.code];
+  if (statLabel) {
+    const required = parseInt(c.value, 10);
+    if (isNaN(required)) return false;
+    const current = combinedStats.get(statLabel) || 0;
+    if (c.operator === ">") return !(current > required);
+    if (c.operator === "<") return !(current < required);
+    if (c.operator === "=") return current !== required;
+  }
+  return false;
+}
+
+/** True if the item's own level exceeds the character's, or any checkable condition (stat requirement, PO object-owned) currently fails. */
+function itemHasUnmetConditions(item) {
+  if (!item) return false;
+  if (item.level > getCharLevel()) return true;
+  if (!item.conditions || item.conditions.length === 0) return false;
+  const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
+  return item.conditions.some(c => conditionIsUnmet(c, combined));
 }
 
 function escapeHtml(s) {
@@ -2202,6 +2240,7 @@ function renderParchotageGrid() {
       parchotage[stat] = isNaN(v) ? 0 : v;
       saveCustomization();
       renderStats();
+      renderPaperdoll();
     });
     field.appendChild(span);
     field.appendChild(input);
@@ -2317,6 +2356,7 @@ function renderCharacteristicPointsGrid() {
       saveCustomization();
       updateCharacteristicPointsBudget();
       renderStats();
+      renderPaperdoll();
     });
     field.appendChild(span);
     field.appendChild(input);

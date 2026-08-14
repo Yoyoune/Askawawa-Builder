@@ -247,6 +247,8 @@ button:hover { border-color: var(--accent); }
 .slot:hover { border-color: var(--accent); }
 .slot.filled { border-style: solid; border-color: var(--accent-dim); background: #2f2a1e; }
 .slot.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-dim); }
+.slot.filled.unmet-conditions { border-color: var(--negative); background: #3a2426; }
+.slot.filled.unmet-conditions.selected { box-shadow: 0 0 0 2px var(--negative); }
 
 .slot .icon.icon-fallback { font-size: 22px; line-height: 1; }
 .slot img.icon { width: 36px; height: 36px; object-fit: contain; image-rendering: pixelated; }
