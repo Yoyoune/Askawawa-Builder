@@ -1618,6 +1618,27 @@ function damageTwoColumnHtml(sim, mode) {
 }
 
 /**
+ * Sum of every line's min/max, per column - "PV rendus" lines are excluded (they're a
+ * flat HP return to the caster, not damage inflicted, so they don't belong in a damage
+ * total). A line's critical side can carry a different kind than its normal side is rare
+ * in practice but checked independently (critKind) to stay correct either way.
+ */
+function damageTotalHtml(sim, mode) {
+  if (sim.lines.length === 0) return "";
+  const key1 = mode === "base" ? "base" : "normal";
+  const key2 = mode === "base" ? "baseCritical" : "critical";
+  let min1 = 0, max1 = 0, min2 = 0, max2 = 0;
+  for (const l of sim.lines) {
+    if (l.kind !== "regen") { min1 += l[key1].min; max1 += l[key1].max; }
+    if (l.critKind !== "regen") { min2 += l[key2].min; max2 += l[key2].max; }
+  }
+  return `<div class="damage-two-col damage-total-row">
+    <div class="damage-two-col-col"><h4>Total</h4><span class="damage-two-col-line">${min1} à ${max1}</span></div>
+    <div class="damage-two-col-col"><h4>Total</h4><span class="damage-two-col-line critical">${min2} à ${max2}</span></div>
+  </div>`;
+}
+
+/**
  * Damage section with a "Base"/"Réel" toggle pair on the right, same row as the
  * column headers. Both renderings are built upfront and toggled via a "hidden" class -
  * cheap since the underlying sim values are already computed, and avoids re-rendering
@@ -1631,8 +1652,8 @@ function damageSectionHtml(sim) {
         <button type="button" class="damage-toggle-btn" data-mode="base">Base</button>
       </div>
     </div>
-    <div class="damage-content" data-mode="reel">${damageTwoColumnHtml(sim, "reel")}</div>
-    <div class="damage-content hidden" data-mode="base">${damageTwoColumnHtml(sim, "base")}</div>
+    <div class="damage-content" data-mode="reel">${damageTwoColumnHtml(sim, "reel")}${damageTotalHtml(sim, "reel")}</div>
+    <div class="damage-content hidden" data-mode="base">${damageTwoColumnHtml(sim, "base")}${damageTotalHtml(sim, "base")}</div>
   `;
 }
 

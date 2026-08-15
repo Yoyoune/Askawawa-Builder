@@ -1194,6 +1194,8 @@ button:hover { border-color: var(--accent); }
    and value always start at the same x position whether or not "Vol" is present. */
 .damage-kind-label { display: inline-block; width: 26px; flex-shrink: 0; font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
 .damage-regain-note { font-size: 12px; font-weight: 400; color: var(--text-dim); white-space: nowrap; }
+.damage-total-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.damage-total-row .damage-two-col-line { font-size: 16px; font-weight: 700; }
 
 .spell-card-params {
   display: grid;
