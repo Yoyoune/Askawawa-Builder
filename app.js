@@ -1580,7 +1580,9 @@ function damageLineHtml(line, key) {
   const srcEffect = isCrit ? line.critEffect : line.effect;
   const icon = effectLineIcon(srcEffect.label);
   const v = line[key];
-  const kindLabel = kind === "vol" ? '<span class="damage-kind-label">Vol</span>' : "";
+  // Always render the label span (even empty) so it reserves a fixed column width -
+  // the icon/value must line up whether or not this particular line says "Vol".
+  const kindLabel = `<span class="damage-kind-label">${kind === "vol" ? "Vol" : ""}</span>`;
   let valueText = `${v.min} à ${v.max}`;
   let regainNote = "";
   if (kind === "regen") {

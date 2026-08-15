@@ -614,7 +614,7 @@ button:hover { border-color: var(--accent); }
 
 /* ---- Compare builds modal ---- */
 .modal-wide { max-width: 760px; }
-.modal-medium { max-width: 480px; }
+.modal-medium { max-width: 620px; }
 .modal-narrow { max-width: 340px; }
 .modal-xwide { max-width: 1180px; width: 96vw; }
 .compatible-sets-body {
@@ -1188,10 +1188,12 @@ button:hover { border-color: var(--accent); }
 .damage-two-col { display: flex; gap: 18px; }
 .damage-two-col-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .damage-two-col-col h4 { margin: 0 0 2px; font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; }
-.damage-two-col-line { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
+.damage-two-col-line { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; white-space: nowrap; }
 .damage-two-col-line.critical { color: var(--accent); }
-.damage-kind-label { font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
-.damage-regain-note { font-size: 12px; font-weight: 400; color: var(--text-dim); }
+/* Fixed-width column, rendered on every line (empty when not a "vol" line) so the icon
+   and value always start at the same x position whether or not "Vol" is present. */
+.damage-kind-label { display: inline-block; width: 26px; flex-shrink: 0; font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+.damage-regain-note { font-size: 12px; font-weight: 400; color: var(--text-dim); white-space: nowrap; }
 
 .spell-card-params {
   display: grid;
