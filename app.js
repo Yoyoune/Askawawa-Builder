@@ -1479,7 +1479,10 @@ function findBestElement(combinedStats) {
 function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
   if (element === "Meilleur") element = findBestElement(combinedStats);
   const stat = combinedStats.get(DAMAGE_ELEMENT_CHARACTERISTIC[element]) || 0;
-  const puissance = combinedStats.get("Puissance") || 0;
+  // "Maîtrise des armes" toggle (weapon damage panel only): +300 Puissance applied ONLY
+  // to this simulation, never written into combinedStats - it must stay invisible in
+  // "Statistiques totales" and everywhere else that reads the shared stats map.
+  const puissance = (combinedStats.get("Puissance") || 0) + (opts.puissanceBonus || 0);
   const weaponFlatBonusPercent = opts.isWeaponAttack ? (combinedStats.get("Dommages d'armes") || 0) : 0; // rare, inside the % bracket
   const flatBonus = combinedStats.get("Dommages") || 0;
   const critFlatBonusStat = isCritical ? (combinedStats.get("Dommages Critiques") || 0) : 0;
@@ -1558,11 +1561,13 @@ function damageRollLines(effects, criticalEffects) {
   });
 }
 
-function computeWeaponDamageSimulation(weapon) {
+function computeWeaponDamageSimulation(weapon, masteryEnabled) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
-  const opts = { isMelee, isWeaponAttack: true };
+  // "Maîtrise des armes" is a weapon-damage-panel-only toggle: it never touches
+  // combinedStats, so it stays invisible everywhere else (Statistiques totales, spells).
+  const opts = { isMelee, isWeaponAttack: true, puissanceBonus: masteryEnabled ? 300 : 0 };
   const bonus = weapon.criticalHitBonus || 0;
   const lines = damageRollLines(weapon.effects, null).map(({ effect, element, kind, critElement, critKind }) => {
     // Weapons have no separate CriticalEffectsBin (that's a spell-only mechanic): their
@@ -2859,6 +2864,9 @@ function closeHiddenModal() {
   document.getElementById("hiddenModalOverlay").classList.add("hidden");
 }
 
+/** Persists across re-renders of the weapon damage modal (not saved with the build - a display-only toggle for this panel). */
+let weaponMasteryEnabled = true;
+
 function openWeaponDamageModal() {
   const weapon = equipped["arme"];
   const body = document.getElementById("weaponDamageModalBody");
@@ -2870,7 +2878,7 @@ function openWeaponDamageModal() {
     return;
   }
 
-  const sim = computeWeaponDamageSimulation(weapon);
+  const sim = computeWeaponDamageSimulation(weapon, weaponMasteryEnabled);
 
   const paramsItems = [paramIconItem("PA", `${weapon.apCost} PA`)];
   if (weapon.minRange !== undefined && weapon.weaponRange !== undefined) {
@@ -2891,6 +2899,10 @@ function openWeaponDamageModal() {
         <div class="spell-card-level">Niveau ${weapon.level}</div>
       </div>
     </div>
+    <div class="mastery-toggle-row">
+      <button type="button" class="mastery-toggle-btn${weaponMasteryEnabled ? " active" : ""}" data-mastery="1">Maîtrise des armes</button>
+      <button type="button" class="mastery-toggle-btn${weaponMasteryEnabled ? "" : " active"}" data-mastery="0">Pas de Maîtrise</button>
+    </div>
     ${damageSectionHtml(sim)}
     <hr class="spell-card-hr">
     <div class="spell-card-params">
@@ -2900,6 +2912,12 @@ function openWeaponDamageModal() {
     <div class="spell-card-effects">${effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
   `;
   wireDamageToggle(card);
+  card.querySelectorAll(".mastery-toggle-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      weaponMasteryEnabled = btn.dataset.mastery === "1";
+      openWeaponDamageModal();
+    });
+  });
   body.appendChild(card);
   document.getElementById("weaponDamageModalOverlay").classList.remove("hidden");
 }

@@ -1173,7 +1173,7 @@ button:hover { border-color: var(--accent); }
 
 .damage-toggle-row { display: flex; justify-content: flex-end; margin-bottom: 4px; }
 .damage-toggle-buttons { display: flex; gap: 4px; }
-.damage-toggle-btn {
+.damage-toggle-btn, .mastery-toggle-btn {
   background: var(--panel);
   border: 1px solid var(--border);
   color: var(--text-dim);
@@ -1182,8 +1182,9 @@ button:hover { border-color: var(--accent); }
   font-size: 11px;
   cursor: pointer;
 }
-.damage-toggle-btn.active { background: var(--positive); border-color: var(--positive); color: #1b1d24; font-weight: 600; }
+.damage-toggle-btn.active, .mastery-toggle-btn.active { background: var(--positive); border-color: var(--positive); color: #1b1d24; font-weight: 600; }
 .damage-content.hidden { display: none; }
+.mastery-toggle-row { display: flex; justify-content: flex-start; gap: 4px; margin: 6px 0 -2px; }
 
 .damage-two-col { display: flex; gap: 18px; }
 .damage-two-col-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
