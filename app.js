@@ -142,7 +142,7 @@ function statIcon(label) {
     "Dommages": "✨", "Dommages Critiques": "🎯", "Dommages Pièges": "🪤", "Puissance (pièges)": "🪤",
     "% Dommages mêlée": "👊", "% Dommages distance": "🏹", "% Dommages d'armes": "⚔️", "% Dommages aux sorts": "⭐",
     "% Critique": "❗", "Initiative": "🪶", "Prospection": "🔍",
-    "Pods": "🎒", "(PV rendus)": "❤️",
+    "Pods": "🎒", "(PV rendus)": "❤️", "(dommages)": "✨",
   };
   if (EMOJI_FALLBACK[label]) return EMOJI_FALLBACK[label];
 
@@ -1451,14 +1451,33 @@ function itemHasUnmetConditions(item) {
 const DAMAGE_ELEMENT_CHARACTERISTIC = { "Terre": "Force", "Neutre": "Force", "Feu": "Intelligence", "Eau": "Chance", "Air": "Agilité" };
 const DAMAGE_ELEMENT_PHYSMAGIC = { "Terre": "Dommages physiques", "Neutre": "Dommages physiques", "Feu": "Dommages magiques", "Eau": "Dommages magiques", "Air": "Dommages magiques" };
 
+// Effect_DamageBestElement (server id 2822, "Dommages (Meilleur élément)" - used by
+// Flamiche/Foudroiement/Marteau de Moon): server-side (DirectDamage.cs) picks whichever
+// element's flat "Dommages X" bonus is highest on the caster - Neutral is the starting
+// default, then Earth/Water/Air/Fire each only overtake it on a STRICT >, in that order.
+// Not the same rule as HPSteal's best-element pick (that one compares actual computed
+// damage instead of the raw stat) - this is the raw-stat variant specifically.
+function findBestElement(combinedStats) {
+  let best = "Neutre";
+  let bestValue = combinedStats.get("Dommages Neutre") || 0;
+  for (const el of ["Terre", "Eau", "Air", "Feu"]) {
+    const v = combinedStats.get(`Dommages ${el}`) || 0;
+    if (v > bestValue) { best = el; bestValue = v; }
+  }
+  return best;
+}
+
 /**
  * Generic version of the formula, shared by weapon strikes and spell casts - only the
  * "done damage %" branch differs (weapon vs spell) and whether melee/ranged applies.
  * A weapon's own criticalHitBonus is NOT handled here: it's a bonus to the BASE dice
  * roll (added to effect.min/max before this function ever sees them - see
  * computeWeaponDamageSimulation), not a flat amount tacked on after the formula.
+ * element may be "Meilleur" (Effect_DamageBestElement) - resolved to a concrete element
+ * from the current build's stats before any of the lookups below use it.
  */
 function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
+  if (element === "Meilleur") element = findBestElement(combinedStats);
   const stat = combinedStats.get(DAMAGE_ELEMENT_CHARACTERISTIC[element]) || 0;
   const puissance = combinedStats.get("Puissance") || 0;
   const weaponFlatBonusPercent = opts.isWeaponAttack ? (combinedStats.get("Dommages d'armes") || 0) : 0; // rare, inside the % bracket
@@ -1505,11 +1524,15 @@ function damageRollLines(effects, criticalEffects) {
     const out = [];
     for (const e of list || []) {
       if (!isWeaponEffect(e.label)) continue;
-      const element = elements.find(el => e.label.includes(el));
+      let element = elements.find(el => e.label.includes(el));
       let kind;
       if (e.label.includes("vol")) kind = "vol";
       else if (e.label.includes("PV rendus")) kind = "regen"; // flat HP return, not tied to an element
       else kind = "dommages";
+      // Effect_DamageBestElement (id 2822, plain "(dommages)" label, no fixed element) -
+      // e.g. Flamiche/Foudroiement/Marteau de Moon - resolved to a concrete element from
+      // the current build's stats at simulation time (see findBestElement).
+      if (!element && e.effectId === 2822) element = "Meilleur";
       if (!element && kind !== "regen") continue; // e.g. "(Retrait PA)" - not a damage/regen roll
       out.push({ effect: e, element: element || null, kind });
     }
