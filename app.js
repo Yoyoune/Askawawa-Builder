@@ -1657,12 +1657,26 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
   });
   const pushLine = pushDamageLine(weapon.effects, combined);
   if (pushLine) lines.push(pushLine);
-  return { critRate, lines };
+  // Weapons always have a real critical hit (stat-driven, even with no distinct roll of
+  // their own) - unlike spells, where an empty CriticalEffectsBin can mean "cannot crit
+  // at all" (see computeSpellGradeDamageSimulation).
+  return { critRate, hasCritVariant: true, lines };
 }
 
-/** Same simulation for one spell grade - isMelee/isWeaponAttack differ, no weapon criticalHitBonus, and the critical roll comes from the grade's own CriticalEffects when present. */
+/**
+ * Same simulation for one spell grade - isMelee/isWeaponAttack differ, no weapon
+ * criticalHitBonus, and the critical roll comes from the grade's own CriticalEffects
+ * when present. Unlike weapons (which always crit via player stats even with no
+ * distinct roll of their own), a spell whose raw CriticalEffectsBin is genuinely empty
+ * cannot crit at all - e.g. a glyph/trap's own "lay it down" cast has no critical
+ * version server-side (only the thing it triggers can, and that's already merged into
+ * this same grade's Effects, not a separate crit roll). hasCritVariant flags this so
+ * the panel can skip the critical column entirely instead of showing a misleading
+ * "critical" value that's really just the normal roll plus the player's crit stats.
+ */
 function computeSpellGradeDamageSimulation(grade) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
+  const hasCritVariant = (grade.criticalEffects || []).length > 0;
   const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = grade.minRange <= 1 && grade.range <= 1;
   const opts = { isMelee, isWeaponAttack: false };
@@ -1677,7 +1691,7 @@ function computeSpellGradeDamageSimulation(grade) {
   });
   const pushLine = pushDamageLine(grade.effects, combined);
   if (pushLine) lines.push(pushLine);
-  return { critRate, lines };
+  return { critRate, hasCritVariant, lines };
 }
 
 function damageLineHtml(line, key) {
@@ -1714,8 +1728,14 @@ function damageLineHtml(line, key) {
 function damageTwoColumnHtml(sim, mode) {
   if (sim.lines.length === 0) return '<div class="stat-empty">Pas de ligne de dégâts/vol de vie.</div>';
   const key1 = mode === "base" ? "base" : "normal";
-  const key2 = mode === "base" ? "baseCritical" : "critical";
   const col1 = sim.lines.map(l => damageLineHtml(l, key1)).join("");
+  // No critical column at all when the spell genuinely cannot crit (see hasCritVariant) -
+  // showing one would just repeat the normal roll plus the player's crit stats, implying
+  // a critical hit is possible when it isn't.
+  if (sim.hasCritVariant === false) {
+    return `<div class="damage-two-col"><div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts"}</h4>${col1}</div></div>`;
+  }
+  const key2 = mode === "base" ? "baseCritical" : "critical";
   const col2 = sim.lines.map(l => damageLineHtml(l, key2)).join("");
   return `<div class="damage-two-col">
     <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts non critiques"}</h4>${col1}</div>
@@ -1732,10 +1752,16 @@ function damageTwoColumnHtml(sim, mode) {
 function damageTotalHtml(sim, mode) {
   if (sim.lines.length === 0) return "";
   const key1 = mode === "base" ? "base" : "normal";
-  const key2 = mode === "base" ? "baseCritical" : "critical";
-  let min1 = 0, max1 = 0, min2 = 0, max2 = 0;
+  let min1 = 0, max1 = 0;
   for (const l of sim.lines) {
     if (l.kind !== "regen" && l.kind !== "poussee") { min1 += l[key1].min; max1 += l[key1].max; }
+  }
+  if (sim.hasCritVariant === false) {
+    return `<div class="damage-two-col damage-total-row"><div class="damage-two-col-col"><h4>Total</h4><span class="damage-two-col-line">${min1} à ${max1}</span></div></div>`;
+  }
+  const key2 = mode === "base" ? "baseCritical" : "critical";
+  let min2 = 0, max2 = 0;
+  for (const l of sim.lines) {
     if (l.critKind !== "regen" && l.critKind !== "poussee") { min2 += l[key2].min; max2 += l[key2].max; }
   }
   return `<div class="damage-two-col damage-total-row">
