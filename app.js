@@ -1645,6 +1645,7 @@ function damageTotalHtml(sim, mode) {
  * on click. Call wireDamageToggle(cardEl) once the returned HTML is in the DOM.
  */
 function damageSectionHtml(sim) {
+  if (sim.lines.length === 0) return "";
   return `
     <div class="damage-toggle-row">
       <div class="damage-toggle-buttons">
