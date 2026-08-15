@@ -1606,30 +1606,37 @@ function damageRollLines(effects, criticalEffects) {
 }
 
 /**
- * "Repousse de X case(s)" (effect id 5) carries no damage value of its own - on this
- * server, push/collision damage is the caster's own "Dommages Poussée" gear stat times
- * the push distance (confirmed: "si le sort pousse de 3 cases, ça calcule les dégâts de
- * poussée sur 3 cases"). Synthesized as an extra damage-panel line when a Repousse effect
- * is present, using the same amount for base/normal/critical - it's a distance-based
- * physical collision, not affected by the spell's own critical roll.
+ * "Repousse de X case(s)" (effect id 5) carries no damage value of its own. The actual
+ * server formula (FightFormulas.CalculatePushBackDamages, read from source - NOT the
+ * naive "stat x distance" first assumed, which came out roughly 2x too high):
+ *   floor((level/2 + (source.PushDamageBonus - target.PushDamageReduction) + 32) * range / (4 * 2^targets))
+ * The planner has no selected enemy, so target's PushDamageReduction is treated as 0
+ * (matches how every other damage line here already skips target resistances), and
+ * targets=0 (2^0=1, no AoE-multi-target divisor) for a single-target preview. Synthesized
+ * as an extra damage-panel line when a Repousse effect is present; only meaningful with
+ * real stats, so "Base" mode shows 0 (there's no "raw spell value" for this - it's 100%
+ * derived from the caster's own level+gear) while "Réel" shows the computed amount. Not
+ * affected by the spell's own critical roll (a push/collision isn't a crit-able hit).
  */
-function pushDamageLine(effects, combinedStats) {
+function pushDamageLine(effects, combinedStats, level) {
   const repousse = (effects || []).find(e => e.effectId === 5);
   if (!repousse) return null;
   // EffectDice.GetValues() takes a different branch when Value==0 && DiceFace==0 (its
   // own convention for "flat DiceNum, no range") - the distance ends up in Min/Max
   // (both equal, e.g. "Repousse de 3 case(s)" -> min:3,max:3), not in .value.
-  const distance = repousse.max || repousse.value || 0;
-  const dommagesPoussee = combinedStats.get("Dommages Poussée") || 0;
-  const amount = Math.max(0, Math.floor(dommagesPoussee * distance));
+  const range = repousse.max || repousse.value || 0;
+  const pushDamageBonus = combinedStats.get("Dommages Poussée") || 0;
+  const lvl = Math.min(level || 0, 200);
+  const amount = Math.max(0, Math.floor((lvl / 2 + pushDamageBonus + 32) * range / 4));
   const fake = { effectId: 414, label: "Dommages Poussée", min: amount, max: amount };
+  const zero = { min: 0, max: 0 };
   const val = { min: amount, max: amount };
   // "poussee_calc", not "poussee": this is real inflicted damage (counts toward Total),
   // unlike a spell's own literal flat "Dommages Poussée" effect (a stat buff/grant, e.g.
   // "Trèfle" - not damage this spell itself deals, so kept out of the total).
   return {
     effect: fake, critEffect: fake, element: null, kind: "poussee_calc", critElement: null, critKind: "poussee_calc",
-    base: val, baseCritical: val, normal: val, critical: val,
+    base: zero, baseCritical: zero, normal: val, critical: val,
   };
 }
 
@@ -1655,7 +1662,7 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
     const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
-  const pushLine = pushDamageLine(weapon.effects, combined);
+  const pushLine = pushDamageLine(weapon.effects, combined, getCharLevel());
   if (pushLine) lines.push(pushLine);
   // Weapons always have a real critical hit (stat-driven, even with no distinct roll of
   // their own) - unlike spells, where an empty CriticalEffectsBin can mean "cannot crit
@@ -1689,7 +1696,7 @@ function computeSpellGradeDamageSimulation(grade) {
     const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
-  const pushLine = pushDamageLine(grade.effects, combined);
+  const pushLine = pushDamageLine(grade.effects, combined, getCharLevel());
   if (pushLine) lines.push(pushLine);
   return { critRate, hasCritVariant, lines };
 }
