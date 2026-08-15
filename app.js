@@ -1590,6 +1590,34 @@ function damageRollLines(effects, criticalEffects) {
   });
 }
 
+/**
+ * "Repousse de X case(s)" (effect id 5) carries no damage value of its own - on this
+ * server, push/collision damage is the caster's own "Dommages Poussée" gear stat times
+ * the push distance (confirmed: "si le sort pousse de 3 cases, ça calcule les dégâts de
+ * poussée sur 3 cases"). Synthesized as an extra damage-panel line when a Repousse effect
+ * is present, using the same amount for base/normal/critical - it's a distance-based
+ * physical collision, not affected by the spell's own critical roll.
+ */
+function pushDamageLine(effects, combinedStats) {
+  const repousse = (effects || []).find(e => e.effectId === 5);
+  if (!repousse) return null;
+  // EffectDice.GetValues() takes a different branch when Value==0 && DiceFace==0 (its
+  // own convention for "flat DiceNum, no range") - the distance ends up in Min/Max
+  // (both equal, e.g. "Repousse de 3 case(s)" -> min:3,max:3), not in .value.
+  const distance = repousse.max || repousse.value || 0;
+  const dommagesPoussee = combinedStats.get("Dommages Poussée") || 0;
+  const amount = Math.max(0, Math.floor(dommagesPoussee * distance));
+  const fake = { effectId: 414, label: "Dommages Poussée", min: amount, max: amount };
+  const val = { min: amount, max: amount };
+  // "poussee_calc", not "poussee": this is real inflicted damage (counts toward Total),
+  // unlike a spell's own literal flat "Dommages Poussée" effect (a stat buff/grant, e.g.
+  // "Trèfle" - not damage this spell itself deals, so kept out of the total).
+  return {
+    effect: fake, critEffect: fake, element: null, kind: "poussee_calc", critElement: null, critKind: "poussee_calc",
+    base: val, baseCritical: val, normal: val, critical: val,
+  };
+}
+
 function computeWeaponDamageSimulation(weapon, masteryEnabled) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
@@ -1612,6 +1640,8 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
     const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
+  const pushLine = pushDamageLine(weapon.effects, combined);
+  if (pushLine) lines.push(pushLine);
   return { critRate, lines };
 }
 
@@ -1630,6 +1660,8 @@ function computeSpellGradeDamageSimulation(grade) {
     const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
+  const pushLine = pushDamageLine(grade.effects, combined);
+  if (pushLine) lines.push(pushLine);
   return { critRate, lines };
 }
 
@@ -1813,6 +1845,7 @@ function openSetPreview(setId) {
   if (!set) return;
 
   document.getElementById("setModalTitle").textContent = set.name;
+  document.getElementById("setModalCompatBtn").onclick = () => openCompatibleSetsModal(setId);
   const body = document.getElementById("setModalBody");
   body.innerHTML = "";
 
@@ -1890,9 +1923,6 @@ function openSetPreview(setId) {
   });
   body.appendChild(bonusSection);
 
-  const actionsRow = document.createElement("div");
-  actionsRow.className = "set-modal-actions-row";
-
   const equipAllBtn = document.createElement("button");
   equipAllBtn.type = "button";
   equipAllBtn.className = "set-card-equip-all";
@@ -1901,16 +1931,7 @@ function openSetPreview(setId) {
     equipEntireSet(setId);
     openSetPreview(setId);
   });
-  actionsRow.appendChild(equipAllBtn);
-
-  const compatBtn = document.createElement("button");
-  compatBtn.type = "button";
-  compatBtn.className = "set-card-equip-all";
-  compatBtn.textContent = "Panoplies compatibles";
-  compatBtn.addEventListener("click", () => openCompatibleSetsModal(setId));
-  actionsRow.appendChild(compatBtn);
-
-  body.appendChild(actionsRow);
+  body.appendChild(equipAllBtn);
 
   document.getElementById("setModalOverlay").classList.remove("hidden");
 }
