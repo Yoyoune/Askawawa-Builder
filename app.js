@@ -3065,6 +3065,9 @@ function closeWeaponDamageModal() {
 const PA_PM_EXCLUDED_SLOTS = new Set(["familier", "dragodinde", "dofus"]);
 
 function isPaFilterItem(item) {
+  // Special case per user request: "Talisman Songe" (+2 PA) is the one amulette allowed
+  // in the PA list even though it fails the "not amulette" rule below.
+  if (item.id === 14169) return true;
   if (item.slot === "amulette" || PA_PM_EXCLUDED_SLOTS.has(item.slot)) return false;
   return (item.effects || []).some(e => stripSign(e.label) === "PA" && getEffectComparableValue(e) > 0);
 }
