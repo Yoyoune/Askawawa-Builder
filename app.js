@@ -1487,33 +1487,49 @@ function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
 
 /**
  * Any "(dommages X)"/"(vol X)" roll line in an effect list (weapon or spell), paired
- * with its element and its own critical-roll counterpart (matched by kind+element in
- * criticalEffects - spells can have a genuinely different, usually higher, roll for
- * their own critical hit, not just the same roll plus a stat bonus). Weapons have no
- * separate critical effect list, so critEffect falls back to the normal effect itself
- * (their crit differentiation comes entirely from stats + the weapon's own flat
- * criticalHitBonus, added on top afterward).
+ * with its own critical-roll counterpart from criticalEffects - spells can have a
+ * genuinely different, usually higher, roll for their own critical hit, not just the
+ * same roll plus a stat bonus. Matched first by exact kind+element (most spells keep
+ * the same element on crit), then - since some spells change ELEMENT entirely on a
+ * critical hit (e.g. "Bluff": dommages Air normal -> dommages Eau critique) - by kind
+ * alone against whatever critical effect is still unclaimed. critElement/critKind are
+ * reported separately from element/kind so callers use the right stat (characteristic,
+ * "Dommages X") and the right icon for the critical side. Weapons have no separate
+ * critical effect list, so critEffect/critElement/critKind fall back to the normal
+ * effect's own (their crit differentiation comes entirely from stats + the weapon's own
+ * flat criticalHitBonus, applied by the caller before this function ever sees it).
  */
 function damageRollLines(effects, criticalEffects) {
   const elements = ["Terre", "Feu", "Eau", "Air", "Neutre"];
-  const critByKey = new Map();
-  for (const ce of criticalEffects || []) {
-    if (!isWeaponEffect(ce.label)) continue;
-    const element = elements.find(e => ce.label.includes(e));
-    if (!element) continue;
-    const kind = ce.label.includes("vol") ? "vol" : "dommages";
-    critByKey.set(`${kind}:${element}`, ce);
+  function parse(list) {
+    const out = [];
+    for (const e of list || []) {
+      if (!isWeaponEffect(e.label)) continue;
+      const element = elements.find(el => e.label.includes(el));
+      if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
+      const kind = e.label.includes("vol") ? "vol" : "dommages";
+      out.push({ effect: e, element, kind });
+    }
+    return out;
   }
-  const lines = [];
-  for (const effect of effects || []) {
-    if (!isWeaponEffect(effect.label)) continue;
-    const element = elements.find(e => effect.label.includes(e));
-    if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
-    const kind = effect.label.includes("vol") ? "vol" : "dommages";
-    const critEffect = critByKey.get(`${kind}:${element}`) || effect;
-    lines.push({ effect, critEffect, element, kind });
+  const normalLines = parse(effects);
+  const critPool = parse(criticalEffects);
+
+  function takeCrit(kind, element) {
+    let idx = critPool.findIndex(c => c.kind === kind && c.element === element);
+    if (idx === -1) idx = critPool.findIndex(c => c.kind === kind);
+    return idx === -1 ? null : critPool.splice(idx, 1)[0];
   }
-  return lines;
+
+  return normalLines.map(({ effect, element, kind }) => {
+    const crit = takeCrit(kind, element);
+    return {
+      effect, element, kind,
+      critEffect: crit ? crit.effect : effect,
+      critElement: crit ? crit.element : element,
+      critKind: crit ? crit.kind : kind,
+    };
+  });
 }
 
 function computeWeaponDamageSimulation(weapon) {
@@ -1522,17 +1538,17 @@ function computeWeaponDamageSimulation(weapon) {
   const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
   const opts = { isMelee, isWeaponAttack: true };
   const bonus = weapon.criticalHitBonus || 0;
-  const lines = damageRollLines(weapon.effects, null).map(({ effect, element, kind }) => {
+  const lines = damageRollLines(weapon.effects, null).map(({ effect, element, kind, critElement, critKind }) => {
     // Weapons have no separate CriticalEffectsBin (that's a spell-only mechanic): their
     // own criticalHitBonus is a bonus to the BASE dice roll on a critical hit (both min
     // and max), which then goes through the exact same formula as the normal roll.
     const critEffect = bonus ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
     return {
-      element, kind,
+      element, kind, critElement, critKind,
       base: { min: effect.min, max: effect.max },
       baseCritical: { min: critEffect.min, max: critEffect.max },
       normal: simulateDamageLine(effect, element, combined, false, opts),
-      critical: simulateDamageLine(critEffect, element, combined, true, opts),
+      critical: simulateDamageLine(critEffect, critElement, combined, true, opts),
     };
   });
   return { critRate, lines };
@@ -1544,20 +1560,21 @@ function computeSpellGradeDamageSimulation(grade) {
   const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = grade.minRange <= 1 && grade.range <= 1;
   const opts = { isMelee, isWeaponAttack: false };
-  const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind }) => ({
-    element, kind,
+  const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind, critElement, critKind }) => ({
+    element, kind, critElement, critKind,
     base: { min: effect.min, max: effect.max },
     baseCritical: { min: critEffect.min, max: critEffect.max },
     normal: simulateDamageLine(effect, element, combined, false, opts),
-    critical: simulateDamageLine(critEffect, element, combined, true, opts),
+    critical: simulateDamageLine(critEffect, critElement, combined, true, opts),
   }));
   return { critRate, lines };
 }
 
 function damageLineHtml(line, key) {
-  const icon = effectLineIcon(`(${line.kind} ${line.element})`);
+  const isCrit = key.includes("ritical");
+  const icon = effectLineIcon(`(${isCrit ? line.critKind : line.kind} ${isCrit ? line.critElement : line.element})`);
   const v = line[key];
-  return `<span class="damage-two-col-line${key.includes("ritical") ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
+  return `<span class="damage-two-col-line${isCrit ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
 }
 
 /**
