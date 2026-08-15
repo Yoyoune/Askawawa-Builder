@@ -1486,16 +1486,33 @@ function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
   return { min: apply(effect.min), max: apply(effect.max) };
 }
 
-/** Any "(dommages X)"/"(vol X)" roll line in an effect list (weapon or spell), paired with its element. */
-function damageRollLines(effects) {
+/**
+ * Any "(dommages X)"/"(vol X)" roll line in an effect list (weapon or spell), paired
+ * with its element and its own critical-roll counterpart (matched by kind+element in
+ * criticalEffects - spells can have a genuinely different, usually higher, roll for
+ * their own critical hit, not just the same roll plus a stat bonus). Weapons have no
+ * separate critical effect list, so critEffect falls back to the normal effect itself
+ * (their crit differentiation comes entirely from stats + the weapon's own flat
+ * criticalHitBonus, added on top afterward).
+ */
+function damageRollLines(effects, criticalEffects) {
   const elements = ["Terre", "Feu", "Eau", "Air", "Neutre"];
+  const critByKey = new Map();
+  for (const ce of criticalEffects || []) {
+    if (!isWeaponEffect(ce.label)) continue;
+    const element = elements.find(e => ce.label.includes(e));
+    if (!element) continue;
+    const kind = ce.label.includes("vol") ? "vol" : "dommages";
+    critByKey.set(`${kind}:${element}`, ce);
+  }
   const lines = [];
   for (const effect of effects || []) {
     if (!isWeaponEffect(effect.label)) continue;
     const element = elements.find(e => effect.label.includes(e));
     if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
     const kind = effect.label.includes("vol") ? "vol" : "dommages";
-    lines.push({ effect, element, kind });
+    const critEffect = critByKey.get(`${kind}:${element}`) || effect;
+    lines.push({ effect, critEffect, element, kind });
   }
   return lines;
 }
@@ -1505,26 +1522,28 @@ function computeWeaponDamageSimulation(weapon) {
   const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
   const opts = { isMelee, isWeaponAttack: true, critFlatBonus: weapon.criticalHitBonus || 0 };
-  const lines = damageRollLines(weapon.effects).map(({ effect, element, kind }) => ({
+  const lines = damageRollLines(weapon.effects, null).map(({ effect, critEffect, element, kind }) => ({
     element, kind,
     base: { min: effect.min, max: effect.max },
+    baseCritical: { min: critEffect.min, max: critEffect.max },
     normal: simulateDamageLine(effect, element, combined, false, opts),
-    critical: simulateDamageLine(effect, element, combined, true, opts),
+    critical: simulateDamageLine(critEffect, element, combined, true, opts),
   }));
   return { critRate, lines };
 }
 
-/** Same simulation for one spell grade - isMelee/isWeaponAttack differ, no weapon criticalHitBonus. */
+/** Same simulation for one spell grade - isMelee/isWeaponAttack differ, no weapon criticalHitBonus, and the critical roll comes from the grade's own CriticalEffects when present. */
 function computeSpellGradeDamageSimulation(grade) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = grade.minRange <= 1 && grade.range <= 1;
   const opts = { isMelee, isWeaponAttack: false, critFlatBonus: 0 };
-  const lines = damageRollLines(grade.effects).map(({ effect, element, kind }) => ({
+  const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind }) => ({
     element, kind,
     base: { min: effect.min, max: effect.max },
+    baseCritical: { min: critEffect.min, max: critEffect.max },
     normal: simulateDamageLine(effect, element, combined, false, opts),
-    critical: simulateDamageLine(effect, element, combined, true, opts),
+    critical: simulateDamageLine(critEffect, element, combined, true, opts),
   }));
   return { critRate, lines };
 }
@@ -1532,26 +1551,26 @@ function computeSpellGradeDamageSimulation(grade) {
 function damageLineHtml(line, key) {
   const icon = effectLineIcon(`(${line.kind} ${line.element})`);
   const v = line[key];
-  return `<span class="damage-two-col-line${key === "critical" ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
+  return `<span class="damage-two-col-line${key.includes("ritical") ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
 }
 
 /**
- * Renders a damage simulation as 2 plain columns - "Dégâts non critiques" left,
- * "Dégâts critiques" right - one value line per damage roll, icon-only (no repeated
- * "Dommages Terre :" text per line): which line is which element is conveyed by the
- * icon and by the two columns lining up row-for-row. "réel" (default) shows values
- * simulated from the current build's stats; "base" shows the spell/weapon's raw roll,
- * identical in both columns since the base roll has no separate crit variant.
+ * Renders a damage simulation as 2 plain columns - non-critique left, critique right -
+ * one value line per damage roll, icon-only (no repeated "Dommages Terre :" text per
+ * line): which line is which element is conveyed by the icon and by the two columns
+ * lining up row-for-row. "réel" (default) shows values simulated from the current
+ * build's stats; "base" shows the raw roll (spell criticals use their own distinct
+ * CriticalEffects roll here too, when the spell has one - not the same value twice).
  */
 function damageTwoColumnHtml(sim, mode) {
   if (sim.lines.length === 0) return '<div class="stat-empty">Pas de ligne de dégâts/vol de vie.</div>';
   const key1 = mode === "base" ? "base" : "normal";
-  const key2 = mode === "base" ? "base" : "critical";
+  const key2 = mode === "base" ? "baseCritical" : "critical";
   const col1 = sim.lines.map(l => damageLineHtml(l, key1)).join("");
   const col2 = sim.lines.map(l => damageLineHtml(l, key2)).join("");
   return `<div class="damage-two-col">
     <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts non critiques"}</h4>${col1}</div>
-    <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base" : "Dégâts critiques"}</h4>${col2}</div>
+    <div class="damage-two-col-col"><h4>${mode === "base" ? "Dégâts de base critiques" : "Dégâts critiques"}</h4>${col2}</div>
   </div>`;
 }
 
