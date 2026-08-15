@@ -239,6 +239,30 @@
       <button id="paPmListModalClose" aria-label="Fermer">×</button>
     </div>
     <div class="modal-body">
+      <div class="browser-controls">
+        <input type="search" id="paPmSearchInput" placeholder="Rechercher un objet...">
+        <select id="paPmSortSelect">
+          <option value="level-asc">Niveau croissant</option>
+          <option value="level-desc">Niveau décroissant</option>
+          <option value="name-asc">Nom (A-Z)</option>
+        </select>
+      </div>
+      <div class="level-range-row">
+        <label>Niv. min <input type="number" id="paPmLevelMinInput" min="1" max="200" placeholder="Min"></label>
+        <label>Niv. max <input type="number" id="paPmLevelMaxInput" min="1" max="200" placeholder="Max"></label>
+      </div>
+      <div class="sets-filter-row">
+        <button type="button" class="filter-chip" id="paPmNoPanoFilterBtn">Item sans pano</button>
+        <button type="button" class="filter-chip" id="paPmWithPanoFilterBtn">Item avec pano</button>
+      </div>
+      <div class="stat-filter-builder">
+        <div class="stat-filter-add-row">
+          <select id="paPmStatFilterSelect"></select>
+          <input type="number" id="paPmStatFilterValue" value="0" min="0" placeholder="Valeur mini">
+          <button id="paPmAddStatFilterBtn" type="button">+ Ajouter</button>
+        </div>
+        <div class="stat-filter-active" id="paPmActiveStatFilters"></div>
+      </div>
       <div class="item-list" id="paPmListModalBody"></div>
     </div>
   </div>

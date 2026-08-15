@@ -349,6 +349,21 @@ async function main() {
   document.getElementById("paPmListModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "paPmListModalOverlay") closePaPmList();
   });
+  document.getElementById("paPmSearchInput").addEventListener("input", renderPaPmList);
+  document.getElementById("paPmSortSelect").addEventListener("change", renderPaPmList);
+  document.getElementById("paPmLevelMinInput").addEventListener("input", renderPaPmList);
+  document.getElementById("paPmLevelMaxInput").addEventListener("input", renderPaPmList);
+  document.getElementById("paPmAddStatFilterBtn").addEventListener("click", addPaPmStatFilter);
+  document.getElementById("paPmNoPanoFilterBtn").addEventListener("click", (ev) => {
+    paPmNoPanoFilterActive = !paPmNoPanoFilterActive;
+    ev.target.classList.toggle("active", paPmNoPanoFilterActive);
+    renderPaPmList();
+  });
+  document.getElementById("paPmWithPanoFilterBtn").addEventListener("click", (ev) => {
+    paPmWithPanoFilterActive = !paPmWithPanoFilterActive;
+    ev.target.classList.toggle("active", paPmWithPanoFilterActive);
+    renderPaPmList();
+  });
   document.addEventListener("keydown", (ev) => {
     if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); }
   });
@@ -3008,12 +3023,18 @@ function closeWeaponDamageModal() {
 
 // ---------- Item PA-PM ----------
 
+// Montures/familiers/dofus/trophées excluded per user request - "monture"/"familier" both
+// carry raw slot "dragodinde"/"familier" (see dataSlotForItem's grouping), "dofus" slot
+// covers both regular dofus and trophées (distinguished only by typeId elsewhere).
+const PA_PM_EXCLUDED_SLOTS = new Set(["familier", "dragodinde", "dofus"]);
+
 function isPaFilterItem(item) {
-  if (item.slot === "amulette") return false;
+  if (item.slot === "amulette" || PA_PM_EXCLUDED_SLOTS.has(item.slot)) return false;
   return (item.effects || []).some(e => stripSign(e.label) === "PA" && getEffectComparableValue(e) > 0);
 }
 
 function isPmFilterItem(item) {
+  if (PA_PM_EXCLUDED_SLOTS.has(item.slot)) return false;
   // Special case per user request: Bottes Dogues (+2 PM) is the one boot allowed in the
   // PM list even though it fails both the "not bottes" and "exactly +1" rules below.
   if (item.name === "Bottes Dogues") return true;
@@ -3029,24 +3050,121 @@ function closePaPmPicker() {
   document.getElementById("paPmPickerModalOverlay").classList.add("hidden");
 }
 
+/** Same filter set as the main item browser, kept in its own state so opening this panel never disturbs the main browser's filters. */
+let paPmActiveKind = "pa";
+let paPmNoPanoFilterActive = false;
+let paPmWithPanoFilterActive = false;
+let paPmActiveStatFilters = [];
+
+function populatePaPmStatFilterSelect() {
+  const select = document.getElementById("paPmStatFilterSelect");
+  const options = sortStatEntries(EFFECT_LABELS.filter(l => !isWeaponEffect(l)).map(l => [l])).map(([l]) => l);
+  select.innerHTML = options.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
+}
+
+function addPaPmStatFilter() {
+  const stat = document.getElementById("paPmStatFilterSelect").value;
+  const minValue = parseInt(document.getElementById("paPmStatFilterValue").value, 10) || 0;
+  if (!stat) return;
+  const existingIdx = paPmActiveStatFilters.findIndex(f => f.stat === stat);
+  if (existingIdx >= 0) paPmActiveStatFilters[existingIdx].minValue = minValue;
+  else paPmActiveStatFilters.push({ stat, minValue });
+  renderPaPmActiveStatFilters();
+  renderPaPmList();
+}
+
+function removePaPmStatFilter(stat) {
+  paPmActiveStatFilters = paPmActiveStatFilters.filter(f => f.stat !== stat);
+  renderPaPmActiveStatFilters();
+  renderPaPmList();
+}
+
+function renderPaPmActiveStatFilters() {
+  const container = document.getElementById("paPmActiveStatFilters");
+  container.innerHTML = "";
+  for (const f of paPmActiveStatFilters) {
+    const chip = document.createElement("span");
+    chip.className = "stat-filter-chip";
+    const label = document.createElement("span");
+    label.textContent = `${f.stat} ≥ `;
+    chip.appendChild(label);
+    const valueInput = document.createElement("input");
+    valueInput.type = "number";
+    valueInput.className = "stat-filter-chip-value";
+    valueInput.value = f.minValue;
+    valueInput.addEventListener("input", () => {
+      const v = parseInt(valueInput.value, 10);
+      f.minValue = isNaN(v) ? 0 : v;
+      renderPaPmList();
+    });
+    chip.appendChild(valueInput);
+    const rm = document.createElement("button");
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.title = "Retirer ce filtre";
+    rm.addEventListener("click", () => removePaPmStatFilter(f.stat));
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  }
+}
+
+function itemMatchesPaPmStatFilters(item) {
+  if (paPmActiveStatFilters.length === 0) return true;
+  return paPmActiveStatFilters.every(({ stat, minValue }) =>
+    (item.effects || []).some(eff => stripSign(eff.label) === stat && getEffectComparableValue(eff) >= minValue)
+  );
+}
+
 function openPaPmList(kind) {
   closePaPmPicker();
-  const items = ITEMS.filter(kind === "pa" ? isPaFilterItem : isPmFilterItem).sort((a, b) => b.level - a.level);
+  paPmActiveKind = kind;
   document.getElementById("paPmListModalTitle").textContent = kind === "pa" ? "Items PA" : "Items PM";
+  document.getElementById("paPmSearchInput").value = "";
+  document.getElementById("paPmLevelMinInput").value = "";
+  document.getElementById("paPmLevelMaxInput").value = "";
+  document.getElementById("paPmSortSelect").value = "level-desc";
+  paPmNoPanoFilterActive = false;
+  paPmWithPanoFilterActive = false;
+  paPmActiveStatFilters = [];
+  document.getElementById("paPmNoPanoFilterBtn").classList.remove("active");
+  document.getElementById("paPmWithPanoFilterBtn").classList.remove("active");
+  populatePaPmStatFilterSelect();
+  renderPaPmActiveStatFilters();
+  renderPaPmList();
+  document.getElementById("paPmListModalOverlay").classList.remove("hidden");
+}
+
+function renderPaPmList() {
+  const search = document.getElementById("paPmSearchInput").value.trim().toLowerCase();
+  const sort = document.getElementById("paPmSortSelect").value;
+  const levelMin = parseInt(document.getElementById("paPmLevelMinInput").value, 10);
+  const levelMax = parseInt(document.getElementById("paPmLevelMaxInput").value, 10);
+
+  let items = ITEMS.filter(paPmActiveKind === "pa" ? isPaFilterItem : isPmFilterItem);
+  if (search) items = items.filter(i => i.name.toLowerCase().includes(search));
+  if (!isNaN(levelMin)) items = items.filter(i => i.level >= levelMin);
+  if (!isNaN(levelMax)) items = items.filter(i => i.level <= levelMax);
+  if (paPmNoPanoFilterActive) items = items.filter(i => !i.itemSetId || i.itemSetId <= 0);
+  if (paPmWithPanoFilterActive) items = items.filter(i => i.itemSetId && i.itemSetId > 0);
+  items = items.filter(itemMatchesPaPmStatFilters);
+
+  if (sort === "level-asc") items.sort((a, b) => a.level - b.level);
+  else if (sort === "level-desc") items.sort((a, b) => b.level - a.level);
+  else items.sort((a, b) => a.name.localeCompare(b.name));
+
   const body = document.getElementById("paPmListModalBody");
   body.innerHTML = "";
   if (items.length === 0) {
     body.innerHTML = '<div class="stat-empty">Aucun objet trouvé.</div>';
-  } else {
-    const charLevel = getCharLevel();
-    const frag = document.createDocumentFragment();
-    for (const item of items) {
-      const equippedItem = equipped[UI_SLOTS.find(s => s.dataSlot === item.slot)?.id];
-      frag.appendChild(renderItemCard(item, equippedItem && equippedItem.id === item.id, charLevel));
-    }
-    body.appendChild(frag);
+    return;
   }
-  document.getElementById("paPmListModalOverlay").classList.remove("hidden");
+  const charLevel = getCharLevel();
+  const frag = document.createDocumentFragment();
+  for (const item of items) {
+    const equippedItem = equipped[UI_SLOTS.find(s => s.dataSlot === item.slot)?.id];
+    frag.appendChild(renderItemCard(item, equippedItem && equippedItem.id === item.id, charLevel));
+  }
+  body.appendChild(frag);
 }
 
 function closePaPmList() {
