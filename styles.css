@@ -1190,6 +1190,8 @@ button:hover { border-color: var(--accent); }
 .damage-two-col-col h4 { margin: 0 0 2px; font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; }
 .damage-two-col-line { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
 .damage-two-col-line.critical { color: var(--accent); }
+.damage-kind-label { font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+.damage-regain-note { font-size: 12px; font-weight: 400; color: var(--text-dim); }
 
 .spell-card-params {
   display: grid;

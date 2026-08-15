@@ -1506,9 +1506,12 @@ function damageRollLines(effects, criticalEffects) {
     for (const e of list || []) {
       if (!isWeaponEffect(e.label)) continue;
       const element = elements.find(el => e.label.includes(el));
-      if (!element) continue; // e.g. "(PV rendus)", "(Retrait PA)" - not a damage roll
-      const kind = e.label.includes("vol") ? "vol" : "dommages";
-      out.push({ effect: e, element, kind });
+      let kind;
+      if (e.label.includes("vol")) kind = "vol";
+      else if (e.label.includes("PV rendus")) kind = "regen"; // flat HP return, not tied to an element
+      else kind = "dommages";
+      if (!element && kind !== "regen") continue; // e.g. "(Retrait PA)" - not a damage/regen roll
+      out.push({ effect: e, element: element || null, kind });
     }
     return out;
   }
@@ -1541,15 +1544,15 @@ function computeWeaponDamageSimulation(weapon) {
   const lines = damageRollLines(weapon.effects, null).map(({ effect, element, kind, critElement, critKind }) => {
     // Weapons have no separate CriticalEffectsBin (that's a spell-only mechanic): their
     // own criticalHitBonus is a bonus to the BASE dice roll on a critical hit (both min
-    // and max), which then goes through the exact same formula as the normal roll.
-    const critEffect = bonus ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
-    return {
-      element, kind, critElement, critKind,
-      base: { min: effect.min, max: effect.max },
-      baseCritical: { min: critEffect.min, max: critEffect.max },
-      normal: simulateDamageLine(effect, element, combined, false, opts),
-      critical: simulateDamageLine(critEffect, critElement, combined, true, opts),
-    };
+    // and max), which then goes through the exact same formula as the normal roll. Does
+    // not apply to "PV rendus" (flat HP return isn't a weapon damage roll).
+    const critEffect = (bonus && kind !== "regen") ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
+    const base = { min: effect.min, max: effect.max };
+    const baseCritical = { min: critEffect.min, max: critEffect.max };
+    // "PV rendus" is a flat HP return, not a stat-scaled damage roll - show it as-is.
+    const normal = kind === "regen" ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = kind === "regen" ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
   return { critRate, lines };
 }
@@ -1560,21 +1563,36 @@ function computeSpellGradeDamageSimulation(grade) {
   const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = grade.minRange <= 1 && grade.range <= 1;
   const opts = { isMelee, isWeaponAttack: false };
-  const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind, critElement, critKind }) => ({
-    element, kind, critElement, critKind,
-    base: { min: effect.min, max: effect.max },
-    baseCritical: { min: critEffect.min, max: critEffect.max },
-    normal: simulateDamageLine(effect, element, combined, false, opts),
-    critical: simulateDamageLine(critEffect, critElement, combined, true, opts),
-  }));
+  const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind, critElement, critKind }) => {
+    const base = { min: effect.min, max: effect.max };
+    const baseCritical = { min: critEffect.min, max: critEffect.max };
+    // "PV rendus" is a flat HP return, not a stat-scaled damage roll - show it as-is.
+    const normal = kind === "regen" ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = kind === "regen" ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
+  });
   return { critRate, lines };
 }
 
 function damageLineHtml(line, key) {
   const isCrit = key.includes("ritical");
-  const icon = effectLineIcon(`(${isCrit ? line.critKind : line.kind} ${isCrit ? line.critElement : line.element})`);
+  const kind = isCrit ? line.critKind : line.kind;
+  const srcEffect = isCrit ? line.critEffect : line.effect;
+  const icon = effectLineIcon(srcEffect.label);
   const v = line[key];
-  return `<span class="damage-two-col-line${isCrit ? " critical" : ""}">${icon ? `<span class="stat-icon">${icon}</span>` : ""}${v.min} à ${v.max}</span>`;
+  const kindLabel = kind === "vol" ? '<span class="damage-kind-label">Vol</span>' : "";
+  let valueText = `${v.min} à ${v.max}`;
+  let regainNote = "";
+  if (kind === "regen") {
+    // "PV rendus" is itself the amount of HP given back - show it as a gain.
+    valueText = `+${v.min} à +${v.max}`;
+  } else if (kind === "vol") {
+    // Vol de vie: the caster only actually regains half of the damage dealt on this line.
+    const halfMin = Math.floor(v.min / 2);
+    const halfMax = Math.floor(v.max / 2);
+    regainNote = ` <span class="damage-regain-note">(❤️ ${halfMin} à ${halfMax})</span>`;
+  }
+  return `<span class="damage-two-col-line${isCrit ? " critical" : ""}">${kindLabel}${icon ? `<span class="stat-icon">${icon}</span>` : ""}${valueText}${regainNote}</span>`;
 }
 
 /**
