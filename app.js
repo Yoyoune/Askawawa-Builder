@@ -3040,7 +3040,7 @@ function openWeaponDamageModal() {
       ${paramsItems.join("")}
     </div>
     <hr class="spell-card-hr">
-    <div class="spell-card-effects">${effectsGridHtml(weapon.effects, { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
+    <div class="spell-card-effects">${effectsGridHtml((weapon.effects || []).filter(e => e.effectId !== 5), { specialSpellName: weapon.specialSpellName, specialSpellDescription: weapon.specialSpellDescription })}</div>
   `;
   wireDamageToggle(card);
   card.querySelectorAll(".mastery-toggle-btn").forEach(btn => {
@@ -3268,7 +3268,9 @@ function renderSpellVariantCard(spell, level) {
   }
 
   const sim = computeSpellGradeDamageSimulation(grade);
-  const nonDamageEffects = (grade.effects || []).filter(e => !isWeaponEffect(e.label));
+  // "Repousse de X case(s)" is already represented as the computed "Dommages Poussée"
+  // damage-panel line (see pushDamageLine) - showing the raw effect too would be redundant.
+  const nonDamageEffects = (grade.effects || []).filter(e => !isWeaponEffect(e.label) && e.effectId !== 5);
 
   const paramsItems = [
     paramIconItem("PA", `${grade.apCost} PA`),
