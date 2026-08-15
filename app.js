@@ -1613,10 +1613,11 @@ function damageRollLines(effects, criticalEffects) {
  * The planner has no selected enemy, so target's PushDamageReduction is treated as 0
  * (matches how every other damage line here already skips target resistances), and
  * targets=0 (2^0=1, no AoE-multi-target divisor) for a single-target preview. Synthesized
- * as an extra damage-panel line when a Repousse effect is present; only meaningful with
- * real stats, so "Base" mode shows 0 (there's no "raw spell value" for this - it's 100%
- * derived from the caster's own level+gear) while "Réel" shows the computed amount. Not
- * affected by the spell's own critical roll (a push/collision isn't a crit-able hit).
+ * as an extra damage-panel line when a Repousse effect is present. The formula's
+ * (level/2 + 32) part is NOT a gear bonus - it applies even with 0 Dommages Poussée - so
+ * "Base" mode computes with pushDamageBonus forced to 0 (level/range still apply) rather
+ * than showing a flat 0; "Réel" plugs in the build's actual stat. Not affected by the
+ * spell's own critical roll (a push/collision isn't a crit-able hit).
  */
 function pushDamageLine(effects, combinedStats, level) {
   const repousse = (effects || []).find(e => e.effectId === 5);
@@ -1627,16 +1628,18 @@ function pushDamageLine(effects, combinedStats, level) {
   const range = repousse.max || repousse.value || 0;
   const pushDamageBonus = combinedStats.get("Dommages Poussée") || 0;
   const lvl = Math.min(level || 0, 200);
-  const amount = Math.max(0, Math.floor((lvl / 2 + pushDamageBonus + 32) * range / 4));
-  const fake = { effectId: 414, label: "Dommages Poussée", min: amount, max: amount };
-  const zero = { min: 0, max: 0 };
-  const val = { min: amount, max: amount };
+  const compute = (bonus) => Math.max(0, Math.floor((lvl / 2 + bonus + 32) * range / 4));
+  const baseAmount = compute(0);
+  const realAmount = compute(pushDamageBonus);
+  const fake = { effectId: 414, label: "Dommages Poussée", min: realAmount, max: realAmount };
+  const baseVal = { min: baseAmount, max: baseAmount };
+  const val = { min: realAmount, max: realAmount };
   // "poussee_calc", not "poussee": this is real inflicted damage (counts toward Total),
   // unlike a spell's own literal flat "Dommages Poussée" effect (a stat buff/grant, e.g.
   // "Trèfle" - not damage this spell itself deals, so kept out of the total).
   return {
     effect: fake, critEffect: fake, element: null, kind: "poussee_calc", critElement: null, critKind: "poussee_calc",
-    base: zero, baseCritical: zero, normal: val, critical: val,
+    base: baseVal, baseCritical: baseVal, normal: val, critical: val,
   };
 }
 
