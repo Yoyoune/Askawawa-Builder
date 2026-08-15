@@ -903,6 +903,8 @@ button:hover { border-color: var(--accent); }
   cursor: pointer;
 }
 .set-card-equip-all:hover { background: #e0bc63; }
+.set-modal-actions-row { display: flex; gap: 8px; }
+.set-modal-actions-row .set-card-equip-all { flex: 1; width: auto; }
 
 /* ---- Item detail / roll+forgemagie editor ---- */
 .detail-content {

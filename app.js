@@ -170,7 +170,7 @@ const SET_FILTER_DEFS = [
   { key: "agilite", label: "Pano Agilité", kind: "item", stat: "Agilité" },
   { key: "dopou", label: "DoPou", kind: "item", stat: "Dommages Poussée" },
   { key: "docri", label: "DoCri", kind: "item", stat: "Dommages Critiques" },
-  { key: "autre", label: "Autre pano", kind: "other" },
+  { key: "multi", label: "Pano Multi", kind: "computed" },
 ];
 
 // Which equipment slots a panoplie must contain at least one piece of (dofus/familier
@@ -199,6 +199,8 @@ let EFFECT_LABELS = [];
 let activeSetFilters = new Set();
 /** [{ stat, minValue }] */
 let activeStatFilters = [];
+let itemNoPanoFilterActive = false;
+let itemWithPanoFilterActive = false;
 
 /** uiSlotId -> item object (or undefined) */
 let equipped = {};
@@ -283,6 +285,16 @@ async function main() {
     if (ev.target.id === "categoryPickerOverlay") closeCategoryPicker();
   });
   document.getElementById("addStatFilterBtn").addEventListener("click", addStatFilter);
+  document.getElementById("itemNoPanoFilterBtn").addEventListener("click", (ev) => {
+    itemNoPanoFilterActive = !itemNoPanoFilterActive;
+    ev.target.classList.toggle("active", itemNoPanoFilterActive);
+    renderItemList();
+  });
+  document.getElementById("itemWithPanoFilterBtn").addEventListener("click", (ev) => {
+    itemWithPanoFilterActive = !itemWithPanoFilterActive;
+    ev.target.classList.toggle("active", itemWithPanoFilterActive);
+    renderItemList();
+  });
   document.querySelectorAll(".collapsible-header").forEach(header => {
     header.addEventListener("click", () => header.closest(".collapsible-section").classList.toggle("collapsed"));
   });
@@ -326,8 +338,19 @@ async function main() {
   document.getElementById("classSpellsModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "classSpellsModalOverlay") closeClassSpells();
   });
+  document.getElementById("paPmBtn").addEventListener("click", openPaPmPicker);
+  document.getElementById("paPmPickerModalClose").addEventListener("click", closePaPmPicker);
+  document.getElementById("paPmPickerModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "paPmPickerModalOverlay") closePaPmPicker();
+  });
+  document.getElementById("paPmPaBtn").addEventListener("click", () => openPaPmList("pa"));
+  document.getElementById("paPmPmBtn").addEventListener("click", () => openPaPmList("pm"));
+  document.getElementById("paPmListModalClose").addEventListener("click", closePaPmList);
+  document.getElementById("paPmListModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "paPmListModalOverlay") closePaPmList();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -926,6 +949,8 @@ function renderItemList() {
   if (!isNaN(levelMin)) list = list.filter(i => i.level >= levelMin);
   if (!isNaN(levelMax)) list = list.filter(i => i.level <= levelMax);
   list = list.filter(itemMatchesStatFilters);
+  if (itemNoPanoFilterActive) list = list.filter(i => !i.itemSetId || i.itemSetId <= 0);
+  if (itemWithPanoFilterActive) list = list.filter(i => i.itemSetId && i.itemSetId > 0);
 
   if (sort === "level-asc") list.sort((a, b) => a.level - b.level);
   else if (sort === "level-desc") list.sort((a, b) => b.level - a.level);
@@ -1526,17 +1551,21 @@ function damageRollLines(effects, criticalEffects) {
   function parse(list) {
     const out = [];
     for (const e of list || []) {
-      if (!isWeaponEffect(e.label)) continue;
+      // "Dommages Poussée" is a flat, non-parenthesized stat effect (Category != 2), not
+      // a "(dommages X)"-style roll - bypasses the bracketed-effect gate specifically.
+      const isPoussee = e.label === "Dommages Poussée";
+      if (!isWeaponEffect(e.label) && !isPoussee) continue;
       let element = elements.find(el => e.label.includes(el));
       let kind;
-      if (e.label.includes("vol")) kind = "vol";
+      if (isPoussee) kind = "poussee";
+      else if (e.label.includes("vol")) kind = "vol";
       else if (e.label.includes("PV rendus")) kind = "regen"; // flat HP return, not tied to an element
       else kind = "dommages";
       // Effect_DamageBestElement (id 2822, plain "(dommages)" label, no fixed element) -
       // e.g. Flamiche/Foudroiement/Marteau de Moon - resolved to a concrete element from
       // the current build's stats at simulation time (see findBestElement).
       if (!element && e.effectId === 2822) element = "Meilleur";
-      if (!element && kind !== "regen") continue; // e.g. "(Retrait PA)" - not a damage/regen roll
+      if (!element && kind !== "regen" && kind !== "poussee") continue; // e.g. "(Retrait PA)" - not a damage/regen/poussée roll
       out.push({ effect: e, element: element || null, kind });
     }
     return out;
@@ -1577,9 +1606,10 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
     const critEffect = (bonus && kind !== "regen") ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
     const base = { min: effect.min, max: effect.max };
     const baseCritical = { min: critEffect.min, max: critEffect.max };
-    // "PV rendus" is a flat HP return, not a stat-scaled damage roll - show it as-is.
-    const normal = kind === "regen" ? base : simulateDamageLine(effect, element, combined, false, opts);
-    const critical = kind === "regen" ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    // "PV rendus"/"Dommages Poussée" are flat effects, not a stat-scaled damage roll - show as-is.
+    const flat = kind === "regen" || kind === "poussee";
+    const normal = flat ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
   return { critRate, lines };
@@ -1594,9 +1624,10 @@ function computeSpellGradeDamageSimulation(grade) {
   const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind, critElement, critKind }) => {
     const base = { min: effect.min, max: effect.max };
     const baseCritical = { min: critEffect.min, max: critEffect.max };
-    // "PV rendus" is a flat HP return, not a stat-scaled damage roll - show it as-is.
-    const normal = kind === "regen" ? base : simulateDamageLine(effect, element, combined, false, opts);
-    const critical = kind === "regen" ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    // "PV rendus"/"Dommages Poussée" are flat effects, not a stat-scaled damage roll - show as-is.
+    const flat = kind === "regen" || kind === "poussee";
+    const normal = flat ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
   return { critRate, lines };
@@ -1613,8 +1644,8 @@ function damageLineHtml(line, key) {
   const kindLabel = `<span class="damage-kind-label">${kind === "vol" ? "Vol" : ""}</span>`;
   let valueText = `${v.min} à ${v.max}`;
   let regainNote = "";
-  if (kind === "regen") {
-    // "PV rendus" is itself the amount of HP given back - show it as a gain.
+  if (kind === "regen" || kind === "poussee") {
+    // "PV rendus"/"Dommages Poussée" are themselves the gain/bonus amount - show as a "+".
     valueText = `+${v.min} à +${v.max}`;
   } else if (kind === "vol") {
     // Vol de vie: the caster only actually regains half of the damage dealt on this line.
@@ -1657,8 +1688,8 @@ function damageTotalHtml(sim, mode) {
   const key2 = mode === "base" ? "baseCritical" : "critical";
   let min1 = 0, max1 = 0, min2 = 0, max2 = 0;
   for (const l of sim.lines) {
-    if (l.kind !== "regen") { min1 += l[key1].min; max1 += l[key1].max; }
-    if (l.critKind !== "regen") { min2 += l[key2].min; max2 += l[key2].max; }
+    if (l.kind !== "regen" && l.kind !== "poussee") { min1 += l[key1].min; max1 += l[key1].max; }
+    if (l.critKind !== "regen" && l.critKind !== "poussee") { min2 += l[key2].min; max2 += l[key2].max; }
   }
   return `<div class="damage-two-col damage-total-row">
     <div class="damage-two-col-col"><h4>Total</h4><span class="damage-two-col-line">${min1} à ${max1}</span></div>
@@ -1859,6 +1890,9 @@ function openSetPreview(setId) {
   });
   body.appendChild(bonusSection);
 
+  const actionsRow = document.createElement("div");
+  actionsRow.className = "set-modal-actions-row";
+
   const equipAllBtn = document.createElement("button");
   equipAllBtn.type = "button";
   equipAllBtn.className = "set-card-equip-all";
@@ -1867,7 +1901,16 @@ function openSetPreview(setId) {
     equipEntireSet(setId);
     openSetPreview(setId);
   });
-  body.appendChild(equipAllBtn);
+  actionsRow.appendChild(equipAllBtn);
+
+  const compatBtn = document.createElement("button");
+  compatBtn.type = "button";
+  compatBtn.className = "set-card-equip-all";
+  compatBtn.textContent = "Panoplies compatibles";
+  compatBtn.addEventListener("click", () => openCompatibleSetsModal(setId));
+  actionsRow.appendChild(compatBtn);
+
+  body.appendChild(actionsRow);
 
   document.getElementById("setModalOverlay").classList.remove("hidden");
 }
@@ -1878,15 +1921,31 @@ function closeSetPreview() {
 
 // ---------- Sets browser ----------
 
+// "Pano Multi": a set where at least one SINGLE item (not the set's stats pooled
+// together) matches one of three "generalist" patterns - a pure-Puissance item (no
+// characteristic at all), an item granting all 4 characteristics, or an item granting
+// all 4 elemental damages. Checked per-item, unlike the other flags below (which are a
+// union across the whole set) because the point is "does one piece do this by itself".
+function itemMatchesMultiPattern(item) {
+  const labels = new Set((item.effects || []).map(eff => stripSign(eff.label)));
+  const hasAnyCharacteristic = labels.has("Force") || labels.has("Chance") || labels.has("Intelligence") || labels.has("Agilité");
+  if (labels.has("Puissance") && !hasAnyCharacteristic) return true;
+  if (labels.has("Force") && labels.has("Chance") && labels.has("Intelligence") && labels.has("Agilité")) return true;
+  if (labels.has("Dommages Terre") && labels.has("Dommages Eau") && labels.has("Dommages Feu") && labels.has("Dommages Air")) return true;
+  return false;
+}
+
 function computeSetFlags(set) {
   const bonusLabels = new Set();
   for (const tier of set.bonuses || []) for (const eff of tier) bonusLabels.add(stripSign(eff.label));
 
   const itemLabels = new Set();
+  let multi = false;
   for (const itemId of set.itemIds) {
     const item = ITEMS_BY_ID.get(itemId);
     if (!item) continue;
     for (const eff of item.effects || []) itemLabels.add(stripSign(eff.label));
+    if (itemMatchesMultiPattern(item)) multi = true;
   }
 
   const force = itemLabels.has("Force");
@@ -1903,7 +1962,7 @@ function computeSetFlags(set) {
     agilite,
     dopou: itemLabels.has("Dommages Poussée"),
     docri: itemLabels.has("Dommages Critiques"),
-    autre: !force && !intelligence && !chance && !agilite,
+    multi,
   };
 }
 
@@ -2924,6 +2983,53 @@ function openWeaponDamageModal() {
 
 function closeWeaponDamageModal() {
   document.getElementById("weaponDamageModalOverlay").classList.add("hidden");
+}
+
+// ---------- Item PA-PM ----------
+
+function isPaFilterItem(item) {
+  if (item.slot === "amulette") return false;
+  return (item.effects || []).some(e => stripSign(e.label) === "PA" && getEffectComparableValue(e) > 0);
+}
+
+function isPmFilterItem(item) {
+  // Special case per user request: Bottes Dogues (+2 PM) is the one boot allowed in the
+  // PM list even though it fails both the "not bottes" and "exactly +1" rules below.
+  if (item.name === "Bottes Dogues") return true;
+  if (item.slot === "bottes") return false;
+  return (item.effects || []).some(e => stripSign(e.label) === "PM" && getEffectComparableValue(e) === 1);
+}
+
+function openPaPmPicker() {
+  document.getElementById("paPmPickerModalOverlay").classList.remove("hidden");
+}
+
+function closePaPmPicker() {
+  document.getElementById("paPmPickerModalOverlay").classList.add("hidden");
+}
+
+function openPaPmList(kind) {
+  closePaPmPicker();
+  const items = ITEMS.filter(kind === "pa" ? isPaFilterItem : isPmFilterItem).sort((a, b) => b.level - a.level);
+  document.getElementById("paPmListModalTitle").textContent = kind === "pa" ? "Items PA" : "Items PM";
+  const body = document.getElementById("paPmListModalBody");
+  body.innerHTML = "";
+  if (items.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Aucun objet trouvé.</div>';
+  } else {
+    const charLevel = getCharLevel();
+    const frag = document.createDocumentFragment();
+    for (const item of items) {
+      const equippedItem = equipped[UI_SLOTS.find(s => s.dataSlot === item.slot)?.id];
+      frag.appendChild(renderItemCard(item, equippedItem && equippedItem.id === item.id, charLevel));
+    }
+    body.appendChild(frag);
+  }
+  document.getElementById("paPmListModalOverlay").classList.remove("hidden");
+}
+
+function closePaPmList() {
+  document.getElementById("paPmListModalOverlay").classList.add("hidden");
 }
 
 // ---------- Classe / sorts ----------
