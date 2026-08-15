@@ -993,7 +993,7 @@ function renderItemCard(item, isEquipped, charLevel) {
       // On this server criticalHitProbability is a direct percentage, not a "1 in N"
       // denominator (confirmed against the real in-game tooltip: "Critique 20%").
       let crit = `Critique ${item.criticalHitProbability}%`;
-      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages)`;
+      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
       bits.push(crit);
     }
     w.textContent = bits.join(" · ");
@@ -1149,13 +1149,13 @@ function renderDetail(uiSlotId) {
 
       const input = document.createElement("input");
       input.type = "number";
-      input.min = effect.min;
-      input.max = effect.max;
       input.value = defaultVal;
       input.addEventListener("change", () => {
+        // No min/max clamp: the theoretical roll bounds are shown as a hint next to the
+        // label, but the user must be free to test any value (e.g. hypothetical/future
+        // gear, or checking a stat past its normal cap), not just the item's real range.
         let v = parseInt(input.value, 10);
         if (isNaN(v)) v = defaultVal;
-        v = Math.min(effect.max, Math.max(effect.min, v));
         input.value = v;
         if (!rollOverrides[uiSlotId]) rollOverrides[uiSlotId] = {};
         rollOverrides[uiSlotId][idx] = v;
@@ -1454,8 +1454,9 @@ const DAMAGE_ELEMENT_PHYSMAGIC = { "Terre": "Dommages physiques", "Neutre": "Dom
 /**
  * Generic version of the formula, shared by weapon strikes and spell casts - only the
  * "done damage %" branch differs (weapon vs spell) and whether melee/ranged applies.
- * opts: { isMelee, isWeaponAttack, critFlatBonus (weapon's own criticalHitBonus, added
- * after the whole formula only on the critical roll - spells don't have this). }
+ * A weapon's own criticalHitBonus is NOT handled here: it's a bonus to the BASE dice
+ * roll (added to effect.min/max before this function ever sees them - see
+ * computeWeaponDamageSimulation), not a flat amount tacked on after the formula.
  */
 function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
   const stat = combinedStats.get(DAMAGE_ELEMENT_CHARACTERISTIC[element]) || 0;
@@ -1478,9 +1479,7 @@ function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
       + (flatBonus + critFlatBonusStat + physMagicBonus + eltBonus)) * (100 + mult) / 100;
     if (doneDamagePercent) amount *= (1 + doneDamagePercent / 100);
     if (meleeOrRangedDonePercent) amount *= (1 + meleeOrRangedDonePercent / 100);
-    let result = Math.max(0, Math.floor(amount));
-    if (isCritical && opts.critFlatBonus) result += opts.critFlatBonus;
-    return result;
+    return Math.max(0, Math.floor(amount));
   }
 
   return { min: apply(effect.min), max: apply(effect.max) };
@@ -1521,14 +1520,21 @@ function computeWeaponDamageSimulation(weapon) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (weapon.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = weapon.minRange <= 1 && weapon.weaponRange <= 1;
-  const opts = { isMelee, isWeaponAttack: true, critFlatBonus: weapon.criticalHitBonus || 0 };
-  const lines = damageRollLines(weapon.effects, null).map(({ effect, critEffect, element, kind }) => ({
-    element, kind,
-    base: { min: effect.min, max: effect.max },
-    baseCritical: { min: critEffect.min, max: critEffect.max },
-    normal: simulateDamageLine(effect, element, combined, false, opts),
-    critical: simulateDamageLine(critEffect, element, combined, true, opts),
-  }));
+  const opts = { isMelee, isWeaponAttack: true };
+  const bonus = weapon.criticalHitBonus || 0;
+  const lines = damageRollLines(weapon.effects, null).map(({ effect, element, kind }) => {
+    // Weapons have no separate CriticalEffectsBin (that's a spell-only mechanic): their
+    // own criticalHitBonus is a bonus to the BASE dice roll on a critical hit (both min
+    // and max), which then goes through the exact same formula as the normal roll.
+    const critEffect = bonus ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
+    return {
+      element, kind,
+      base: { min: effect.min, max: effect.max },
+      baseCritical: { min: critEffect.min, max: critEffect.max },
+      normal: simulateDamageLine(effect, element, combined, false, opts),
+      critical: simulateDamageLine(critEffect, element, combined, true, opts),
+    };
+  });
   return { critRate, lines };
 }
 
@@ -1537,7 +1543,7 @@ function computeSpellGradeDamageSimulation(grade) {
   const combined = computeCombinedStats(equipped, rollOverrides, forgemagie, parchotage, getCharLevel(), characteristicPoints);
   const critRate = Math.min(100, Math.max(0, (grade.criticalHitProbability || 0) + (combined.get("% Critique") || 0)));
   const isMelee = grade.minRange <= 1 && grade.range <= 1;
-  const opts = { isMelee, isWeaponAttack: false, critFlatBonus: 0 };
+  const opts = { isMelee, isWeaponAttack: false };
   const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind }) => ({
     element, kind,
     base: { min: effect.min, max: effect.max },
@@ -2790,7 +2796,7 @@ function openWeaponDamageModal() {
     paramsItems.push(paramIconItem("Portée", rangeText));
   }
   let critText = `Critique ${sim.critRate}%`;
-  if (weapon.criticalHitBonus) critText += ` (+${weapon.criticalHitBonus} Dommages)`;
+  if (weapon.criticalHitBonus) critText += ` (+${weapon.criticalHitBonus} Dommages de base)`;
   paramsItems.push(paramIconItem("% Critique", critText));
   if (weapon.maxCastPerTurn) paramsItems.push(plainParamItem(`${weapon.maxCastPerTurn} utilisation${weapon.maxCastPerTurn > 1 ? "s" : ""} par tour`));
 
