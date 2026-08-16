@@ -1,7 +1,15 @@
+@font-face {
+  font-family: "Cinzel Decorative";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/CinzelDecorative-Bold.woff2") format("woff2");
+}
+
 :root {
   --bg: #1b1d24;
-  --panel: #24262f;
-  --panel-alt: #2c2f3a;
+  --panel: #24262f url("textures/slate.png") repeat;
+  --panel-alt: #2c2f3a url("textures/slate.png") repeat;
   --border: #3a3d4a;
   --text: #e8e9ee;
   --text-dim: #9a9dae;
@@ -28,6 +36,14 @@ body {
   background: var(--bg) url("background.png") center center / cover no-repeat fixed;
   color: var(--text);
 }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.18) 100%);
+}
 
 .topbar {
   display: flex;
@@ -43,6 +59,8 @@ body {
   margin: 0;
   color: var(--accent);
   letter-spacing: 0.5px;
+  font-family: "Cinzel Decorative", "Segoe UI", serif;
+  font-weight: 700;
 }
 
 .topbar-actions {
@@ -73,6 +91,7 @@ button {
   font-size: 13px;
 }
 button:hover { border-color: var(--accent); }
+.topbar-btn-icon { height: 18px; width: auto; vertical-align: -4px; margin-right: 2px; object-fit: contain; }
 
 .topbar-link-btn {
   background: var(--panel-alt);
@@ -113,6 +132,8 @@ button:hover { border-color: var(--accent); }
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent);
+  font-family: "Cinzel Decorative", "Segoe UI", serif;
+  font-weight: 700;
   margin: 0 0 10px 0;
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
@@ -200,6 +221,8 @@ button:hover { border-color: var(--accent); }
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent);
+  font-family: "Cinzel Decorative", "Segoe UI", serif;
+  font-weight: 700;
   margin: 0 0 10px 0;
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
@@ -253,6 +276,7 @@ button:hover { border-color: var(--accent); }
 
 .slot .icon.icon-fallback { font-size: 22px; line-height: 1; }
 .slot img.icon { width: 36px; height: 36px; object-fit: contain; image-rendering: pixelated; }
+.slot img.icon-placeholder { width: 60px; height: 60px; }
 .slot .label { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .slot .item-name {
   font-size: 10px;
@@ -366,7 +390,7 @@ button:hover { border-color: var(--accent); }
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
 }
-.browser-header h2 { margin: 0; font-size: 16px; color: var(--accent); display: flex; align-items: center; gap: 8px; }
+.browser-header h2 { margin: 0; font-size: 16px; color: var(--accent); font-family: "Cinzel Decorative", "Segoe UI", serif; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .detail-title-icon { width: 28px; height: 28px; object-fit: contain; image-rendering: pixelated; flex-shrink: 0; }
 .detail-title-icon.icon-fallback { font-size: 20px; }
 .browser-header button {
@@ -648,6 +672,8 @@ button:hover { border-color: var(--accent); }
   padding: 10px 12px;
   font-size: 13px;
   color: var(--accent);
+  font-family: "Cinzel Decorative", "Segoe UI", serif;
+  font-weight: 700;
   background: var(--panel-alt);
   border-bottom: 1px solid var(--border);
 }
@@ -1086,6 +1112,8 @@ button:hover { border-color: var(--accent); }
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent);
+  font-family: "Cinzel Decorative", "Segoe UI", serif;
+  font-weight: 700;
   margin: 0 0 10px 0;
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
