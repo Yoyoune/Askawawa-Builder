@@ -1,22 +1,29 @@
 "use strict";
 
+// Empty-slot placeholders are greyed-out versions of a real item's icon (see
+// tools/Builder/wwwroot/icons/slot-placeholders), not emoji - picked to be
+// visually representative of their slot: coiffe=Coiffe de la Reine des Voleurs,
+// cape=Cape des Justiciers, amulette=Amulette du Kam Assutra, anneau=Anneau
+// Aimgéroks, ceinture=Sangle Ouare, bottes=Bottes du Sinistrofu, arme=Épée
+// Maudite du Saigneur Guerrier, bouclier=Quatre-feuilles, familier=Bouloute,
+// dofus=Dofus Pourpre.
 const UI_SLOTS = [
-  { id: "coiffe", label: "Coiffe", dataSlot: "coiffe", icon: "🎩" },
-  { id: "cape", label: "Cape", dataSlot: "cape", icon: "🧣" },
-  { id: "amulette", label: "Amulette", dataSlot: "amulette", icon: "📿" },
-  { id: "arme", label: "Arme", dataSlot: "arme", icon: "⚔️" },
-  { id: "bouclier", label: "Bouclier", dataSlot: "bouclier", icon: "🛡️" },
-  { id: "anneau1", label: "Anneau", dataSlot: "anneau", icon: "💍" },
-  { id: "anneau2", label: "Anneau", dataSlot: "anneau", icon: "💍" },
-  { id: "ceinture", label: "Ceinture", dataSlot: "ceinture", icon: "⛓️" },
-  { id: "bottes", label: "Bottes", dataSlot: "bottes", icon: "🥾" },
-  { id: "familier", label: "Familier", dataSlot: "familier", icon: "🐾" },
-  { id: "dofus1", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
-  { id: "dofus2", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
-  { id: "dofus3", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
-  { id: "dofus4", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
-  { id: "dofus5", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
-  { id: "dofus6", label: "Dofus", dataSlot: "dofus", icon: "🔮", group: "dofus" },
+  { id: "coiffe", label: "Coiffe", dataSlot: "coiffe", icon: "icons/slot-placeholders/coiffe.png" },
+  { id: "cape", label: "Cape", dataSlot: "cape", icon: "icons/slot-placeholders/cape.png" },
+  { id: "amulette", label: "Amulette", dataSlot: "amulette", icon: "icons/slot-placeholders/amulette.png" },
+  { id: "arme", label: "Arme", dataSlot: "arme", icon: "icons/slot-placeholders/arme.png" },
+  { id: "bouclier", label: "Bouclier", dataSlot: "bouclier", icon: "icons/slot-placeholders/bouclier.png" },
+  { id: "anneau1", label: "Anneau", dataSlot: "anneau", icon: "icons/slot-placeholders/anneau.png" },
+  { id: "anneau2", label: "Anneau", dataSlot: "anneau", icon: "icons/slot-placeholders/anneau.png" },
+  { id: "ceinture", label: "Ceinture", dataSlot: "ceinture", icon: "icons/slot-placeholders/ceinture.png" },
+  { id: "bottes", label: "Bottes", dataSlot: "bottes", icon: "icons/slot-placeholders/bottes.png" },
+  { id: "familier", label: "Familier", dataSlot: "familier", icon: "icons/slot-placeholders/familier.png" },
+  { id: "dofus1", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
+  { id: "dofus2", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
+  { id: "dofus3", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
+  { id: "dofus4", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
+  { id: "dofus5", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
+  { id: "dofus6", label: "Dofus", dataSlot: "dofus", icon: "icons/slot-placeholders/dofus.png", group: "dofus" },
 ];
 
 // Server-specific base-stat formulas (Game/Actors/Stats/StatsFields.cs:227-247).
@@ -1815,9 +1822,16 @@ function escapeHtml(s) {
   return (s || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-/** Builds an <img> for the item's icon, falling back to an emoji glyph if the icon is missing or fails to load. */
+/** Builds an <img> for the item's icon, falling back to an emoji glyph (or a placeholder image path) if the icon is missing or fails to load. */
 function itemIconEl(item, fallbackGlyph, className) {
   if (!item || !item.iconId) {
+    if (typeof fallbackGlyph === "string" && fallbackGlyph.startsWith("icons/")) {
+      const img = document.createElement("img");
+      img.className = className + " icon-placeholder";
+      img.src = fallbackGlyph;
+      img.alt = "";
+      return img;
+    }
     const span = document.createElement("span");
     span.className = className + " icon-fallback";
     span.textContent = fallbackGlyph;
