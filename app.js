@@ -3094,6 +3094,35 @@ let paPmActiveKind = "pa";
 let paPmNoPanoFilterActive = false;
 let paPmWithPanoFilterActive = false;
 let paPmActiveStatFilters = [];
+/** Slot chips (OR logic: any selected slot matches, all shown when none selected) - no "Bouclier", per user request. */
+const PA_PM_SLOT_FILTER_DEFS = [
+  { key: "coiffe", label: "Coiffe" },
+  { key: "cape", label: "Cape" },
+  { key: "amulette", label: "Amulette" },
+  { key: "anneau", label: "Anneau" },
+  { key: "arme", label: "Arme" },
+  { key: "ceinture", label: "Ceinture" },
+  { key: "bottes", label: "Bottes" },
+];
+let paPmActiveSlotFilters = new Set();
+
+function renderPaPmSlotFilterChips() {
+  const row = document.getElementById("paPmSlotFilterRow");
+  row.innerHTML = "";
+  for (const def of PA_PM_SLOT_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (paPmActiveSlotFilters.has(def.key)) paPmActiveSlotFilters.delete(def.key);
+      else paPmActiveSlotFilters.add(def.key);
+      chip.classList.toggle("active", paPmActiveSlotFilters.has(def.key));
+      renderPaPmList();
+    });
+    row.appendChild(chip);
+  }
+}
 
 function populatePaPmStatFilterSelect() {
   const select = document.getElementById("paPmStatFilterSelect");
@@ -3165,10 +3194,12 @@ function openPaPmList(kind) {
   paPmNoPanoFilterActive = false;
   paPmWithPanoFilterActive = false;
   paPmActiveStatFilters = [];
+  paPmActiveSlotFilters = new Set();
   document.getElementById("paPmNoPanoFilterBtn").classList.remove("active");
   document.getElementById("paPmWithPanoFilterBtn").classList.remove("active");
   populatePaPmStatFilterSelect();
   renderPaPmActiveStatFilters();
+  renderPaPmSlotFilterChips();
   renderPaPmList();
   document.getElementById("paPmListModalOverlay").classList.remove("hidden");
 }
@@ -3185,6 +3216,7 @@ function renderPaPmList() {
   if (!isNaN(levelMax)) items = items.filter(i => i.level <= levelMax);
   if (paPmNoPanoFilterActive) items = items.filter(i => !i.itemSetId || i.itemSetId <= 0);
   if (paPmWithPanoFilterActive) items = items.filter(i => i.itemSetId && i.itemSetId > 0);
+  if (paPmActiveSlotFilters.size > 0) items = items.filter(i => paPmActiveSlotFilters.has(i.slot));
   items = items.filter(itemMatchesPaPmStatFilters);
 
   if (sort === "level-asc") items.sort((a, b) => a.level - b.level);
