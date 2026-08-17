@@ -162,6 +162,8 @@ function statIcon(label) {
 
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
+const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Bi-élément", "Multi", "DoPou", "Tank", "Sagesse", "PP"];
+
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
 
@@ -208,6 +210,7 @@ let activeSetFilters = new Set();
 let activeStatFilters = [];
 let itemNoPanoFilterActive = false;
 let itemWithPanoFilterActive = false;
+let activeBuildCategoryFilter = null;
 
 /** uiSlotId -> item object (or undefined) */
 let equipped = {};
@@ -272,6 +275,7 @@ async function main() {
   renderCharacteristicPointsGrid();
   renderBaseStats();
   renderStats();
+  renderBuildCategoryFilterChips();
   renderSavedBuildsList();
   renderSetsFilterChips();
   renderSetsSlotTypeFilterChips();
@@ -319,6 +323,12 @@ async function main() {
   document.getElementById("compatibleSetsClose").addEventListener("click", closeCompatibleSetsModal);
   document.getElementById("compatibleSetsModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "compatibleSetsModalOverlay") closeCompatibleSetsModal();
+  });
+  document.getElementById("buildCategoryModalClose").addEventListener("click", () => {
+    document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
+  });
+  document.getElementById("buildCategoryModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "buildCategoryModalOverlay") document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
   });
   document.getElementById("recipeModalClose").addEventListener("click", closeRecipeModal);
   document.getElementById("recipeModalOverlay").addEventListener("click", (ev) => {
@@ -537,6 +547,7 @@ function persistSavedBuilds() {
 // ---------- Mes builds ----------
 
 function saveCurrentAsBuild(name) {
+  const existingIdx = savedBuilds.findIndex(b => b.name === name);
   const snapshot = {
     name,
     charLevel: getCharLevel(),
@@ -545,14 +556,76 @@ function saveCurrentAsBuild(name) {
     forgemagie: JSON.parse(JSON.stringify(forgemagie)),
     parchotage: JSON.parse(JSON.stringify(parchotage)),
     characteristicPoints: JSON.parse(JSON.stringify(characteristicPoints)),
+    category: existingIdx >= 0 ? savedBuilds[existingIdx].category : null,
     savedAt: new Date().toISOString(),
   };
-  const existingIdx = savedBuilds.findIndex(b => b.name === name);
   if (existingIdx >= 0) savedBuilds[existingIdx] = snapshot;
   else savedBuilds.push(snapshot);
 
   persistSavedBuilds();
   renderSavedBuildsList();
+}
+
+function renderBuildCategoryFilterChips() {
+  const row = document.getElementById("buildCategoryFilterRow");
+  if (!row) return;
+  row.innerHTML = "";
+
+  const allChip = document.createElement("button");
+  allChip.type = "button";
+  allChip.className = "filter-chip" + (activeBuildCategoryFilter === null ? " active" : "");
+  allChip.textContent = "Tous";
+  allChip.addEventListener("click", () => {
+    activeBuildCategoryFilter = null;
+    renderBuildCategoryFilterChips();
+    renderSavedBuildsList();
+  });
+  row.appendChild(allChip);
+
+  for (const cat of BUILD_CATEGORIES) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip" + (activeBuildCategoryFilter === cat ? " active" : "");
+    chip.textContent = cat;
+    chip.addEventListener("click", () => {
+      activeBuildCategoryFilter = cat;
+      renderBuildCategoryFilterChips();
+      renderSavedBuildsList();
+    });
+    row.appendChild(chip);
+  }
+}
+
+function openBuildCategoryPicker(build) {
+  const body = document.getElementById("buildCategoryModalBody");
+  body.innerHTML = "";
+  for (const cat of BUILD_CATEGORIES) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "category-choice-btn" + (build.category === cat ? " active" : "");
+    btn.innerHTML = `<span>${escapeHtml(cat)}</span>`;
+    btn.addEventListener("click", () => {
+      build.category = cat;
+      persistSavedBuilds();
+      renderSavedBuildsList();
+      document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
+    });
+    body.appendChild(btn);
+  }
+  if (build.category) {
+    const clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "category-choice-btn";
+    clearBtn.innerHTML = `<span>Aucune catégorie</span>`;
+    clearBtn.addEventListener("click", () => {
+      build.category = null;
+      persistSavedBuilds();
+      renderSavedBuildsList();
+      document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
+    });
+    body.appendChild(clearBtn);
+  }
+  document.getElementById("buildCategoryModalOverlay").classList.remove("hidden");
 }
 
 // ---------- Export / import a build via shareable link ----------
@@ -683,7 +756,17 @@ function renderSavedBuildsList() {
     return;
   }
 
-  savedBuilds.forEach((build, idx) => {
+  const visibleBuilds = activeBuildCategoryFilter === null
+    ? savedBuilds
+    : savedBuilds.filter(b => b.category === activeBuildCategoryFilter);
+
+  if (visibleBuilds.length === 0) {
+    listEl.innerHTML = '<div class="stat-empty">Aucun build dans cette catégorie.</div>';
+    return;
+  }
+
+  visibleBuilds.forEach((build) => {
+    const idx = savedBuilds.indexOf(build);
     const row = document.createElement("div");
     row.className = "build-row";
 
@@ -699,7 +782,7 @@ function renderSavedBuildsList() {
 
     const name = document.createElement("span");
     name.className = "build-name";
-    name.title = build.name;
+    name.title = build.name + (build.category ? ` [${build.category}]` : "");
     name.textContent = build.name;
     nameCell.appendChild(name);
 
@@ -707,6 +790,13 @@ function renderSavedBuildsList() {
 
     const actionsTop = document.createElement("div");
     actionsTop.className = "build-actions-top";
+
+    const categoryBtn = document.createElement("button");
+    categoryBtn.className = "category-btn";
+    categoryBtn.innerHTML = '<img class="build-row-icon" src="icons/ui/categories.png" alt="">';
+    categoryBtn.title = build.category ? `Catégorie : ${build.category}` : "Choisir une catégorie";
+    categoryBtn.addEventListener("click", () => openBuildCategoryPicker(build));
+    actionsTop.appendChild(categoryBtn);
 
     const loadBtn = document.createElement("button");
     loadBtn.className = "load-btn";

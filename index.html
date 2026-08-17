@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Askawawa Builder</title>
-<link rel="stylesheet" href="styles.css?v=20260817h">
+<link rel="stylesheet" href="styles.css?v=20260817i">
 </head>
 <body>
 <header class="topbar">
@@ -33,6 +33,7 @@
     <section class="paperdoll" id="paperdoll" aria-label="Emplacements d'équipement"></section>
 
     <section class="saved-builds-panel" id="savedBuildsPanel">
+      <div class="sets-filter-row" id="buildCategoryFilterRow"></div>
       <button id="compareBuildsBtn" type="button" class="compare-builds-btn">⚖️ Comparer 2 builds</button>
       <div id="savedBuildsList"></div>
     </section>
@@ -305,8 +306,18 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="buildCategoryModalOverlay">
+  <div class="modal modal-narrow" id="buildCategoryModal">
+    <div class="browser-header">
+      <h2>Catégorie du build</h2>
+      <button id="buildCategoryModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="buildCategoryModalBody"></div>
+  </div>
+</div>
+
 <div class="equipped-tooltip hidden" id="equippedTooltip"></div>
 
-<script src="app.js?v=20260817h"></script>
+<script src="app.js?v=20260817i"></script>
 </body>
 </html>
