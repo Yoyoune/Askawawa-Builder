@@ -1424,12 +1424,17 @@ function renderItemCard(item, isEquipped, charLevel) {
   }
 
   card.addEventListener("click", () => {
-    const targetSlot = resolveEquipTargetSlot(activeUiSlot);
+    const activeSlot = UI_SLOTS.find(s => s.id === activeUiSlot);
+    const targetSlot = (activeSlot && activeSlot.dataSlot === item.slot)
+      ? resolveEquipTargetSlot(activeUiSlot)
+      : findUiSlotForItem(item);
+    if (!targetSlot) return;
     unequipSlot(targetSlot);
     equipped[targetSlot] = item;
     saveEquipped();
     renderPaperdoll();
     renderItemList();
+    renderPaPmList();
     renderCurrentlyEquipped();
     renderStats();
   });
@@ -1448,6 +1453,16 @@ function resolveEquipTargetSlot(uiSlotId) {
     if (emptySlot) return emptySlot;
   }
   return uiSlotId;
+}
+
+/** Same idea as resolveEquipTargetSlot, but derived from the item's own slot type instead
+    of a currently-open single-slot browser - needed for cross-slot lists like Item PA/PM,
+    where there's no one "active slot" the click could otherwise fall back to. */
+function findUiSlotForItem(item) {
+  const candidates = UI_SLOTS.filter(s => s.dataSlot === item.slot);
+  if (candidates.length === 0) return null;
+  const emptySlot = candidates.find(s => !equipped[s.id]);
+  return (emptySlot || candidates[0]).id;
 }
 
 // ---------- Item detail (roll + forgemagie editor) ----------
@@ -3528,11 +3543,12 @@ function openPaPmList(kind) {
   populatePaPmStatFilterSelect();
   renderPaPmActiveStatFilters();
   renderPaPmSlotFilterChips();
-  renderPaPmList();
   document.getElementById("paPmListModalOverlay").classList.remove("hidden");
+  renderPaPmList();
 }
 
 function renderPaPmList() {
+  if (document.getElementById("paPmListModalOverlay").classList.contains("hidden")) return;
   const search = document.getElementById("paPmSearchInput").value.trim().toLowerCase();
   const sort = document.getElementById("paPmSortSelect").value;
   const levelMin = parseInt(document.getElementById("paPmLevelMinInput").value, 10);
@@ -3560,8 +3576,9 @@ function renderPaPmList() {
   const charLevel = getCharLevel();
   const frag = document.createDocumentFragment();
   for (const item of items) {
-    const equippedItem = equipped[UI_SLOTS.find(s => s.dataSlot === item.slot)?.id];
-    frag.appendChild(renderItemCard(item, equippedItem && equippedItem.id === item.id, charLevel));
+    const matchingSlotIds = UI_SLOTS.filter(s => s.dataSlot === item.slot).map(s => s.id);
+    const isEquipped = matchingSlotIds.some(id => equipped[id] && equipped[id].id === item.id);
+    frag.appendChild(renderItemCard(item, isEquipped, charLevel));
   }
   body.appendChild(frag);
 }
