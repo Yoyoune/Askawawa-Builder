@@ -162,7 +162,7 @@ function statIcon(label) {
 
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
-const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Bi-élément", "Multi", "DoPou", "Tank", "Sagesse", "PP"];
+const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Multi", "DoPou", "Tank", "Sagesse", "PP"];
 
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
@@ -778,8 +778,7 @@ function renderSavedBuildsList() {
     return;
   }
 
-  visibleBuilds.forEach((build) => {
-    const idx = savedBuilds.indexOf(build);
+  visibleBuilds.forEach((build, visIdx) => {
     const row = document.createElement("div");
     row.className = "build-row";
 
@@ -834,16 +833,16 @@ function renderSavedBuildsList() {
     upBtn.className = "move-btn";
     upBtn.textContent = "▲";
     upBtn.title = "Monter";
-    upBtn.disabled = idx === 0;
-    upBtn.addEventListener("click", () => moveBuild(idx, -1));
+    upBtn.disabled = visIdx === 0;
+    upBtn.addEventListener("click", () => moveBuildInView(build, -1, visibleBuilds));
     actionsBottom.appendChild(upBtn);
 
     const downBtn = document.createElement("button");
     downBtn.className = "move-btn";
     downBtn.textContent = "▼";
     downBtn.title = "Descendre";
-    downBtn.disabled = idx === savedBuilds.length - 1;
-    downBtn.addEventListener("click", () => moveBuild(idx, 1));
+    downBtn.disabled = visIdx === visibleBuilds.length - 1;
+    downBtn.addEventListener("click", () => moveBuildInView(build, 1, visibleBuilds));
     actionsBottom.appendChild(downBtn);
 
     const delBtn = document.createElement("button");
@@ -858,10 +857,18 @@ function renderSavedBuildsList() {
   });
 }
 
-function moveBuild(idx, direction) {
-  const target = idx + direction;
-  if (target < 0 || target >= savedBuilds.length) return;
-  [savedBuilds[idx], savedBuilds[target]] = [savedBuilds[target], savedBuilds[idx]];
+/** Moves a build by one step within the currently visible (filtered) list, so a single
+    press always produces a single visible move - swaps its position with whichever
+    build is its neighbor in that view, wherever the two of them sit in the real array. */
+function moveBuildInView(build, direction, visibleBuilds) {
+  const visIdx = visibleBuilds.indexOf(build);
+  const targetVisIdx = visIdx + direction;
+  if (targetVisIdx < 0 || targetVisIdx >= visibleBuilds.length) return;
+  const otherBuild = visibleBuilds[targetVisIdx];
+
+  const absIdxA = savedBuilds.indexOf(build);
+  const absIdxB = savedBuilds.indexOf(otherBuild);
+  [savedBuilds[absIdxA], savedBuilds[absIdxB]] = [savedBuilds[absIdxB], savedBuilds[absIdxA]];
   persistSavedBuilds();
   renderSavedBuildsList();
 }
