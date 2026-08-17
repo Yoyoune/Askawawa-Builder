@@ -426,7 +426,7 @@ async function main() {
     renderStats();
   });
 
-  for (const value of [25, 50, 80, 100]) {
+  for (const value of [0, 25, 50, 80, 100]) {
     document.getElementById(`parchotage${value}Btn`).addEventListener("click", () => {
       parchotage = Object.fromEntries(PARCHOTAGE_STATS.map(stat => [stat, value]));
       saveCustomization();
@@ -620,14 +620,38 @@ function renderSavedBuildsList() {
     const row = document.createElement("div");
     row.className = "build-row";
 
+    const nameCell = document.createElement("div");
+    nameCell.className = "build-name-cell";
+
+    const renameBtn = document.createElement("button");
+    renameBtn.className = "rename-btn";
+    renameBtn.textContent = "✎";
+    renameBtn.title = "Renommer";
+    renameBtn.addEventListener("click", () => renameBuildByName(build.name));
+    nameCell.appendChild(renameBtn);
+
     const name = document.createElement("span");
     name.className = "build-name";
     name.title = build.name;
     name.textContent = build.name;
-    row.appendChild(name);
+    nameCell.appendChild(name);
 
-    const actions = document.createElement("div");
-    actions.className = "build-actions";
+    row.appendChild(nameCell);
+
+    const actionsTop = document.createElement("div");
+    actionsTop.className = "build-actions-top";
+
+    const loadBtn = document.createElement("button");
+    loadBtn.className = "load-btn";
+    loadBtn.textContent = "📂";
+    loadBtn.title = "Charger";
+    loadBtn.addEventListener("click", () => loadBuildByName(build.name));
+    actionsTop.appendChild(loadBtn);
+
+    row.appendChild(actionsTop);
+
+    const actionsBottom = document.createElement("div");
+    actionsBottom.className = "build-actions-bottom";
 
     const upBtn = document.createElement("button");
     upBtn.className = "move-btn";
@@ -635,7 +659,7 @@ function renderSavedBuildsList() {
     upBtn.title = "Monter";
     upBtn.disabled = idx === 0;
     upBtn.addEventListener("click", () => moveBuild(idx, -1));
-    actions.appendChild(upBtn);
+    actionsBottom.appendChild(upBtn);
 
     const downBtn = document.createElement("button");
     downBtn.className = "move-btn";
@@ -643,30 +667,16 @@ function renderSavedBuildsList() {
     downBtn.title = "Descendre";
     downBtn.disabled = idx === savedBuilds.length - 1;
     downBtn.addEventListener("click", () => moveBuild(idx, 1));
-    actions.appendChild(downBtn);
-
-    const loadBtn = document.createElement("button");
-    loadBtn.className = "load-btn";
-    loadBtn.textContent = "📂";
-    loadBtn.title = "Charger";
-    loadBtn.addEventListener("click", () => loadBuildByName(build.name));
-    actions.appendChild(loadBtn);
-
-    const renameBtn = document.createElement("button");
-    renameBtn.className = "rename-btn";
-    renameBtn.textContent = "✎";
-    renameBtn.title = "Renommer";
-    renameBtn.addEventListener("click", () => renameBuildByName(build.name));
-    actions.appendChild(renameBtn);
+    actionsBottom.appendChild(downBtn);
 
     const delBtn = document.createElement("button");
     delBtn.className = "delete-btn";
     delBtn.textContent = "×";
     delBtn.title = "Supprimer";
     delBtn.addEventListener("click", () => deleteBuildByName(build.name));
-    actions.appendChild(delBtn);
+    actionsBottom.appendChild(delBtn);
 
-    row.appendChild(actions);
+    row.appendChild(actionsBottom);
     listEl.appendChild(row);
   });
 }

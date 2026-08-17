@@ -196,18 +196,34 @@ button:hover { border-color: var(--accent); }
 .builds-save-row button:hover { background: #e0bc63; }
 
 .build-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 4px 8px;
   padding: 6px 8px;
   border: 1px solid var(--border);
   border-radius: 4px;
   margin-bottom: 6px;
   font-size: 13px;
 }
+.build-row .build-name-cell {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
 .build-row .build-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.build-row .build-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.build-row .build-actions-top, .build-row .build-actions-bottom {
+  grid-column: 2;
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.build-row .build-actions-top { grid-row: 1; }
+.build-row .build-actions-bottom { grid-row: 2; }
 .build-row button {
   font-size: 11px;
   padding: 4px 8px;
@@ -216,6 +232,7 @@ button:hover { border-color: var(--accent); }
   border: 1px solid var(--border);
   background: var(--panel-alt);
   color: var(--text);
+  flex-shrink: 0;
 }
 .build-row button.load-btn { border-color: var(--accent-dim); }
 .build-row button.load-btn:hover { border-color: var(--accent); background: #2f2a1e; }
