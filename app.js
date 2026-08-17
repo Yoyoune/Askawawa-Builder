@@ -275,7 +275,7 @@ async function main() {
   renderSetsFilterChips();
   renderSetsSlotTypeFilterChips();
   renderSetsSlotTypeExcludeFilterChips();
-  populateStatFilterSelect();
+  renderStatFilterChips();
 
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
   document.getElementById("detailClose").addEventListener("click", closeSidePanel);
@@ -291,7 +291,6 @@ async function main() {
   document.getElementById("categoryPickerOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "categoryPickerOverlay") closeCategoryPicker();
   });
-  document.getElementById("addStatFilterBtn").addEventListener("click", addStatFilter);
   document.getElementById("itemNoPanoFilterBtn").addEventListener("click", (ev) => {
     itemNoPanoFilterActive = !itemNoPanoFilterActive;
     ev.target.classList.toggle("active", itemNoPanoFilterActive);
@@ -2080,58 +2079,59 @@ function getEffectComparableValue(effect) {
   return sign * raw;
 }
 
-function populateStatFilterSelect() {
-  const select = document.getElementById("statFilterSelect");
+/** Stat filters render as toggle chips (like the other boolean filter rows); activating one
+    reveals a small value box directly beneath it to set the minimum threshold. */
+function renderStatFilterChips() {
+  const row = document.getElementById("statFilterChipRow");
   const options = sortStatEntries(EFFECT_LABELS.filter(l => !isWeaponEffect(l)).map(l => [l])).map(([l]) => l);
-  select.innerHTML = options.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
-}
+  row.innerHTML = "";
+  for (const stat of options) {
+    const existing = activeStatFilters.find(f => f.stat === stat);
 
-function addStatFilter() {
-  const stat = document.getElementById("statFilterSelect").value;
-  const valueInput = document.getElementById("statFilterValue");
-  const minValue = parseInt(valueInput.value, 10) || 0;
-  if (!stat) return;
+    const group = document.createElement("div");
+    group.className = "stat-toggle-chip-group" + (existing ? " active" : "");
 
-  const existingIdx = activeStatFilters.findIndex(f => f.stat === stat);
-  if (existingIdx >= 0) activeStatFilters[existingIdx].minValue = minValue;
-  else activeStatFilters.push({ stat, minValue });
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip" + (existing ? " active" : "");
+    chip.textContent = stat;
+    group.appendChild(chip);
 
-  renderActiveStatFilters();
-  renderItemList();
-}
-
-function removeStatFilter(stat) {
-  activeStatFilters = activeStatFilters.filter(f => f.stat !== stat);
-  renderActiveStatFilters();
-  renderItemList();
-}
-
-function renderActiveStatFilters() {
-  const container = document.getElementById("activeStatFilters");
-  container.innerHTML = "";
-  for (const f of activeStatFilters) {
-    const chip = document.createElement("span");
-    chip.className = "stat-filter-chip";
-    const label = document.createElement("span");
-    label.textContent = `${f.stat} ≥ `;
-    chip.appendChild(label);
+    const valueBox = document.createElement("div");
+    valueBox.className = "stat-toggle-chip-value-box";
     const valueInput = document.createElement("input");
     valueInput.type = "number";
-    valueInput.className = "stat-filter-chip-value";
-    valueInput.value = f.minValue;
+    valueInput.className = "stat-toggle-chip-value";
+    valueInput.min = "0";
+    valueInput.placeholder = "Valeur mini";
+    valueInput.value = existing ? existing.minValue : 0;
     valueInput.addEventListener("input", () => {
+      const f = activeStatFilters.find(f => f.stat === stat);
+      if (!f) return;
       const v = parseInt(valueInput.value, 10);
       f.minValue = isNaN(v) ? 0 : v;
       renderItemList();
     });
-    chip.appendChild(valueInput);
-    const rm = document.createElement("button");
-    rm.type = "button";
-    rm.textContent = "×";
-    rm.title = "Retirer ce filtre";
-    rm.addEventListener("click", () => removeStatFilter(f.stat));
-    chip.appendChild(rm);
-    container.appendChild(chip);
+    valueBox.appendChild(valueInput);
+    group.appendChild(valueBox);
+
+    chip.addEventListener("click", () => {
+      const idx = activeStatFilters.findIndex(f => f.stat === stat);
+      if (idx >= 0) {
+        activeStatFilters.splice(idx, 1);
+        group.classList.remove("active");
+        chip.classList.remove("active");
+      } else {
+        activeStatFilters.push({ stat, minValue: 0 });
+        valueInput.value = 0;
+        group.classList.add("active");
+        chip.classList.add("active");
+        valueInput.focus();
+      }
+      renderItemList();
+    });
+
+    row.appendChild(group);
   }
 }
 
