@@ -534,6 +534,11 @@ function loadSavedBuilds() {
     const raw = localStorage.getItem(STORAGE_KEY_BUILDS);
     if (!raw) return;
     savedBuilds = JSON.parse(raw) || [];
+    // migrate the old single "category" field to the new multi-select "categories" array
+    for (const b of savedBuilds) {
+      if (!b.categories) b.categories = b.category ? [b.category] : [];
+      delete b.category;
+    }
   } catch (e) {
     console.warn("Could not restore saved builds list", e);
     savedBuilds = [];
@@ -556,7 +561,7 @@ function saveCurrentAsBuild(name) {
     forgemagie: JSON.parse(JSON.stringify(forgemagie)),
     parchotage: JSON.parse(JSON.stringify(parchotage)),
     characteristicPoints: JSON.parse(JSON.stringify(characteristicPoints)),
-    category: existingIdx >= 0 ? savedBuilds[existingIdx].category : null,
+    categories: existingIdx >= 0 ? savedBuilds[existingIdx].categories : [],
     savedAt: new Date().toISOString(),
   };
   if (existingIdx >= 0) savedBuilds[existingIdx] = snapshot;
@@ -566,21 +571,24 @@ function saveCurrentAsBuild(name) {
   renderSavedBuildsList();
 }
 
+/** activeBuildCategoryFilter === null means "None" - builds with zero categories assigned
+    (the implicit default, not an actual tag). Any other value filters to builds whose
+    categories array includes that tag. */
 function renderBuildCategoryFilterChips() {
   const row = document.getElementById("buildCategoryFilterRow");
   if (!row) return;
   row.innerHTML = "";
 
-  const allChip = document.createElement("button");
-  allChip.type = "button";
-  allChip.className = "filter-chip" + (activeBuildCategoryFilter === null ? " active" : "");
-  allChip.textContent = "Tous";
-  allChip.addEventListener("click", () => {
+  const noneChip = document.createElement("button");
+  noneChip.type = "button";
+  noneChip.className = "filter-chip" + (activeBuildCategoryFilter === null ? " active" : "");
+  noneChip.textContent = "None";
+  noneChip.addEventListener("click", () => {
     activeBuildCategoryFilter = null;
     renderBuildCategoryFilterChips();
     renderSavedBuildsList();
   });
-  row.appendChild(allChip);
+  row.appendChild(noneChip);
 
   for (const cat of BUILD_CATEGORIES) {
     const chip = document.createElement("button");
@@ -596,29 +604,34 @@ function renderBuildCategoryFilterChips() {
   }
 }
 
+/** A build can belong to several categories at once (multi-toggle, modal stays open),
+    "None" isn't a real tag - it's just what a build with an empty categories array shows as. */
 function openBuildCategoryPicker(build) {
+  if (!build.categories) build.categories = [];
   const body = document.getElementById("buildCategoryModalBody");
   body.innerHTML = "";
   for (const cat of BUILD_CATEGORIES) {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "category-choice-btn" + (build.category === cat ? " active" : "");
+    btn.className = "category-choice-btn" + (build.categories.includes(cat) ? " active" : "");
     btn.innerHTML = `<span>${escapeHtml(cat)}</span>`;
     btn.addEventListener("click", () => {
-      build.category = cat;
+      const idx = build.categories.indexOf(cat);
+      if (idx >= 0) build.categories.splice(idx, 1);
+      else build.categories.push(cat);
       persistSavedBuilds();
       renderSavedBuildsList();
-      document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
+      openBuildCategoryPicker(build);
     });
     body.appendChild(btn);
   }
-  if (build.category) {
+  if (build.categories.length > 0) {
     const clearBtn = document.createElement("button");
     clearBtn.type = "button";
     clearBtn.className = "category-choice-btn";
-    clearBtn.innerHTML = `<span>Aucune catégorie</span>`;
+    clearBtn.innerHTML = `<span>Aucune catégorie (None)</span>`;
     clearBtn.addEventListener("click", () => {
-      build.category = null;
+      build.categories = [];
       persistSavedBuilds();
       renderSavedBuildsList();
       document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
@@ -757,8 +770,8 @@ function renderSavedBuildsList() {
   }
 
   const visibleBuilds = activeBuildCategoryFilter === null
-    ? savedBuilds
-    : savedBuilds.filter(b => b.category === activeBuildCategoryFilter);
+    ? savedBuilds.filter(b => !b.categories || b.categories.length === 0)
+    : savedBuilds.filter(b => b.categories && b.categories.includes(activeBuildCategoryFilter));
 
   if (visibleBuilds.length === 0) {
     listEl.innerHTML = '<div class="stat-empty">Aucun build dans cette catégorie.</div>';
@@ -782,7 +795,7 @@ function renderSavedBuildsList() {
 
     const name = document.createElement("span");
     name.className = "build-name";
-    name.title = build.name + (build.category ? ` [${build.category}]` : "");
+    name.title = build.name + (build.categories && build.categories.length ? ` [${build.categories.join(", ")}]` : "");
     name.textContent = build.name;
     nameCell.appendChild(name);
 
@@ -794,7 +807,7 @@ function renderSavedBuildsList() {
     const categoryBtn = document.createElement("button");
     categoryBtn.className = "category-btn";
     categoryBtn.innerHTML = '<img class="build-row-icon" src="icons/ui/categories.png" alt="">';
-    categoryBtn.title = build.category ? `Catégorie : ${build.category}` : "Choisir une catégorie";
+    categoryBtn.title = build.categories && build.categories.length ? `Catégories : ${build.categories.join(", ")}` : "Choisir une/des catégorie(s)";
     categoryBtn.addEventListener("click", () => openBuildCategoryPicker(build));
     actionsTop.appendChild(categoryBtn);
 
