@@ -236,13 +236,15 @@ button:hover { border-color: var(--accent); }
 }
 .build-row button.load-btn { border-color: var(--accent-dim); }
 .build-row button.load-btn:hover { border-color: var(--accent); background: #2f2a1e; }
+.build-row button.share-btn:hover { border-color: var(--accent); background: #2f2a1e; }
 .build-row button.rename-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
 .build-row button.delete-btn { color: var(--negative); }
 .build-row button.delete-btn:hover { border-color: var(--negative); }
 .build-row button.move-btn { padding: 4px 3px; font-size: 9px; line-height: 1; width: 18px; }
 .build-row button.move-btn:hover:not(:disabled) { border-color: var(--accent); }
 .build-row button.move-btn:disabled { opacity: 0.3; cursor: default; }
-.build-row button.load-btn { padding: 4px 6px; font-size: 13px; line-height: 1; }
+.build-row button.load-btn, .build-row button.share-btn { padding: 4px 6px; font-size: 13px; line-height: 1; }
+.build-row-icon { width: 13px; height: 13px; object-fit: contain; vertical-align: -1px; }
 
 /* ---- Ressources nécessaires ---- */
 .resources-panel {

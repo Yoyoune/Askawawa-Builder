@@ -266,6 +266,7 @@ async function main() {
   loadCustomization();
   loadSavedBuilds();
   loadHidden();
+  handleImportFromUrl();
   renderPaperdoll();
   renderParchotageGrid();
   renderCharacteristicPointsGrid();
@@ -554,6 +555,72 @@ function saveCurrentAsBuild(name) {
   renderSavedBuildsList();
 }
 
+// ---------- Export / import a build via shareable link ----------
+
+function encodeBuildForUrl(snapshot) {
+  const json = JSON.stringify(snapshot);
+  const bytes = new TextEncoder().encode(json);
+  let binary = "";
+  bytes.forEach(b => { binary += String.fromCharCode(b); });
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+function decodeBuildFromUrl(encoded) {
+  const b64 = encoded.replace(/-/g, "+").replace(/_/g, "/");
+  const binary = atob(b64);
+  const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+  const json = new TextDecoder().decode(bytes);
+  return JSON.parse(json);
+}
+
+function exportBuild(build) {
+  const snapshot = {
+    name: build.name,
+    charLevel: build.charLevel,
+    equipped: build.equipped,
+    rollOverrides: build.rollOverrides,
+    forgemagie: build.forgemagie,
+    parchotage: build.parchotage,
+    characteristicPoints: build.characteristicPoints,
+  };
+  const url = `${location.origin}${location.pathname}?import=${encodeBuildForUrl(snapshot)}`;
+  if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {});
+  prompt('Lien du build (déjà copié dans le presse-papier) - à partager :', url);
+}
+
+/** On load, ?import=<encoded build> lets anyone who opens the link pull that build
+    straight into their own saved builds - no server/account involved, it's all in the URL. */
+function handleImportFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const encoded = params.get("import");
+  if (!encoded) return;
+  history.replaceState(null, "", location.pathname);
+
+  let snapshot;
+  try {
+    snapshot = decodeBuildFromUrl(encoded);
+  } catch (e) {
+    snapshot = null;
+  }
+  if (!snapshot || typeof snapshot !== "object" || !snapshot.equipped) {
+    alert("Lien de build invalide ou corrompu.");
+    return;
+  }
+
+  const name = snapshot.name || "Build importé";
+  const overwrite = savedBuilds.some(b => b.name === name);
+  const msg = overwrite
+    ? `Importer le build "${name}" ? Un build du même nom existe déjà et sera écrasé.`
+    : `Importer le build "${name}" dans vos builds enregistrés ?`;
+  if (!confirm(msg)) return;
+
+  const finalSnapshot = { ...snapshot, name, savedAt: new Date().toISOString() };
+  const existingIdx = savedBuilds.findIndex(b => b.name === name);
+  if (existingIdx >= 0) savedBuilds[existingIdx] = finalSnapshot;
+  else savedBuilds.push(finalSnapshot);
+  persistSavedBuilds();
+}
+
 function loadBuildByName(name) {
   const build = savedBuilds.find(b => b.name === name);
   if (!build) return;
@@ -647,6 +714,13 @@ function renderSavedBuildsList() {
     loadBtn.title = "Charger";
     loadBtn.addEventListener("click", () => loadBuildByName(build.name));
     actionsTop.appendChild(loadBtn);
+
+    const exportBtn = document.createElement("button");
+    exportBtn.className = "share-btn";
+    exportBtn.innerHTML = '<img class="build-row-icon" src="icons/ui/export.png" alt="">';
+    exportBtn.title = "Exporter (lien à partager)";
+    exportBtn.addEventListener("click", () => exportBuild(build));
+    actionsTop.appendChild(exportBtn);
 
     row.appendChild(actionsTop);
 
