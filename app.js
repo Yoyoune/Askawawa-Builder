@@ -426,6 +426,15 @@ async function main() {
     renderParchotageGrid();
     renderStats();
   });
+
+  for (const value of [25, 50, 80, 100]) {
+    document.getElementById(`parchotage${value}Btn`).addEventListener("click", () => {
+      parchotage = Object.fromEntries(PARCHOTAGE_STATS.map(stat => [stat, value]));
+      saveCustomization();
+      renderParchotageGrid();
+      renderStats();
+    });
+  }
 }
 
 function buildEffectCatalogDatalist() {

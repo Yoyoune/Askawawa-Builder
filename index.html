@@ -54,29 +54,34 @@
         <button id="browserClose" aria-label="Fermer">×</button>
       </div>
       <div class="currently-equipped hidden" id="currentlyEquipped"></div>
-      <div class="browser-controls">
-        <input type="search" id="searchInput" placeholder="Rechercher un objet...">
-        <select id="sortSelect">
-          <option value="level-asc">Niveau croissant</option>
-          <option value="level-desc">Niveau décroissant</option>
-          <option value="name-asc">Nom (A-Z)</option>
-        </select>
-      </div>
-      <div class="level-range-row">
-        <label>Niv. min <input type="number" id="levelMinInput" min="1" max="200" placeholder="Min"></label>
-        <label>Niv. max <input type="number" id="levelMaxInput" min="1" max="200" placeholder="Max"></label>
-      </div>
-      <div class="sets-filter-row">
-        <button type="button" class="filter-chip" id="itemNoPanoFilterBtn">Item sans pano</button>
-        <button type="button" class="filter-chip" id="itemWithPanoFilterBtn">Item avec pano</button>
-      </div>
-      <div class="stat-filter-builder">
-        <div class="stat-filter-add-row">
-          <select id="statFilterSelect"></select>
-          <input type="number" id="statFilterValue" value="0" min="0" placeholder="Valeur mini">
-          <button id="addStatFilterBtn" type="button">+ Ajouter</button>
+      <div class="collapsible-section">
+        <div class="collapsible-header filter-panel-toggle">Recherche / Filtres <span class="collapse-chevron">▸</span></div>
+        <div class="collapsible-content">
+          <div class="browser-controls">
+            <input type="search" id="searchInput" placeholder="Rechercher un objet...">
+            <select id="sortSelect">
+              <option value="level-asc">Niveau croissant</option>
+              <option value="level-desc">Niveau décroissant</option>
+              <option value="name-asc">Nom (A-Z)</option>
+            </select>
+          </div>
+          <div class="level-range-row">
+            <label>Niv. min <input type="number" id="levelMinInput" min="1" max="200" placeholder="Min"></label>
+            <label>Niv. max <input type="number" id="levelMaxInput" min="1" max="200" placeholder="Max"></label>
+          </div>
+          <div class="sets-filter-row">
+            <button type="button" class="filter-chip" id="itemNoPanoFilterBtn">Item sans pano</button>
+            <button type="button" class="filter-chip" id="itemWithPanoFilterBtn">Item avec pano</button>
+          </div>
+          <div class="stat-filter-builder">
+            <div class="stat-filter-add-row">
+              <select id="statFilterSelect"></select>
+              <input type="number" id="statFilterValue" value="0" min="0" placeholder="Valeur mini">
+              <button id="addStatFilterBtn" type="button">+ Ajouter</button>
+            </div>
+            <div class="stat-filter-active" id="activeStatFilters"></div>
+          </div>
         </div>
-        <div class="stat-filter-active" id="activeStatFilters"></div>
       </div>
       <div class="item-list" id="itemList"></div>
     </div>
@@ -93,23 +98,28 @@
         <button id="hiddenSetsBtn" type="button" class="hidden-btn">Cachées</button>
         <button id="setsBrowserClose" aria-label="Fermer">×</button>
       </div>
-      <div class="browser-controls">
-        <input type="search" id="setsSearchInput" placeholder="Rechercher une panoplie...">
-        <select id="setsSortSelect">
-          <option value="level-asc">Niveau croissant</option>
-          <option value="level-desc">Niveau décroissant</option>
-          <option value="name-asc">Nom (A-Z)</option>
-        </select>
+      <div class="collapsible-section">
+        <div class="collapsible-header filter-panel-toggle">Recherche / Filtres <span class="collapse-chevron">▸</span></div>
+        <div class="collapsible-content">
+          <div class="browser-controls">
+            <input type="search" id="setsSearchInput" placeholder="Rechercher une panoplie...">
+            <select id="setsSortSelect">
+              <option value="level-asc">Niveau croissant</option>
+              <option value="level-desc">Niveau décroissant</option>
+              <option value="name-asc">Nom (A-Z)</option>
+            </select>
+          </div>
+          <div class="level-range-row">
+            <label>Niv. min <input type="number" id="setsLevelMinInput" min="1" max="200" placeholder="Min"></label>
+            <label>Niv. max <input type="number" id="setsLevelMaxInput" min="1" max="200" placeholder="Max"></label>
+          </div>
+          <div class="sets-filter-row" id="setsFilterRow"></div>
+          <div class="sets-filter-label">Contient au moins un(e) :</div>
+          <div class="sets-filter-row" id="setsSlotFilterRow"></div>
+          <div class="sets-filter-label">Ne contient pas de/d' :</div>
+          <div class="sets-filter-row" id="setsSlotExcludeFilterRow"></div>
+        </div>
       </div>
-      <div class="level-range-row">
-        <label>Niv. min <input type="number" id="setsLevelMinInput" min="1" max="200" placeholder="Min"></label>
-        <label>Niv. max <input type="number" id="setsLevelMaxInput" min="1" max="200" placeholder="Max"></label>
-      </div>
-      <div class="sets-filter-row" id="setsFilterRow"></div>
-      <div class="sets-filter-label">Contient au moins un(e) :</div>
-      <div class="sets-filter-row" id="setsSlotFilterRow"></div>
-      <div class="sets-filter-label">Ne contient pas de/d' :</div>
-      <div class="sets-filter-row" id="setsSlotExcludeFilterRow"></div>
       <div class="item-list" id="setsList"></div>
     </div>
   </section>
@@ -123,7 +133,13 @@
     <div class="collapsible-section collapsed">
       <h2 class="collapsible-header">Parchotage <span class="collapse-chevron">▸</span></h2>
       <div class="collapsible-content">
-        <button id="parchotageMaxBtn" type="button" class="parchotage-max-btn">Max</button>
+        <div class="parchotage-quick-row">
+          <button id="parchotage25Btn" type="button" class="parchotage-max-btn">25</button>
+          <button id="parchotage50Btn" type="button" class="parchotage-max-btn">50</button>
+          <button id="parchotage80Btn" type="button" class="parchotage-max-btn">80</button>
+          <button id="parchotage100Btn" type="button" class="parchotage-max-btn">100</button>
+          <button id="parchotageMaxBtn" type="button" class="parchotage-max-btn">Max</button>
+        </div>
         <div class="parchotage-grid" id="parchotageGrid"></div>
       </div>
     </div>
