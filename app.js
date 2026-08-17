@@ -768,14 +768,28 @@ function renderComparison() {
 
 // ---------- Paperdoll ----------
 
+// Visual position of the 3x4 paperdoll grid (in-game equipment doll layout), independent
+// of UI_SLOTS's own order (which still drives equip-target resolution elsewhere). null = blank cell.
+const PAPERDOLL_LAYOUT = [
+  null, "coiffe", "cape",
+  "anneau1", "amulette", "anneau2",
+  "arme", "ceinture", "bouclier",
+  null, "bottes", "familier",
+];
+
 function renderPaperdoll() {
   const root = document.getElementById("paperdoll");
   root.innerHTML = "";
 
-  const mainSlots = UI_SLOTS.filter(s => s.group !== "dofus");
   const dofusSlots = UI_SLOTS.filter(s => s.group === "dofus");
 
-  for (const uiSlot of mainSlots) root.appendChild(renderSlotEl(uiSlot));
+  for (const slotId of PAPERDOLL_LAYOUT) {
+    if (slotId === null) {
+      root.appendChild(renderEmptySlotEl());
+      continue;
+    }
+    root.appendChild(renderSlotEl(UI_SLOTS.find(s => s.id === slotId)));
+  }
 
   const label = document.createElement("div");
   label.className = "paperdoll-section-label";
@@ -786,6 +800,12 @@ function renderPaperdoll() {
   dofusWrap.className = "paperdoll-dofus";
   for (const uiSlot of dofusSlots) dofusWrap.appendChild(renderSlotEl(uiSlot));
   root.appendChild(dofusWrap);
+}
+
+function renderEmptySlotEl() {
+  const el = document.createElement("div");
+  el.className = "slot slot-empty";
+  return el;
 }
 
 function unequipSlot(uiSlotId) {

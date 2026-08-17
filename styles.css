@@ -384,6 +384,13 @@ button:hover { border-color: var(--accent); }
   pointer-events: none;
 }
 
+.slot.slot-empty {
+  border: none;
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
 .paperdoll-dofus {
   grid-column: 1 / -1;
   display: grid;
