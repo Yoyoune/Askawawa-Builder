@@ -871,20 +871,20 @@ button:hover { border-color: var(--accent); }
 .stat-toggle-chip-group {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: 4px;
 }
 .stat-toggle-chip-value-box { display: none; }
 .stat-toggle-chip-group.active .stat-toggle-chip-value-box { display: block; }
 .stat-toggle-chip-value {
-  width: 100%;
-  min-width: 70px;
+  width: 46px;
   background: var(--panel-alt);
   border: 1px solid var(--accent-dim);
   color: var(--text);
   border-radius: 4px;
-  padding: 3px 6px;
+  padding: 3px 4px;
   font-size: 12px;
+  text-align: center;
 }
 .stat-filter-active {
   display: flex;
