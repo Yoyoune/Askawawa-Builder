@@ -277,6 +277,7 @@ button:hover { border-color: var(--accent); }
 .slot .icon.icon-fallback { font-size: 22px; line-height: 1; }
 .slot img.icon { width: 36px; height: 36px; object-fit: contain; image-rendering: pixelated; }
 .slot img.icon-placeholder { width: 60px; height: 60px; }
+.paperdoll-dofus .slot img.icon-placeholder { width: 28px; height: 28px; }
 .slot .label { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 .slot .item-name {
   font-size: 10px;
