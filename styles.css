@@ -72,6 +72,7 @@ body::after {
   border-bottom: 1px solid var(--border);
 }
 
+.topbar-title-group { display: flex; align-items: center; gap: 12px; }
 .topbar h1 {
   font-size: 18px;
   margin: 0;
