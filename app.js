@@ -898,6 +898,30 @@ function showEquippedTooltip(anchorEl, item) {
   eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
   tooltip.appendChild(eff);
 
+  if (item.weaponRange !== undefined || item.apCost !== undefined) {
+    const w = document.createElement("div");
+    w.className = "item-effects";
+    const bits = [];
+    if (item.apCost !== undefined) bits.push(`${item.apCost} PA`);
+    if (item.minRange !== undefined && item.weaponRange !== undefined) {
+      bits.push(item.minRange === item.weaponRange ? `Portée ${item.weaponRange}` : `Portée ${item.minRange}-${item.weaponRange}`);
+    }
+    if (item.criticalHitProbability) {
+      let crit = `Critique ${item.criticalHitProbability}%`;
+      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
+      bits.push(crit);
+    }
+    w.textContent = bits.join(" · ");
+    tooltip.appendChild(w);
+  }
+
+  if (item.conditions && item.conditions.length) {
+    const cond = document.createElement("div");
+    cond.className = "item-conditions";
+    cond.textContent = "Cond. : " + item.conditions.map(formatCondition).join(", ");
+    tooltip.appendChild(cond);
+  }
+
   tooltip.classList.remove("hidden");
 
   const anchorRect = anchorEl.getBoundingClientRect();
