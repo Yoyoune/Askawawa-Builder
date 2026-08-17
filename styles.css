@@ -489,6 +489,7 @@ button:hover { border-color: var(--accent); }
 }
 .currently-equipped-card .item-icon { width: 36px; height: 36px; }
 .currently-equipped-body { flex: 1; min-width: 0; }
+.currently-equipped-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
 .currently-equipped-name { font-weight: 600; font-size: 13px; }
 
 .browser-controls {

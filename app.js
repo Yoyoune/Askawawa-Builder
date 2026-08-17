@@ -1102,10 +1102,27 @@ function renderCurrentlyEquipped() {
 
   const body = document.createElement("div");
   body.className = "currently-equipped-body";
+
+  const head = document.createElement("div");
+  head.className = "currently-equipped-head";
   const name = document.createElement("div");
   name.className = "currently-equipped-name";
   name.textContent = `${item.name} (Nv. ${item.level})`;
-  body.appendChild(name);
+  head.appendChild(name);
+
+  if (item.recipe && item.recipe.length > 0) {
+    const recipeBtn = document.createElement("button");
+    recipeBtn.type = "button";
+    recipeBtn.className = "set-card-compat-btn";
+    recipeBtn.textContent = "Recette";
+    recipeBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      openRecipeModal(item.id);
+    });
+    head.appendChild(recipeBtn);
+  }
+
+  body.appendChild(head);
   if (item.effects && item.effects.length) {
     const eff = document.createElement("div");
     eff.className = "item-effects";
