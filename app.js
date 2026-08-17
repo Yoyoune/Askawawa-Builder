@@ -795,6 +795,11 @@ function renderSlotEl(uiSlot) {
 
   el.appendChild(itemIconEl(item, uiSlot.icon, "icon"));
 
+  if (item) {
+    el.addEventListener("mouseenter", () => showEquippedTooltip(el, item));
+    el.addEventListener("mouseleave", hideEquippedTooltip);
+  }
+
   if (item && forgemagie[uiSlot.id] && forgemagie[uiSlot.id].length > 0) {
     const fmBadge = document.createElement("span");
     fmBadge.className = "fm-badge";
@@ -856,8 +861,53 @@ function renderSlotEl(uiSlot) {
     el.appendChild(lbl);
   }
 
-  el.addEventListener("click", () => openBrowser(uiSlot.id));
+  el.addEventListener("click", () => {
+    hideEquippedTooltip();
+    openBrowser(uiSlot.id);
+  });
   return el;
+}
+
+/** Hover tooltip for an equipped slot: same effects-grid markup as the item browser cards. */
+function showEquippedTooltip(anchorEl, item) {
+  const tooltip = document.getElementById("equippedTooltip");
+  tooltip.innerHTML = "";
+
+  const name = document.createElement("div");
+  name.className = "equipped-tooltip-name";
+  name.textContent = item.name;
+  tooltip.appendChild(name);
+
+  const level = document.createElement("div");
+  level.className = "equipped-tooltip-level";
+  level.textContent = "Nv. " + item.level;
+  tooltip.appendChild(level);
+
+  const eff = document.createElement("div");
+  eff.className = "item-effects";
+  eff.innerHTML = effectsGridHtml(item.effects, { specialSpellName: item.specialSpellName, specialSpellDescription: item.specialSpellDescription });
+  tooltip.appendChild(eff);
+
+  tooltip.classList.remove("hidden");
+
+  const anchorRect = anchorEl.getBoundingClientRect();
+  const tipRect = tooltip.getBoundingClientRect();
+  const margin = 8;
+  let left = anchorRect.right + margin;
+  if (left + tipRect.width > window.innerWidth - margin) {
+    left = anchorRect.left - margin - tipRect.width;
+  }
+  left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+  let top = anchorRect.top;
+  top = Math.max(margin, Math.min(top, window.innerHeight - tipRect.height - margin));
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function hideEquippedTooltip() {
+  document.getElementById("equippedTooltip").classList.add("hidden");
 }
 
 // ---------- Side panel (item browser / item detail) ----------
