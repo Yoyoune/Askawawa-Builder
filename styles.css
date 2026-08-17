@@ -545,7 +545,7 @@ button:hover { border-color: var(--accent); }
 
 .item-effects {
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-dim);
   display: flex;
   flex-wrap: wrap;
@@ -728,7 +728,7 @@ button:hover { border-color: var(--accent); }
 }
 .category-choice-btn:hover { border-color: var(--accent); background: #2f2a1e; }
 .category-choice-btn:last-child { margin-bottom: 0; }
-.category-choice-icon { font-size: 20px; }
+.category-choice-icon { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
 .compare-builds-btn { width: 100%; margin: 8px 0; }
 .compare-select-row {
   display: flex;
@@ -923,7 +923,7 @@ button:hover { border-color: var(--accent); }
 }
 .set-item-row .equip-item-btn:hover { border-color: var(--accent); background: #2f2a1e; }
 .set-item-row .set-item-effects {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
   flex-basis: 100%;
   margin-top: -4px;
@@ -1140,13 +1140,13 @@ button:hover { border-color: var(--accent); }
   display: flex;
   justify-content: space-between;
   padding: 3px 0;
-  font-size: 13px;
+  font-size: 15px;
 }
 .stat-row .stat-icon { margin-right: 5px; }
 .stat-icon-svg { vertical-align: -2px; }
 .stat-row .val.pos { color: var(--text-dim); }
 .stat-row .val.neg { color: var(--negative); }
-.stat-empty { color: var(--text-dim); font-size: 13px; }
+.stat-empty { color: var(--text-dim); font-size: 15px; }
 
 .set-block {
   margin-bottom: 12px;

@@ -35,8 +35,8 @@ const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitali
 // browser.
 const SLOT_CATEGORY_CHOICES = {
   dofus: [
-    { key: "dofus", label: "Dofus", icon: "🔮" },
-    { key: "trophee", label: "Trophée", icon: "🏆" },
+    { key: "dofus", label: "Dofus", icon: "icons/slot-placeholders/dofus.png" },
+    { key: "trophee", label: "Trophée", icon: "icons/slot-placeholders/trophee.png" },
   ],
 };
 const CATEGORY_LABELS = {
@@ -938,7 +938,7 @@ function openCategoryPicker(uiSlot, choices) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "category-choice-btn";
-    btn.innerHTML = `<span class="category-choice-icon">${choice.icon}</span><span>${escapeHtml(choice.label)}</span>`;
+    btn.innerHTML = `<img class="category-choice-icon" src="${choice.icon}" alt=""><span>${escapeHtml(choice.label)}</span>`;
     btn.addEventListener("click", () => {
       closeCategoryPicker();
       openBrowser(uiSlot.id, choice.key);
