@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T18:24:29.8316461+02:00",
+    "generatedAt":  "2026-08-21T21:07:58.4971330+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,50 +16,50 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  29674437,
-                   "level":  74
+                   "value":  45354600,
+                   "level":  83
                },
                {
                    "rank":  4,
-                   "name":  "Belladone",
-                   "value":  28373985,
-                   "level":  74
+                   "name":  "Persodeux",
+                   "value":  37609657,
+                   "level":  79
                },
                {
                    "rank":  5,
-                   "name":  "Bartonella",
-                   "value":  28033019,
-                   "level":  73
+                   "name":  "Persotrois",
+                   "value":  37405908,
+                   "level":  79
                },
                {
                    "rank":  6,
-                   "name":  "Magellan",
-                   "value":  27256270,
-                   "level":  73
+                   "name":  "Persoun",
+                   "value":  37172791,
+                   "level":  79
                },
                {
                    "rank":  7,
-                   "name":  "Faismoimal",
-                   "value":  26984419,
-                   "level":  73
+                   "name":  "Belladone",
+                   "value":  31168413,
+                   "level":  75
                },
                {
                    "rank":  8,
-                   "name":  "Persotrois",
-                   "value":  25433507,
-                   "level":  72
+                   "name":  "Bartonella",
+                   "value":  30599179,
+                   "level":  75
                },
                {
                    "rank":  9,
-                   "name":  "Persodeux",
-                   "value":  25385888,
-                   "level":  72
+                   "name":  "Magellan",
+                   "value":  30467153,
+                   "level":  75
                },
                {
                    "rank":  10,
-                   "name":  "Persoun",
-                   "value":  25211514,
-                   "level":  72
+                   "name":  "Faismoimal",
+                   "value":  30187013,
+                   "level":  75
                },
                {
                    "rank":  11,
@@ -87,69 +87,69 @@
                },
                {
                    "rank":  15,
+                   "name":  "Rafaelo",
+                   "value":  4305828,
+                   "level":  47
+               },
+               {
+                   "rank":  16,
+                   "name":  "Donatelo",
+                   "value":  4220496,
+                   "level":  47
+               },
+               {
+                   "rank":  17,
+                   "name":  "Michelangelo",
+                   "value":  3873064,
+                   "level":  46
+               },
+               {
+                   "rank":  18,
+                   "name":  "Leonardo",
+                   "value":  3211595,
+                   "level":  45
+               },
+               {
+                   "rank":  19,
                    "name":  "Patt",
                    "value":  3073903,
                    "level":  44
                },
                {
-                   "rank":  16,
+                   "rank":  20,
                    "name":  "Latt",
                    "value":  2930448,
                    "level":  44
                },
                {
-                   "rank":  17,
+                   "rank":  21,
                    "name":  "Matt",
                    "value":  2874091,
                    "level":  44
                },
                {
-                   "rank":  18,
+                   "rank":  22,
                    "name":  "Fritz",
                    "value":  2614218,
                    "level":  43
                },
                {
-                   "rank":  19,
-                   "name":  "Rafaelo",
-                   "value":  2532331,
-                   "level":  43
-               },
-               {
-                   "rank":  20,
-                   "name":  "Donatelo",
-                   "value":  2520890,
-                   "level":  42
-               },
-               {
-                   "rank":  21,
+                   "rank":  23,
                    "name":  "Frite",
                    "value":  2406649,
                    "level":  42
                },
                {
-                   "rank":  22,
+                   "rank":  24,
                    "name":  "Frita",
                    "value":  2368781,
                    "level":  42
                },
                {
-                   "rank":  23,
-                   "name":  "Michelangelo",
-                   "value":  2317867,
-                   "level":  42
-               },
-               {
-                   "rank":  24,
+                   "rank":  25,
                    "name":  "Fritr",
                    "value":  2317311,
                    "level":  42
-               },
-               {
-                   "rank":  25,
-                   "name":  "Leonardo",
-                   "value":  1089658,
-                   "level":  35
                },
                {
                    "rank":  26,
@@ -165,13 +165,13 @@
                },
                {
                    "rank":  28,
-                   "name":  "Erf",
+                   "name":  "Arg",
                    "value":  0,
                    "level":  1
                },
                {
                    "rank":  29,
-                   "name":  "Arg",
+                   "name":  "Erf",
                    "value":  0,
                    "level":  1
                },
@@ -183,13 +183,13 @@
                },
                {
                    "rank":  31,
-                   "name":  "Qff",
+                   "name":  "Rgr",
                    "value":  0,
                    "level":  1
                },
                {
                    "rank":  32,
-                   "name":  "Rgr",
+                   "name":  "Qff",
                    "value":  0,
                    "level":  1
                }
@@ -202,43 +202,43 @@
                     },
                     {
                         "rank":  2,
-                        "name":  "Bartonella",
-                        "value":  591
+                        "name":  "Nayssen",
+                        "value":  836
                     },
                     {
                         "rank":  3,
-                        "name":  "Nayssen",
-                        "value":  575
+                        "name":  "Persodeux",
+                        "value":  720
                     },
                     {
                         "rank":  4,
-                        "name":  "Belladone",
-                        "value":  574
+                        "name":  "Persoun",
+                        "value":  718
                     },
                     {
                         "rank":  5,
-                        "name":  "Faismoimal",
-                        "value":  565
+                        "name":  "Persotrois",
+                        "value":  717
                     },
                     {
                         "rank":  6,
-                        "name":  "Magellan",
-                        "value":  564
+                        "name":  "Bartonella",
+                        "value":  592
                     },
                     {
                         "rank":  7,
-                        "name":  "Persoun",
-                        "value":  498
+                        "name":  "Belladone",
+                        "value":  575
                     },
                     {
                         "rank":  8,
-                        "name":  "Persotrois",
-                        "value":  497
+                        "name":  "Faismoimal",
+                        "value":  566
                     },
                     {
                         "rank":  9,
-                        "name":  "Persodeux",
-                        "value":  497
+                        "name":  "Magellan",
+                        "value":  565
                     },
                     {
                         "rank":  10,
@@ -283,12 +283,12 @@
                     {
                         "rank":  18,
                         "name":  "Rafaelo",
-                        "value":  167
+                        "value":  177
                     },
                     {
                         "rank":  19,
                         "name":  "Donatelo",
-                        "value":  165
+                        "value":  175
                     },
                     {
                         "rank":  20,
@@ -313,7 +313,7 @@
                     {
                         "rank":  24,
                         "name":  "Leonardo",
-                        "value":  131
+                        "value":  142
                     },
                     {
                         "rank":  25,
