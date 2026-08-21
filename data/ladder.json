@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T17:44:29.4877015+02:00",
+    "generatedAt":  "2026-08-21T17:49:29.8074911+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -295,13 +295,13 @@
                     },
                     {
                         "rank":  27,
-                        "name":  "Tamere",
-                        "value":  2
+                        "name":  "Erf",
+                        "value":  4
                     },
                     {
                         "rank":  28,
-                        "name":  "Erf",
-                        "value":  1
+                        "name":  "Tamere",
+                        "value":  2
                     },
                     {
                         "rank":  29,
@@ -310,7 +310,7 @@
                     },
                     {
                         "rank":  30,
-                        "name":  "Nelerocef",
+                        "name":  "Rgr",
                         "value":  1
                     },
                     {
@@ -320,7 +320,7 @@
                     },
                     {
                         "rank":  32,
-                        "name":  "Rgr",
+                        "name":  "Nelerocef",
                         "value":  1
                     }
                 ]
