@@ -211,6 +211,8 @@ let activeStatFilters = [];
 let itemNoPanoFilterActive = false;
 let itemWithPanoFilterActive = false;
 let activeBuildCategoryFilter = null;
+let ladderData = null;
+let ladderActiveTab = "xp";
 
 /** uiSlotId -> item object (or undefined) */
 let equipped = {};
@@ -329,6 +331,25 @@ async function main() {
   });
   document.getElementById("buildCategoryModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "buildCategoryModalOverlay") document.getElementById("buildCategoryModalOverlay").classList.add("hidden");
+  });
+  document.getElementById("ladderBtn").addEventListener("click", openLadderModal);
+  document.getElementById("ladderModalClose").addEventListener("click", () => {
+    document.getElementById("ladderModalOverlay").classList.add("hidden");
+  });
+  document.getElementById("ladderModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "ladderModalOverlay") document.getElementById("ladderModalOverlay").classList.add("hidden");
+  });
+  document.getElementById("ladderTabXp").addEventListener("click", () => {
+    ladderActiveTab = "xp";
+    document.getElementById("ladderTabXp").classList.add("active");
+    document.getElementById("ladderTabSuccess").classList.remove("active");
+    renderLadderList();
+  });
+  document.getElementById("ladderTabSuccess").addEventListener("click", () => {
+    ladderActiveTab = "success";
+    document.getElementById("ladderTabSuccess").classList.add("active");
+    document.getElementById("ladderTabXp").classList.remove("active");
+    renderLadderList();
   });
   document.getElementById("recipeModalClose").addEventListener("click", closeRecipeModal);
   document.getElementById("recipeModalOverlay").addEventListener("click", (ev) => {
@@ -3301,6 +3322,57 @@ function openRecipeModal(itemId) {
 
 function closeRecipeModal() {
   document.getElementById("recipeModalOverlay").classList.add("hidden");
+}
+
+// ---------- Ladder (XP / Succès) ----------
+// data/ladder.json is published independently of items.json/sets.json, refreshed every ~5min
+// by tools/refresh-ladder.ps1 (a scheduled task, not this app) straight from the live
+// "characters" table - see that script for the full pipeline.
+function openLadderModal() {
+  document.getElementById("ladderModalOverlay").classList.remove("hidden");
+  if (ladderData) {
+    renderLadderList();
+    return;
+  }
+  const listEl = document.getElementById("ladderList");
+  listEl.innerHTML = '<div class="stat-empty">Chargement…</div>';
+  fetch("data/ladder.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(data => {
+      ladderData = data;
+      renderLadderList();
+    })
+    .catch(() => {
+      listEl.innerHTML = '<div class="stat-empty">Impossible de charger le ladder.</div>';
+    });
+}
+
+function renderLadderList() {
+  const listEl = document.getElementById("ladderList");
+  const updatedEl = document.getElementById("ladderUpdated");
+  if (!ladderData) return;
+
+  if (ladderData.generatedAt) {
+    const d = new Date(ladderData.generatedAt);
+    updatedEl.textContent = "Mis à jour : " + d.toLocaleString("fr-FR");
+  }
+
+  const rows = ladderData[ladderActiveTab] || [];
+  listEl.innerHTML = "";
+  if (rows.length === 0) {
+    listEl.innerHTML = '<div class="stat-empty">Aucune donnée.</div>';
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  for (const row of rows) {
+    const el = document.createElement("div");
+    el.className = "ladder-row";
+    el.innerHTML = `<span class="ladder-rank">#${row.rank}</span><span class="ladder-name"></span><span class="ladder-value"></span>`;
+    el.querySelector(".ladder-name").textContent = row.name;
+    el.querySelector(".ladder-value").textContent = row.value.toLocaleString("fr-FR");
+    frag.appendChild(el);
+  }
+  listEl.appendChild(frag);
 }
 
 // "items" or "sets" - which list the modal's shared "Démasquer tout" button acts on.

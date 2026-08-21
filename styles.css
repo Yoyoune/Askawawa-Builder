@@ -196,6 +196,23 @@ button:hover { border-color: var(--accent); }
 }
 .builds-save-row button:hover { background: #e0bc63; }
 
+.ladder-updated { font-size: 11px; color: var(--text-dim); margin: 8px 0 4px; }
+#ladderList { max-height: 480px; overflow-y: auto; }
+.ladder-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.ladder-row:nth-child(1) .ladder-rank { color: #ffd76a; font-weight: 700; }
+.ladder-row:nth-child(2) .ladder-rank { color: #cfd7e0; font-weight: 700; }
+.ladder-row:nth-child(3) .ladder-rank { color: #d99a5b; font-weight: 700; }
+.ladder-rank { width: 40px; flex-shrink: 0; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.ladder-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ladder-value { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+
 .build-row {
   display: grid;
   grid-template-columns: 2fr 1fr;

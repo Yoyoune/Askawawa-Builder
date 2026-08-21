@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Askawawa Builder</title>
-<link rel="stylesheet" href="styles.css?v=20260817n">
+<link rel="stylesheet" href="styles.css?v=20260821a">
 </head>
 <body>
 <header class="topbar">
@@ -18,6 +18,7 @@
     <button id="setsSearchBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/panoplies.png" alt=""> Panoplies</button>
     <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
     <button id="paPmBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/papm.png" alt=""> Item PA-PM</button>
+    <button id="ladderBtn" type="button">🏆 Ladder</button>
     <a id="wikiBtn" class="topbar-link-btn" href="docs/wiki-askawawa.pdf" target="_blank" rel="noopener"><img class="topbar-btn-icon" src="icons/ui/wiki.png" alt=""> Wiki</a>
     <button id="resetBtn" title="Retirer tout l'équipement"><img class="topbar-btn-icon" src="icons/ui/reset.png" alt=""> Réinitialiser</button>
   </div>
@@ -319,8 +320,25 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="ladderModalOverlay">
+  <div class="modal modal-medium" id="ladderModal">
+    <div class="browser-header">
+      <h2>🏆 Ladder</h2>
+      <button id="ladderModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="sets-filter-row">
+        <button type="button" class="filter-chip active" id="ladderTabXp">XP</button>
+        <button type="button" class="filter-chip" id="ladderTabSuccess">Succès</button>
+      </div>
+      <div class="ladder-updated" id="ladderUpdated"></div>
+      <div id="ladderList"></div>
+    </div>
+  </div>
+</div>
+
 <div class="equipped-tooltip hidden" id="equippedTooltip"></div>
 
-<script src="app.js?v=20260817n"></script>
+<script src="app.js?v=20260821a"></script>
 </body>
 </html>
