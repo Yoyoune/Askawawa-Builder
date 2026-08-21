@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T22:49:29.1229530+02:00",
+    "generatedAt":  "2026-08-21T22:54:29.1691796+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -87,20 +87,20 @@
                },
                {
                    "rank":  15,
+                   "name":  "Rafaelo",
+                   "value":  4736048,
+                   "level":  48
+               },
+               {
+                   "rank":  16,
                    "name":  "Donatelo",
                    "value":  4659725,
                    "level":  48
                },
                {
-                   "rank":  16,
-                   "name":  "Rafaelo",
-                   "value":  4418812,
-                   "level":  48
-               },
-               {
                    "rank":  17,
                    "name":  "Michelangelo",
-                   "value":  3995989,
+                   "value":  4304082,
                    "level":  47
                },
                {
@@ -283,7 +283,7 @@
                     {
                         "rank":  18,
                         "name":  "Rafaelo",
-                        "value":  179
+                        "value":  180
                     },
                     {
                         "rank":  19,
@@ -293,7 +293,7 @@
                     {
                         "rank":  20,
                         "name":  "Michelangelo",
-                        "value":  156
+                        "value":  157
                     },
                     {
                         "rank":  21,
