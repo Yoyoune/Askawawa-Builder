@@ -3367,9 +3367,12 @@ function renderLadderList() {
   for (const row of rows) {
     const el = document.createElement("div");
     el.className = "ladder-row";
-    el.innerHTML = `<span class="ladder-rank">#${row.rank}</span><span class="ladder-name"></span><span class="ladder-value"></span>`;
+    el.innerHTML = `<span class="ladder-rank">#${row.rank}</span><span class="ladder-name"></span><span class="ladder-value"></span><span class="ladder-level"></span>`;
     el.querySelector(".ladder-name").textContent = row.name;
     el.querySelector(".ladder-value").textContent = row.value.toLocaleString("fr-FR");
+    const levelEl = el.querySelector(".ladder-level");
+    if (row.level !== undefined) levelEl.textContent = "Nv. " + row.level;
+    else levelEl.remove();
     frag.appendChild(el);
   }
   listEl.appendChild(frag);
