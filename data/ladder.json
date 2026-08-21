@@ -1,0 +1,317 @@
+﻿{
+    "generatedAt":  "2026-08-21T17:35:53.2053379+02:00",
+    "xp":  [
+               {
+                   "rank":  1,
+                   "name":  "Ratata",
+                   "value":  356432252965
+               },
+               {
+                   "rank":  2,
+                   "name":  "Dsf",
+                   "value":  1675134442
+               },
+               {
+                   "rank":  3,
+                   "name":  "Nayssen",
+                   "value":  29501511
+               },
+               {
+                   "rank":  4,
+                   "name":  "Belladone",
+                   "value":  27939649
+               },
+               {
+                   "rank":  5,
+                   "name":  "Bartonella",
+                   "value":  27385568
+               },
+               {
+                   "rank":  6,
+                   "name":  "Magellan",
+                   "value":  27256270
+               },
+               {
+                   "rank":  7,
+                   "name":  "Faismoimal",
+                   "value":  26984419
+               },
+               {
+                   "rank":  8,
+                   "name":  "Persotrois",
+                   "value":  25433507
+               },
+               {
+                   "rank":  9,
+                   "name":  "Persodeux",
+                   "value":  25385888
+               },
+               {
+                   "rank":  10,
+                   "name":  "Persoun",
+                   "value":  25211514
+               },
+               {
+                   "rank":  11,
+                   "name":  "Cyano",
+                   "value":  7478289
+               },
+               {
+                   "rank":  12,
+                   "name":  "Flavodiira",
+                   "value":  7473599
+               },
+               {
+                   "rank":  13,
+                   "name":  "Rubisca",
+                   "value":  7069915
+               },
+               {
+                   "rank":  14,
+                   "name":  "Rhizobium",
+                   "value":  5882193
+               },
+               {
+                   "rank":  15,
+                   "name":  "Patt",
+                   "value":  3073903
+               },
+               {
+                   "rank":  16,
+                   "name":  "Latt",
+                   "value":  2930448
+               },
+               {
+                   "rank":  17,
+                   "name":  "Matt",
+                   "value":  2874091
+               },
+               {
+                   "rank":  18,
+                   "name":  "Fritz",
+                   "value":  2614218
+               },
+               {
+                   "rank":  19,
+                   "name":  "Rafaelo",
+                   "value":  2532331
+               },
+               {
+                   "rank":  20,
+                   "name":  "Donatelo",
+                   "value":  2520890
+               },
+               {
+                   "rank":  21,
+                   "name":  "Frite",
+                   "value":  2406649
+               },
+               {
+                   "rank":  22,
+                   "name":  "Frita",
+                   "value":  2368781
+               },
+               {
+                   "rank":  23,
+                   "name":  "Michelangelo",
+                   "value":  2317867
+               },
+               {
+                   "rank":  24,
+                   "name":  "Fritr",
+                   "value":  2317311
+               },
+               {
+                   "rank":  25,
+                   "name":  "Leonardo",
+                   "value":  1089658
+               },
+               {
+                   "rank":  26,
+                   "name":  "Catt",
+                   "value":  54745
+               },
+               {
+                   "rank":  27,
+                   "name":  "Tamere",
+                   "value":  52
+               },
+               {
+                   "rank":  28,
+                   "name":  "Arg",
+                   "value":  0
+               },
+               {
+                   "rank":  29,
+                   "name":  "Nelerocef",
+                   "value":  0
+               },
+               {
+                   "rank":  30,
+                   "name":  "Qff",
+                   "value":  0
+               },
+               {
+                   "rank":  31,
+                   "name":  "Rgr",
+                   "value":  0
+               }
+           ],
+    "success":  [
+                    {
+                        "rank":  1,
+                        "name":  "Ratata",
+                        "value":  5877
+                    },
+                    {
+                        "rank":  2,
+                        "name":  "Bartonella",
+                        "value":  591
+                    },
+                    {
+                        "rank":  3,
+                        "name":  "Belladone",
+                        "value":  574
+                    },
+                    {
+                        "rank":  4,
+                        "name":  "Faismoimal",
+                        "value":  565
+                    },
+                    {
+                        "rank":  5,
+                        "name":  "Nayssen",
+                        "value":  565
+                    },
+                    {
+                        "rank":  6,
+                        "name":  "Magellan",
+                        "value":  564
+                    },
+                    {
+                        "rank":  7,
+                        "name":  "Persoun",
+                        "value":  498
+                    },
+                    {
+                        "rank":  8,
+                        "name":  "Persotrois",
+                        "value":  497
+                    },
+                    {
+                        "rank":  9,
+                        "name":  "Persodeux",
+                        "value":  497
+                    },
+                    {
+                        "rank":  10,
+                        "name":  "Flavodiira",
+                        "value":  348
+                    },
+                    {
+                        "rank":  11,
+                        "name":  "Rubisca",
+                        "value":  331
+                    },
+                    {
+                        "rank":  12,
+                        "name":  "Cyano",
+                        "value":  331
+                    },
+                    {
+                        "rank":  13,
+                        "name":  "Rhizobium",
+                        "value":  331
+                    },
+                    {
+                        "rank":  14,
+                        "name":  "Matt",
+                        "value":  268
+                    },
+                    {
+                        "rank":  15,
+                        "name":  "Latt",
+                        "value":  268
+                    },
+                    {
+                        "rank":  16,
+                        "name":  "Patt",
+                        "value":  264
+                    },
+                    {
+                        "rank":  17,
+                        "name":  "Fritz",
+                        "value":  184
+                    },
+                    {
+                        "rank":  18,
+                        "name":  "Rafaelo",
+                        "value":  167
+                    },
+                    {
+                        "rank":  19,
+                        "name":  "Donatelo",
+                        "value":  165
+                    },
+                    {
+                        "rank":  20,
+                        "name":  "Frita",
+                        "value":  155
+                    },
+                    {
+                        "rank":  21,
+                        "name":  "Frite",
+                        "value":  154
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Fritr",
+                        "value":  154
+                    },
+                    {
+                        "rank":  23,
+                        "name":  "Michelangelo",
+                        "value":  153
+                    },
+                    {
+                        "rank":  24,
+                        "name":  "Leonardo",
+                        "value":  131
+                    },
+                    {
+                        "rank":  25,
+                        "name":  "Dsf",
+                        "value":  13
+                    },
+                    {
+                        "rank":  26,
+                        "name":  "Catt",
+                        "value":  5
+                    },
+                    {
+                        "rank":  27,
+                        "name":  "Tamere",
+                        "value":  2
+                    },
+                    {
+                        "rank":  28,
+                        "name":  "Arg",
+                        "value":  1
+                    },
+                    {
+                        "rank":  29,
+                        "name":  "Nelerocef",
+                        "value":  1
+                    },
+                    {
+                        "rank":  30,
+                        "name":  "Qff",
+                        "value":  1
+                    },
+                    {
+                        "rank":  31,
+                        "name":  "Rgr",
+                        "value":  1
+                    }
+                ]
+}
