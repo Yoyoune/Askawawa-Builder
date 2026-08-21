@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T22:14:29.0700526+02:00",
+    "generatedAt":  "2026-08-21T22:19:29.0974747+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  45354600,
+                   "value":  45450207,
                    "level":  83
                },
                {
@@ -63,20 +63,20 @@
                },
                {
                    "rank":  11,
+                   "name":  "Flavodiira",
+                   "value":  7590541,
+                   "level":  54
+               },
+               {
+                   "rank":  12,
                    "name":  "Cyano",
                    "value":  7478289,
                    "level":  53
                },
                {
-                   "rank":  12,
-                   "name":  "Flavodiira",
-                   "value":  7473599,
-                   "level":  53
-               },
-               {
                    "rank":  13,
                    "name":  "Rubisca",
-                   "value":  7069915,
+                   "value":  7188949,
                    "level":  53
                },
                {
@@ -106,7 +106,7 @@
                {
                    "rank":  18,
                    "name":  "Leonardo",
-                   "value":  3402117,
+                   "value":  3543513,
                    "level":  45
                },
                {
