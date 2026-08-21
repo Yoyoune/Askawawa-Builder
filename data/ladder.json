@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T22:19:29.0974747+02:00",
+    "generatedAt":  "2026-08-21T22:24:29.0802186+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  45450207,
+                   "value":  45525252,
                    "level":  83
                },
                {
@@ -63,15 +63,15 @@
                },
                {
                    "rank":  11,
-                   "name":  "Flavodiira",
-                   "value":  7590541,
+                   "name":  "Cyano",
+                   "value":  7603632,
                    "level":  54
                },
                {
                    "rank":  12,
-                   "name":  "Cyano",
-                   "value":  7478289,
-                   "level":  53
+                   "name":  "Flavodiira",
+                   "value":  7590541,
+                   "level":  54
                },
                {
                    "rank":  13,
@@ -88,7 +88,7 @@
                {
                    "rank":  15,
                    "name":  "Donatelo",
-                   "value":  4421570,
+                   "value":  4613573,
                    "level":  48
                },
                {
@@ -106,8 +106,8 @@
                {
                    "rank":  18,
                    "name":  "Leonardo",
-                   "value":  3543513,
-                   "level":  45
+                   "value":  3580359,
+                   "level":  46
                },
                {
                    "rank":  19,
@@ -242,32 +242,32 @@
                     },
                     {
                         "rank":  10,
+                        "name":  "Cyano",
+                        "value":  361
+                    },
+                    {
+                        "rank":  11,
                         "name":  "Flavodiira",
                         "value":  348
                     },
                     {
-                        "rank":  11,
-                        "name":  "Rhizobium",
-                        "value":  331
-                    },
-                    {
                         "rank":  12,
-                        "name":  "Cyano",
-                        "value":  331
-                    },
-                    {
-                        "rank":  13,
                         "name":  "Rubisca",
                         "value":  331
                     },
                     {
+                        "rank":  13,
+                        "name":  "Rhizobium",
+                        "value":  331
+                    },
+                    {
                         "rank":  14,
-                        "name":  "Latt",
+                        "name":  "Matt",
                         "value":  268
                     },
                     {
                         "rank":  15,
-                        "name":  "Matt",
+                        "name":  "Latt",
                         "value":  268
                     },
                     {
@@ -288,7 +288,7 @@
                     {
                         "rank":  19,
                         "name":  "Donatelo",
-                        "value":  178
+                        "value":  179
                     },
                     {
                         "rank":  20,
@@ -313,7 +313,7 @@
                     {
                         "rank":  24,
                         "name":  "Leonardo",
-                        "value":  145
+                        "value":  146
                     },
                     {
                         "rank":  25,
