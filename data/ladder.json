@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T22:24:29.0802186+02:00",
+    "generatedAt":  "2026-08-21T22:29:29.1514649+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  45525252,
+                   "value":  45646947,
                    "level":  83
                },
                {
@@ -63,32 +63,32 @@
                },
                {
                    "rank":  11,
+                   "name":  "Flavodiira",
+                   "value":  7713848,
+                   "level":  54
+               },
+               {
+                   "rank":  12,
                    "name":  "Cyano",
                    "value":  7603632,
                    "level":  54
                },
                {
-                   "rank":  12,
-                   "name":  "Flavodiira",
-                   "value":  7590541,
-                   "level":  54
-               },
-               {
                    "rank":  13,
                    "name":  "Rubisca",
-                   "value":  7188949,
+                   "value":  7312132,
                    "level":  53
                },
                {
                    "rank":  14,
                    "name":  "Rhizobium",
-                   "value":  5882193,
+                   "value":  6000726,
                    "level":  51
                },
                {
                    "rank":  15,
                    "name":  "Donatelo",
-                   "value":  4613573,
+                   "value":  4659725,
                    "level":  48
                },
                {
@@ -106,7 +106,7 @@
                {
                    "rank":  18,
                    "name":  "Leonardo",
-                   "value":  3580359,
+                   "value":  3626036,
                    "level":  46
                },
                {
@@ -242,32 +242,32 @@
                     },
                     {
                         "rank":  10,
-                        "name":  "Cyano",
-                        "value":  361
+                        "name":  "Flavodiira",
+                        "value":  379
                     },
                     {
                         "rank":  11,
-                        "name":  "Flavodiira",
-                        "value":  348
+                        "name":  "Rhizobium",
+                        "value":  362
                     },
                     {
                         "rank":  12,
-                        "name":  "Rubisca",
-                        "value":  331
+                        "name":  "Cyano",
+                        "value":  362
                     },
                     {
                         "rank":  13,
-                        "name":  "Rhizobium",
-                        "value":  331
+                        "name":  "Rubisca",
+                        "value":  362
                     },
                     {
                         "rank":  14,
-                        "name":  "Matt",
+                        "name":  "Latt",
                         "value":  268
                     },
                     {
                         "rank":  15,
-                        "name":  "Latt",
+                        "name":  "Matt",
                         "value":  268
                     },
                     {
