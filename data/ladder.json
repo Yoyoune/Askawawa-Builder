@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-21T18:19:29.8057223+02:00",
+    "generatedAt":  "2026-08-21T18:24:29.8316461+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  29584263,
+                   "value":  29674437,
                    "level":  74
                },
                {
@@ -28,7 +28,7 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  27819904,
+                   "value":  28033019,
                    "level":  73
                },
                {
@@ -207,17 +207,17 @@
                     },
                     {
                         "rank":  3,
+                        "name":  "Nayssen",
+                        "value":  575
+                    },
+                    {
+                        "rank":  4,
                         "name":  "Belladone",
                         "value":  574
                     },
                     {
-                        "rank":  4,
-                        "name":  "Faismoimal",
-                        "value":  565
-                    },
-                    {
                         "rank":  5,
-                        "name":  "Nayssen",
+                        "name":  "Faismoimal",
                         "value":  565
                     },
                     {
