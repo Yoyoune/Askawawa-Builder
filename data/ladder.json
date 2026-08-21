@@ -1,165 +1,197 @@
 {
-    "generatedAt":  "2026-08-21T17:49:29.8074911+02:00",
+    "generatedAt":  "2026-08-21T18:03:54.7290989+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Ratata",
-                   "value":  356432252965
+                   "value":  356432252965,
+                   "level":  628
                },
                {
                    "rank":  2,
                    "name":  "Dsf",
-                   "value":  1675134442
+                   "value":  1675134442,
+                   "level":  186
                },
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  29501511
+                   "value":  29501511,
+                   "level":  74
                },
                {
                    "rank":  4,
                    "name":  "Belladone",
-                   "value":  27939649
+                   "value":  27939649,
+                   "level":  73
                },
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  27385568
+                   "value":  27385568,
+                   "level":  73
                },
                {
                    "rank":  6,
                    "name":  "Magellan",
-                   "value":  27256270
+                   "value":  27256270,
+                   "level":  73
                },
                {
                    "rank":  7,
                    "name":  "Faismoimal",
-                   "value":  26984419
+                   "value":  26984419,
+                   "level":  73
                },
                {
                    "rank":  8,
                    "name":  "Persotrois",
-                   "value":  25433507
+                   "value":  25433507,
+                   "level":  72
                },
                {
                    "rank":  9,
                    "name":  "Persodeux",
-                   "value":  25385888
+                   "value":  25385888,
+                   "level":  72
                },
                {
                    "rank":  10,
                    "name":  "Persoun",
-                   "value":  25211514
+                   "value":  25211514,
+                   "level":  72
                },
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  7478289
+                   "value":  7478289,
+                   "level":  53
                },
                {
                    "rank":  12,
                    "name":  "Flavodiira",
-                   "value":  7473599
+                   "value":  7473599,
+                   "level":  53
                },
                {
                    "rank":  13,
                    "name":  "Rubisca",
-                   "value":  7069915
+                   "value":  7069915,
+                   "level":  53
                },
                {
                    "rank":  14,
                    "name":  "Rhizobium",
-                   "value":  5882193
+                   "value":  5882193,
+                   "level":  51
                },
                {
                    "rank":  15,
                    "name":  "Patt",
-                   "value":  3073903
+                   "value":  3073903,
+                   "level":  44
                },
                {
                    "rank":  16,
                    "name":  "Latt",
-                   "value":  2930448
+                   "value":  2930448,
+                   "level":  44
                },
                {
                    "rank":  17,
                    "name":  "Matt",
-                   "value":  2874091
+                   "value":  2874091,
+                   "level":  44
                },
                {
                    "rank":  18,
                    "name":  "Fritz",
-                   "value":  2614218
+                   "value":  2614218,
+                   "level":  43
                },
                {
                    "rank":  19,
                    "name":  "Rafaelo",
-                   "value":  2532331
+                   "value":  2532331,
+                   "level":  43
                },
                {
                    "rank":  20,
                    "name":  "Donatelo",
-                   "value":  2520890
+                   "value":  2520890,
+                   "level":  42
                },
                {
                    "rank":  21,
                    "name":  "Frite",
-                   "value":  2406649
+                   "value":  2406649,
+                   "level":  42
                },
                {
                    "rank":  22,
                    "name":  "Frita",
-                   "value":  2368781
+                   "value":  2368781,
+                   "level":  42
                },
                {
                    "rank":  23,
                    "name":  "Michelangelo",
-                   "value":  2317867
+                   "value":  2317867,
+                   "level":  42
                },
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  2317311
+                   "value":  2317311,
+                   "level":  42
                },
                {
                    "rank":  25,
                    "name":  "Leonardo",
-                   "value":  1089658
+                   "value":  1089658,
+                   "level":  35
                },
                {
                    "rank":  26,
                    "name":  "Catt",
-                   "value":  54745
+                   "value":  54745,
+                   "level":  14
                },
                {
                    "rank":  27,
                    "name":  "Tamere",
-                   "value":  52
+                   "value":  52,
+                   "level":  1
                },
                {
                    "rank":  28,
                    "name":  "Erf",
-                   "value":  0
+                   "value":  0,
+                   "level":  1
                },
                {
                    "rank":  29,
                    "name":  "Arg",
-                   "value":  0
+                   "value":  0,
+                   "level":  1
                },
                {
                    "rank":  30,
                    "name":  "Nelerocef",
-                   "value":  0
+                   "value":  0,
+                   "level":  1
                },
                {
                    "rank":  31,
                    "name":  "Qff",
-                   "value":  0
+                   "value":  0,
+                   "level":  1
                },
                {
                    "rank":  32,
                    "name":  "Rgr",
-                   "value":  0
+                   "value":  0,
+                   "level":  1
                }
            ],
     "success":  [
