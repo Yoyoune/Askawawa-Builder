@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-22T14:49:29.7111189+02:00",
+    "generatedAt":  "2026-08-22T14:54:29.7211428+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,26 +16,26 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  57839954,
-                   "level":  88
+                   "value":  60371946,
+                   "level":  89
                },
                {
                    "rank":  4,
                    "name":  "Persotrois",
-                   "value":  47863053,
-                   "level":  84
+                   "value":  50704722,
+                   "level":  85
                },
                {
                    "rank":  5,
                    "name":  "Persoun",
-                   "value":  47565221,
-                   "level":  84
+                   "value":  50394541,
+                   "level":  85
                },
                {
                    "rank":  6,
                    "name":  "Persodeux",
-                   "value":  45331230,
-                   "level":  83
+                   "value":  48244169,
+                   "level":  84
                },
                {
                    "rank":  7,
@@ -203,22 +203,22 @@
                     {
                         "rank":  2,
                         "name":  "Nayssen",
-                        "value":  896
+                        "value":  916
                     },
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  811
+                        "value":  831
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  809
+                        "value":  829
                     },
                     {
                         "rank":  5,
                         "name":  "Persotrois",
-                        "value":  808
+                        "value":  828
                     },
                     {
                         "rank":  6,
