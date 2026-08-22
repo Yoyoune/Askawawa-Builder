@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T01:24:29.7756963+02:00",
+    "generatedAt":  "2026-08-23T01:29:29.8890481+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,14 +16,14 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  80623267,
-                   "level":  95
+                   "value":  81476446,
+                   "level":  96
                },
                {
                    "rank":  4,
                    "name":  "Persotrois",
-                   "value":  62031203,
-                   "level":  89
+                   "value":  65898885,
+                   "level":  91
                },
                {
                    "rank":  5,
@@ -40,7 +40,7 @@
                {
                    "rank":  7,
                    "name":  "Belladone",
-                   "value":  32551064,
+                   "value":  32645206,
                    "level":  76
                },
                {
@@ -52,13 +52,13 @@
                {
                    "rank":  9,
                    "name":  "Magellan",
-                   "value":  31841934,
+                   "value":  31936076,
                    "level":  76
                },
                {
                    "rank":  10,
                    "name":  "Faismoimal",
-                   "value":  31606702,
+                   "value":  31654964,
                    "level":  76
                },
                {
@@ -207,18 +207,18 @@
                     },
                     {
                         "rank":  3,
+                        "name":  "Persotrois",
+                        "value":  858
+                    },
+                    {
+                        "rank":  4,
                         "name":  "Persodeux",
                         "value":  831
                     },
                     {
-                        "rank":  4,
+                        "rank":  5,
                         "name":  "Persoun",
                         "value":  829
-                    },
-                    {
-                        "rank":  5,
-                        "name":  "Persotrois",
-                        "value":  828
                     },
                     {
                         "rank":  6,
@@ -228,17 +228,17 @@
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  586
+                        "value":  588
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  578
+                        "value":  579
                     },
                     {
                         "rank":  9,
                         "name":  "Magellan",
-                        "value":  576
+                        "value":  578
                     },
                     {
                         "rank":  10,
