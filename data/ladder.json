@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-22T20:49:29.4634083+02:00",
+    "generatedAt":  "2026-08-22T20:54:29.4223682+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,26 +16,26 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  71584887,
-                   "level":  93
+                   "value":  76003546,
+                   "level":  94
                },
                {
                    "rank":  4,
+                   "name":  "Persoun",
+                   "value":  58646167,
+                   "level":  88
+               },
+               {
+                   "rank":  5,
                    "name":  "Persotrois",
                    "value":  57457774,
                    "level":  88
                },
                {
-                   "rank":  5,
-                   "name":  "Persoun",
-                   "value":  55243998,
-                   "level":  87
-               },
-               {
                    "rank":  6,
                    "name":  "Persodeux",
-                   "value":  49897056,
-                   "level":  85
+                   "value":  53564771,
+                   "level":  86
                },
                {
                    "rank":  7,
@@ -88,25 +88,25 @@
                {
                    "rank":  15,
                    "name":  "Rafaelo",
-                   "value":  5379303,
-                   "level":  50
+                   "value":  5939539,
+                   "level":  51
                },
                {
                    "rank":  16,
                    "name":  "Donatelo",
-                   "value":  5355993,
-                   "level":  50
+                   "value":  5878080,
+                   "level":  51
                },
                {
                    "rank":  17,
                    "name":  "Michelangelo",
-                   "value":  4879341,
-                   "level":  49
+                   "value":  5373600,
+                   "level":  50
                },
                {
                    "rank":  18,
                    "name":  "Leonardo",
-                   "value":  4548565,
+                   "value":  4659865,
                    "level":  48
                },
                {
@@ -203,7 +203,7 @@
                     {
                         "rank":  2,
                         "name":  "Nayssen",
-                        "value":  926
+                        "value":  946
                     },
                     {
                         "rank":  3,
@@ -293,7 +293,7 @@
                     {
                         "rank":  20,
                         "name":  "Michelangelo",
-                        "value":  159
+                        "value":  169
                     },
                     {
                         "rank":  21,
