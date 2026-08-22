@@ -166,6 +166,7 @@ const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Multi", "DoPou", "Tank"
 
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
+const STORAGE_KEY_ATELIER = "populus-builder-atelier-v1";
 
 // "bonus" filters check the set's bonus tiers; "item" filters check whether any
 // individual piece in the set grants that stat; "other" catches sets with none of
@@ -226,6 +227,10 @@ let parchotage = {};
 let characteristicPoints = {};
 /** [{ name, charLevel, equipped: {uiSlotId:itemId}, rollOverrides, forgemagie, parchotage, characteristicPoints, savedAt }] */
 let savedBuilds = [];
+/** ordered list of item ids sent to the atelier */
+let atelierOrder = [];
+/** itemId -> { ingredientItemId: quantity typed by the user } */
+let atelierHave = {};
 /** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
 let activeBuildName = null;
 /** itemId set - hidden from the item browser until "Réinitialiser" is pressed */
@@ -271,6 +276,7 @@ async function main() {
   loadCustomization();
   loadSavedBuilds();
   loadHidden();
+  loadAtelier();
   handleImportFromUrl();
   renderPaperdoll();
   renderParchotageGrid();
@@ -355,6 +361,11 @@ async function main() {
   document.getElementById("recipeModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "recipeModalOverlay") closeRecipeModal();
   });
+  document.getElementById("atelierBtn").addEventListener("click", openAtelierModal);
+  document.getElementById("atelierModalClose").addEventListener("click", closeAtelierModal);
+  document.getElementById("atelierModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "atelierModalOverlay") closeAtelierModal();
+  });
   document.getElementById("hiddenItemsBtn").addEventListener("click", openHiddenItemsModal);
   document.getElementById("hiddenSetsBtn").addEventListener("click", openHiddenSetsModal);
   document.getElementById("hiddenModalClose").addEventListener("click", closeHiddenModal);
@@ -403,7 +414,7 @@ async function main() {
     renderPaPmList();
   });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeAtelierModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -548,6 +559,42 @@ function loadHidden() {
 
 function saveHidden() {
   localStorage.setItem(STORAGE_KEY_HIDDEN, JSON.stringify({ items: [...hiddenItemIds], sets: [...hiddenSetIds] }));
+}
+
+function loadAtelier() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_ATELIER);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    atelierOrder = (data.order || []).filter(id => ITEMS_BY_ID.has(id));
+    atelierHave = data.have || {};
+  } catch (e) {
+    console.warn("Could not restore atelier", e);
+  }
+}
+
+function saveAtelier() {
+  localStorage.setItem(STORAGE_KEY_ATELIER, JSON.stringify({ order: atelierOrder, have: atelierHave }));
+}
+
+function addItemToAtelier(itemId) {
+  if (!atelierOrder.includes(itemId)) atelierOrder.push(itemId);
+  if (!atelierHave[itemId]) atelierHave[itemId] = {};
+  saveAtelier();
+}
+
+function removeItemFromAtelier(itemId) {
+  atelierOrder = atelierOrder.filter(id => id !== itemId);
+  delete atelierHave[itemId];
+  saveAtelier();
+  renderAtelierModal();
+}
+
+function sendAllEquippedToAtelier() {
+  const ids = new Set(Object.values(equipped).map(it => it.id));
+  if (ids.size === 0) return;
+  for (const id of ids) addItemToAtelier(id);
+  renderAtelierModal();
 }
 
 function loadSavedBuilds() {
@@ -988,9 +1035,11 @@ function renderPaperdoll() {
 
   const dofusSlots = UI_SLOTS.filter(s => s.group === "dofus");
 
+  let firstEmptySeen = false;
   for (const slotId of PAPERDOLL_LAYOUT) {
     if (slotId === null) {
-      root.appendChild(renderEmptySlotEl());
+      root.appendChild(renderEmptySlotEl(!firstEmptySeen));
+      firstEmptySeen = true;
       continue;
     }
     root.appendChild(renderSlotEl(UI_SLOTS.find(s => s.id === slotId)));
@@ -1007,9 +1056,21 @@ function renderPaperdoll() {
   root.appendChild(dofusWrap);
 }
 
-function renderEmptySlotEl() {
+function renderEmptySlotEl(withAtelierButton) {
   const el = document.createElement("div");
-  el.className = "slot slot-empty";
+  el.className = "slot slot-empty" + (withAtelierButton ? " atelier-all-slot" : "");
+  if (withAtelierButton) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "atelier-send-all-btn";
+    btn.title = "Envoyer tout l'équipement en atelier";
+    const img = document.createElement("img");
+    img.src = "icons/ui/atelier.svg";
+    img.alt = "";
+    btn.appendChild(img);
+    btn.addEventListener("click", () => sendAllEquippedToAtelier());
+    el.appendChild(btn);
+  }
   return el;
 }
 
@@ -1054,6 +1115,9 @@ function renderSlotEl(uiSlot) {
     level.textContent = "Nv. " + item.level;
     el.appendChild(level);
 
+    const actionRow = document.createElement("div");
+    actionRow.className = "slot-action-row";
+
     if (item.itemSetId && item.itemSetId > 0 && SETS_BY_ID.has(item.itemSetId)) {
       const setBtn = document.createElement("button");
       setBtn.className = "slot-set-btn";
@@ -1064,8 +1128,24 @@ function renderSlotEl(uiSlot) {
         ev.stopPropagation();
         openSetPreview(item.itemSetId);
       });
-      el.appendChild(setBtn);
+      actionRow.appendChild(setBtn);
     }
+
+    const atelierBtn = document.createElement("button");
+    atelierBtn.type = "button";
+    atelierBtn.className = "atelier-send-btn";
+    atelierBtn.title = "Envoyer en atelier";
+    const atelierImg = document.createElement("img");
+    atelierImg.src = "icons/ui/atelier.svg";
+    atelierImg.alt = "";
+    atelierBtn.appendChild(atelierImg);
+    atelierBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      addItemToAtelier(item.id);
+    });
+    actionRow.appendChild(atelierBtn);
+
+    el.appendChild(actionRow);
 
     const editBtn = document.createElement("button");
     editBtn.className = "edit-btn";
@@ -3322,6 +3402,104 @@ function openRecipeModal(itemId) {
 
 function closeRecipeModal() {
   document.getElementById("recipeModalOverlay").classList.add("hidden");
+}
+
+// ---------- Atelier ----------
+
+function openAtelierModal() {
+  renderAtelierModal();
+  document.getElementById("atelierModalOverlay").classList.remove("hidden");
+}
+
+function closeAtelierModal() {
+  document.getElementById("atelierModalOverlay").classList.add("hidden");
+}
+
+function renderAtelierModal() {
+  const body = document.getElementById("atelierModalBody");
+  body.innerHTML = "";
+
+  if (atelierOrder.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Aucun objet envoyé en atelier. Cliquez sur l\'icône marteau à côté d\'un objet équipé (ou celle au centre de la case vide à gauche des coiffes) pour l\'ajouter ici.</div>';
+    return;
+  }
+
+  for (const itemId of atelierOrder) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item) continue;
+    body.appendChild(renderAtelierCard(item));
+  }
+}
+
+function renderAtelierCard(item) {
+  const card = document.createElement("div");
+  card.className = "atelier-card";
+
+  const removeBtn = document.createElement("button");
+  removeBtn.type = "button";
+  removeBtn.className = "atelier-card-remove-btn";
+  removeBtn.textContent = "×";
+  removeBtn.title = "Retirer de l'atelier";
+  removeBtn.addEventListener("click", () => removeItemFromAtelier(item.id));
+  card.appendChild(removeBtn);
+
+  const header = document.createElement("div");
+  header.className = "atelier-card-header";
+  header.appendChild(itemIconEl(item, "🔨", "item-icon"));
+  const name = document.createElement("span");
+  name.className = "atelier-card-name";
+  name.textContent = item.name;
+  header.appendChild(name);
+  card.appendChild(header);
+
+  const ingredients = document.createElement("div");
+  ingredients.className = "atelier-ingredient-list";
+
+  if (!item.recipe || item.recipe.length === 0) {
+    const none = document.createElement("div");
+    none.className = "stat-empty";
+    none.textContent = "Recette inconnue pour cet objet.";
+    ingredients.appendChild(none);
+  } else {
+    const have = atelierHave[item.id] || (atelierHave[item.id] = {});
+    for (const ing of item.recipe) {
+      const row = document.createElement("div");
+      row.className = "atelier-ingredient-row";
+      row.appendChild(itemIconEl({ iconId: ing.iconId }, "🧱", "item-icon"));
+
+      const name2 = document.createElement("span");
+      name2.className = "resource-name";
+      name2.textContent = ing.name;
+      row.appendChild(name2);
+
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = "0";
+      input.className = "atelier-have-input";
+      input.value = have[ing.itemId] || 0;
+
+      const needed = document.createElement("span");
+      needed.className = "atelier-needed";
+      needed.textContent = "/ " + ing.quantity;
+
+      const applyFulfilled = () => {
+        row.classList.toggle("fulfilled", Number(input.value) === ing.quantity);
+      };
+      input.addEventListener("input", () => {
+        const v = Math.max(0, Number(input.value) || 0);
+        have[ing.itemId] = v;
+        saveAtelier();
+        applyFulfilled();
+      });
+      applyFulfilled();
+
+      row.appendChild(input);
+      row.appendChild(needed);
+      ingredients.appendChild(row);
+    }
+  }
+  card.appendChild(ingredients);
+  return card;
 }
 
 // ---------- Ladder (XP / Succès) ----------

@@ -297,6 +297,74 @@ button:hover { border-color: var(--accent); }
 .resource-row .resource-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .resource-row .resource-qty { color: var(--accent); font-weight: 600; white-space: nowrap; }
 
+/* ---- Atelier ---- */
+#atelierModalBody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.atelier-card {
+  position: relative;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.atelier-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-right: 20px;
+}
+.atelier-card-header .item-icon { width: 32px; height: 32px; flex-shrink: 0; }
+.atelier-card-name { font-weight: 600; color: var(--accent); }
+
+.atelier-card-remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--negative);
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.atelier-ingredient-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  transition: background .15s, opacity .15s;
+}
+.atelier-ingredient-row:last-child { border-bottom: none; }
+.atelier-ingredient-row .item-icon { width: 26px; height: 26px; flex-shrink: 0; }
+.atelier-ingredient-row .resource-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.atelier-ingredient-row .atelier-needed { color: var(--text-dim); white-space: nowrap; }
+.atelier-ingredient-row.fulfilled { background: rgba(255, 255, 255, 0.04); opacity: .55; }
+
+.atelier-have-input {
+  width: 46px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
 /* ---- Paperdoll ---- */
 .paperdoll {
   background: var(--panel);
@@ -352,8 +420,14 @@ button:hover { border-color: var(--accent); }
   margin-top: 1px;
 }
 
-.slot .slot-set-btn {
+.slot .slot-action-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin-top: 3px;
+}
+
+.slot .slot-set-btn {
   background: none;
   border: 1px solid var(--border);
   color: var(--text);
@@ -363,6 +437,19 @@ button:hover { border-color: var(--accent); }
   cursor: pointer;
 }
 .slot .slot-set-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
+
+.slot .atelier-send-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.slot .atelier-send-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
+.slot .atelier-send-btn img { width: 12px; height: 12px; display: block; }
 
 .slot .remove-btn {
   position: absolute;
@@ -412,6 +499,22 @@ button:hover { border-color: var(--accent); }
   cursor: default;
   pointer-events: none;
 }
+.slot.slot-empty.atelier-all-slot { pointer-events: auto; }
+
+.atelier-send-all-btn {
+  width: 100%;
+  height: 100%;
+  min-height: 92px;
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.atelier-send-all-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
+.atelier-send-all-btn img { width: 32px; height: 32px; }
 
 .paperdoll-dofus {
   grid-column: 1 / -1;

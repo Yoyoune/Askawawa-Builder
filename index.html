@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Askawawa Builder</title>
-<link rel="stylesheet" href="styles.css?v=20260821b">
+<link rel="stylesheet" href="styles.css?v=20260823a">
 </head>
 <body>
 <header class="topbar">
@@ -17,6 +17,7 @@
     <button id="classSpellsBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/classe.png" alt=""> Classe</button>
     <button id="setsSearchBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/panoplies.png" alt=""> Panoplies</button>
     <label>Niveau perso <input type="number" id="charLevel" min="1" max="200" value="200"></label>
+    <button id="atelierBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/atelier.svg" alt=""> Atelier</button>
     <button id="paPmBtn" type="button"><img class="topbar-btn-icon" src="icons/ui/papm.png" alt=""> Item PA-PM</button>
     <button id="ladderBtn" type="button">🏆 Ladder</button>
     <a id="wikiBtn" class="topbar-link-btn" href="docs/wiki-askawawa.pdf" target="_blank" rel="noopener"><img class="topbar-btn-icon" src="icons/ui/wiki.png" alt=""> Wiki</a>
@@ -284,6 +285,16 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="atelierModalOverlay">
+  <div class="modal modal-xwide" id="atelierModal">
+    <div class="browser-header">
+      <h2><img class="topbar-btn-icon" src="icons/ui/atelier.svg" alt=""> Atelier</h2>
+      <button id="atelierModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body" id="atelierModalBody"></div>
+  </div>
+</div>
+
 <div class="modal-overlay hidden" id="hiddenModalOverlay">
   <div class="modal modal-narrow" id="hiddenModal">
     <div class="browser-header">
@@ -339,6 +350,6 @@
 
 <div class="equipped-tooltip hidden" id="equippedTooltip"></div>
 
-<script src="app.js?v=20260821b"></script>
+<script src="app.js?v=20260823a"></script>
 </body>
 </html>
