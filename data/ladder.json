@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-22T20:14:29.2491948+02:00",
+    "generatedAt":  "2026-08-22T20:19:29.2197694+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  69389223,
+                   "value":  70485879,
                    "level":  92
                },
                {
@@ -88,8 +88,8 @@
                {
                    "rank":  15,
                    "name":  "Rafaelo",
-                   "value":  4813448,
-                   "level":  48
+                   "value":  4898672,
+                   "level":  49
                },
                {
                    "rank":  16,
@@ -100,7 +100,7 @@
                {
                    "rank":  17,
                    "name":  "Michelangelo",
-                   "value":  4423280,
+                   "value":  4465600,
                    "level":  48
                },
                {
@@ -203,7 +203,7 @@
                     {
                         "rank":  2,
                         "name":  "Nayssen",
-                        "value":  916
+                        "value":  926
                     },
                     {
                         "rank":  3,
