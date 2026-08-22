@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T00:44:29.8217085+02:00",
+    "generatedAt":  "2026-08-23T00:49:30.1610711+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  80094427,
+                   "value":  80463715,
                    "level":  95
                },
                {
@@ -58,7 +58,7 @@
                {
                    "rank":  10,
                    "name":  "Faismoimal",
-                   "value":  30187013,
+                   "value":  31561794,
                    "level":  75
                },
                {
@@ -232,13 +232,13 @@
                     },
                     {
                         "rank":  8,
-                        "name":  "Magellan",
-                        "value":  576
+                        "name":  "Faismoimal",
+                        "value":  577
                     },
                     {
                         "rank":  9,
-                        "name":  "Faismoimal",
-                        "value":  566
+                        "name":  "Magellan",
+                        "value":  576
                     },
                     {
                         "rank":  10,
