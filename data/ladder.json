@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-22T20:29:29.3737895+02:00",
+    "generatedAt":  "2026-08-22T20:34:29.4815465+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -100,7 +100,7 @@
                {
                    "rank":  17,
                    "name":  "Michelangelo",
-                   "value":  4545404,
+                   "value":  4744596,
                    "level":  48
                },
                {
@@ -293,7 +293,7 @@
                     {
                         "rank":  20,
                         "name":  "Michelangelo",
-                        "value":  158
+                        "value":  159
                     },
                     {
                         "rank":  21,
