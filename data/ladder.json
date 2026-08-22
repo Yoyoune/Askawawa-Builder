@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T01:14:30.3143851+02:00",
+    "generatedAt":  "2026-08-23T01:19:29.7811678+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -46,7 +46,7 @@
                {
                    "rank":  8,
                    "name":  "Bartonella",
-                   "value":  31977800,
+                   "value":  32071942,
                    "level":  76
                },
                {
@@ -58,8 +58,8 @@
                {
                    "rank":  10,
                    "name":  "Faismoimal",
-                   "value":  31561794,
-                   "level":  75
+                   "value":  31606702,
+                   "level":  76
                },
                {
                    "rank":  11,
@@ -223,7 +223,7 @@
                     {
                         "rank":  6,
                         "name":  "Bartonella",
-                        "value":  603
+                        "value":  605
                     },
                     {
                         "rank":  7,
@@ -233,7 +233,7 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  577
+                        "value":  578
                     },
                     {
                         "rank":  9,
