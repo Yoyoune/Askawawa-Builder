@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-22T20:34:29.4815465+02:00",
+    "generatedAt":  "2026-08-22T20:39:29.4591214+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -88,25 +88,25 @@
                {
                    "rank":  15,
                    "name":  "Rafaelo",
-                   "value":  4954722,
-                   "level":  49
+                   "value":  5379303,
+                   "level":  50
                },
                {
                    "rank":  16,
+                   "name":  "Michelangelo",
+                   "value":  4879341,
+                   "level":  49
+               },
+               {
+                   "rank":  17,
                    "name":  "Donatelo",
                    "value":  4874738,
                    "level":  49
                },
                {
-                   "rank":  17,
-                   "name":  "Michelangelo",
-                   "value":  4744596,
-                   "level":  48
-               },
-               {
                    "rank":  18,
                    "name":  "Leonardo",
-                   "value":  3967408,
+                   "value":  4184925,
                    "level":  47
                },
                {
@@ -277,13 +277,13 @@
                     },
                     {
                         "rank":  17,
-                        "name":  "Fritz",
-                        "value":  184
+                        "name":  "Rafaelo",
+                        "value":  192
                     },
                     {
                         "rank":  18,
-                        "name":  "Rafaelo",
-                        "value":  180
+                        "name":  "Fritz",
+                        "value":  184
                     },
                     {
                         "rank":  19,
@@ -313,7 +313,7 @@
                     {
                         "rank":  24,
                         "name":  "Leonardo",
-                        "value":  147
+                        "value":  148
                     },
                     {
                         "rank":  25,
