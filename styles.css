@@ -321,7 +321,20 @@ button:hover { border-color: var(--accent); }
   padding-right: 20px;
 }
 .atelier-card-header .item-icon { width: 32px; height: 32px; flex-shrink: 0; }
-.atelier-card-name { font-weight: 600; color: var(--accent); }
+.atelier-card-name { font-weight: 600; color: var(--accent); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.atelier-copies-input {
+  width: 44px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 2px 4px;
+  flex-shrink: 0;
+}
 
 .atelier-card-remove-btn {
   position: absolute;
@@ -438,7 +451,7 @@ button:hover { border-color: var(--accent); }
 }
 .slot .slot-set-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
 
-.slot .atelier-send-btn {
+.atelier-send-btn {
   background: none;
   border: 1px solid var(--border);
   border-radius: 3px;
@@ -448,8 +461,8 @@ button:hover { border-color: var(--accent); }
   justify-content: center;
   cursor: pointer;
 }
-.slot .atelier-send-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
-.slot .atelier-send-btn img { width: 12px; height: 12px; display: block; }
+.atelier-send-btn:hover { border-color: var(--accent); background: var(--panel-alt); }
+.atelier-send-btn img { width: 12px; height: 12px; display: block; }
 
 .slot .remove-btn {
   position: absolute;
@@ -781,6 +794,8 @@ button:hover { border-color: var(--accent); }
   color: var(--text);
 }
 .set-badge button.secondary:hover { border-color: var(--accent); background: var(--panel-alt); }
+.set-badge button.atelier-send-btn { display: flex; align-items: center; padding: 4px 6px; }
+.set-badge button.atelier-send-btn img { width: 14px; height: 14px; display: block; }
 
 /* ---- Set preview modal ---- */
 .modal-overlay {
@@ -1076,6 +1091,8 @@ button:hover { border-color: var(--accent); }
 .set-card-icons { display: flex; flex-wrap: wrap; gap: 8px; }
 .set-card-icons .item-icon { width: 40px; height: 40px; }
 .set-card .hide-btn, .set-card-header-actions .hide-btn { font-size: 13px; padding: 4px 9px; }
+.set-card-hide-col { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+.set-card-hide-col .atelier-send-btn { align-self: center; }
 .set-card-details { display: none; margin-top: 10px; }
 .set-card.expanded .set-card-details { display: block; }
 .set-card.expanded .set-card-summary { margin-bottom: 4px; }

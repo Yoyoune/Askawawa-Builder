@@ -231,6 +231,8 @@ let savedBuilds = [];
 let atelierOrder = [];
 /** itemId -> { ingredientItemId: quantity typed by the user } */
 let atelierHave = {};
+/** itemId -> number of copies of the item to craft (multiplies each ingredient's needed quantity) */
+let atelierCopies = {};
 /** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
 let activeBuildName = null;
 /** itemId set - hidden from the item browser until "Réinitialiser" is pressed */
@@ -362,6 +364,7 @@ async function main() {
     if (ev.target.id === "recipeModalOverlay") closeRecipeModal();
   });
   document.getElementById("atelierBtn").addEventListener("click", openAtelierModal);
+  document.getElementById("atelierClearBtn").addEventListener("click", clearAtelier);
   document.getElementById("atelierModalClose").addEventListener("click", closeAtelierModal);
   document.getElementById("atelierModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "atelierModalOverlay") closeAtelierModal();
@@ -568,24 +571,37 @@ function loadAtelier() {
     const data = JSON.parse(raw);
     atelierOrder = (data.order || []).filter(id => ITEMS_BY_ID.has(id));
     atelierHave = data.have || {};
+    atelierCopies = data.copies || {};
   } catch (e) {
     console.warn("Could not restore atelier", e);
   }
 }
 
 function saveAtelier() {
-  localStorage.setItem(STORAGE_KEY_ATELIER, JSON.stringify({ order: atelierOrder, have: atelierHave }));
+  localStorage.setItem(STORAGE_KEY_ATELIER, JSON.stringify({ order: atelierOrder, have: atelierHave, copies: atelierCopies }));
 }
 
 function addItemToAtelier(itemId) {
   if (!atelierOrder.includes(itemId)) atelierOrder.push(itemId);
   if (!atelierHave[itemId]) atelierHave[itemId] = {};
+  if (!atelierCopies[itemId]) atelierCopies[itemId] = 1;
   saveAtelier();
 }
 
 function removeItemFromAtelier(itemId) {
   atelierOrder = atelierOrder.filter(id => id !== itemId);
   delete atelierHave[itemId];
+  delete atelierCopies[itemId];
+  saveAtelier();
+  renderAtelierModal();
+}
+
+function clearAtelier() {
+  if (atelierOrder.length === 0) return;
+  if (!confirm("Vider l'atelier (retirer tous les objets) ?")) return;
+  atelierOrder = [];
+  atelierHave = {};
+  atelierCopies = {};
   saveAtelier();
   renderAtelierModal();
 }
@@ -594,6 +610,11 @@ function sendAllEquippedToAtelier() {
   const ids = new Set(Object.values(equipped).map(it => it.id));
   if (ids.size === 0) return;
   for (const id of ids) addItemToAtelier(id);
+  renderAtelierModal();
+}
+
+function sendSetToAtelier(set) {
+  for (const itemId of set.itemIds) addItemToAtelier(itemId);
   renderAtelierModal();
 }
 
@@ -1488,6 +1509,20 @@ function renderItemCard(item, isEquipped, charLevel) {
     actions.className = "set-badge-actions";
 
     if (hasRecipe) {
+      const atelierBtn = document.createElement("button");
+      atelierBtn.type = "button";
+      atelierBtn.className = "secondary atelier-send-btn";
+      atelierBtn.title = "Envoyer en atelier";
+      const atelierImg = document.createElement("img");
+      atelierImg.src = "icons/ui/atelier.svg";
+      atelierImg.alt = "";
+      atelierBtn.appendChild(atelierImg);
+      atelierBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        addItemToAtelier(item.id);
+      });
+      actions.appendChild(atelierBtn);
+
       const recipeBtn = document.createElement("button");
       recipeBtn.type = "button";
       recipeBtn.className = "secondary";
@@ -2951,6 +2986,9 @@ function renderSetCard(set) {
   });
   headerActions.appendChild(compatBtn);
 
+  const hideCol = document.createElement("div");
+  hideCol.className = "set-card-hide-col";
+
   const hideSetBtn = document.createElement("button");
   hideSetBtn.type = "button";
   hideSetBtn.className = "hide-btn";
@@ -2962,7 +3000,23 @@ function renderSetCard(set) {
     saveHidden();
     renderSetsList();
   });
-  headerActions.appendChild(hideSetBtn);
+  hideCol.appendChild(hideSetBtn);
+
+  const atelierSetBtn = document.createElement("button");
+  atelierSetBtn.type = "button";
+  atelierSetBtn.className = "atelier-send-btn";
+  atelierSetBtn.title = "Envoyer toute la panoplie en atelier";
+  const atelierSetImg = document.createElement("img");
+  atelierSetImg.src = "icons/ui/atelier.svg";
+  atelierSetImg.alt = "";
+  atelierSetBtn.appendChild(atelierSetImg);
+  atelierSetBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    sendSetToAtelier(set);
+  });
+  hideCol.appendChild(atelierSetBtn);
+
+  headerActions.appendChild(hideCol);
 
   header.appendChild(headerActions);
 
@@ -3450,10 +3504,21 @@ function renderAtelierCard(item) {
   name.className = "atelier-card-name";
   name.textContent = item.name;
   header.appendChild(name);
+
+  const copiesInput = document.createElement("input");
+  copiesInput.type = "number";
+  copiesInput.min = "1";
+  copiesInput.className = "atelier-copies-input";
+  copiesInput.title = "Nombre d'exemplaires à fabriquer";
+  copiesInput.value = atelierCopies[item.id] || 1;
+  header.appendChild(copiesInput);
+
   card.appendChild(header);
 
   const ingredients = document.createElement("div");
   ingredients.className = "atelier-ingredient-list";
+
+  const rowUpdaters = [];
 
   if (!item.recipe || item.recipe.length === 0) {
     const none = document.createElement("div");
@@ -3480,24 +3545,35 @@ function renderAtelierCard(item) {
 
       const needed = document.createElement("span");
       needed.className = "atelier-needed";
-      needed.textContent = "/ " + ing.quantity;
 
-      const applyFulfilled = () => {
-        row.classList.toggle("fulfilled", Number(input.value) === ing.quantity);
+      const update = () => {
+        const copies = Math.max(1, Number(copiesInput.value) || 1);
+        const totalNeeded = ing.quantity * copies;
+        needed.textContent = "/ " + totalNeeded;
+        row.classList.toggle("fulfilled", Number(input.value) === totalNeeded);
       };
       input.addEventListener("input", () => {
         const v = Math.max(0, Number(input.value) || 0);
         have[ing.itemId] = v;
         saveAtelier();
-        applyFulfilled();
+        update();
       });
-      applyFulfilled();
+      rowUpdaters.push(update);
+      update();
 
       row.appendChild(input);
       row.appendChild(needed);
       ingredients.appendChild(row);
     }
   }
+
+  copiesInput.addEventListener("input", () => {
+    const v = Math.max(1, Number(copiesInput.value) || 1);
+    atelierCopies[item.id] = v;
+    saveAtelier();
+    rowUpdaters.forEach(fn => fn());
+  });
+
   card.appendChild(ingredients);
   return card;
 }
