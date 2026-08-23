@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-23T18:49:29.4559096+02:00",
+    "generatedAt":  "2026-08-23T18:54:29.4921529+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Ratata",
-                   "value":  356432835338,
+                   "value":  356432835342,
                    "level":  628
                },
                {
@@ -159,25 +159,25 @@
                },
                {
                    "rank":  27,
+                   "name":  "Arg",
+                   "value":  208,
+                   "level":  2
+               },
+               {
+                   "rank":  28,
                    "name":  "Tamere",
                    "value":  52,
                    "level":  1
                },
                {
-                   "rank":  28,
-                   "name":  "Arg",
-                   "value":  0,
-                   "level":  1
-               },
-               {
                    "rank":  29,
-                   "name":  "Erf",
+                   "name":  "Qff",
                    "value":  0,
                    "level":  1
                },
                {
                    "rank":  30,
-                   "name":  "Nelerocef",
+                   "name":  "Erf",
                    "value":  0,
                    "level":  1
                },
@@ -189,7 +189,7 @@
                },
                {
                    "rank":  32,
-                   "name":  "Qff",
+                   "name":  "Nelerocef",
                    "value":  0,
                    "level":  1
                }
