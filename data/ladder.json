@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T21:39:29.5977600+02:00",
+    "generatedAt":  "2026-08-23T21:44:29.6138433+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -123,32 +123,32 @@
                },
                {
                    "rank":  21,
-                   "name":  "Latt",
-                   "value":  2930448,
+                   "name":  "Frite",
+                   "value":  3071261,
                    "level":  44
                },
                {
                    "rank":  22,
                    "name":  "Frita",
-                   "value":  2884806,
+                   "value":  3035017,
                    "level":  44
                },
                {
                    "rank":  23,
                    "name":  "Fritr",
-                   "value":  2878733,
+                   "value":  2980280,
                    "level":  44
                },
                {
                    "rank":  24,
-                   "name":  "Matt",
-                   "value":  2874091,
+                   "name":  "Latt",
+                   "value":  2930448,
                    "level":  44
                },
                {
                    "rank":  25,
-                   "name":  "Frite",
-                   "value":  2853076,
+                   "name":  "Matt",
+                   "value":  2874091,
                    "level":  44
                },
                {
@@ -303,7 +303,7 @@
                     {
                         "rank":  22,
                         "name":  "Frita",
-                        "value":  162
+                        "value":  163
                     },
                     {
                         "rank":  23,
@@ -313,7 +313,7 @@
                     {
                         "rank":  24,
                         "name":  "Frite",
-                        "value":  155
+                        "value":  161
                     },
                     {
                         "rank":  25,
