@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-23T17:49:29.3861843+02:00",
+    "generatedAt":  "2026-08-23T18:04:29.4126105+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Ratata",
-                   "value":  356432835321,
+                   "value":  356432835333,
                    "level":  628
                },
                {
@@ -332,13 +332,13 @@
                     },
                     {
                         "rank":  28,
-                        "name":  "Tamere",
+                        "name":  "Arg",
                         "value":  2
                     },
                     {
                         "rank":  29,
-                        "name":  "Arg",
-                        "value":  1
+                        "name":  "Tamere",
+                        "value":  2
                     },
                     {
                         "rank":  30,
