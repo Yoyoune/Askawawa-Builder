@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T02:39:29.9498702+02:00",
+    "generatedAt":  "2026-08-23T02:44:29.9220660+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -22,19 +22,19 @@
                {
                    "rank":  4,
                    "name":  "Persotrois",
-                   "value":  68966598,
+                   "value":  69013399,
                    "level":  92
                },
                {
                    "rank":  5,
                    "name":  "Persoun",
-                   "value":  67043244,
+                   "value":  67629186,
                    "level":  91
                },
                {
                    "rank":  6,
                    "name":  "Persodeux",
-                   "value":  57651364,
+                   "value":  58227016,
                    "level":  88
                },
                {
@@ -207,18 +207,18 @@
                     },
                     {
                         "rank":  3,
+                        "name":  "Persoun",
+                        "value":  879
+                    },
+                    {
+                        "rank":  4,
                         "name":  "Persotrois",
                         "value":  878
                     },
                     {
-                        "rank":  4,
-                        "name":  "Persoun",
-                        "value":  869
-                    },
-                    {
                         "rank":  5,
                         "name":  "Persodeux",
-                        "value":  831
+                        "value":  841
                     },
                     {
                         "rank":  6,
