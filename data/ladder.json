@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T21:04:29.5744775+02:00",
+    "generatedAt":  "2026-08-23T21:29:29.6563381+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -112,7 +112,7 @@
                {
                    "rank":  19,
                    "name":  "Fritz",
-                   "value":  3114997,
+                   "value":  3198521,
                    "level":  44
                },
                {
@@ -129,21 +129,21 @@
                },
                {
                    "rank":  22,
+                   "name":  "Frita",
+                   "value":  2884806,
+                   "level":  44
+               },
+               {
+                   "rank":  23,
                    "name":  "Matt",
                    "value":  2874091,
                    "level":  44
                },
                {
-                   "rank":  23,
-                   "name":  "Frite",
-                   "value":  2657276,
-                   "level":  43
-               },
-               {
                    "rank":  24,
-                   "name":  "Frita",
-                   "value":  2622178,
-                   "level":  43
+                   "name":  "Frite",
+                   "value":  2853076,
+                   "level":  44
                },
                {
                    "rank":  25,
@@ -277,18 +277,18 @@
                     },
                     {
                         "rank":  17,
-                        "name":  "Rafaelo",
+                        "name":  "Fritz",
                         "value":  192
                     },
                     {
                         "rank":  18,
-                        "name":  "Donatelo",
-                        "value":  191
+                        "name":  "Rafaelo",
+                        "value":  192
                     },
                     {
                         "rank":  19,
-                        "name":  "Fritz",
-                        "value":  185
+                        "name":  "Donatelo",
+                        "value":  191
                     },
                     {
                         "rank":  20,
@@ -303,7 +303,7 @@
                     {
                         "rank":  22,
                         "name":  "Frita",
-                        "value":  156
+                        "value":  162
                     },
                     {
                         "rank":  23,
@@ -313,7 +313,7 @@
                     {
                         "rank":  24,
                         "name":  "Frite",
-                        "value":  154
+                        "value":  155
                     },
                     {
                         "rank":  25,
