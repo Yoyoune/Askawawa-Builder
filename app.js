@@ -233,6 +233,8 @@ let atelierOrder = [];
 let atelierHave = {};
 /** itemId -> number of copies of the item to craft (multiplies each ingredient's needed quantity) */
 let atelierCopies = {};
+/** "resource" (default) or "item" - which panel the Atelier modal currently shows */
+let atelierViewMode = "resource";
 /** name of the build last loaded/saved, so "Enregistrer" updates it without re-prompting */
 let activeBuildName = null;
 /** itemId set - hidden from the item browser until "Réinitialiser" is pressed */
@@ -366,6 +368,18 @@ async function main() {
   document.getElementById("atelierBtn").addEventListener("click", openAtelierModal);
   document.getElementById("atelierClearBtn").addEventListener("click", clearAtelier);
   document.getElementById("atelierModalClose").addEventListener("click", closeAtelierModal);
+  document.getElementById("atelierViewItemBtn").addEventListener("click", () => {
+    atelierViewMode = "item";
+    document.getElementById("atelierViewItemBtn").classList.add("active");
+    document.getElementById("atelierViewResourceBtn").classList.remove("active");
+    renderAtelierModal();
+  });
+  document.getElementById("atelierViewResourceBtn").addEventListener("click", () => {
+    atelierViewMode = "resource";
+    document.getElementById("atelierViewResourceBtn").classList.add("active");
+    document.getElementById("atelierViewItemBtn").classList.remove("active");
+    renderAtelierModal();
+  });
   document.getElementById("atelierModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "atelierModalOverlay") closeAtelierModal();
   });
@@ -3478,11 +3492,107 @@ function renderAtelierModal() {
     return;
   }
 
+  if (atelierViewMode === "resource") {
+    body.appendChild(renderAtelierResourceView());
+    return;
+  }
+
   for (const itemId of atelierOrder) {
     const item = ITEMS_BY_ID.get(itemId);
     if (!item) continue;
     body.appendChild(renderAtelierCard(item));
   }
+}
+
+/** ingredientItemId -> { name, iconId, needed, have } aggregated across every item currently in the atelier. */
+function computeAtelierResourceTotals() {
+  const totals = new Map();
+  for (const itemId of atelierOrder) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item || !item.recipe) continue;
+    const copies = Math.max(1, atelierCopies[itemId] || 1);
+    const have = atelierHave[itemId] || {};
+    for (const ing of item.recipe) {
+      let t = totals.get(ing.itemId);
+      if (!t) {
+        t = { name: ing.name, iconId: ing.iconId, needed: 0, have: 0 };
+        totals.set(ing.itemId, t);
+      }
+      t.needed += ing.quantity * copies;
+      t.have += have[ing.itemId] || 0;
+    }
+  }
+  return totals;
+}
+
+/** Redistributes a resource's new total "have" across every item using it, filling each
+ * item's own need in atelierOrder order before moving to the next (waterfall allocation) -
+ * mirrors filling recipes one at a time with a shared pile of one raw resource. */
+function distributeResourceHave(ingredientItemId, totalHave) {
+  let remaining = Math.max(0, totalHave);
+  for (const itemId of atelierOrder) {
+    const item = ITEMS_BY_ID.get(itemId);
+    if (!item || !item.recipe) continue;
+    const ing = item.recipe.find(r => r.itemId === ingredientItemId);
+    if (!ing) continue;
+    const copies = Math.max(1, atelierCopies[itemId] || 1);
+    const needed = ing.quantity * copies;
+    const have = atelierHave[itemId] || (atelierHave[itemId] = {});
+    const allocate = Math.min(remaining, needed);
+    have[ingredientItemId] = allocate;
+    remaining -= allocate;
+  }
+  saveAtelier();
+}
+
+function renderAtelierResourceView() {
+  const wrap = document.createElement("div");
+  wrap.className = "atelier-resource-view";
+
+  const totals = computeAtelierResourceTotals();
+  const ids = [...totals.keys()].sort((a, b) => totals.get(a).name.localeCompare(totals.get(b).name));
+
+  if (ids.length === 0) {
+    const none = document.createElement("div");
+    none.className = "stat-empty";
+    none.textContent = "Recette inconnue pour tous les objets de l'atelier.";
+    wrap.appendChild(none);
+    return wrap;
+  }
+
+  for (const ingId of ids) {
+    const t = totals.get(ingId);
+    const row = document.createElement("div");
+    row.className = "atelier-ingredient-row" + (t.have === t.needed ? " fulfilled" : "");
+    row.appendChild(itemIconEl({ iconId: t.iconId }, "🧱", "item-icon"));
+
+    const name = document.createElement("span");
+    name.className = "resource-name";
+    name.textContent = t.name;
+    row.appendChild(name);
+
+    const input = document.createElement("input");
+    input.type = "number";
+    input.min = "0";
+    input.className = "atelier-have-input";
+    input.value = t.have;
+
+    const needed = document.createElement("span");
+    needed.className = "atelier-needed";
+    needed.textContent = "/ " + t.needed;
+
+    input.addEventListener("input", () => {
+      const v = Math.max(0, Number(input.value) || 0);
+      distributeResourceHave(ingId, v);
+      row.classList.toggle("fulfilled", v === t.needed);
+    });
+
+    row.appendChild(input);
+    row.appendChild(needed);
+    wrap.appendChild(row);
+  }
+
+  return wrap;
 }
 
 function renderAtelierCard(item) {
