@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T13:19:29.8620268+02:00",
+    "generatedAt":  "2026-08-23T13:24:29.8865728+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  89594495,
+                   "value":  89828942,
                    "level":  98
                },
                {
@@ -28,7 +28,7 @@
                {
                    "rank":  5,
                    "name":  "Persoun",
-                   "value":  69096396,
+                   "value":  71457663,
                    "level":  92
                },
                {
@@ -208,7 +208,7 @@
                     {
                         "rank":  3,
                         "name":  "Persoun",
-                        "value":  889
+                        "value":  901
                     },
                     {
                         "rank":  4,
