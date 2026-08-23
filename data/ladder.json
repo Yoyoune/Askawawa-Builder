@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T13:04:29.8778340+02:00",
+    "generatedAt":  "2026-08-23T13:09:29.9144249+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,7 +16,7 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  87158146,
+                   "value":  87658630,
                    "level":  97
                },
                {
@@ -34,8 +34,8 @@
                {
                    "rank":  6,
                    "name":  "Persodeux",
-                   "value":  58227016,
-                   "level":  88
+                   "value":  60009697,
+                   "level":  89
                },
                {
                    "rank":  7,
@@ -203,7 +203,7 @@
                     {
                         "rank":  2,
                         "name":  "Nayssen",
-                        "value":  976
+                        "value":  977
                     },
                     {
                         "rank":  3,
@@ -218,7 +218,7 @@
                     {
                         "rank":  5,
                         "name":  "Persodeux",
-                        "value":  841
+                        "value":  852
                     },
                     {
                         "rank":  6,
