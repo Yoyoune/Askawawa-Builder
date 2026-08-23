@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-23T15:59:29.4073454+02:00",
+    "generatedAt":  "2026-08-23T16:09:29.2452549+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Ratata",
-                   "value":  356432487689,
+                   "value":  356432835321,
                    "level":  628
                },
                {
@@ -16,13 +16,13 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  95718319,
-                   "level":  99
+                   "value":  95907121,
+                   "level":  100
                },
                {
                    "rank":  4,
                    "name":  "Persoun",
-                   "value":  75821199,
+                   "value":  76605939,
                    "level":  94
                },
                {
@@ -203,7 +203,7 @@
                     {
                         "rank":  2,
                         "name":  "Nayssen",
-                        "value":  988
+                        "value":  989
                     },
                     {
                         "rank":  3,
