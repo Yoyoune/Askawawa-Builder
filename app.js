@@ -1100,7 +1100,7 @@ function renderEmptySlotEl(withAtelierButton) {
     btn.className = "atelier-send-all-btn";
     btn.title = "Envoyer tout l'équipement en atelier";
     const img = document.createElement("img");
-    img.src = "icons/ui/atelier.svg";
+    img.src = "icons/ui/atelier.png";
     img.alt = "";
     btn.appendChild(img);
     btn.addEventListener("click", () => sendAllEquippedToAtelier());
@@ -1171,7 +1171,7 @@ function renderSlotEl(uiSlot) {
     atelierBtn.className = "atelier-send-btn";
     atelierBtn.title = "Envoyer en atelier";
     const atelierImg = document.createElement("img");
-    atelierImg.src = "icons/ui/atelier.svg";
+    atelierImg.src = "icons/ui/atelier.png";
     atelierImg.alt = "";
     atelierBtn.appendChild(atelierImg);
     atelierBtn.addEventListener("click", (ev) => {
@@ -1528,7 +1528,7 @@ function renderItemCard(item, isEquipped, charLevel) {
       atelierBtn.className = "secondary atelier-send-btn";
       atelierBtn.title = "Envoyer en atelier";
       const atelierImg = document.createElement("img");
-      atelierImg.src = "icons/ui/atelier.svg";
+      atelierImg.src = "icons/ui/atelier.png";
       atelierImg.alt = "";
       atelierBtn.appendChild(atelierImg);
       atelierBtn.addEventListener("click", (ev) => {
@@ -3021,7 +3021,7 @@ function renderSetCard(set) {
   atelierSetBtn.className = "atelier-send-btn";
   atelierSetBtn.title = "Envoyer toute la panoplie en atelier";
   const atelierSetImg = document.createElement("img");
-  atelierSetImg.src = "icons/ui/atelier.svg";
+  atelierSetImg.src = "icons/ui/atelier.png";
   atelierSetImg.alt = "";
   atelierSetBtn.appendChild(atelierSetImg);
   atelierSetBtn.addEventListener("click", (ev) => {
