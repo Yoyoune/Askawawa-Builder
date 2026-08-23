@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T21:29:29.6563381+02:00",
+    "generatedAt":  "2026-08-23T21:34:29.6617285+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -112,8 +112,8 @@
                {
                    "rank":  19,
                    "name":  "Fritz",
-                   "value":  3198521,
-                   "level":  44
+                   "value":  3263716,
+                   "level":  45
                },
                {
                    "rank":  20,
@@ -135,21 +135,21 @@
                },
                {
                    "rank":  23,
+                   "name":  "Fritr",
+                   "value":  2878733,
+                   "level":  44
+               },
+               {
+                   "rank":  24,
                    "name":  "Matt",
                    "value":  2874091,
                    "level":  44
                },
                {
-                   "rank":  24,
+                   "rank":  25,
                    "name":  "Frite",
                    "value":  2853076,
                    "level":  44
-               },
-               {
-                   "rank":  25,
-                   "name":  "Fritr",
-                   "value":  2569895,
-                   "level":  43
                },
                {
                    "rank":  26,
@@ -308,7 +308,7 @@
                     {
                         "rank":  23,
                         "name":  "Fritr",
-                        "value":  155
+                        "value":  162
                     },
                     {
                         "rank":  24,
