@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T02:44:29.9220660+02:00",
+    "generatedAt":  "2026-08-23T09:59:29.6356502+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -39,14 +39,14 @@
                },
                {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  32645206,
+                   "name":  "Bartonella",
+                   "value":  32835833,
                    "level":  76
                },
                {
                    "rank":  8,
-                   "name":  "Bartonella",
-                   "value":  32071942,
+                   "name":  "Belladone",
+                   "value":  32645206,
                    "level":  76
                },
                {
@@ -223,7 +223,7 @@
                     {
                         "rank":  6,
                         "name":  "Bartonella",
-                        "value":  605
+                        "value":  615
                     },
                     {
                         "rank":  7,
