@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T02:04:29.9916564+02:00",
+    "generatedAt":  "2026-08-23T02:09:29.9845593+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -16,26 +16,26 @@
                {
                    "rank":  3,
                    "name":  "Nayssen",
-                   "value":  83961968,
+                   "value":  84746919,
                    "level":  96
                },
                {
                    "rank":  4,
+                   "name":  "Persoun",
+                   "value":  67043244,
+                   "level":  91
+               },
+               {
+                   "rank":  5,
                    "name":  "Persotrois",
                    "value":  65898885,
                    "level":  91
                },
                {
-                   "rank":  5,
-                   "name":  "Persoun",
-                   "value":  60688200,
-                   "level":  89
-               },
-               {
                    "rank":  6,
                    "name":  "Persodeux",
-                   "value":  55581773,
-                   "level":  87
+                   "value":  57651364,
+                   "level":  88
                },
                {
                    "rank":  7,
@@ -207,18 +207,18 @@
                     },
                     {
                         "rank":  3,
+                        "name":  "Persoun",
+                        "value":  869
+                    },
+                    {
+                        "rank":  4,
                         "name":  "Persotrois",
                         "value":  858
                     },
                     {
-                        "rank":  4,
+                        "rank":  5,
                         "name":  "Persodeux",
                         "value":  831
-                    },
-                    {
-                        "rank":  5,
-                        "name":  "Persoun",
-                        "value":  829
                     },
                     {
                         "rank":  6,
