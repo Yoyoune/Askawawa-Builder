@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-24T12:09:29.1084004+02:00",
+    "generatedAt":  "2026-08-24T17:49:29.7365757+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -200,6 +200,14 @@
                    "breed":  2,
                    "sex":  0,
                    "level":  1
+               },
+               {
+                   "rank":  26,
+                   "name":  "Ratata",
+                   "value":  0,
+                   "breed":  9,
+                   "sex":  0,
+                   "level":  1
                }
            ],
     "success":  [
@@ -247,17 +255,17 @@
                     },
                     {
                         "rank":  7,
-                        "name":  "Belladone",
-                        "value":  590,
-                        "breed":  10,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  8,
                         "name":  "Magellan",
                         "value":  590,
                         "breed":  15,
                         "sex":  0
+                    },
+                    {
+                        "rank":  8,
+                        "name":  "Belladone",
+                        "value":  590,
+                        "breed":  10,
+                        "sex":  1
                     },
                     {
                         "rank":  9,
@@ -376,6 +384,13 @@
                         "name":  "Tamere",
                         "value":  2,
                         "breed":  2,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  26,
+                        "name":  "Ratata",
+                        "value":  1,
+                        "breed":  9,
                         "sex":  0
                     }
                 ]
