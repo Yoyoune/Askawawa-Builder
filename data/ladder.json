@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-24T11:49:29.1288949+02:00",
+    "generatedAt":  "2026-08-24T11:54:28.9969165+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -132,41 +132,41 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  3460297,
+                   "value":  3706381,
                    "breed":  14,
+                   "sex":  0,
+                   "level":  46
+               },
+               {
+                   "rank":  18,
+                   "name":  "Fritr",
+                   "value":  3326179,
+                   "breed":  4,
                    "sex":  0,
                    "level":  45
                },
                {
-                   "rank":  18,
-                   "name":  "Patt",
-                   "value":  3073903,
-                   "breed":  8,
-                   "sex":  1,
-                   "level":  44
-               },
-               {
                    "rank":  19,
                    "name":  "Frite",
-                   "value":  3071261,
+                   "value":  3285262,
                    "breed":  5,
                    "sex":  0,
-                   "level":  44
+                   "level":  45
                },
                {
                    "rank":  20,
                    "name":  "Frita",
-                   "value":  3035017,
+                   "value":  3249018,
                    "breed":  1,
                    "sex":  0,
-                   "level":  44
+                   "level":  45
                },
                {
                    "rank":  21,
-                   "name":  "Fritr",
-                   "value":  2980280,
-                   "breed":  4,
-                   "sex":  0,
+                   "name":  "Patt",
+                   "value":  3073903,
+                   "breed":  8,
+                   "sex":  1,
                    "level":  44
                },
                {
@@ -311,7 +311,7 @@
                     {
                         "rank":  16,
                         "name":  "Fritz",
-                        "value":  203,
+                        "value":  214,
                         "breed":  14,
                         "sex":  0
                     },
@@ -331,37 +331,37 @@
                     },
                     {
                         "rank":  19,
-                        "name":  "Leonardo",
-                        "value":  169,
-                        "breed":  11,
+                        "name":  "Fritr",
+                        "value":  183,
+                        "breed":  4,
                         "sex":  0
                     },
                     {
                         "rank":  20,
+                        "name":  "Frite",
+                        "value":  182,
+                        "breed":  5,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  21,
+                        "name":  "Frita",
+                        "value":  174,
+                        "breed":  1,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  22,
                         "name":  "Michelangelo",
                         "value":  169,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  21,
-                        "name":  "Frita",
-                        "value":  163,
-                        "breed":  1,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  22,
-                        "name":  "Fritr",
-                        "value":  162,
-                        "breed":  4,
-                        "sex":  0
-                    },
-                    {
                         "rank":  23,
-                        "name":  "Frite",
-                        "value":  161,
-                        "breed":  5,
+                        "name":  "Leonardo",
+                        "value":  169,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
