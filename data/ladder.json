@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-23T21:44:29.6138433+02:00",
+    "generatedAt":  "2026-08-24T11:14:29.3976800+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -159,37 +159,19 @@
                },
                {
                    "rank":  27,
-                   "name":  "Arg",
-                   "value":  208,
-                   "level":  2
-               },
-               {
-                   "rank":  28,
                    "name":  "Tamere",
                    "value":  52,
                    "level":  1
                },
                {
-                   "rank":  29,
-                   "name":  "Qff",
-                   "value":  0,
-                   "level":  1
-               },
-               {
-                   "rank":  30,
-                   "name":  "Erf",
-                   "value":  0,
-                   "level":  1
-               },
-               {
-                   "rank":  31,
+                   "rank":  28,
                    "name":  "Rgr",
                    "value":  0,
                    "level":  1
                },
                {
-                   "rank":  32,
-                   "name":  "Nelerocef",
+                   "rank":  29,
+                   "name":  "Qff",
                    "value":  0,
                    "level":  1
                }
@@ -232,12 +214,12 @@
                     },
                     {
                         "rank":  8,
-                        "name":  "Magellan",
+                        "name":  "Belladone",
                         "value":  590
                     },
                     {
                         "rank":  9,
-                        "name":  "Belladone",
+                        "name":  "Magellan",
                         "value":  590
                     },
                     {
@@ -247,7 +229,7 @@
                     },
                     {
                         "rank":  11,
-                        "name":  "Rhizobium",
+                        "name":  "Rubisca",
                         "value":  362
                     },
                     {
@@ -257,7 +239,7 @@
                     },
                     {
                         "rank":  13,
-                        "name":  "Rubisca",
+                        "name":  "Rhizobium",
                         "value":  362
                     },
                     {
@@ -327,32 +309,17 @@
                     },
                     {
                         "rank":  27,
-                        "name":  "Erf",
-                        "value":  4
-                    },
-                    {
-                        "rank":  28,
-                        "name":  "Arg",
-                        "value":  3
-                    },
-                    {
-                        "rank":  29,
                         "name":  "Tamere",
                         "value":  2
                     },
                     {
-                        "rank":  30,
-                        "name":  "Qff",
-                        "value":  1
-                    },
-                    {
-                        "rank":  31,
+                        "rank":  28,
                         "name":  "Rgr",
                         "value":  1
                     },
                     {
-                        "rank":  32,
-                        "name":  "Nelerocef",
+                        "rank":  29,
+                        "name":  "Qff",
                         "value":  1
                     }
                 ]
