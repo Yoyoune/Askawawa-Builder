@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-24T17:49:29.7365757+02:00",
+    "generatedAt":  "2026-08-24T18:39:29.8487220+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -381,16 +381,16 @@
                     },
                     {
                         "rank":  25,
-                        "name":  "Tamere",
-                        "value":  2,
-                        "breed":  2,
+                        "name":  "Ratata",
+                        "value":  3,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  26,
-                        "name":  "Ratata",
-                        "value":  1,
-                        "breed":  9,
+                        "name":  "Tamere",
+                        "value":  2,
+                        "breed":  2,
                         "sex":  0
                     }
                 ]
