@@ -1,154 +1,204 @@
 {
-    "generatedAt":  "2026-08-24T11:39:29.1728271+02:00",
+    "generatedAt":  "2026-08-24T11:40:01.1629304+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
                    "value":  106446255,
+                   "breed":  8,
+                   "sex":  0,
                    "level":  102
                },
                {
                    "rank":  2,
                    "name":  "Persoun",
                    "value":  82396805,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  96
                },
                {
                    "rank":  3,
                    "name":  "Persotrois",
                    "value":  82363644,
+                   "breed":  7,
+                   "sex":  0,
                    "level":  96
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
                    "value":  75617199,
+                   "breed":  14,
+                   "sex":  0,
                    "level":  94
                },
                {
                    "rank":  5,
                    "name":  "Belladone",
                    "value":  33514097,
+                   "breed":  10,
+                   "sex":  1,
                    "level":  77
                },
                {
                    "rank":  6,
                    "name":  "Bartonella",
                    "value":  33423463,
+                   "breed":  6,
+                   "sex":  1,
                    "level":  77
                },
                {
                    "rank":  7,
                    "name":  "Magellan",
                    "value":  33287150,
+                   "breed":  15,
+                   "sex":  0,
                    "level":  76
                },
                {
                    "rank":  8,
                    "name":  "Faismoimal",
                    "value":  33006038,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  76
                },
                {
                    "rank":  9,
                    "name":  "Flavodiira",
                    "value":  7814630,
+                   "breed":  1,
+                   "sex":  1,
                    "level":  54
                },
                {
                    "rank":  10,
                    "name":  "Cyano",
                    "value":  7708014,
+                   "breed":  3,
+                   "sex":  0,
                    "level":  54
                },
                {
                    "rank":  11,
                    "name":  "Rubisca",
                    "value":  7312132,
+                   "breed":  17,
+                   "sex":  1,
                    "level":  53
                },
                {
                    "rank":  12,
                    "name":  "Donatelo",
                    "value":  7004741,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  53
                },
                {
                    "rank":  13,
                    "name":  "Rafaelo",
                    "value":  6975883,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  53
                },
                {
                    "rank":  14,
                    "name":  "Michelangelo",
                    "value":  6703392,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  52
                },
                {
                    "rank":  15,
                    "name":  "Leonardo",
                    "value":  6150231,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  51
                },
                {
                    "rank":  16,
                    "name":  "Rhizobium",
                    "value":  6000726,
+                   "breed":  2,
+                   "sex":  0,
                    "level":  51
                },
                {
                    "rank":  17,
                    "name":  "Fritz",
                    "value":  3383563,
+                   "breed":  14,
+                   "sex":  0,
                    "level":  45
                },
                {
                    "rank":  18,
                    "name":  "Patt",
                    "value":  3073903,
+                   "breed":  8,
+                   "sex":  1,
                    "level":  44
                },
                {
                    "rank":  19,
                    "name":  "Frite",
                    "value":  3071261,
+                   "breed":  5,
+                   "sex":  0,
                    "level":  44
                },
                {
                    "rank":  20,
                    "name":  "Frita",
                    "value":  3035017,
+                   "breed":  1,
+                   "sex":  0,
                    "level":  44
                },
                {
                    "rank":  21,
                    "name":  "Fritr",
                    "value":  2980280,
+                   "breed":  4,
+                   "sex":  0,
                    "level":  44
                },
                {
                    "rank":  22,
                    "name":  "Latt",
                    "value":  2930448,
+                   "breed":  1,
+                   "sex":  1,
                    "level":  44
                },
                {
                    "rank":  23,
                    "name":  "Matt",
                    "value":  2874091,
+                   "breed":  3,
+                   "sex":  0,
                    "level":  44
                },
                {
                    "rank":  24,
                    "name":  "Catt",
                    "value":  54745,
+                   "breed":  9,
+                   "sex":  0,
                    "level":  14
                },
                {
                    "rank":  25,
                    "name":  "Tamere",
                    "value":  52,
+                   "breed":  2,
+                   "sex":  0,
                    "level":  1
                }
            ],
@@ -156,127 +206,177 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1009
+                        "value":  1009,
+                        "breed":  8,
+                        "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  923
+                        "value":  923,
+                        "breed":  14,
+                        "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persoun",
-                        "value":  921
+                        "value":  921,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  909
+                        "value":  909,
+                        "breed":  7,
+                        "sex":  0
                     },
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  617
+                        "value":  617,
+                        "breed":  6,
+                        "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Faismoimal",
-                        "value":  591
+                        "value":  591,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  590
+                        "value":  590,
+                        "breed":  10,
+                        "sex":  1
                     },
                     {
                         "rank":  8,
                         "name":  "Magellan",
-                        "value":  590
+                        "value":  590,
+                        "breed":  15,
+                        "sex":  0
                     },
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  379
+                        "value":  379,
+                        "breed":  1,
+                        "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  362
+                        "value":  362,
+                        "breed":  2,
+                        "sex":  0
                     },
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  362
+                        "value":  362,
+                        "breed":  17,
+                        "sex":  1
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  362
+                        "value":  362,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  13,
                         "name":  "Matt",
-                        "value":  268
+                        "value":  268,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  14,
                         "name":  "Latt",
-                        "value":  268
+                        "value":  268,
+                        "breed":  1,
+                        "sex":  1
                     },
                     {
                         "rank":  15,
                         "name":  "Patt",
-                        "value":  264
+                        "value":  264,
+                        "breed":  8,
+                        "sex":  1
                     },
                     {
                         "rank":  16,
                         "name":  "Rafaelo",
-                        "value":  192
+                        "value":  192,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  17,
                         "name":  "Fritz",
-                        "value":  192
+                        "value":  192,
+                        "breed":  14,
+                        "sex":  0
                     },
                     {
                         "rank":  18,
                         "name":  "Donatelo",
-                        "value":  191
+                        "value":  191,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  19,
                         "name":  "Leonardo",
-                        "value":  169
+                        "value":  169,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  20,
                         "name":  "Michelangelo",
-                        "value":  169
+                        "value":  169,
+                        "breed":  11,
+                        "sex":  0
                     },
                     {
                         "rank":  21,
                         "name":  "Frita",
-                        "value":  163
+                        "value":  163,
+                        "breed":  1,
+                        "sex":  0
                     },
                     {
                         "rank":  22,
                         "name":  "Fritr",
-                        "value":  162
+                        "value":  162,
+                        "breed":  4,
+                        "sex":  0
                     },
                     {
                         "rank":  23,
                         "name":  "Frite",
-                        "value":  161
+                        "value":  161,
+                        "breed":  5,
+                        "sex":  0
                     },
                     {
                         "rank":  24,
                         "name":  "Catt",
-                        "value":  5
+                        "value":  5,
+                        "breed":  9,
+                        "sex":  0
                     },
                     {
                         "rank":  25,
                         "name":  "Tamere",
-                        "value":  2
+                        "value":  2,
+                        "breed":  2,
+                        "sex":  0
                     }
                 ]
 }
