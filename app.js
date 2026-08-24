@@ -3731,7 +3731,10 @@ function renderLadderList() {
   for (const row of rows) {
     const el = document.createElement("div");
     el.className = "ladder-row";
-    el.innerHTML = `<span class="ladder-rank">#${row.rank}</span><span class="ladder-name"></span><span class="ladder-value"></span><span class="ladder-level"></span>`;
+    el.innerHTML = `<span class="ladder-rank">#${row.rank}</span><img class="ladder-class-icon" alt=""><span class="ladder-name"></span><span class="ladder-value"></span><span class="ladder-level"></span>`;
+    const classIconEl = el.querySelector(".ladder-class-icon");
+    if (row.breed !== undefined && row.sex !== undefined) classIconEl.src = `icons/heads/SmallHead_${row.breed * 10 + row.sex}.png`;
+    else classIconEl.remove();
     el.querySelector(".ladder-name").textContent = row.name;
     el.querySelector(".ladder-value").textContent = row.value.toLocaleString("fr-FR");
     const levelEl = el.querySelector(".ladder-level");
