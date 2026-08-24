@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-24T21:59:29.0340495+02:00",
+    "generatedAt":  "2026-08-24T22:04:29.2443922+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,8 +28,8 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  75617199,
-                   "breed":  1,
+                   "value":  75662781,
+                   "breed":  14,
                    "sex":  0,
                    "level":  94
                },
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  4690242,
+                   "value":  4729573,
                    "breed":  14,
                    "sex":  0,
                    "level":  48
@@ -222,7 +222,7 @@
                         "rank":  2,
                         "name":  "Persodeux",
                         "value":  923,
-                        "breed":  1,
+                        "breed":  14,
                         "sex":  0
                     },
                     {
@@ -319,7 +319,7 @@
                     {
                         "rank":  16,
                         "name":  "Fritz",
-                        "value":  238,
+                        "value":  239,
                         "breed":  14,
                         "sex":  0
                     },
