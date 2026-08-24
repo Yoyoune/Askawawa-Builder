@@ -1246,11 +1246,18 @@ function showEquippedTooltip(anchorEl, item) {
     if (item.minRange !== undefined && item.weaponRange !== undefined) {
       bits.push(item.minRange === item.weaponRange ? `Portée ${item.weaponRange}` : `Portée ${item.minRange}-${item.weaponRange}`);
     }
-    if (item.criticalHitProbability) {
-      let crit = `Critique ${item.criticalHitProbability}%`;
-      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
-      bits.push(crit);
+    if (item.criticalHitProbability !== undefined) {
+      if (item.criticalHitProbability > 0) {
+        let crit = `Critique ${item.criticalHitProbability}%`;
+        if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
+        bits.push(crit);
+      } else {
+        // Some weapons (e.g. Dagues de Srambad) can never critical-hit at all, not just
+        // "0% by default" - say so explicitly rather than silently omitting the stat.
+        bits.push("Pas de critique");
+      }
     }
+    if (item.maxCastPerTurn) bits.push(`${item.maxCastPerTurn} utilisation${item.maxCastPerTurn > 1 ? "s" : ""} par tour`);
     w.textContent = bits.join(" · ");
     tooltip.appendChild(w);
   }
@@ -1485,13 +1492,20 @@ function renderItemCard(item, isEquipped, charLevel) {
     if (item.minRange !== undefined && item.weaponRange !== undefined) {
       bits.push(item.minRange === item.weaponRange ? `Portée ${item.weaponRange}` : `Portée ${item.minRange}-${item.weaponRange}`);
     }
-    if (item.criticalHitProbability) {
+    if (item.criticalHitProbability !== undefined) {
       // On this server criticalHitProbability is a direct percentage, not a "1 in N"
       // denominator (confirmed against the real in-game tooltip: "Critique 20%").
-      let crit = `Critique ${item.criticalHitProbability}%`;
-      if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
-      bits.push(crit);
+      if (item.criticalHitProbability > 0) {
+        let crit = `Critique ${item.criticalHitProbability}%`;
+        if (item.criticalHitBonus) crit += ` (+${item.criticalHitBonus} Dommages de base)`;
+        bits.push(crit);
+      } else {
+        // Some weapons (e.g. Dagues de Srambad) can never critical-hit at all, not just
+        // "0% by default" - say so explicitly rather than silently omitting the stat.
+        bits.push("Pas de critique");
+      }
     }
+    if (item.maxCastPerTurn) bits.push(`${item.maxCastPerTurn} utilisation${item.maxCastPerTurn > 1 ? "s" : ""} par tour`);
     w.textContent = bits.join(" · ");
     body.appendChild(w);
   }
@@ -2152,10 +2166,12 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
   });
   const pushLine = pushDamageLine(weapon.effects, combined, getCharLevel());
   if (pushLine) lines.push(pushLine);
-  // Weapons always have a real critical hit (stat-driven, even with no distinct roll of
-  // their own) - unlike spells, where an empty CriticalEffectsBin can mean "cannot crit
-  // at all" (see computeSpellGradeDamageSimulation).
-  return { critRate, hasCritVariant: true, lines };
+  // Most weapons always have a real critical hit (stat-driven, even with no distinct roll
+  // of their own) - but a handful (e.g. Dagues de Srambad) have criticalHitProbability=0
+  // as a hard "this weapon can never crit" rule, not just a default that gear can raise -
+  // treat those the same as a spell with no critical variant at all.
+  const hasCritVariant = (weapon.criticalHitProbability || 0) > 0;
+  return { critRate, hasCritVariant, lines };
 }
 
 /**
@@ -3801,8 +3817,13 @@ function openWeaponDamageModal() {
     const rangeText = weapon.minRange === weapon.weaponRange ? `Portée ${weapon.weaponRange}` : `Portée ${weapon.minRange}-${weapon.weaponRange}`;
     paramsItems.push(paramIconItem("Portée", rangeText));
   }
-  let critText = `Critique ${sim.critRate}%`;
-  if (weapon.criticalHitBonus) critText += ` (+${weapon.criticalHitBonus} Dommages de base)`;
+  let critText;
+  if (sim.hasCritVariant) {
+    critText = `Critique ${sim.critRate}%`;
+    if (weapon.criticalHitBonus) critText += ` (+${weapon.criticalHitBonus} Dommages de base)`;
+  } else {
+    critText = "Pas de critique";
+  }
   paramsItems.push(paramIconItem("% Critique", critText));
   if (weapon.maxCastPerTurn) paramsItems.push(plainParamItem(`${weapon.maxCastPerTurn} utilisation${weapon.maxCastPerTurn > 1 ? "s" : ""} par tour`));
 
