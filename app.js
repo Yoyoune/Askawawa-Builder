@@ -2515,11 +2515,12 @@ function itemMatchesMultiPattern(item) {
   return false;
 }
 
-// Sets manually flagged as "Pano Multi" despite not matching itemMatchesMultiPattern's
-// automatic criteria - a human judgment call, not a data bug. Keyed by set id.
+// Sets manually flagged as "Pano Multi" despite not matching any automatic criteria below -
+// a human judgment call, not a data bug. Keyed by set id.
 const MANUAL_MULTI_SET_IDS = new Set([
-  210, // Panoplie de Boréale
 ]);
+
+const ELEMENTAL_DAMAGE_LABELS = ["Dommages Terre", "Dommages Eau", "Dommages Feu", "Dommages Air"];
 
 function computeSetFlags(set) {
   const bonusLabels = new Set();
@@ -2533,6 +2534,11 @@ function computeSetFlags(set) {
     for (const eff of item.effects || []) itemLabels.add(stripSign(eff.label));
     if (itemMatchesMultiPattern(item)) multi = true;
   }
+  // Pooled across the whole set (unlike itemMatchesMultiPattern, which checks a single item):
+  // all 4 elemental damages present somewhere in the set, even if spread one-per-item (e.g.
+  // Panoplie de Boréale - each piece grants a different single element, but all 4 show up
+  // once the set is fully equipped).
+  if (ELEMENTAL_DAMAGE_LABELS.every(label => itemLabels.has(label))) multi = true;
 
   const force = itemLabels.has("Force");
   const intelligence = itemLabels.has("Intelligence");
