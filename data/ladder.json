@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-25T23:44:29.6555583+02:00",
+    "generatedAt":  "2026-08-25T23:59:29.6518350+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  42922579,
+                   "value":  43065475,
                    "breed":  6,
                    "sex":  1,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  6,
@@ -242,7 +242,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  727,
+                        "value":  729,
                         "breed":  6,
                         "sex":  1
                     },
