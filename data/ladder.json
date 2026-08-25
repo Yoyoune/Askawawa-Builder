@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-25T15:19:29.6614989+02:00",
+    "generatedAt":  "2026-08-25T15:29:29.7742848+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,24 +35,24 @@
                },
                {
                    "rank":  5,
-                   "name":  "Bartonella",
-                   "value":  33565198,
-                   "breed":  6,
+                   "name":  "Belladone",
+                   "value":  33705508,
+                   "breed":  10,
                    "sex":  1,
                    "level":  77
                },
                {
                    "rank":  6,
-                   "name":  "Belladone",
-                   "value":  33514097,
-                   "breed":  10,
+                   "name":  "Bartonella",
+                   "value":  33614874,
+                   "breed":  6,
                    "sex":  1,
                    "level":  77
                },
                {
                    "rank":  7,
                    "name":  "Magellan",
-                   "value":  33427045,
+                   "value":  33520207,
                    "breed":  15,
                    "sex":  0,
                    "level":  77
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  33006038,
+                   "value":  33194195,
                    "breed":  11,
                    "sex":  0,
                    "level":  76
@@ -195,17 +195,17 @@
                },
                {
                    "rank":  25,
-                   "name":  "Tamere",
-                   "value":  52,
-                   "breed":  2,
+                   "name":  "Ratata",
+                   "value":  208,
+                   "breed":  9,
                    "sex":  0,
-                   "level":  1
+                   "level":  2
                },
                {
                    "rank":  26,
-                   "name":  "Ratata",
-                   "value":  0,
-                   "breed":  9,
+                   "name":  "Tamere",
+                   "value":  52,
+                   "breed":  2,
                    "sex":  0,
                    "level":  1
                }
@@ -242,28 +242,28 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  617,
+                        "value":  618,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Faismoimal",
-                        "value":  591,
+                        "value":  592,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Magellan",
-                        "value":  590,
+                        "value":  592,
                         "breed":  15,
                         "sex":  0
                     },
                     {
                         "rank":  8,
                         "name":  "Belladone",
-                        "value":  590,
+                        "value":  591,
                         "breed":  10,
                         "sex":  1
                     },
