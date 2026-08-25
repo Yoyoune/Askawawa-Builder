@@ -2515,12 +2515,18 @@ function itemMatchesMultiPattern(item) {
   return false;
 }
 
+// Sets manually flagged as "Pano Multi" despite not matching itemMatchesMultiPattern's
+// automatic criteria - a human judgment call, not a data bug. Keyed by set id.
+const MANUAL_MULTI_SET_IDS = new Set([
+  210, // Panoplie de Boréale
+]);
+
 function computeSetFlags(set) {
   const bonusLabels = new Set();
   for (const tier of set.bonuses || []) for (const eff of tier) bonusLabels.add(stripSign(eff.label));
 
   const itemLabels = new Set();
-  let multi = false;
+  let multi = MANUAL_MULTI_SET_IDS.has(set.id);
   for (const itemId of set.itemIds) {
     const item = ITEMS_BY_ID.get(itemId);
     if (!item) continue;
