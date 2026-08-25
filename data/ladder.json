@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-08-25T22:49:29.3893644+02:00",
+    "generatedAt":  "2026-08-25T22:54:29.3994911+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  125926337,
+                   "value":  126866123,
                    "breed":  8,
                    "sex":  0,
-                   "level":  106
+                   "level":  107
                },
                {
                    "rank":  2,
@@ -28,15 +28,15 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  84387386,
+                   "value":  85349924,
                    "breed":  14,
                    "sex":  0,
-                   "level":  96
+                   "level":  97
                },
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  37376096,
+                   "value":  37700021,
                    "breed":  6,
                    "sex":  1,
                    "level":  79
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  35266775,
+                   "value":  37021445,
                    "breed":  11,
                    "sex":  0,
-                   "level":  78
+                   "level":  79
                },
                {
                    "rank":  9,
