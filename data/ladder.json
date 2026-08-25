@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-25T15:29:29.7742848+02:00",
+    "generatedAt":  "2026-08-25T15:39:29.7733041+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Bartonella",
-                   "value":  33614874,
+                   "value":  33678146,
                    "breed":  6,
                    "sex":  1,
                    "level":  77
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  33194195,
+                   "value":  33342848,
                    "breed":  11,
                    "sex":  0,
-                   "level":  76
+                   "level":  77
                },
                {
                    "rank":  9,
@@ -242,14 +242,14 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  618,
+                        "value":  619,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Faismoimal",
-                        "value":  592,
+                        "value":  593,
                         "breed":  11,
                         "sex":  0
                     },
