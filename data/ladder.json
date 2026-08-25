@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-26T00:09:29.5817777+02:00",
+    "generatedAt":  "2026-08-26T00:14:29.5992043+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  137274654,
+                   "value":  138045691,
                    "breed":  8,
                    "sex":  0,
                    "level":  109
@@ -28,15 +28,15 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  93541110,
+                   "value":  96196399,
                    "breed":  14,
                    "sex":  0,
-                   "level":  99
+                   "level":  100
                },
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  43224274,
+                   "value":  43535519,
                    "breed":  6,
                    "sex":  1,
                    "level":  82
@@ -214,22 +214,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1133,
+                        "value":  1143,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persoun",
-                        "value":  1014,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  1025,
+                        "breed":  14,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
+                        "name":  "Persoun",
                         "value":  1014,
-                        "breed":  14,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
