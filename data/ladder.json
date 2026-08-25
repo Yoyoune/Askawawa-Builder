@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-25T22:39:29.3904219+02:00",
+    "generatedAt":  "2026-08-25T22:44:29.4001091+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  118491856,
+                   "value":  118861937,
                    "breed":  8,
                    "sex":  0,
                    "level":  105
@@ -36,26 +36,26 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  34586599,
+                   "value":  35426573,
                    "breed":  6,
                    "sex":  1,
-                   "level":  77
+                   "level":  78
                },
                {
                    "rank":  6,
                    "name":  "Belladone",
-                   "value":  34323385,
+                   "value":  35329367,
                    "breed":  10,
                    "sex":  1,
-                   "level":  77
+                   "level":  78
                },
                {
                    "rank":  7,
                    "name":  "Magellan",
-                   "value":  34138084,
+                   "value":  35144066,
                    "breed":  15,
                    "sex":  0,
-                   "level":  77
+                   "level":  78
                },
                {
                    "rank":  8,
@@ -242,21 +242,21 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  626,
+                        "value":  636,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Magellan",
-                        "value":  596,
+                        "value":  606,
                         "breed":  15,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  595,
+                        "value":  605,
                         "breed":  10,
                         "sex":  1
                     },
