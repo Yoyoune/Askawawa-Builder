@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-26T00:14:29.5992043+02:00",
+    "generatedAt":  "2026-08-26T00:19:29.1057333+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  138045691,
+                   "value":  139207771,
                    "breed":  8,
                    "sex":  0,
                    "level":  109
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  105486906,
+                   "value":  107972657,
                    "breed":  11,
                    "sex":  0,
                    "level":  102
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  104464817,
+                   "value":  107887186,
                    "breed":  7,
                    "sex":  0,
                    "level":  102
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  43535519,
+                   "value":  43891553,
                    "breed":  6,
                    "sex":  1,
                    "level":  82
@@ -214,7 +214,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1143,
+                        "value":  1144,
                         "breed":  8,
                         "sex":  0
                     },
@@ -228,14 +228,14 @@
                     {
                         "rank":  3,
                         "name":  "Persoun",
-                        "value":  1014,
+                        "value":  1024,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1002,
+                        "value":  1012,
                         "breed":  7,
                         "sex":  0
                     },
