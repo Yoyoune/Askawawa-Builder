@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-25T23:59:29.6518350+02:00",
+    "generatedAt":  "2026-08-26T00:04:29.6951973+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  104544266,
+                   "value":  105486906,
                    "breed":  11,
                    "sex":  0,
                    "level":  102
@@ -242,7 +242,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  729,
+                        "value":  730,
                         "breed":  6,
                         "sex":  1
                     },
