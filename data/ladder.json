@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T17:14:29.8051943+02:00",
+    "generatedAt":  "2026-08-26T17:34:29.6770992+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -43,9 +43,9 @@
                },
                {
                    "rank":  6,
-                   "name":  "Magellan",
+                   "name":  "Aconit",
                    "value":  69689126,
-                   "breed":  15,
+                   "breed":  10,
                    "sex":  0,
                    "level":  92
                },
@@ -248,9 +248,9 @@
                     },
                     {
                         "rank":  6,
-                        "name":  "Magellan",
+                        "name":  "Aconit",
                         "value":  772,
-                        "breed":  15,
+                        "breed":  10,
                         "sex":  0
                     },
                     {
