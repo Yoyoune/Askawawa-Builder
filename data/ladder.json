@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T01:29:29.5369931+02:00",
+    "generatedAt":  "2026-08-27T01:34:29.5065386+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  132991014,
+                   "value":  133787394,
                    "breed":  6,
                    "sex":  1,
                    "level":  108
@@ -187,43 +187,43 @@
                },
                {
                    "rank":  24,
-                   "name":  "Catt",
-                   "value":  54745,
-                   "breed":  9,
-                   "sex":  0,
+                   "name":  "Digoxine",
+                   "value":  56391,
+                   "breed":  4,
+                   "sex":  1,
                    "level":  14
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  31182,
+                   "value":  56391,
                    "breed":  17,
                    "sex":  0,
-                   "level":  11
+                   "level":  14
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  31182,
+                   "value":  56391,
                    "breed":  7,
                    "sex":  0,
-                   "level":  11
+                   "level":  14
                },
                {
                    "rank":  27,
-                   "name":  "Digoxine",
-                   "value":  31182,
-                   "breed":  4,
+                   "name":  "Horloge",
+                   "value":  56391,
+                   "breed":  5,
                    "sex":  1,
-                   "level":  11
+                   "level":  14
                },
                {
                    "rank":  28,
-                   "name":  "Horloge",
-                   "value":  31182,
-                   "breed":  5,
-                   "sex":  1,
-                   "level":  11
+                   "name":  "Catt",
+                   "value":  54745,
+                   "breed":  9,
+                   "sex":  0,
+                   "level":  14
                },
                {
                    "rank":  29,
