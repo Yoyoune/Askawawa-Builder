@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T00:39:29.5599171+02:00",
+    "generatedAt":  "2026-08-27T00:44:29.3884882+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  128182836,
+                   "value":  128737393,
                    "breed":  6,
                    "sex":  1,
                    "level":  107
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  126730052,
+                   "value":  127320695,
                    "breed":  10,
                    "sex":  0,
                    "level":  107
@@ -28,13 +28,21 @@
                {
                    "rank":  4,
                    "name":  "Belladone",
-                   "value":  122183059,
+                   "value":  124893607,
                    "breed":  10,
                    "sex":  1,
                    "level":  106
                },
                {
                    "rank":  5,
+                   "name":  "Faismoimal",
+                   "value":  122984278,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  106
+               },
+               {
+                   "rank":  6,
                    "name":  "Persoun",
                    "value":  122142251,
                    "breed":  11,
@@ -42,18 +50,10 @@
                    "level":  106
                },
                {
-                   "rank":  6,
+                   "rank":  7,
                    "name":  "Persotrois",
                    "value":  121843972,
                    "breed":  7,
-                   "sex":  0,
-                   "level":  106
-               },
-               {
-                   "rank":  7,
-                   "name":  "Faismoimal",
-                   "value":  121766386,
-                   "breed":  11,
                    "sex":  0,
                    "level":  106
                },
@@ -203,6 +203,14 @@
                },
                {
                    "rank":  26,
+                   "name":  "Horloge",
+                   "value":  104,
+                   "breed":  5,
+                   "sex":  1,
+                   "level":  1
+               },
+               {
+                   "rank":  27,
                    "name":  "Tamere",
                    "value":  52,
                    "breed":  2,
@@ -220,16 +228,16 @@
                     },
                     {
                         "rank":  2,
-                        "name":  "Persoun",
+                        "name":  "Persodeux",
                         "value":  1066,
-                        "breed":  11,
+                        "breed":  14,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
+                        "name":  "Persoun",
                         "value":  1066,
-                        "breed":  14,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
@@ -256,7 +264,7 @@
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  952,
+                        "value":  953,
                         "breed":  10,
                         "sex":  1
                     },
@@ -276,23 +284,23 @@
                     },
                     {
                         "rank":  10,
-                        "name":  "Rhizobium",
-                        "value":  362,
-                        "breed":  2,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  11,
                         "name":  "Rubisca",
                         "value":  362,
                         "breed":  17,
                         "sex":  1
                     },
                     {
-                        "rank":  12,
+                        "rank":  11,
                         "name":  "Cyano",
                         "value":  362,
                         "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  12,
+                        "name":  "Rhizobium",
+                        "value":  362,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
@@ -304,17 +312,17 @@
                     },
                     {
                         "rank":  14,
-                        "name":  "Matt",
-                        "value":  268,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  15,
                         "name":  "Latt",
                         "value":  268,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  15,
+                        "name":  "Matt",
+                        "value":  268,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  16,
@@ -388,6 +396,13 @@
                     },
                     {
                         "rank":  26,
+                        "name":  "Horloge",
+                        "value":  2,
+                        "breed":  5,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  27,
                         "name":  "Tamere",
                         "value":  2,
                         "breed":  2,
