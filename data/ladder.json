@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T14:54:29.5255475+02:00",
+    "generatedAt":  "2026-08-26T14:59:29.4926951+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -44,25 +44,25 @@
                {
                    "rank":  6,
                    "name":  "Magellan",
-                   "value":  60902656,
+                   "value":  64824545,
                    "breed":  15,
                    "sex":  0,
-                   "level":  89
+                   "level":  90
                },
                {
                    "rank":  7,
+                   "name":  "Belladone",
+                   "value":  62809794,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  90
+               },
+               {
+                   "rank":  8,
                    "name":  "Faismoimal",
                    "value":  60486196,
                    "breed":  11,
                    "sex":  0,
-                   "level":  89
-               },
-               {
-                   "rank":  8,
-                   "name":  "Belladone",
-                   "value":  60176807,
-                   "breed":  10,
-                   "sex":  1,
                    "level":  89
                },
                {
@@ -249,14 +249,14 @@
                     {
                         "rank":  6,
                         "name":  "Magellan",
-                        "value":  761,
+                        "value":  771,
                         "breed":  15,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  759,
+                        "value":  769,
                         "breed":  10,
                         "sex":  1
                     },
