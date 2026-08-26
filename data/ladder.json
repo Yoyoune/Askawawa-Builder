@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T00:24:29.4160516+02:00",
+    "generatedAt":  "2026-08-27T00:29:29.3901043+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,21 +12,29 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  125205396,
+                   "value":  126244293,
                    "breed":  6,
                    "sex":  1,
-                   "level":  106
+                   "level":  107
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  123591074,
+                   "value":  124486202,
                    "breed":  10,
                    "sex":  0,
                    "level":  106
                },
                {
                    "rank":  4,
+                   "name":  "Belladone",
+                   "value":  122183059,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  106
+               },
+               {
+                   "rank":  5,
                    "name":  "Persoun",
                    "value":  122142251,
                    "breed":  11,
@@ -34,20 +42,12 @@
                    "level":  106
                },
                {
-                   "rank":  5,
+                   "rank":  6,
                    "name":  "Persotrois",
                    "value":  121843972,
                    "breed":  7,
                    "sex":  0,
                    "level":  106
-               },
-               {
-                   "rank":  6,
-                   "name":  "Belladone",
-                   "value":  121336291,
-                   "breed":  10,
-                   "sex":  1,
-                   "level":  105
                },
                {
                    "rank":  7,
@@ -242,7 +242,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1001,
+                        "value":  1002,
                         "breed":  6,
                         "sex":  1
                     },
