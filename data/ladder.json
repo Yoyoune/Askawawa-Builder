@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T14:04:29.5708935+02:00",
+    "generatedAt":  "2026-08-26T14:09:29.5080341+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Magellan",
-                   "value":  57684073,
+                   "value":  58281178,
                    "breed":  15,
                    "sex":  0,
                    "level":  88
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  55235055,
+                   "value":  56449001,
                    "breed":  11,
                    "sex":  0,
                    "level":  87
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Fritz",
-                   "value":  7009710,
+                   "value":  7155002,
                    "breed":  14,
                    "sex":  0,
                    "level":  53
@@ -115,6 +115,14 @@
                },
                {
                    "rank":  15,
+                   "name":  "Frita",
+                   "value":  6716487,
+                   "breed":  8,
+                   "sex":  0,
+                   "level":  52
+               },
+               {
+                   "rank":  16,
                    "name":  "Michelangelo",
                    "value":  6703392,
                    "breed":  11,
@@ -122,23 +130,23 @@
                    "level":  52
                },
                {
-                   "rank":  16,
+                   "rank":  17,
                    "name":  "Frite",
-                   "value":  6451518,
+                   "value":  6699926,
                    "breed":  6,
                    "sex":  0,
                    "level":  52
                },
                {
-                   "rank":  17,
-                   "name":  "Frita",
-                   "value":  6393392,
-                   "breed":  8,
+                   "rank":  18,
+                   "name":  "Fritr",
+                   "value":  6354430,
+                   "breed":  11,
                    "sex":  0,
-                   "level":  52
+                   "level":  51
                },
                {
-                   "rank":  18,
+                   "rank":  19,
                    "name":  "Leonardo",
                    "value":  6150231,
                    "breed":  11,
@@ -146,18 +154,10 @@
                    "level":  51
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Rhizobium",
                    "value":  6000726,
                    "breed":  2,
-                   "sex":  0,
-                   "level":  51
-               },
-               {
-                   "rank":  20,
-                   "name":  "Fritr",
-                   "value":  5939581,
-                   "breed":  11,
                    "sex":  0,
                    "level":  51
                },
