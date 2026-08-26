@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T00:14:29.3357682+02:00",
+    "generatedAt":  "2026-08-27T00:19:29.4195808+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  124121810,
+                   "value":  124173552,
                    "breed":  6,
                    "sex":  1,
                    "level":  106
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  123535966,
+                   "value":  123591074,
                    "breed":  10,
                    "sex":  0,
                    "level":  106
@@ -43,18 +43,18 @@
                },
                {
                    "rank":  6,
-                   "name":  "Faismoimal",
-                   "value":  119367424,
-                   "breed":  11,
-                   "sex":  0,
+                   "name":  "Belladone",
+                   "value":  121336291,
+                   "breed":  10,
+                   "sex":  1,
                    "level":  105
                },
                {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  117378824,
-                   "breed":  10,
-                   "sex":  1,
+                   "name":  "Faismoimal",
+                   "value":  119419906,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  105
                },
                {
@@ -255,17 +255,17 @@
                     },
                     {
                         "rank":  7,
+                        "name":  "Belladone",
+                        "value":  952,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  8,
                         "name":  "Faismoimal",
                         "value":  950,
                         "breed":  11,
                         "sex":  0
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Belladone",
-                        "value":  932,
-                        "breed":  10,
-                        "sex":  1
                     },
                     {
                         "rank":  9,
