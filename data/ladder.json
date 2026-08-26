@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T15:34:29.5616304+02:00",
+    "generatedAt":  "2026-08-26T16:19:29.7156035+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -45,7 +45,7 @@
                    "rank":  6,
                    "name":  "Magellan",
                    "value":  69689126,
-                   "breed":  15,
+                   "breed":  17,
                    "sex":  0,
                    "level":  92
                },
@@ -250,7 +250,7 @@
                         "rank":  6,
                         "name":  "Magellan",
                         "value":  772,
-                        "breed":  15,
+                        "breed":  17,
                         "sex":  0
                     },
                     {
