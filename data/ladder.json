@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T17:59:29.8069669+02:00",
+    "generatedAt":  "2026-08-26T18:04:29.7934370+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -83,18 +83,18 @@
                },
                {
                    "rank":  11,
-                   "name":  "Rubisca",
-                   "value":  7312132,
-                   "breed":  17,
-                   "sex":  1,
+                   "name":  "Fritz",
+                   "value":  7478435,
+                   "breed":  14,
+                   "sex":  0,
                    "level":  53
                },
                {
                    "rank":  12,
-                   "name":  "Fritz",
-                   "value":  7285592,
-                   "breed":  14,
-                   "sex":  0,
+                   "name":  "Rubisca",
+                   "value":  7312132,
+                   "breed":  17,
+                   "sex":  1,
                    "level":  53
                },
                {
@@ -140,7 +140,7 @@
                {
                    "rank":  18,
                    "name":  "Fritr",
-                   "value":  6470345,
+                   "value":  6644877,
                    "breed":  11,
                    "sex":  0,
                    "level":  52
