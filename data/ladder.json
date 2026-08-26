@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T01:49:29.5358365+02:00",
+    "generatedAt":  "2026-08-27T01:54:29.5438189+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  137362337,
+                   "value":  138728412,
                    "breed":  6,
                    "sex":  1,
                    "level":  109
@@ -188,34 +188,34 @@
                {
                    "rank":  24,
                    "name":  "Digoxine",
-                   "value":  166627,
+                   "value":  193019,
                    "breed":  4,
                    "sex":  1,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  166627,
+                   "value":  193019,
                    "breed":  17,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  166627,
+                   "value":  193019,
                    "breed":  7,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  27,
                    "name":  "Horloge",
-                   "value":  166627,
+                   "value":  193019,
                    "breed":  5,
                    "sex":  1,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  28,
@@ -308,24 +308,24 @@
                     },
                     {
                         "rank":  10,
+                        "name":  "Rubisca",
+                        "value":  362,
+                        "breed":  17,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  11,
                         "name":  "Cyano",
                         "value":  362,
                         "breed":  3,
                         "sex":  0
                     },
                     {
-                        "rank":  11,
+                        "rank":  12,
                         "name":  "Rhizobium",
                         "value":  362,
                         "breed":  2,
                         "sex":  0
-                    },
-                    {
-                        "rank":  12,
-                        "name":  "Rubisca",
-                        "value":  362,
-                        "breed":  17,
-                        "sex":  1
                     },
                     {
                         "rank":  13,
@@ -336,17 +336,17 @@
                     },
                     {
                         "rank":  14,
-                        "name":  "Latt",
-                        "value":  268,
-                        "breed":  1,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  15,
                         "name":  "Matt",
                         "value":  268,
                         "breed":  3,
                         "sex":  0
+                    },
+                    {
+                        "rank":  15,
+                        "name":  "Latt",
+                        "value":  268,
+                        "breed":  1,
+                        "sex":  1
                     },
                     {
                         "rank":  16,
@@ -406,38 +406,38 @@
                     },
                     {
                         "rank":  24,
-                        "name":  "Ratata",
-                        "value":  6,
-                        "breed":  9,
-                        "sex":  0
+                        "name":  "Digoxine",
+                        "value":  7,
+                        "breed":  4,
+                        "sex":  1
                     },
                     {
                         "rank":  25,
                         "name":  "Mage",
-                        "value":  6,
+                        "value":  7,
                         "breed":  17,
                         "sex":  0
                     },
                     {
                         "rank":  26,
                         "name":  "Kardegic",
-                        "value":  6,
+                        "value":  7,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  27,
-                        "name":  "Digoxine",
-                        "value":  6,
-                        "breed":  4,
+                        "name":  "Horloge",
+                        "value":  7,
+                        "breed":  5,
                         "sex":  1
                     },
                     {
                         "rank":  28,
-                        "name":  "Horloge",
+                        "name":  "Ratata",
                         "value":  6,
-                        "breed":  5,
-                        "sex":  1
+                        "breed":  9,
+                        "sex":  0
                     },
                     {
                         "rank":  29,
