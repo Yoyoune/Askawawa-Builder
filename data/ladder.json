@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-26T14:44:29.5083458+02:00",
+    "generatedAt":  "2026-08-26T14:49:29.4978751+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,34 +36,34 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  61339389,
+                   "value":  63082138,
                    "breed":  6,
                    "sex":  1,
-                   "level":  89
+                   "level":  90
                },
                {
                    "rank":  6,
                    "name":  "Magellan",
-                   "value":  58996555,
+                   "value":  60902656,
                    "breed":  15,
                    "sex":  0,
-                   "level":  88
+                   "level":  89
                },
                {
                    "rank":  7,
                    "name":  "Belladone",
-                   "value":  58424136,
+                   "value":  60176807,
                    "breed":  10,
                    "sex":  1,
-                   "level":  88
+                   "level":  89
                },
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  57175145,
+                   "value":  57991066,
                    "breed":  11,
                    "sex":  0,
-                   "level":  87
+                   "level":  88
                },
                {
                    "rank":  9,
@@ -242,7 +242,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  808,
+                        "value":  818,
                         "breed":  6,
                         "sex":  1
                     },
