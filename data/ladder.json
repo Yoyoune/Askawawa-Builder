@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T00:59:29.4273032+02:00",
+    "generatedAt":  "2026-08-27T01:04:29.9427131+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  128874703,
+                   "value":  129517663,
                    "breed":  6,
                    "sex":  1,
                    "level":  107
@@ -196,34 +196,34 @@
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  2686,
+                   "value":  5976,
                    "breed":  17,
                    "sex":  0,
-                   "level":  4
+                   "level":  6
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  2686,
+                   "value":  5976,
                    "breed":  7,
                    "sex":  0,
-                   "level":  4
+                   "level":  6
                },
                {
                    "rank":  27,
                    "name":  "Digoxine",
-                   "value":  2686,
+                   "value":  5976,
                    "breed":  4,
                    "sex":  1,
-                   "level":  4
+                   "level":  6
                },
                {
                    "rank":  28,
                    "name":  "Horloge",
-                   "value":  2686,
+                   "value":  5976,
                    "breed":  5,
                    "sex":  1,
-                   "level":  4
+                   "level":  6
                },
                {
                    "rank":  29,
