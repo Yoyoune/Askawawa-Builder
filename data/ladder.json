@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T20:04:29.4431283+02:00",
+    "generatedAt":  "2026-08-27T20:09:29.4630961+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Fritz",
-                   "value":  7995677,
+                   "value":  8000635,
                    "breed":  14,
                    "sex":  0,
                    "level":  54
@@ -92,15 +92,15 @@
                {
                    "rank":  12,
                    "name":  "Frite",
-                   "value":  7548890,
-                   "breed":  3,
+                   "value":  7553927,
+                   "breed":  12,
                    "sex":  0,
                    "level":  54
                },
                {
                    "rank":  13,
                    "name":  "Frita",
-                   "value":  7538427,
+                   "value":  7543327,
                    "breed":  8,
                    "sex":  0,
                    "level":  54
@@ -115,16 +115,16 @@
                },
                {
                    "rank":  15,
-                   "name":  "Donatelo",
-                   "value":  7004741,
+                   "name":  "Fritr",
+                   "value":  7143921,
                    "breed":  11,
                    "sex":  0,
                    "level":  53
                },
                {
                    "rank":  16,
-                   "name":  "Fritr",
-                   "value":  6990067,
+                   "name":  "Donatelo",
+                   "value":  7004741,
                    "breed":  11,
                    "sex":  0,
                    "level":  53
@@ -373,7 +373,7 @@
                         "rank":  19,
                         "name":  "Frite",
                         "value":  259,
-                        "breed":  3,
+                        "breed":  12,
                         "sex":  0
                     },
                     {
