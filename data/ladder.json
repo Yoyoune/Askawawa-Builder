@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-08-28T00:04:29.7733832+02:00",
+    "generatedAt":  "2026-08-28T00:09:30.0959301+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  254133177,
+                   "value":  257255557,
                    "breed":  8,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  2,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Belladone",
-                   "value":  178232053,
+                   "value":  180697929,
                    "breed":  10,
                    "sex":  1,
                    "level":  116
@@ -287,17 +287,17 @@
                     },
                     {
                         "rank":  7,
+                        "name":  "Belladone",
+                        "value":  1014,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  8,
                         "name":  "Faismoimal",
                         "value":  1012,
                         "breed":  11,
                         "sex":  0
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Belladone",
-                        "value":  1004,
-                        "breed":  10,
-                        "sex":  1
                     },
                     {
                         "rank":  9,
