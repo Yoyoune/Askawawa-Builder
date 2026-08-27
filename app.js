@@ -3619,7 +3619,7 @@ function renderAtelierResourceView() {
   for (const ingId of ids) {
     const t = totals.get(ingId);
     const row = document.createElement("div");
-    row.className = "atelier-ingredient-row" + (t.have === t.needed ? " fulfilled" : "");
+    row.className = "atelier-ingredient-row" + (t.have >= t.needed ? " fulfilled" : "");
     row.appendChild(itemIconEl({ iconId: t.iconId }, "🧱", "item-icon"));
 
     const name = document.createElement("span");
@@ -3640,7 +3640,7 @@ function renderAtelierResourceView() {
     input.addEventListener("input", () => {
       const v = Math.max(0, Number(input.value) || 0);
       distributeResourceHave(ingId, v);
-      row.classList.toggle("fulfilled", v === t.needed);
+      row.classList.toggle("fulfilled", v >= t.needed);
     });
 
     row.appendChild(input);
@@ -3716,7 +3716,7 @@ function renderAtelierCard(item) {
         const copies = Math.max(1, Number(copiesInput.value) || 1);
         const totalNeeded = ing.quantity * copies;
         needed.textContent = "/ " + totalNeeded;
-        row.classList.toggle("fulfilled", Number(input.value) === totalNeeded);
+        row.classList.toggle("fulfilled", Number(input.value) >= totalNeeded);
       };
       input.addEventListener("input", () => {
         const v = Math.max(0, Number(input.value) || 0);
