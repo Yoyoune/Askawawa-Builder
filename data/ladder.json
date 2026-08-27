@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T00:29:29.3580671+02:00",
+    "generatedAt":  "2026-08-28T00:34:29.4221580+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,6 +35,14 @@
                },
                {
                    "rank":  5,
+                   "name":  "Bartonella",
+                   "value":  185779564,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  117
+               },
+               {
+                   "rank":  6,
                    "name":  "Aconit",
                    "value":  185420030,
                    "breed":  10,
@@ -42,20 +50,12 @@
                    "level":  117
                },
                {
-                   "rank":  6,
-                   "name":  "Bartonella",
-                   "value":  185096106,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  117
-               },
-               {
                    "rank":  7,
                    "name":  "Belladone",
-                   "value":  180697929,
+                   "value":  182402808,
                    "breed":  10,
                    "sex":  1,
-                   "level":  116
+                   "level":  117
                },
                {
                    "rank":  8,
@@ -274,7 +274,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1063,
+                        "value":  1083,
                         "breed":  6,
                         "sex":  1
                     },
