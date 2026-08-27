@@ -2047,6 +2047,28 @@ function simulateDamageLine(effect, element, combinedStats, isCritical, opts) {
 }
 
 /**
+ * "(PV rendus)" (Effect_HealHP_108) weapon/spell roll - server-side this goes through
+ * FightActor.Heal(Damage) -> CalculateHeal(int), which is a completely different formula
+ * from simulateDamageLine's damage formula (confirmed by reading FightActor.cs directly):
+ *   floor(roll * (100 + Intelligence) / 100 + Soins)
+ * No Puissance, no "Dommages"/element bonuses, no %-done-damage multipliers - only
+ * Intelligence% and flat Soins (HealBonus) apply. The weapon's own criticalHitBonus is
+ * also never added here (CharacterFighter.CalculateDamageBonuses, which is where that
+ * bonus is applied, is only reached via the normal damage path - Heal() calls
+ * CalculateHeal() directly and never touches CalculateDamageBonuses at all), so unlike
+ * every other roll in this panel, a "PV rendus" line's critical value is the exact same
+ * formula as its normal value, just with no separate weapon crit bonus added first.
+ */
+function simulateHealLine(effect, combinedStats) {
+  const intelligence = combinedStats.get("Intelligence") || 0;
+  const healBonus = combinedStats.get("Soins") || 0;
+  function apply(roll) {
+    return Math.max(0, Math.floor(roll * (100 + intelligence) / 100 + healBonus));
+  }
+  return { min: apply(effect.min), max: apply(effect.max) };
+}
+
+/**
  * Any "(dommages X)"/"(vol X)" roll line in an effect list (weapon or spell), paired
  * with its own critical-roll counterpart from criticalEffects - spells can have a
  * genuinely different, usually higher, roll for their own critical hit, not just the
@@ -2158,10 +2180,13 @@ function computeWeaponDamageSimulation(weapon, masteryEnabled) {
     const critEffect = (bonus && kind !== "regen") ? { ...effect, min: effect.min + bonus, max: effect.max + bonus } : effect;
     const base = { min: effect.min, max: effect.max };
     const baseCritical = { min: critEffect.min, max: critEffect.max };
-    // "PV rendus"/"Dommages Poussée" are flat effects, not a stat-scaled damage roll - show as-is.
-    const flat = kind === "regen" || kind === "poussee";
-    const normal = flat ? base : simulateDamageLine(effect, element, combined, false, opts);
-    const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    // "Dommages Poussée" is a flat effect, not a stat-scaled roll - show as-is. "PV rendus"
+    // goes through the CalculateHeal formula (see simulateHealLine), not the damage formula.
+    const flat = kind === "poussee";
+    const normal = kind === "regen" ? simulateHealLine(effect, combined)
+      : flat ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = kind === "regen" ? simulateHealLine(critEffect, combined)
+      : flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
   const pushLine = pushDamageLine(weapon.effects, combined, getCharLevel());
@@ -2194,10 +2219,13 @@ function computeSpellGradeDamageSimulation(grade) {
   const lines = damageRollLines(grade.effects, grade.criticalEffects).map(({ effect, critEffect, element, kind, critElement, critKind }) => {
     const base = { min: effect.min, max: effect.max };
     const baseCritical = { min: critEffect.min, max: critEffect.max };
-    // "PV rendus"/"Dommages Poussée" are flat effects, not a stat-scaled damage roll - show as-is.
-    const flat = kind === "regen" || kind === "poussee";
-    const normal = flat ? base : simulateDamageLine(effect, element, combined, false, opts);
-    const critical = flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
+    // "Dommages Poussée" is a flat effect, not a stat-scaled roll - show as-is. "PV rendus"
+    // goes through the CalculateHeal formula (see simulateHealLine), not the damage formula.
+    const flat = kind === "poussee";
+    const normal = kind === "regen" ? simulateHealLine(effect, combined)
+      : flat ? base : simulateDamageLine(effect, element, combined, false, opts);
+    const critical = kind === "regen" ? simulateHealLine(critEffect, combined)
+      : flat ? baseCritical : simulateDamageLine(critEffect, critElement, combined, true, opts);
     return { effect, critEffect, element, kind, critElement, critKind, base, baseCritical, normal, critical };
   });
   const pushLine = pushDamageLine(grade.effects, combined, getCharLevel());
