@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T00:09:30.0959301+02:00",
+    "generatedAt":  "2026-08-28T00:14:29.7720826+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,25 +28,25 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  206881478,
+                   "value":  209655878,
                    "breed":  14,
                    "sex":  0,
                    "level":  120
                },
                {
                    "rank":  5,
-                   "name":  "Bartonella",
-                   "value":  184860606,
-                   "breed":  6,
-                   "sex":  1,
+                   "name":  "Aconit",
+                   "value":  185420030,
+                   "breed":  10,
+                   "sex":  0,
                    "level":  117
                },
                {
                    "rank":  6,
-                   "name":  "Aconit",
-                   "value":  184114826,
-                   "breed":  10,
-                   "sex":  0,
+                   "name":  "Bartonella",
+                   "value":  184860606,
+                   "breed":  6,
+                   "sex":  1,
                    "level":  117
                },
                {
