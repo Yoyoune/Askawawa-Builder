@@ -1,36 +1,36 @@
 {
-    "generatedAt":  "2026-08-27T22:14:29.6065183+02:00",
+    "generatedAt":  "2026-08-27T22:19:29.5725184+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  170196220,
+                   "value":  170700736,
                    "breed":  8,
                    "sex":  0,
                    "level":  115
                },
                {
                    "rank":  2,
+                   "name":  "Persoun",
+                   "value":  141909100,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  110
+               },
+               {
+                   "rank":  3,
+                   "name":  "Persotrois",
+                   "value":  141349150,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  110
+               },
+               {
+                   "rank":  4,
                    "name":  "Bartonella",
                    "value":  139807197,
                    "breed":  6,
                    "sex":  1,
-                   "level":  109
-               },
-               {
-                   "rank":  3,
-                   "name":  "Persoun",
-                   "value":  139307648,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  109
-               },
-               {
-                   "rank":  4,
-                   "name":  "Persotrois",
-                   "value":  138757929,
-                   "breed":  7,
-                   "sex":  0,
                    "level":  109
                },
                {
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  124368388,
+                   "value":  126599783,
                    "breed":  14,
                    "sex":  0,
-                   "level":  106
+                   "level":  107
                },
                {
                    "rank":  9,
