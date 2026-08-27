@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-27T20:19:29.3720121+02:00",
+    "generatedAt":  "2026-08-27T21:04:29.5652908+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -229,7 +229,7 @@
                    "rank":  29,
                    "name":  "Ratata",
                    "value":  208,
-                   "breed":  9,
+                   "breed":  11,
                    "sex":  0,
                    "level":  2
                },
@@ -436,7 +436,7 @@
                         "rank":  28,
                         "name":  "Ratata",
                         "value":  6,
-                        "breed":  9,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
