@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T19:14:29.9577502+02:00",
+    "generatedAt":  "2026-08-28T19:19:30.0405521+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  8241991,
+                   "value":  8287330,
                    "breed":  1,
                    "sex":  1,
                    "level":  55
@@ -84,13 +84,21 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  7999658,
+                   "value":  8045762,
                    "breed":  3,
                    "sex":  0,
                    "level":  54
                },
                {
                    "rank":  12,
+                   "name":  "Rubisca",
+                   "value":  7787098,
+                   "breed":  17,
+                   "sex":  1,
+                   "level":  54
+               },
+               {
+                   "rank":  13,
                    "name":  "Frite",
                    "value":  7767251,
                    "breed":  16,
@@ -98,19 +106,11 @@
                    "level":  54
                },
                {
-                   "rank":  13,
+                   "rank":  14,
                    "name":  "Frita",
                    "value":  7748545,
                    "breed":  8,
                    "sex":  0,
-                   "level":  54
-               },
-               {
-                   "rank":  14,
-                   "name":  "Rubisca",
-                   "value":  7741787,
-                   "breed":  17,
-                   "sex":  1,
                    "level":  54
                },
                {
@@ -148,7 +148,7 @@
                {
                    "rank":  19,
                    "name":  "Rhizobium",
-                   "value":  6271407,
+                   "value":  6314198,
                    "breed":  2,
                    "sex":  0,
                    "level":  51
