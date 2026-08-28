@@ -1,29 +1,29 @@
 {
-    "generatedAt":  "2026-08-28T23:59:29.3917387+02:00",
+    "generatedAt":  "2026-08-29T00:09:29.3499367+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  282471688,
+                   "value":  290940426,
                    "breed":  8,
                    "sex":  0,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  262286525,
+                   "value":  267605717,
                    "breed":  7,
                    "sex":  0,
-                   "level":  127
+                   "level":  128
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  253696883,
+                   "value":  257531634,
                    "breed":  11,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  4,
@@ -278,14 +278,14 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1384,
+                        "value":  1414,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1266,
+                        "value":  1276,
                         "breed":  11,
                         "sex":  0
                     },
@@ -299,7 +299,7 @@
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1252,
+                        "value":  1262,
                         "breed":  7,
                         "sex":  0
                     },
