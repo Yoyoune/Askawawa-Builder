@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T18:04:29.7625587+02:00",
+    "generatedAt":  "2026-08-28T18:09:29.8279009+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -188,34 +188,34 @@
                {
                    "rank":  24,
                    "name":  "Digoxine",
-                   "value":  255185,
+                   "value":  309016,
                    "breed":  4,
                    "sex":  1,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  255185,
+                   "value":  309016,
                    "breed":  17,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  255185,
+                   "value":  309016,
                    "breed":  7,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  27,
                    "name":  "Horloge",
-                   "value":  255185,
+                   "value":  309016,
                    "breed":  5,
                    "sex":  1,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  28,
