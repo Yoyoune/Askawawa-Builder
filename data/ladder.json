@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T23:34:29.3826300+02:00",
+    "generatedAt":  "2026-08-28T23:39:29.3625079+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Fritz",
-                   "value":  10203559,
+                   "value":  10210356,
                    "breed":  14,
                    "sex":  0,
                    "level":  58
@@ -100,13 +100,21 @@
                {
                    "rank":  13,
                    "name":  "Frite",
-                   "value":  9559497,
+                   "value":  9853317,
                    "breed":  7,
                    "sex":  0,
                    "level":  57
                },
                {
                    "rank":  14,
+                   "name":  "Frita",
+                   "value":  9759857,
+                   "breed":  8,
+                   "sex":  0,
+                   "level":  57
+               },
+               {
+                   "rank":  15,
                    "name":  "Rhizobium",
                    "value":  9506181,
                    "breed":  5,
@@ -114,17 +122,9 @@
                    "level":  57
                },
                {
-                   "rank":  15,
-                   "name":  "Frita",
-                   "value":  9454839,
-                   "breed":  8,
-                   "sex":  0,
-                   "level":  57
-               },
-               {
                    "rank":  16,
                    "name":  "Fritr",
-                   "value":  8793082,
+                   "value":  9283767,
                    "breed":  11,
                    "sex":  0,
                    "level":  56
@@ -369,14 +369,14 @@
                     {
                         "rank":  14,
                         "name":  "Frita",
-                        "value":  273,
+                        "value":  274,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  15,
                         "name":  "Fritr",
-                        "value":  271,
+                        "value":  272,
                         "breed":  11,
                         "sex":  0
                     },
