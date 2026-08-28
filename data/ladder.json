@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T18:19:29.8561471+02:00",
+    "generatedAt":  "2026-08-28T18:29:29.7923707+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  260993633,
+                   "value":  261086999,
                    "breed":  8,
                    "sex":  0,
                    "level":  127
@@ -227,41 +227,41 @@
                },
                {
                    "rank":  29,
-                   "name":  "Ratata",
-                   "value":  208,
-                   "breed":  11,
+                   "name":  "Azera",
+                   "value":  771,
+                   "breed":  10,
                    "sex":  0,
-                   "level":  2
+                   "level":  3
                },
                {
                    "rank":  30,
-                   "name":  "Azera",
-                   "value":  162,
+                   "name":  "Azere",
+                   "value":  765,
                    "breed":  10,
                    "sex":  0,
-                   "level":  2
+                   "level":  3
                },
                {
                    "rank":  31,
-                   "name":  "Azere",
-                   "value":  156,
+                   "name":  "Azerz",
+                   "value":  765,
                    "breed":  10,
                    "sex":  0,
-                   "level":  2
+                   "level":  3
                },
                {
                    "rank":  32,
-                   "name":  "Azerz",
-                   "value":  156,
+                   "name":  "Azerr",
+                   "value":  765,
                    "breed":  10,
                    "sex":  0,
-                   "level":  2
+                   "level":  3
                },
                {
                    "rank":  33,
-                   "name":  "Azerr",
-                   "value":  156,
-                   "breed":  10,
+                   "name":  "Ratata",
+                   "value":  208,
+                   "breed":  11,
                    "sex":  0,
                    "level":  2
                },
@@ -480,37 +480,37 @@
                     },
                     {
                         "rank":  30,
-                        "name":  "Azere",
-                        "value":  2,
+                        "name":  "Azerz",
+                        "value":  3,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  31,
-                        "name":  "Azerr",
-                        "value":  2,
+                        "name":  "Azere",
+                        "value":  3,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  32,
-                        "name":  "Azerz",
-                        "value":  2,
+                        "name":  "Azerr",
+                        "value":  3,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  33,
-                        "name":  "Tamere",
-                        "value":  2,
-                        "breed":  2,
+                        "name":  "Azera",
+                        "value":  3,
+                        "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  34,
-                        "name":  "Azera",
+                        "name":  "Tamere",
                         "value":  2,
-                        "breed":  10,
+                        "breed":  2,
                         "sex":  0
                     }
                 ]
