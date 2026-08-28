@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T18:39:29.8727786+02:00",
+    "generatedAt":  "2026-08-28T18:44:29.9036451+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -11,19 +11,19 @@
                },
                {
                    "rank":  2,
-                   "name":  "Persoun",
-                   "value":  238891242,
-                   "breed":  11,
+                   "name":  "Persotrois",
+                   "value":  242606631,
+                   "breed":  7,
                    "sex":  0,
-                   "level":  124
+                   "level":  125
                },
                {
                    "rank":  3,
-                   "name":  "Persotrois",
-                   "value":  238587345,
-                   "breed":  7,
+                   "name":  "Persoun",
+                   "value":  241280838,
+                   "breed":  11,
                    "sex":  0,
-                   "level":  124
+                   "level":  125
                },
                {
                    "rank":  4,
@@ -228,34 +228,34 @@
                {
                    "rank":  29,
                    "name":  "Azera",
-                   "value":  771,
+                   "value":  33996,
                    "breed":  10,
                    "sex":  0,
-                   "level":  3
+                   "level":  12
                },
                {
                    "rank":  30,
                    "name":  "Azere",
-                   "value":  765,
+                   "value":  33990,
                    "breed":  10,
                    "sex":  0,
-                   "level":  3
+                   "level":  12
                },
                {
                    "rank":  31,
                    "name":  "Azerz",
-                   "value":  765,
+                   "value":  33990,
                    "breed":  10,
                    "sex":  0,
-                   "level":  3
+                   "level":  12
                },
                {
                    "rank":  32,
                    "name":  "Azerr",
-                   "value":  765,
+                   "value":  33990,
                    "breed":  10,
                    "sex":  0,
-                   "level":  3
+                   "level":  12
                },
                {
                    "rank":  33,
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  379,
+                        "value":  380,
                         "breed":  1,
                         "sex":  1
                     },
@@ -481,28 +481,28 @@
                     {
                         "rank":  30,
                         "name":  "Azerz",
-                        "value":  3,
+                        "value":  4,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Azere",
-                        "value":  3,
+                        "value":  4,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Azerr",
-                        "value":  3,
+                        "value":  4,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  33,
                         "name":  "Azera",
-                        "value":  3,
+                        "value":  4,
                         "breed":  10,
                         "sex":  0
                     },
