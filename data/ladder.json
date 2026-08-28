@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T20:29:29.0107618+02:00",
+    "generatedAt":  "2026-08-28T20:34:29.0063276+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  268009209,
+                   "value":  268421190,
                    "breed":  8,
                    "sex":  0,
                    "level":  128
@@ -68,23 +68,23 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  10779625,
+                   "value":  10919987,
                    "breed":  1,
                    "sex":  1,
-                   "level":  58
+                   "level":  59
                },
                {
                    "rank":  10,
                    "name":  "Cyano",
-                   "value":  9653420,
+                   "value":  10175077,
                    "breed":  3,
                    "sex":  0,
-                   "level":  57
+                   "level":  58
                },
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  9421114,
+                   "value":  9933783,
                    "breed":  17,
                    "sex":  1,
                    "level":  57
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  8992957,
+                   "value":  9496618,
                    "breed":  5,
                    "sex":  0,
-                   "level":  56
+                   "level":  57
                },
                {
                    "rank":  13,
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1367,
+                        "value":  1368,
                         "breed":  8,
                         "sex":  0
                     },
