@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T19:04:29.9337483+02:00",
+    "generatedAt":  "2026-08-28T19:09:29.9077661+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -67,18 +67,18 @@
                },
                {
                    "rank":  9,
-                   "name":  "Fritz",
-                   "value":  8204149,
-                   "breed":  14,
-                   "sex":  0,
+                   "name":  "Flavodiira",
+                   "value":  8241991,
+                   "breed":  1,
+                   "sex":  1,
                    "level":  55
                },
                {
                    "rank":  10,
-                   "name":  "Flavodiira",
-                   "value":  8197051,
-                   "breed":  1,
-                   "sex":  1,
+                   "name":  "Fritz",
+                   "value":  8204149,
+                   "breed":  14,
+                   "sex":  0,
                    "level":  55
                },
                {
