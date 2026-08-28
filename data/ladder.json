@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T23:19:29.3391987+02:00",
+    "generatedAt":  "2026-08-28T23:29:29.5332073+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  279177925,
+                   "value":  281179774,
                    "breed":  8,
                    "sex":  0,
                    "level":  129
@@ -91,6 +91,14 @@
                },
                {
                    "rank":  12,
+                   "name":  "Frite",
+                   "value":  9559497,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  57
+               },
+               {
+                   "rank":  13,
                    "name":  "Rhizobium",
                    "value":  9506181,
                    "breed":  5,
@@ -98,28 +106,20 @@
                    "level":  57
                },
                {
-                   "rank":  13,
+                   "rank":  14,
+                   "name":  "Frita",
+                   "value":  9454839,
+                   "breed":  8,
+                   "sex":  0,
+                   "level":  57
+               },
+               {
+                   "rank":  15,
                    "name":  "Fritz",
                    "value":  9451046,
                    "breed":  14,
                    "sex":  0,
                    "level":  57
-               },
-               {
-                   "rank":  14,
-                   "name":  "Frite",
-                   "value":  9082281,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  56
-               },
-               {
-                   "rank":  15,
-                   "name":  "Frita",
-                   "value":  8995428,
-                   "breed":  8,
-                   "sex":  0,
-                   "level":  56
                },
                {
                    "rank":  16,
