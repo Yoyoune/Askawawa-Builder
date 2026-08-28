@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T18:49:29.9076304+02:00",
+    "generatedAt":  "2026-08-28T18:54:29.9562791+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  7814630,
+                   "value":  7961422,
                    "breed":  1,
                    "sex":  1,
                    "level":  54
@@ -100,25 +100,25 @@
                {
                    "rank":  13,
                    "name":  "Cyano",
-                   "value":  7708014,
+                   "value":  7709904,
                    "breed":  3,
                    "sex":  0,
                    "level":  54
                },
                {
                    "rank":  14,
-                   "name":  "Fritr",
-                   "value":  7342453,
-                   "breed":  11,
-                   "sex":  0,
+                   "name":  "Rubisca",
+                   "value":  7458777,
+                   "breed":  17,
+                   "sex":  1,
                    "level":  53
                },
                {
                    "rank":  15,
-                   "name":  "Rubisca",
-                   "value":  7312132,
-                   "breed":  17,
-                   "sex":  1,
+                   "name":  "Fritr",
+                   "value":  7342453,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  53
                },
                {
@@ -156,7 +156,7 @@
                {
                    "rank":  20,
                    "name":  "Rhizobium",
-                   "value":  6000726,
+                   "value":  6002480,
                    "breed":  2,
                    "sex":  0,
                    "level":  51
@@ -341,7 +341,7 @@
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  362,
+                        "value":  366,
                         "breed":  17,
                         "sex":  1
                     },
