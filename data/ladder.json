@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T01:29:29.2426638+02:00",
+    "generatedAt":  "2026-08-29T01:34:29.3183195+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  267605717,
+                   "value":  267608522,
                    "breed":  7,
                    "sex":  0,
                    "level":  128
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  227644535,
+                   "value":  227645870,
                    "breed":  9,
                    "sex":  0,
                    "level":  123
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  189438399,
+                   "value":  189460839,
                    "breed":  10,
                    "sex":  1,
                    "level":  118
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Aconit",
-                   "value":  189222401,
+                   "value":  189244900,
                    "breed":  10,
                    "sex":  0,
                    "level":  118
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  188744324,
+                   "value":  188759175,
                    "breed":  11,
                    "sex":  0,
                    "level":  117
