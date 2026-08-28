@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T22:34:29.1929012+02:00",
+    "generatedAt":  "2026-08-28T22:39:29.1500794+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  275543122,
+                   "value":  275563434,
                    "breed":  8,
                    "sex":  0,
                    "level":  129
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  8204149,
+                   "value":  8291444,
                    "breed":  14,
                    "sex":  0,
                    "level":  55
@@ -220,34 +220,34 @@
                {
                    "rank":  28,
                    "name":  "Azera",
-                   "value":  262568,
+                   "value":  270854,
                    "breed":  10,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  29,
                    "name":  "Azerr",
-                   "value":  262562,
+                   "value":  270848,
                    "breed":  10,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  30,
                    "name":  "Azerz",
-                   "value":  262562,
+                   "value":  270848,
                    "breed":  10,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  31,
                    "name":  "Azere",
-                   "value":  262562,
+                   "value":  270848,
                    "breed":  10,
                    "sex":  0,
-                   "level":  22
+                   "level":  23
                },
                {
                    "rank":  32,
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  430,
+                        "value":  431,
                         "breed":  1,
                         "sex":  1
                     },
@@ -439,28 +439,28 @@
                     {
                         "rank":  24,
                         "name":  "Azere",
-                        "value":  10,
+                        "value":  11,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  25,
                         "name":  "Azera",
-                        "value":  10,
+                        "value":  11,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  26,
                         "name":  "Azerz",
-                        "value":  10,
+                        "value":  11,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  27,
                         "name":  "Azerr",
-                        "value":  10,
+                        "value":  11,
                         "breed":  10,
                         "sex":  0
                     },
