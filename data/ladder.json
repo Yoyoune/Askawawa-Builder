@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T19:54:29.9400168+02:00",
+    "generatedAt":  "2026-08-28T20:04:29.9614920+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  266848623,
+                   "value":  267455309,
                    "breed":  8,
                    "sex":  0,
                    "level":  128
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  242606631,
+                   "value":  246010928,
                    "breed":  7,
                    "sex":  0,
                    "level":  125
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  241280838,
+                   "value":  243304799,
                    "breed":  11,
                    "sex":  0,
                    "level":  125
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  212563314,
+                   "value":  215950060,
                    "breed":  14,
                    "sex":  0,
                    "level":  121
@@ -220,34 +220,34 @@
                {
                    "rank":  28,
                    "name":  "Azera",
-                   "value":  143264,
+                   "value":  188133,
                    "breed":  10,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  29,
                    "name":  "Azerr",
-                   "value":  143258,
+                   "value":  188127,
                    "breed":  10,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  30,
                    "name":  "Azerz",
-                   "value":  143258,
+                   "value":  188127,
                    "breed":  10,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  31,
                    "name":  "Azere",
-                   "value":  143258,
+                   "value":  188127,
                    "breed":  10,
                    "sex":  0,
-                   "level":  19
+                   "level":  20
                },
                {
                    "rank":  32,
@@ -278,28 +278,28 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1366,
+                        "value":  1367,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1248,
+                        "value":  1249,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1247,
+                        "value":  1248,
                         "breed":  14,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1234,
+                        "value":  1235,
                         "breed":  7,
                         "sex":  0
                     },
@@ -424,86 +424,86 @@
                     },
                     {
                         "rank":  22,
-                        "name":  "Leonardo",
-                        "value":  169,
-                        "breed":  11,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  23,
                         "name":  "Michelangelo",
                         "value":  169,
                         "breed":  11,
                         "sex":  0
                     },
                     {
+                        "rank":  23,
+                        "name":  "Leonardo",
+                        "value":  169,
+                        "breed":  11,
+                        "sex":  0
+                    },
+                    {
                         "rank":  24,
-                        "name":  "Digoxine",
+                        "name":  "Azerz",
                         "value":  9,
-                        "breed":  4,
-                        "sex":  1
+                        "breed":  10,
+                        "sex":  0
                     },
                     {
                         "rank":  25,
+                        "name":  "Azere",
+                        "value":  9,
+                        "breed":  10,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  26,
+                        "name":  "Azerr",
+                        "value":  9,
+                        "breed":  10,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  27,
+                        "name":  "Azera",
+                        "value":  9,
+                        "breed":  10,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  28,
                         "name":  "Mage",
                         "value":  9,
                         "breed":  17,
                         "sex":  0
                     },
                     {
-                        "rank":  26,
+                        "rank":  29,
+                        "name":  "Digoxine",
+                        "value":  9,
+                        "breed":  4,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  30,
                         "name":  "Kardegic",
                         "value":  9,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  27,
+                        "rank":  31,
                         "name":  "Horloge",
                         "value":  9,
                         "breed":  5,
                         "sex":  1
                     },
                     {
-                        "rank":  28,
+                        "rank":  32,
                         "name":  "Ratata",
                         "value":  7,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  29,
-                        "name":  "Azere",
-                        "value":  5,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  30,
-                        "name":  "Azerz",
-                        "value":  5,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  31,
-                        "name":  "Azera",
-                        "value":  5,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  32,
+                        "rank":  33,
                         "name":  "Catt",
                         "value":  5,
                         "breed":  9,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  33,
-                        "name":  "Azerr",
-                        "value":  5,
-                        "breed":  10,
                         "sex":  0
                     },
                     {
