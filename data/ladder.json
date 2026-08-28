@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T21:34:29.1446937+02:00",
+    "generatedAt":  "2026-08-28T21:44:29.1798198+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  270768315,
+                   "value":  272231863,
                    "breed":  8,
                    "sex":  0,
                    "level":  128
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Cyano",
-                   "value":  10175077,
+                   "value":  10184809,
                    "breed":  3,
                    "sex":  0,
                    "level":  58
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  9933783,
+                   "value":  9943346,
                    "breed":  17,
                    "sex":  1,
                    "level":  57
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  9496618,
+                   "value":  9506181,
                    "breed":  5,
                    "sex":  0,
                    "level":  57
@@ -341,21 +341,21 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  404,
+                        "value":  405,
                         "breed":  5,
                         "sex":  0
                     },
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  396,
+                        "value":  397,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  393,
+                        "value":  394,
                         "breed":  3,
                         "sex":  0
                     },
