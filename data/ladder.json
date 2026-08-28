@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-28T23:09:29.3006627+02:00",
+    "generatedAt":  "2026-08-28T23:14:29.3617885+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  278183466,
+                   "value":  278445913,
                    "breed":  8,
                    "sex":  0,
                    "level":  129
@@ -100,15 +100,15 @@
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  9354524,
+                   "value":  9451046,
                    "breed":  14,
                    "sex":  0,
-                   "level":  56
+                   "level":  57
                },
                {
                    "rank":  14,
                    "name":  "Frite",
-                   "value":  8891119,
+                   "value":  9082281,
                    "breed":  7,
                    "sex":  0,
                    "level":  56
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Frita",
-                   "value":  8811399,
+                   "value":  8995428,
                    "breed":  8,
                    "sex":  0,
                    "level":  56
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Fritr",
-                   "value":  8380563,
+                   "value":  8555003,
                    "breed":  11,
                    "sex":  0,
                    "level":  55
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1381,
+                        "value":  1383,
                         "breed":  8,
                         "sex":  0
                     },
@@ -495,7 +495,7 @@
                     {
                         "rank":  32,
                         "name":  "Ratata",
-                        "value":  7,
+                        "value":  8,
                         "breed":  11,
                         "sex":  0
                     },
