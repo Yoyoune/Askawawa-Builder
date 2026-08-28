@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T02:14:29.4173784+02:00",
+    "generatedAt":  "2026-08-28T02:19:29.3985532+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  186634435,
+                   "value":  186648427,
                    "breed":  6,
                    "sex":  1,
                    "level":  117
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  186542342,
+                   "value":  186572916,
                    "breed":  10,
                    "sex":  0,
                    "level":  117
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Belladone",
-                   "value":  183049906,
+                   "value":  183080425,
                    "breed":  10,
                    "sex":  1,
                    "level":  117
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  180381468,
+                   "value":  180411254,
                    "breed":  11,
                    "sex":  0,
                    "level":  116
@@ -281,21 +281,21 @@
                     {
                         "rank":  6,
                         "name":  "Aconit",
-                        "value":  1039,
+                        "value":  1040,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  1034,
+                        "value":  1035,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1033,
+                        "value":  1034,
                         "breed":  11,
                         "sex":  0
                     },
