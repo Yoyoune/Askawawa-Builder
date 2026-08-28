@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-28T19:09:29.9077661+02:00",
+    "generatedAt":  "2026-08-28T19:14:29.9577502+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -83,6 +83,14 @@
                },
                {
                    "rank":  11,
+                   "name":  "Cyano",
+                   "value":  7999658,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  54
+               },
+               {
+                   "rank":  12,
                    "name":  "Frite",
                    "value":  7767251,
                    "breed":  16,
@@ -90,7 +98,7 @@
                    "level":  54
                },
                {
-                   "rank":  12,
+                   "rank":  13,
                    "name":  "Frita",
                    "value":  7748545,
                    "breed":  8,
@@ -98,17 +106,9 @@
                    "level":  54
                },
                {
-                   "rank":  13,
-                   "name":  "Cyano",
-                   "value":  7709904,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  54
-               },
-               {
                    "rank":  14,
                    "name":  "Rubisca",
-                   "value":  7551376,
+                   "value":  7741787,
                    "breed":  17,
                    "sex":  1,
                    "level":  54
@@ -147,17 +147,17 @@
                },
                {
                    "rank":  19,
-                   "name":  "Leonardo",
-                   "value":  6150231,
-                   "breed":  11,
+                   "name":  "Rhizobium",
+                   "value":  6271407,
+                   "breed":  2,
                    "sex":  0,
                    "level":  51
                },
                {
                    "rank":  20,
-                   "name":  "Rhizobium",
-                   "value":  6002480,
-                   "breed":  2,
+                   "name":  "Leonardo",
+                   "value":  6150231,
+                   "breed":  11,
                    "sex":  0,
                    "level":  51
                },
@@ -348,14 +348,14 @@
                     {
                         "rank":  11,
                         "name":  "Cyano",
-                        "value":  362,
+                        "value":  363,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  362,
+                        "value":  363,
                         "breed":  2,
                         "sex":  0
                     },
