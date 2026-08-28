@@ -4035,7 +4035,9 @@ function openPaPmList(kind) {
   document.getElementById("paPmListModalTitle").textContent = kind === "pa" ? "Items PA" : "Items PM";
   document.getElementById("paPmSearchInput").value = "";
   document.getElementById("paPmLevelMinInput").value = "";
-  document.getElementById("paPmLevelMaxInput").value = "";
+  // Pre-set to the character's own level (not left empty) - per user request, so the
+  // list starts scoped to items the character could actually equip.
+  document.getElementById("paPmLevelMaxInput").value = getCharLevel();
   document.getElementById("paPmSortSelect").value = "level-desc";
   paPmNoPanoFilterActive = false;
   paPmWithPanoFilterActive = false;
