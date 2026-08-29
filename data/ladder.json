@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T00:24:29.3161616+02:00",
+    "generatedAt":  "2026-08-30T00:29:29.4226845+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  411296903,
+                   "value":  412229259,
                    "breed":  8,
                    "sex":  0,
                    "level":  141
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  383281040,
+                   "value":  384091886,
                    "breed":  7,
                    "sex":  0,
                    "level":  139
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  362902045,
+                   "value":  363696265,
                    "breed":  11,
                    "sex":  0,
                    "level":  137
@@ -28,31 +28,31 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  324019218,
+                   "value":  331871660,
                    "breed":  9,
                    "sex":  0,
                    "level":  134
                },
                {
                    "rank":  5,
-                   "name":  "Belladone",
-                   "value":  255833997,
+                   "name":  "Aconit",
+                   "value":  257910462,
                    "breed":  10,
-                   "sex":  1,
-                   "level":  126
+                   "sex":  0,
+                   "level":  127
                },
                {
                    "rank":  6,
-                   "name":  "Aconit",
-                   "value":  255521772,
+                   "name":  "Belladone",
+                   "value":  257496377,
                    "breed":  10,
-                   "sex":  0,
-                   "level":  126
+                   "sex":  1,
+                   "level":  127
                },
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  252424851,
+                   "value":  253238776,
                    "breed":  6,
                    "sex":  1,
                    "level":  126
@@ -220,34 +220,34 @@
                {
                    "rank":  28,
                    "name":  "Azera",
-                   "value":  478742,
+                   "value":  553580,
                    "breed":  10,
                    "sex":  0,
-                   "level":  27
+                   "level":  28
                },
                {
                    "rank":  29,
                    "name":  "Azerr",
-                   "value":  478736,
+                   "value":  553574,
                    "breed":  10,
                    "sex":  0,
-                   "level":  27
+                   "level":  28
                },
                {
                    "rank":  30,
                    "name":  "Azerz",
-                   "value":  478736,
+                   "value":  553574,
                    "breed":  10,
                    "sex":  0,
-                   "level":  27
+                   "level":  28
                },
                {
                    "rank":  31,
                    "name":  "Azere",
-                   "value":  478736,
+                   "value":  553574,
                    "breed":  10,
                    "sex":  0,
-                   "level":  27
+                   "level":  28
                },
                {
                    "rank":  32,
@@ -291,16 +291,16 @@
                     },
                     {
                         "rank":  3,
-                        "name":  "Persotrois",
-                        "value":  1493,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1506,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  4,
-                        "name":  "Persodeux",
-                        "value":  1486,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1493,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
@@ -313,7 +313,7 @@
                     {
                         "rank":  6,
                         "name":  "Aconit",
-                        "value":  1235,
+                        "value":  1245,
                         "breed":  10,
                         "sex":  0
                     },
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  657,
+                        "value":  658,
                         "breed":  1,
                         "sex":  1
                     },
