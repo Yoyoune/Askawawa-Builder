@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T23:59:29.3411410+02:00",
+    "generatedAt":  "2026-08-30T00:04:29.2564468+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  405727619,
+                   "value":  411296903,
                    "breed":  8,
                    "sex":  0,
                    "level":  141
@@ -12,15 +12,15 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  369431568,
+                   "value":  383281040,
                    "breed":  7,
                    "sex":  0,
-                   "level":  138
+                   "level":  139
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  357365701,
+                   "value":  362902045,
                    "breed":  11,
                    "sex":  0,
                    "level":  137
@@ -43,27 +43,27 @@
                },
                {
                    "rank":  6,
-                   "name":  "Belladone",
-                   "value":  248787760,
-                   "breed":  10,
+                   "name":  "Bartonella",
+                   "value":  250161958,
+                   "breed":  6,
                    "sex":  1,
                    "level":  126
                },
                {
                    "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  248449080,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  125
+                   "name":  "Faismoimal",
+                   "value":  249661285,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  126
                },
                {
                    "rank":  8,
-                   "name":  "Faismoimal",
-                   "value":  240769733,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  125
+                   "name":  "Belladone",
+                   "value":  248787760,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  126
                },
                {
                    "rank":  9,
@@ -285,22 +285,22 @@
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1490,
+                        "value":  1511,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1486,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1493,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
-                        "name":  "Persotrois",
-                        "value":  1453,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1486,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -319,17 +319,17 @@
                     },
                     {
                         "rank":  7,
+                        "name":  "Faismoimal",
+                        "value":  1230,
+                        "breed":  11,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  8,
                         "name":  "Belladone",
                         "value":  1211,
                         "breed":  10,
                         "sex":  1
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Faismoimal",
-                        "value":  1210,
-                        "breed":  11,
-                        "sex":  0
                     },
                     {
                         "rank":  9,
