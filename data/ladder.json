@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T21:34:28.9940709+02:00",
+    "generatedAt":  "2026-08-29T21:39:28.9621966+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  319422523,
+                   "value":  319979325,
                    "breed":  11,
                    "sex":  0,
                    "level":  133
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  16764339,
+                   "value":  17307090,
                    "breed":  1,
                    "sex":  1,
                    "level":  65
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Fritr",
-                   "value":  12636143,
+                   "value":  13283037,
                    "breed":  11,
                    "sex":  0,
-                   "level":  61
+                   "level":  62
                },
                {
                    "rank":  17,
@@ -376,7 +376,7 @@
                     {
                         "rank":  15,
                         "name":  "Fritr",
-                        "value":  344,
+                        "value":  345,
                         "breed":  11,
                         "sex":  0
                     },
