@@ -1,29 +1,29 @@
 {
-    "generatedAt":  "2026-08-29T14:39:29.3999192+02:00",
+    "generatedAt":  "2026-08-29T14:44:29.4587464+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  300943226,
+                   "value":  307101084,
                    "breed":  8,
                    "sex":  0,
-                   "level":  131
+                   "level":  132
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  275034188,
+                   "value":  285126480,
                    "breed":  7,
                    "sex":  0,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  259491524,
+                   "value":  266350658,
                    "breed":  11,
                    "sex":  0,
-                   "level":  127
+                   "level":  128
                },
                {
                    "rank":  4,
@@ -76,10 +76,10 @@
                {
                    "rank":  10,
                    "name":  "Frite",
-                   "value":  11649259,
+                   "value":  11663291,
                    "breed":  7,
                    "sex":  0,
-                   "level":  59
+                   "level":  60
                },
                {
                    "rank":  11,
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Rubisca",
-                   "value":  10191320,
+                   "value":  10499397,
                    "breed":  17,
                    "sex":  1,
                    "level":  58
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  9506181,
+                   "value":  10152043,
                    "breed":  5,
                    "sex":  0,
-                   "level":  57
+                   "level":  58
                },
                {
                    "rank":  17,
@@ -278,29 +278,29 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1434,
+                        "value":  1464,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persodeux",
-                        "value":  1295,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1332,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persoun",
-                        "value":  1276,
+                        "value":  1296,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  4,
-                        "name":  "Persotrois",
-                        "value":  1272,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1295,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -341,7 +341,7 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  405,
+                        "value":  406,
                         "breed":  5,
                         "sex":  0
                     },
@@ -375,16 +375,16 @@
                     },
                     {
                         "rank":  15,
-                        "name":  "Fritr",
-                        "value":  312,
-                        "breed":  11,
+                        "name":  "Frite",
+                        "value":  313,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  16,
-                        "name":  "Frite",
+                        "name":  "Fritr",
                         "value":  312,
-                        "breed":  7,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
