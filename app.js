@@ -4162,7 +4162,17 @@ function renderSpellVariantCard(spell, level) {
     paramIconItem("% Critique", `Critique ${sim.critRate}%`),
   ];
   if (grade.castInDiagonal) paramsItems.push(plainParamItem("Diagonale"));
-  if (grade.maxCastPerTurn) paramsItems.push(plainParamItem(`${grade.maxCastPerTurn} lancer${grade.maxCastPerTurn > 1 ? "s" : ""} par tour`));
+  if (grade.maxCastPerTurn) {
+    // maxCastPerTarget is a separate, per-target cap (e.g. "Toupet": 3 lancers par tour,
+    // mais 2 par cible) - shown alongside the per-turn cap only when it's actually set and
+    // stricter than it, so a spell with no target-specific limit isn't cluttered with a
+    // redundant "(X par cible)" repeating the same number.
+    const perTargetText = grade.maxCastPerTarget && grade.maxCastPerTarget < grade.maxCastPerTurn
+      ? ` (dont ${grade.maxCastPerTarget} par cible)` : "";
+    paramsItems.push(plainParamItem(`${grade.maxCastPerTurn} lancer${grade.maxCastPerTurn > 1 ? "s" : ""} par tour${perTargetText}`));
+  } else if (grade.maxCastPerTarget) {
+    paramsItems.push(plainParamItem(`${grade.maxCastPerTarget} lancer${grade.maxCastPerTarget > 1 ? "s" : ""} par tour par cible`));
+  }
   if (grade.maxStack) paramsItems.push(plainParamItem(`Cumul : ${grade.maxStack}`));
 
   card.innerHTML = `
