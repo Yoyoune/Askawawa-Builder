@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T14:19:29.4051049+02:00",
+    "generatedAt":  "2026-08-29T14:24:29.3880127+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  294848782,
+                   "value":  297479994,
                    "breed":  8,
                    "sex":  0,
                    "level":  131
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  270928170,
+                   "value":  275034188,
                    "breed":  7,
                    "sex":  0,
-                   "level":  128
+                   "level":  129
                },
                {
                    "rank":  3,
@@ -76,13 +76,21 @@
                {
                    "rank":  10,
                    "name":  "Fritz",
-                   "value":  10210356,
+                   "value":  10571150,
                    "breed":  11,
                    "sex":  0,
                    "level":  58
                },
                {
                    "rank":  11,
+                   "name":  "Frite",
+                   "value":  10214574,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  58
+               },
+               {
+                   "rank":  12,
                    "name":  "Cyano",
                    "value":  10184809,
                    "breed":  3,
@@ -90,19 +98,11 @@
                    "level":  58
                },
                {
-                   "rank":  12,
+                   "rank":  13,
                    "name":  "Rubisca",
                    "value":  9943346,
                    "breed":  17,
                    "sex":  1,
-                   "level":  57
-               },
-               {
-                   "rank":  13,
-                   "name":  "Frite",
-                   "value":  9853317,
-                   "breed":  7,
-                   "sex":  0,
                    "level":  57
                },
                {
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Fritr",
-                   "value":  9283767,
+                   "value":  9483846,
                    "breed":  11,
                    "sex":  0,
-                   "level":  56
+                   "level":  57
                },
                {
                    "rank":  17,
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1414,
+                        "value":  1424,
                         "breed":  8,
                         "sex":  0
                     },
@@ -299,7 +299,7 @@
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1262,
+                        "value":  1272,
                         "breed":  7,
                         "sex":  0
                     },
