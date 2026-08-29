@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T01:34:29.3183195+02:00",
+    "generatedAt":  "2026-08-29T03:04:29.7106682+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -466,38 +466,38 @@
                     },
                     {
                         "rank":  28,
-                        "name":  "Kardegic",
-                        "value":  9,
-                        "breed":  7,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  29,
                         "name":  "Digoxine",
                         "value":  9,
                         "breed":  4,
                         "sex":  1
                     },
                     {
-                        "rank":  30,
-                        "name":  "Horloge",
+                        "rank":  29,
+                        "name":  "Kardegic",
                         "value":  9,
-                        "breed":  5,
-                        "sex":  1
+                        "breed":  7,
+                        "sex":  0
                     },
                     {
-                        "rank":  31,
+                        "rank":  30,
                         "name":  "Mage",
                         "value":  9,
                         "breed":  17,
                         "sex":  0
                     },
                     {
-                        "rank":  32,
+                        "rank":  31,
                         "name":  "Ratata",
-                        "value":  8,
+                        "value":  9,
                         "breed":  11,
                         "sex":  0
+                    },
+                    {
+                        "rank":  32,
+                        "name":  "Horloge",
+                        "value":  9,
+                        "breed":  5,
+                        "sex":  1
                     },
                     {
                         "rank":  33,
