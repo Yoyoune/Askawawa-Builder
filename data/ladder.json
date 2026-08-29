@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T14:59:29.6316717+02:00",
+    "generatedAt":  "2026-08-29T15:04:29.5072270+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  308695302,
+                   "value":  309448668,
                    "breed":  8,
                    "sex":  0,
                    "level":  132
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  10667038,
+                   "value":  10667053,
                    "breed":  2,
                    "sex":  0,
                    "level":  58
