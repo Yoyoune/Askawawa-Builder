@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T22:39:29.0685143+02:00",
+    "generatedAt":  "2026-08-29T22:44:29.1168604+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  355844177,
+                   "value":  356390951,
                    "breed":  7,
                    "sex":  0,
                    "level":  136
@@ -35,6 +35,14 @@
                },
                {
                    "rank":  5,
+                   "name":  "Bartonella",
+                   "value":  227734078,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  123
+               },
+               {
+                   "rank":  6,
                    "name":  "Belladone",
                    "value":  226846366,
                    "breed":  10,
@@ -42,19 +50,11 @@
                    "level":  123
                },
                {
-                   "rank":  6,
+                   "rank":  7,
                    "name":  "Aconit",
                    "value":  226685382,
                    "breed":  10,
                    "sex":  0,
-                   "level":  123
-               },
-               {
-                   "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  225888507,
-                   "breed":  6,
-                   "sex":  1,
                    "level":  123
                },
                {
@@ -188,34 +188,34 @@
                {
                    "rank":  24,
                    "name":  "Digoxine",
-                   "value":  602838,
+                   "value":  803175,
                    "breed":  4,
                    "sex":  1,
-                   "level":  29
+                   "level":  32
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  602838,
+                   "value":  803175,
                    "breed":  17,
                    "sex":  0,
-                   "level":  29
+                   "level":  32
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  602838,
+                   "value":  803175,
                    "breed":  7,
                    "sex":  0,
-                   "level":  29
+                   "level":  32
                },
                {
                    "rank":  27,
                    "name":  "Horloge",
-                   "value":  602838,
+                   "value":  803175,
                    "breed":  5,
                    "sex":  1,
-                   "level":  29
+                   "level":  32
                },
                {
                    "rank":  28,
