@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-08-29T23:54:29.2791809+02:00",
+    "generatedAt":  "2026-08-29T23:59:29.3411410+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  404365229,
+                   "value":  405727619,
                    "breed":  8,
                    "sex":  0,
-                   "level":  140
+                   "level":  141
                },
                {
                    "rank":  2,
@@ -20,10 +20,10 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  349113543,
+                   "value":  357365701,
                    "breed":  11,
                    "sex":  0,
-                   "level":  136
+                   "level":  137
                },
                {
                    "rank":  4,
@@ -278,22 +278,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1636,
+                        "value":  1656,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persodeux",
-                        "value":  1486,
-                        "breed":  9,
+                        "name":  "Persoun",
+                        "value":  1490,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persoun",
-                        "value":  1470,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  1486,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  626,
+                        "value":  636,
                         "breed":  1,
                         "sex":  1
                     },
