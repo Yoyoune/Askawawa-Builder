@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T00:34:29.3507814+02:00",
+    "generatedAt":  "2026-08-30T00:39:29.4243117+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,6 +35,14 @@
                },
                {
                    "rank":  5,
+                   "name":  "Bartonella",
+                   "value":  260482023,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  127
+               },
+               {
+                   "rank":  6,
                    "name":  "Belladone",
                    "value":  258966334,
                    "breed":  10,
@@ -42,7 +50,7 @@
                    "level":  127
                },
                {
-                   "rank":  6,
+                   "rank":  7,
                    "name":  "Aconit",
                    "value":  258656643,
                    "breed":  10,
@@ -50,20 +58,12 @@
                    "level":  127
                },
                {
-                   "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  256668879,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  126
-               },
-               {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  254143413,
+                   "value":  257725581,
                    "breed":  11,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  9,
@@ -188,34 +188,34 @@
                {
                    "rank":  24,
                    "name":  "Digoxine",
-                   "value":  1255751,
+                   "value":  1570295,
                    "breed":  4,
                    "sex":  1,
-                   "level":  37
+                   "level":  38
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  1255751,
+                   "value":  1570295,
                    "breed":  17,
                    "sex":  0,
-                   "level":  37
+                   "level":  38
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  1255751,
+                   "value":  1570295,
                    "breed":  7,
                    "sex":  0,
-                   "level":  37
+                   "level":  38
                },
                {
                    "rank":  27,
                    "name":  "Horloge",
-                   "value":  1255751,
+                   "value":  1570295,
                    "breed":  5,
                    "sex":  1,
-                   "level":  37
+                   "level":  38
                },
                {
                    "rank":  28,
@@ -306,7 +306,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1310,
+                        "value":  1321,
                         "breed":  6,
                         "sex":  1
                     },
