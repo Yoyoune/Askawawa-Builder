@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T01:29:29.4400923+02:00",
+    "generatedAt":  "2026-08-30T01:34:29.4676172+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  413316982,
+                   "value":  414573812,
                    "breed":  8,
                    "sex":  0,
                    "level":  141
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Bartonella",
-                   "value":  269124794,
+                   "value":  270113884,
                    "breed":  6,
                    "sex":  1,
                    "level":  128
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Digoxine",
-                   "value":  3530923,
+                   "value":  3735877,
                    "breed":  4,
                    "sex":  1,
-                   "level":  45
+                   "level":  46
                },
                {
                    "rank":  22,
                    "name":  "Kardegic",
-                   "value":  3530923,
+                   "value":  3735877,
                    "breed":  7,
                    "sex":  0,
-                   "level":  45
+                   "level":  46
                },
                {
                    "rank":  23,
                    "name":  "Mage",
-                   "value":  3530923,
+                   "value":  3735877,
                    "breed":  17,
                    "sex":  0,
-                   "level":  45
+                   "level":  46
                },
                {
                    "rank":  24,
                    "name":  "Horloge",
-                   "value":  3530923,
+                   "value":  3735877,
                    "breed":  5,
                    "sex":  1,
-                   "level":  45
+                   "level":  46
                },
                {
                    "rank":  25,
