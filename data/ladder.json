@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T22:54:29.1343202+02:00",
+    "generatedAt":  "2026-08-29T22:59:29.2266309+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,15 +12,15 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  356390951,
+                   "value":  357813144,
                    "breed":  7,
                    "sex":  0,
-                   "level":  136
+                   "level":  137
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  334936542,
+                   "value":  337740034,
                    "breed":  11,
                    "sex":  0,
                    "level":  135
@@ -220,34 +220,34 @@
                {
                    "rank":  28,
                    "name":  "Azera",
-                   "value":  321653,
+                   "value":  469139,
                    "breed":  10,
                    "sex":  0,
-                   "level":  24
+                   "level":  27
                },
                {
                    "rank":  29,
                    "name":  "Azerr",
-                   "value":  321647,
+                   "value":  469133,
                    "breed":  10,
                    "sex":  0,
-                   "level":  24
+                   "level":  27
                },
                {
                    "rank":  30,
                    "name":  "Azerz",
-                   "value":  321647,
+                   "value":  469133,
                    "breed":  10,
                    "sex":  0,
-                   "level":  24
+                   "level":  27
                },
                {
                    "rank":  31,
                    "name":  "Azere",
-                   "value":  321647,
+                   "value":  469133,
                    "breed":  10,
                    "sex":  0,
-                   "level":  24
+                   "level":  27
                },
                {
                    "rank":  32,
