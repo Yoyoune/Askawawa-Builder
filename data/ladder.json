@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T21:29:28.9995169+02:00",
+    "generatedAt":  "2026-08-29T21:34:28.9940709+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  353024341,
+                   "value":  353833435,
                    "breed":  8,
                    "sex":  0,
                    "level":  136
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  318729899,
+                   "value":  319422523,
                    "breed":  11,
                    "sex":  0,
                    "level":  133
@@ -83,6 +83,14 @@
                },
                {
                    "rank":  11,
+                   "name":  "Cyano",
+                   "value":  16348171,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  65
+               },
+               {
+                   "rank":  12,
                    "name":  "Rhizobium",
                    "value":  15285995,
                    "breed":  2,
@@ -90,20 +98,12 @@
                    "level":  64
                },
                {
-                   "rank":  12,
-                   "name":  "Cyano",
-                   "value":  15178971,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  64
-               },
-               {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  13931483,
+                   "value":  14199915,
                    "breed":  2,
                    "sex":  0,
-                   "level":  62
+                   "level":  63
                },
                {
                    "rank":  14,
