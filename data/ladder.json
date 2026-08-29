@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T00:19:29.3462140+02:00",
+    "generatedAt":  "2026-08-30T00:24:29.3161616+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  251650961,
+                   "value":  252424851,
                    "breed":  6,
                    "sex":  1,
                    "level":  126
@@ -188,34 +188,34 @@
                {
                    "rank":  24,
                    "name":  "Digoxine",
-                   "value":  1102040,
+                   "value":  1255751,
                    "breed":  4,
                    "sex":  1,
-                   "level":  36
+                   "level":  37
                },
                {
                    "rank":  25,
                    "name":  "Mage",
-                   "value":  1102040,
+                   "value":  1255751,
                    "breed":  17,
                    "sex":  0,
-                   "level":  36
+                   "level":  37
                },
                {
                    "rank":  26,
                    "name":  "Kardegic",
-                   "value":  1102040,
+                   "value":  1255751,
                    "breed":  7,
                    "sex":  0,
-                   "level":  36
+                   "level":  37
                },
                {
                    "rank":  27,
                    "name":  "Horloge",
-                   "value":  1102040,
+                   "value":  1255751,
                    "breed":  5,
                    "sex":  1,
-                   "level":  36
+                   "level":  37
                },
                {
                    "rank":  28,
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  656,
+                        "value":  657,
                         "breed":  1,
                         "sex":  1
                     },
