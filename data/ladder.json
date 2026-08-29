@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T16:39:29.6161206+02:00",
+    "generatedAt":  "2026-08-29T16:44:29.6098175+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  304535082,
+                   "value":  313710730,
                    "breed":  7,
                    "sex":  0,
-                   "level":  132
+                   "level":  133
                },
                {
                    "rank":  3,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  14388608,
+                   "value":  14413100,
                    "breed":  1,
                    "sex":  1,
                    "level":  63
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  13497637,
+                   "value":  13836535,
                    "breed":  17,
                    "sex":  1,
                    "level":  62
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  13436572,
+                   "value":  13738960,
                    "breed":  3,
                    "sex":  0,
                    "level":  62
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  12653287,
+                   "value":  12949347,
                    "breed":  2,
                    "sex":  0,
                    "level":  61
@@ -291,16 +291,16 @@
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1366,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1373,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
-                        "name":  "Persotrois",
-                        "value":  1363,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1366,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -341,21 +341,21 @@
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  539,
+                        "value":  541,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
                         "name":  "Rhizobium",
-                        "value":  508,
+                        "value":  540,
                         "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  507,
+                        "value":  539,
                         "breed":  3,
                         "sex":  0
                     },
