@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T14:54:29.4506846+02:00",
+    "generatedAt":  "2026-08-29T14:59:29.6316717+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  308054781,
+                   "value":  308695302,
                    "breed":  8,
                    "sex":  0,
                    "level":  132
@@ -67,18 +67,18 @@
                },
                {
                    "rank":  9,
-                   "name":  "Fritz",
-                   "value":  12029504,
-                   "breed":  2,
-                   "sex":  0,
+                   "name":  "Flavodiira",
+                   "value":  12107868,
+                   "breed":  1,
+                   "sex":  1,
                    "level":  60
                },
                {
                    "rank":  10,
-                   "name":  "Flavodiira",
-                   "value":  11893355,
-                   "breed":  1,
-                   "sex":  1,
+                   "name":  "Fritz",
+                   "value":  12029504,
+                   "breed":  2,
+                   "sex":  0,
                    "level":  60
                },
                {
@@ -100,13 +100,21 @@
                {
                    "rank":  13,
                    "name":  "Cyano",
-                   "value":  11135761,
+                   "value":  11385562,
                    "breed":  3,
                    "sex":  0,
                    "level":  59
                },
                {
                    "rank":  14,
+                   "name":  "Rubisca",
+                   "value":  11201808,
+                   "breed":  17,
+                   "sex":  1,
+                   "level":  59
+               },
+               {
+                   "rank":  15,
                    "name":  "Fritr",
                    "value":  11031700,
                    "breed":  11,
@@ -114,17 +122,9 @@
                    "level":  59
                },
                {
-                   "rank":  15,
-                   "name":  "Rubisca",
-                   "value":  10921864,
-                   "breed":  17,
-                   "sex":  1,
-                   "level":  59
-               },
-               {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  10425724,
+                   "value":  10667038,
                    "breed":  2,
                    "sex":  0,
                    "level":  58
