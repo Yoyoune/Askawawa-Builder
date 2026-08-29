@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T14:29:29.4572198+02:00",
+    "generatedAt":  "2026-08-29T14:34:29.4616581+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  297716258,
+                   "value":  298420539,
                    "breed":  8,
                    "sex":  0,
                    "level":  131
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  229164559,
+                   "value":  232501137,
                    "breed":  9,
                    "sex":  0,
-                   "level":  123
+                   "level":  124
                },
                {
                    "rank":  5,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  10929386,
+                   "value":  11181561,
                    "breed":  1,
                    "sex":  1,
                    "level":  59
@@ -76,10 +76,10 @@
                {
                    "rank":  10,
                    "name":  "Fritz",
-                   "value":  10571150,
+                   "value":  10977456,
                    "breed":  11,
                    "sex":  0,
-                   "level":  58
+                   "level":  59
                },
                {
                    "rank":  11,
@@ -99,19 +99,19 @@
                },
                {
                    "rank":  13,
+                   "name":  "Rubisca",
+                   "value":  10191320,
+                   "breed":  17,
+                   "sex":  1,
+                   "level":  58
+               },
+               {
+                   "rank":  14,
                    "name":  "Cyano",
                    "value":  10184809,
                    "breed":  3,
                    "sex":  0,
                    "level":  58
-               },
-               {
-                   "rank":  14,
-                   "name":  "Rubisca",
-                   "value":  9943346,
-                   "breed":  17,
-                   "sex":  1,
-                   "level":  57
                },
                {
                    "rank":  15,
@@ -278,22 +278,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1424,
+                        "value":  1434,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persoun",
-                        "value":  1276,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  1295,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1275,
-                        "breed":  9,
+                        "name":  "Persoun",
+                        "value":  1276,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
@@ -362,7 +362,7 @@
                     {
                         "rank":  13,
                         "name":  "Fritz",
-                        "value":  301,
+                        "value":  311,
                         "breed":  11,
                         "sex":  0
                     },
