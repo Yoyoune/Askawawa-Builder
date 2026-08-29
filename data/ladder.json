@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-08-29T23:44:29.2887883+02:00",
+    "generatedAt":  "2026-08-29T23:49:29.2666139+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  390050451,
+                   "value":  403504881,
                    "breed":  8,
                    "sex":  0,
-                   "level":  139
+                   "level":  140
                },
                {
                    "rank":  2,
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  317745085,
+                   "value":  324019218,
                    "breed":  9,
                    "sex":  0,
-                   "level":  133
+                   "level":  134
                },
                {
                    "rank":  5,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  242045822,
+                   "value":  243005125,
                    "breed":  6,
                    "sex":  1,
                    "level":  125
@@ -278,22 +278,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1595,
+                        "value":  1636,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persoun",
-                        "value":  1470,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  1486,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1466,
-                        "breed":  9,
+                        "name":  "Persoun",
+                        "value":  1470,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  623,
+                        "value":  624,
                         "breed":  1,
                         "sex":  1
                     },
