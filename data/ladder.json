@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T22:59:29.2266309+02:00",
+    "generatedAt":  "2026-08-29T23:04:29.2631632+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  370190263,
+                   "value":  373985961,
                    "breed":  8,
                    "sex":  0,
                    "level":  138
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  16311728,
+                   "value":  16316203,
                    "breed":  7,
                    "sex":  0,
                    "level":  65
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Frite",
-                   "value":  15922327,
+                   "value":  15926829,
                    "breed":  7,
                    "sex":  0,
                    "level":  64
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Frita",
-                   "value":  15714070,
+                   "value":  15718460,
                    "breed":  8,
                    "sex":  0,
                    "level":  64
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Fritr",
-                   "value":  15044474,
+                   "value":  15048733,
                    "breed":  11,
                    "sex":  0,
                    "level":  63
@@ -220,7 +220,7 @@
                {
                    "rank":  28,
                    "name":  "Azera",
-                   "value":  469139,
+                   "value":  478742,
                    "breed":  10,
                    "sex":  0,
                    "level":  27
@@ -228,7 +228,7 @@
                {
                    "rank":  29,
                    "name":  "Azerr",
-                   "value":  469133,
+                   "value":  478736,
                    "breed":  10,
                    "sex":  0,
                    "level":  27
@@ -236,7 +236,7 @@
                {
                    "rank":  30,
                    "name":  "Azerz",
-                   "value":  469133,
+                   "value":  478736,
                    "breed":  10,
                    "sex":  0,
                    "level":  27
@@ -244,7 +244,7 @@
                {
                    "rank":  31,
                    "name":  "Azere",
-                   "value":  469133,
+                   "value":  478736,
                    "breed":  10,
                    "sex":  0,
                    "level":  27
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  617,
+                        "value":  619,
                         "breed":  1,
                         "sex":  1
                     },
@@ -439,28 +439,28 @@
                     {
                         "rank":  24,
                         "name":  "Azere",
-                        "value":  14,
+                        "value":  15,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  25,
                         "name":  "Azerz",
-                        "value":  14,
+                        "value":  15,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  26,
                         "name":  "Azera",
-                        "value":  14,
+                        "value":  15,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  27,
                         "name":  "Azerr",
-                        "value":  14,
+                        "value":  15,
                         "breed":  10,
                         "sex":  0
                     },
