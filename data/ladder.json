@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T21:44:28.9868797+02:00",
+    "generatedAt":  "2026-08-29T21:49:28.9811748+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  358033301,
+                   "value":  359171777,
                    "breed":  8,
                    "sex":  0,
                    "level":  137
@@ -20,18 +20,18 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  319979325,
+                   "value":  324273482,
                    "breed":  11,
                    "sex":  0,
-                   "level":  133
+                   "level":  134
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  281736535,
+                   "value":  284778902,
                    "breed":  9,
                    "sex":  0,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  5,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  17446125,
+                   "value":  17572809,
                    "breed":  1,
                    "sex":  1,
                    "level":  66
@@ -92,15 +92,15 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  15285995,
+                   "value":  16268576,
                    "breed":  2,
                    "sex":  0,
-                   "level":  64
+                   "level":  65
                },
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  14391345,
+                   "value":  14607895,
                    "breed":  2,
                    "sex":  0,
                    "level":  63
@@ -108,10 +108,10 @@
                {
                    "rank":  14,
                    "name":  "Frite",
-                   "value":  13338198,
+                   "value":  14232955,
                    "breed":  7,
                    "sex":  0,
-                   "level":  62
+                   "level":  63
                },
                {
                    "rank":  15,
@@ -285,22 +285,22 @@
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1439,
+                        "value":  1449,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persotrois",
-                        "value":  1423,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1446,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  4,
-                        "name":  "Persodeux",
-                        "value":  1416,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1423,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
@@ -383,7 +383,7 @@
                     {
                         "rank":  16,
                         "name":  "Frite",
-                        "value":  343,
+                        "value":  344,
                         "breed":  7,
                         "sex":  0
                     },
