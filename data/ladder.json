@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T22:04:29.0175491+02:00",
+    "generatedAt":  "2026-08-29T22:09:29.0188166+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  364561258,
+                   "value":  365126821,
                    "breed":  8,
                    "sex":  0,
                    "level":  137
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  17468310,
+                   "value":  18080081,
                    "breed":  3,
                    "sex":  0,
                    "level":  66
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  16268576,
+                   "value":  17156505,
                    "breed":  2,
                    "sex":  0,
                    "level":  65
@@ -100,13 +100,21 @@
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  15159846,
+                   "value":  15521666,
                    "breed":  2,
+                   "sex":  0,
+                   "level":  64
+               },
+               {
+                   "rank":  14,
+                   "name":  "Fritr",
+                   "value":  14338378,
+                   "breed":  11,
                    "sex":  0,
                    "level":  63
                },
                {
-                   "rank":  14,
+                   "rank":  15,
                    "name":  "Frite",
                    "value":  14232955,
                    "breed":  7,
@@ -114,20 +122,12 @@
                    "level":  63
                },
                {
-                   "rank":  15,
+                   "rank":  16,
                    "name":  "Frita",
                    "value":  14162002,
                    "breed":  8,
                    "sex":  0,
                    "level":  63
-               },
-               {
-                   "rank":  16,
-                   "name":  "Fritr",
-                   "value":  13283037,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  62
                },
                {
                    "rank":  17,
