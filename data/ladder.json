@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-29T21:54:29.0443760+02:00",
+    "generatedAt":  "2026-08-29T21:59:29.0244374+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  359171777,
+                   "value":  363911242,
                    "breed":  8,
                    "sex":  0,
                    "level":  137
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  338636777,
+                   "value":  346023484,
                    "breed":  7,
                    "sex":  0,
-                   "level":  135
+                   "level":  136
                },
                {
                    "rank":  3,
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  284778902,
+                   "value":  294120754,
                    "breed":  9,
                    "sex":  0,
-                   "level":  130
+                   "level":  131
                },
                {
                    "rank":  5,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  18044051,
+                   "value":  18334840,
                    "breed":  1,
                    "sex":  1,
                    "level":  66
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1565,
+                        "value":  1575,
                         "breed":  8,
                         "sex":  0
                     },
@@ -299,7 +299,7 @@
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1423,
+                        "value":  1443,
                         "breed":  7,
                         "sex":  0
                     },
