@@ -596,9 +596,14 @@ function saveAtelier() {
 }
 
 function addItemToAtelier(itemId) {
-  if (!atelierOrder.includes(itemId)) atelierOrder.push(itemId);
-  if (!atelierHave[itemId]) atelierHave[itemId] = {};
-  if (!atelierCopies[itemId]) atelierCopies[itemId] = 1;
+  if (atelierOrder.includes(itemId)) {
+    // Already in the atelier - sending it again means "one more", not a no-op.
+    atelierCopies[itemId] = (atelierCopies[itemId] || 1) + 1;
+  } else {
+    atelierOrder.push(itemId);
+    if (!atelierHave[itemId]) atelierHave[itemId] = {};
+    if (!atelierCopies[itemId]) atelierCopies[itemId] = 1;
+  }
   saveAtelier();
 }
 
