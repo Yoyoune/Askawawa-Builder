@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-29T21:49:28.9811748+02:00",
+    "generatedAt":  "2026-08-29T21:54:29.0443760+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,26 +68,26 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  17572809,
+                   "value":  18044051,
                    "breed":  1,
                    "sex":  1,
                    "level":  66
                },
                {
                    "rank":  10,
+                   "name":  "Cyano",
+                   "value":  17468310,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  66
+               },
+               {
+                   "rank":  11,
                    "name":  "Rubisca",
                    "value":  17445671,
                    "breed":  17,
                    "sex":  1,
                    "level":  66
-               },
-               {
-                   "rank":  11,
-                   "name":  "Cyano",
-                   "value":  16348171,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  65
                },
                {
                    "rank":  12,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  14607895,
+                   "value":  14780518,
                    "breed":  2,
                    "sex":  0,
                    "level":  63
@@ -116,10 +116,10 @@
                {
                    "rank":  15,
                    "name":  "Frita",
-                   "value":  13315417,
+                   "value":  14162002,
                    "breed":  8,
                    "sex":  0,
-                   "level":  62
+                   "level":  63
                },
                {
                    "rank":  16,
