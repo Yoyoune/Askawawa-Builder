@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T15:09:29.7100436+02:00",
+    "generatedAt":  "2026-08-30T15:14:29.7219627+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  451427255,
+                   "value":  451515488,
                    "breed":  8,
                    "sex":  0,
                    "level":  144
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  19588582,
+                   "value":  19709029,
                    "breed":  1,
                    "sex":  1,
                    "level":  67
