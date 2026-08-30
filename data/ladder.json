@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T22:24:29.4808258+02:00",
+    "generatedAt":  "2026-08-30T22:34:29.4910747+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  474473932,
+                   "value":  477453841,
                    "breed":  9,
                    "sex":  0,
                    "level":  146
@@ -68,26 +68,26 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  44183979,
+                   "value":  46099994,
                    "breed":  1,
                    "sex":  1,
-                   "level":  82
+                   "level":  83
                },
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  42596245,
+                   "value":  44466210,
                    "breed":  17,
                    "sex":  1,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  39564431,
+                   "value":  41910658,
                    "breed":  3,
                    "sex":  0,
-                   "level":  80
+                   "level":  81
                },
                {
                    "rank":  12,
@@ -284,16 +284,16 @@
                     },
                     {
                         "rank":  2,
-                        "name":  "Persoun",
-                        "value":  1799,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  1805,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1795,
-                        "breed":  9,
+                        "name":  "Persoun",
+                        "value":  1799,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
@@ -334,21 +334,21 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  867,
+                        "value":  888,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  778,
+                        "value":  798,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
                         "name":  "Cyano",
-                        "value":  776,
+                        "value":  796,
                         "breed":  3,
                         "sex":  0
                     },
