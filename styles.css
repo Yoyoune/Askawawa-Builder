@@ -310,7 +310,28 @@ button:hover { border-color: var(--accent); }
 
 .atelier-resource-view {
   grid-column: 1 / -1;
-  max-width: 520px;
+  display: flex;
+  gap: 24px;
+  max-width: 860px;
+}
+
+.atelier-resource-col { flex: 1; min-width: 0; }
+
+.atelier-resource-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.atelier-resource-col-list .stat-empty { padding: 8px 0; font-size: 12px; }
+
+@media (max-width: 640px) {
+  .atelier-resource-view { flex-direction: column; }
 }
 
 .atelier-card {

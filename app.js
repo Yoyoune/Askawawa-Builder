@@ -3606,6 +3606,25 @@ function distributeResourceHave(ingredientItemId, totalHave) {
   saveAtelier();
 }
 
+/** Inserts `row` into `container` keeping rows alphabetically ordered by `name`, so a row
+ * moved in from the other column lands in the right spot instead of just at the end. */
+function insertResourceRowSorted(container, row, name) {
+  const rows = container.querySelectorAll(".atelier-ingredient-row");
+  for (const r of rows) {
+    if (name.localeCompare(r.dataset.name) < 0) {
+      container.insertBefore(row, r);
+      return;
+    }
+  }
+  container.appendChild(row);
+}
+
+/** Shows/hides a column's placeholder text depending on whether it currently holds any rows. */
+function updateResourceColEmptyState(listEl, placeholderEl) {
+  const hasRows = listEl.querySelector(".atelier-ingredient-row") !== null;
+  placeholderEl.classList.toggle("hidden", hasRows);
+}
+
 function renderAtelierResourceView() {
   const wrap = document.createElement("div");
   wrap.className = "atelier-resource-view";
@@ -3621,10 +3640,39 @@ function renderAtelierResourceView() {
     return wrap;
   }
 
+  // Left column: resources still short of the total needed. Right column: resources
+  // already fully gathered, greyed out and set aside so the left column only shows what's
+  // still actionable.
+  const colLeft = document.createElement("div");
+  colLeft.className = "atelier-resource-col";
+  const colLeftTitle = document.createElement("div");
+  colLeftTitle.className = "atelier-resource-col-title";
+  colLeftTitle.textContent = "À réunir";
+  const colLeftList = document.createElement("div");
+  colLeftList.className = "atelier-resource-col-list";
+  const colLeftEmpty = document.createElement("div");
+  colLeftEmpty.className = "stat-empty hidden";
+  colLeftEmpty.textContent = "Tout est réuni !";
+  colLeft.append(colLeftTitle, colLeftList, colLeftEmpty);
+
+  const colRight = document.createElement("div");
+  colRight.className = "atelier-resource-col";
+  const colRightTitle = document.createElement("div");
+  colRightTitle.className = "atelier-resource-col-title";
+  colRightTitle.textContent = "Complètes";
+  const colRightList = document.createElement("div");
+  colRightList.className = "atelier-resource-col-list";
+  const colRightEmpty = document.createElement("div");
+  colRightEmpty.className = "stat-empty hidden";
+  colRightEmpty.textContent = "Aucune ressource complète pour l'instant.";
+  colRight.append(colRightTitle, colRightList, colRightEmpty);
+
   for (const ingId of ids) {
     const t = totals.get(ingId);
     const row = document.createElement("div");
-    row.className = "atelier-ingredient-row" + (t.have >= t.needed ? " fulfilled" : "");
+    const fulfilled = t.have >= t.needed;
+    row.className = "atelier-ingredient-row" + (fulfilled ? " fulfilled" : "");
+    row.dataset.name = t.name;
     row.appendChild(itemIconEl({ iconId: t.iconId }, "🧱", "item-icon"));
 
     const name = document.createElement("span");
@@ -3645,14 +3693,25 @@ function renderAtelierResourceView() {
     input.addEventListener("input", () => {
       const v = Math.max(0, Number(input.value) || 0);
       distributeResourceHave(ingId, v);
-      row.classList.toggle("fulfilled", v >= t.needed);
+      const nowFulfilled = v >= t.needed;
+      row.classList.toggle("fulfilled", nowFulfilled);
+      const targetList = nowFulfilled ? colRightList : colLeftList;
+      if (row.parentElement !== targetList) {
+        insertResourceRowSorted(targetList, row, t.name);
+        updateResourceColEmptyState(colLeftList, colLeftEmpty);
+        updateResourceColEmptyState(colRightList, colRightEmpty);
+      }
     });
 
     row.appendChild(input);
     row.appendChild(needed);
-    wrap.appendChild(row);
+    insertResourceRowSorted(fulfilled ? colRightList : colLeftList, row, t.name);
   }
 
+  updateResourceColEmptyState(colLeftList, colLeftEmpty);
+  updateResourceColEmptyState(colRightList, colRightEmpty);
+
+  wrap.append(colLeft, colRight);
   return wrap;
 }
 
