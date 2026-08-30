@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T08:59:29.1522262+02:00",
+    "generatedAt":  "2026-08-30T09:04:29.1313479+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -195,6 +195,14 @@
                },
                {
                    "rank":  25,
+                   "name":  "Latt",
+                   "value":  3269019,
+                   "breed":  1,
+                   "sex":  1,
+                   "level":  45
+               },
+               {
+                   "rank":  26,
                    "name":  "Patt",
                    "value":  3246112,
                    "breed":  8,
@@ -202,19 +210,11 @@
                    "level":  45
                },
                {
-                   "rank":  26,
+                   "rank":  27,
                    "name":  "Matt",
-                   "value":  3086965,
+                   "value":  3195010,
                    "breed":  3,
                    "sex":  0,
-                   "level":  44
-               },
-               {
-                   "rank":  27,
-                   "name":  "Latt",
-                   "value":  2930448,
-                   "breed":  1,
-                   "sex":  1,
                    "level":  44
                },
                {
@@ -252,10 +252,10 @@
                {
                    "rank":  32,
                    "name":  "Catt",
-                   "value":  115231,
+                   "value":  176234,
                    "breed":  9,
                    "sex":  0,
-                   "level":  18
+                   "level":  20
                },
                {
                    "rank":  33,
@@ -397,7 +397,7 @@
                     {
                         "rank":  18,
                         "name":  "Latt",
-                        "value":  268,
+                        "value":  269,
                         "breed":  1,
                         "sex":  1
                     },
@@ -466,9 +466,9 @@
                     },
                     {
                         "rank":  28,
-                        "name":  "Kardegic",
+                        "name":  "Mage",
                         "value":  13,
-                        "breed":  7,
+                        "breed":  17,
                         "sex":  0
                     },
                     {
@@ -487,22 +487,22 @@
                     },
                     {
                         "rank":  31,
-                        "name":  "Mage",
+                        "name":  "Kardegic",
                         "value":  13,
-                        "breed":  17,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  32,
-                        "name":  "Ratata",
-                        "value":  9,
+                        "name":  "Catt",
+                        "value":  11,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  33,
-                        "name":  "Catt",
-                        "value":  7,
+                        "name":  "Ratata",
+                        "value":  9,
                         "breed":  9,
                         "sex":  0
                     },
