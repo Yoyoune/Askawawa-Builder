@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T23:49:29.5237608+02:00",
+    "generatedAt":  "2026-08-30T23:54:29.5759792+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  623982790,
+                   "value":  624236982,
                    "breed":  8,
                    "sex":  0,
                    "level":  155
@@ -43,6 +43,14 @@
                },
                {
                    "rank":  6,
+                   "name":  "Bartonella",
+                   "value":  337644223,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  135
+               },
+               {
+                   "rank":  7,
                    "name":  "Aconit",
                    "value":  337208720,
                    "breed":  10,
@@ -50,25 +58,17 @@
                    "level":  135
                },
                {
-                   "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  333176439,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  134
-               },
-               {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  329433636,
+                   "value":  334502065,
                    "breed":  11,
                    "sex":  0,
-                   "level":  134
+                   "level":  135
                },
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  50192879,
+                   "value":  50544674,
                    "breed":  1,
                    "sex":  1,
                    "level":  85
@@ -76,10 +76,10 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  45239490,
+                   "value":  47495183,
                    "breed":  17,
                    "sex":  1,
-                   "level":  83
+                   "level":  84
                },
                {
                    "rank":  11,
@@ -306,30 +306,30 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1381,
+                        "value":  1391,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
+                        "name":  "Faismoimal",
+                        "value":  1320,
+                        "breed":  11,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Aconit",
                         "value":  1316,
                         "breed":  10,
                         "sex":  0
                     },
                     {
-                        "rank":  7,
+                        "rank":  8,
                         "name":  "Belladone",
                         "value":  1315,
                         "breed":  10,
                         "sex":  1
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Faismoimal",
-                        "value":  1310,
-                        "breed":  11,
-                        "sex":  0
                     },
                     {
                         "rank":  9,
@@ -340,17 +340,17 @@
                     },
                     {
                         "rank":  10,
+                        "name":  "Rubisca",
+                        "value":  822,
+                        "breed":  17,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  11,
                         "name":  "Cyano",
                         "value":  819,
                         "breed":  3,
                         "sex":  0
-                    },
-                    {
-                        "rank":  11,
-                        "name":  "Rubisca",
-                        "value":  812,
-                        "breed":  17,
-                        "sex":  1
                     },
                     {
                         "rank":  12,
@@ -375,16 +375,16 @@
                     },
                     {
                         "rank":  15,
-                        "name":  "Frite",
+                        "name":  "Fritr",
                         "value":  405,
-                        "breed":  7,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  16,
-                        "name":  "Fritr",
+                        "name":  "Frite",
                         "value":  405,
-                        "breed":  11,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
