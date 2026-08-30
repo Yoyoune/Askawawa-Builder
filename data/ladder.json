@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-31T01:04:29.6819027+02:00",
+    "generatedAt":  "2026-08-31T01:09:29.7292992+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  640226948,
+                   "value":  640581659,
                    "breed":  8,
                    "sex":  0,
                    "level":  156
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  349081140,
+                   "value":  352171870,
                    "breed":  6,
                    "sex":  1,
                    "level":  136
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Digoxine",
-                   "value":  5245927,
+                   "value":  5407560,
                    "breed":  4,
                    "sex":  1,
-                   "level":  49
+                   "level":  50
                },
                {
                    "rank":  22,
                    "name":  "Kardegic",
-                   "value":  5245927,
+                   "value":  5407560,
                    "breed":  7,
                    "sex":  0,
-                   "level":  49
+                   "level":  50
                },
                {
                    "rank":  23,
                    "name":  "Mage",
-                   "value":  5245927,
+                   "value":  5407560,
                    "breed":  17,
                    "sex":  0,
-                   "level":  49
+                   "level":  50
                },
                {
                    "rank":  24,
                    "name":  "Horloge",
-                   "value":  5245927,
+                   "value":  5407560,
                    "breed":  5,
                    "sex":  1,
-                   "level":  49
+                   "level":  50
                },
                {
                    "rank":  25,
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1992,
+                        "value":  2002,
                         "breed":  8,
                         "sex":  0
                     },
@@ -306,7 +306,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1411,
+                        "value":  1421,
                         "breed":  6,
                         "sex":  1
                     },
@@ -474,28 +474,28 @@
                     {
                         "rank":  29,
                         "name":  "Horloge",
-                        "value":  13,
+                        "value":  15,
                         "breed":  5,
                         "sex":  1
                     },
                     {
                         "rank":  30,
                         "name":  "Mage",
-                        "value":  13,
+                        "value":  15,
                         "breed":  17,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Kardegic",
-                        "value":  13,
+                        "value":  15,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Digoxine",
-                        "value":  13,
+                        "value":  15,
                         "breed":  4,
                         "sex":  1
                     },
