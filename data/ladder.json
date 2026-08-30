@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T21:14:29.3139478+02:00",
+    "generatedAt":  "2026-08-30T21:19:29.3342391+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  40437407,
+                   "value":  40565814,
                    "breed":  1,
                    "sex":  1,
                    "level":  80
@@ -92,15 +92,15 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  34832336,
+                   "value":  35229535,
                    "breed":  2,
                    "sex":  0,
-                   "level":  77
+                   "level":  78
                },
                {
                    "rank":  13,
                    "name":  "Fritz",
-                   "value":  17153600,
+                   "value":  17305356,
                    "breed":  7,
                    "sex":  0,
                    "level":  65
@@ -334,23 +334,23 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  826,
+                        "value":  836,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
+                        "name":  "Rhizobium",
+                        "value":  746,
+                        "breed":  2,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  11,
                         "name":  "Rubisca",
                         "value":  737,
                         "breed":  17,
                         "sex":  1
-                    },
-                    {
-                        "rank":  11,
-                        "name":  "Rhizobium",
-                        "value":  736,
-                        "breed":  2,
-                        "sex":  0
                     },
                     {
                         "rank":  12,
