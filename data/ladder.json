@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T18:09:29.0664251+02:00",
+    "generatedAt":  "2026-08-30T18:14:29.1074715+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  535131120,
+                   "value":  542331120,
                    "breed":  8,
                    "sex":  0,
                    "level":  150
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Bartonella",
-                   "value":  284853116,
+                   "value":  286581370,
                    "breed":  6,
                    "sex":  1,
                    "level":  130
