@@ -1,37 +1,37 @@
 {
-    "generatedAt":  "2026-08-30T16:19:29.8478516+02:00",
+    "generatedAt":  "2026-08-30T16:24:29.8421568+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  474167640,
+                   "value":  490988079,
                    "breed":  8,
                    "sex":  0,
-                   "level":  146
+                   "level":  147
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  441128235,
+                   "value":  458455290,
                    "breed":  7,
                    "sex":  0,
-                   "level":  143
+                   "level":  144
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  418854531,
+                   "value":  435862164,
                    "breed":  11,
                    "sex":  0,
-                   "level":  142
+                   "level":  143
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  368340528,
+                   "value":  383577368,
                    "breed":  9,
                    "sex":  0,
-                   "level":  138
+                   "level":  139
                },
                {
                    "rank":  5,
@@ -68,15 +68,15 @@
                {
                    "rank":  9,
                    "name":  "Rubisca",
-                   "value":  22609837,
+                   "value":  23598507,
                    "breed":  17,
                    "sex":  1,
-                   "level":  70
+                   "level":  71
                },
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  22418820,
+                   "value":  22570938,
                    "breed":  1,
                    "sex":  1,
                    "level":  70
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  19822470,
+                   "value":  21094963,
                    "breed":  2,
                    "sex":  0,
-                   "level":  68
+                   "level":  69
                },
                {
                    "rank":  13,
@@ -278,28 +278,28 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1805,
+                        "value":  1815,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1676,
+                        "value":  1696,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  1670,
+                        "value":  1690,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persodeux",
-                        "value":  1601,
+                        "value":  1621,
                         "breed":  9,
                         "sex":  0
                     },
@@ -341,14 +341,14 @@
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  667,
+                        "value":  707,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
                         "name":  "Rhizobium",
-                        "value":  596,
+                        "value":  666,
                         "breed":  2,
                         "sex":  0
                     },
