@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T19:04:29.1906932+02:00",
+    "generatedAt":  "2026-08-30T19:09:29.2082035+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  475217821,
+                   "value":  475796491,
                    "breed":  11,
                    "sex":  0,
                    "level":  146
@@ -60,42 +60,42 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  317207311,
+                   "value":  318052995,
                    "breed":  11,
                    "sex":  0,
                    "level":  133
                },
                {
                    "rank":  9,
-                   "name":  "Rubisca",
-                   "value":  25431867,
-                   "breed":  17,
+                   "name":  "Flavodiira",
+                   "value":  40115273,
+                   "breed":  1,
                    "sex":  1,
-                   "level":  72
+                   "level":  80
                },
                {
                    "rank":  10,
-                   "name":  "Flavodiira",
-                   "value":  24088999,
-                   "breed":  1,
+                   "name":  "Rubisca",
+                   "value":  38266741,
+                   "breed":  17,
                    "sex":  1,
-                   "level":  71
+                   "level":  79
                },
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  23698458,
+                   "value":  36345594,
                    "breed":  3,
                    "sex":  0,
-                   "level":  71
+                   "level":  78
                },
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  22614939,
+                   "value":  34829233,
                    "breed":  2,
                    "sex":  0,
-                   "level":  70
+                   "level":  77
                },
                {
                    "rank":  13,
@@ -285,7 +285,7 @@
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1786,
+                        "value":  1787,
                         "breed":  11,
                         "sex":  0
                     },
@@ -334,7 +334,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  825,
+                        "value":  826,
                         "breed":  1,
                         "sex":  1
                     },
