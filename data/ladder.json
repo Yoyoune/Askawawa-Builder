@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T00:49:29.7037284+02:00",
+    "generatedAt":  "2026-08-31T00:54:29.6690075+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  345761687,
+                   "value":  345958885,
                    "breed":  6,
                    "sex":  1,
                    "level":  136
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  345260613,
+                   "value":  345456851,
                    "breed":  11,
                    "sex":  0,
-                   "level":  135
+                   "level":  136
                },
                {
                    "rank":  9,
