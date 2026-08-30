@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T16:04:29.8409558+02:00",
+    "generatedAt":  "2026-08-30T16:09:29.8045700+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  438129937,
+                   "value":  441128235,
                    "breed":  7,
                    "sex":  0,
                    "level":  143
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  417915007,
+                   "value":  418854531,
                    "breed":  11,
                    "sex":  0,
                    "level":  142
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  357058752,
+                   "value":  367243100,
                    "breed":  9,
                    "sex":  0,
                    "level":  137
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  21910247,
+                   "value":  22031202,
                    "breed":  1,
                    "sex":  1,
                    "level":  69
@@ -285,21 +285,21 @@
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1646,
+                        "value":  1676,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  1630,
+                        "value":  1670,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persodeux",
-                        "value":  1561,
+                        "value":  1601,
                         "breed":  9,
                         "sex":  0
                     },
