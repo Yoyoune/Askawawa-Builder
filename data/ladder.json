@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T19:19:29.2399773+02:00",
+    "generatedAt":  "2026-08-30T19:24:29.5678847+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  547954831,
+                   "value":  548426264,
                    "breed":  8,
                    "sex":  0,
                    "level":  150
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  38266741,
+                   "value":  38270386,
                    "breed":  17,
                    "sex":  1,
                    "level":  79
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  36345594,
+                   "value":  36348756,
                    "breed":  3,
                    "sex":  0,
                    "level":  78
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  34829233,
+                   "value":  34832336,
                    "breed":  2,
                    "sex":  0,
                    "level":  77
@@ -219,17 +219,17 @@
                },
                {
                    "rank":  28,
-                   "name":  "Catt",
-                   "value":  959497,
-                   "breed":  9,
+                   "name":  "Azerr",
+                   "value":  1020581,
+                   "breed":  10,
                    "sex":  0,
-                   "level":  34
+                   "level":  35
                },
                {
                    "rank":  29,
-                   "name":  "Azerr",
-                   "value":  943370,
-                   "breed":  10,
+                   "name":  "Catt",
+                   "value":  959497,
+                   "breed":  9,
                    "sex":  0,
                    "level":  34
                },
