@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T01:19:29.6983503+02:00",
+    "generatedAt":  "2026-08-31T01:24:29.7427429+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  569446707,
+                   "value":  569818839,
                    "breed":  7,
                    "sex":  0,
                    "level":  152
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  510644968,
+                   "value":  510993097,
                    "breed":  9,
                    "sex":  0,
                    "level":  148
@@ -43,6 +43,14 @@
                },
                {
                    "rank":  6,
+                   "name":  "Bartonella",
+                   "value":  356867103,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  137
+               },
+               {
+                   "rank":  7,
                    "name":  "Aconit",
                    "value":  356813129,
                    "breed":  10,
@@ -50,19 +58,11 @@
                    "level":  137
                },
                {
-                   "rank":  7,
+                   "rank":  8,
                    "name":  "Faismoimal",
                    "value":  356776978,
                    "breed":  11,
                    "sex":  0,
-                   "level":  137
-               },
-               {
-                   "rank":  8,
-                   "name":  "Bartonella",
-                   "value":  356752331,
-                   "breed":  6,
-                   "sex":  1,
                    "level":  137
                },
                {
@@ -285,14 +285,14 @@
                     {
                         "rank":  2,
                         "name":  "Persotrois",
-                        "value":  1866,
+                        "value":  1867,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1858,
+                        "value":  1859,
                         "breed":  9,
                         "sex":  0
                     },
