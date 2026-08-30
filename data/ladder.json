@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T17:29:28.9392964+02:00",
+    "generatedAt":  "2026-08-30T17:34:29.0219613+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  507779921,
+                   "value":  508787054,
                    "breed":  8,
                    "sex":  0,
                    "level":  148
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  458812978,
+                   "value":  473089574,
                    "breed":  7,
                    "sex":  0,
-                   "level":  145
+                   "level":  146
                },
                {
                    "rank":  3,
@@ -36,18 +36,18 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  274838141,
+                   "value":  275756185,
                    "breed":  10,
                    "sex":  1,
-                   "level":  128
+                   "level":  129
                },
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  274559427,
+                   "value":  275479893,
                    "breed":  10,
                    "sex":  0,
-                   "level":  128
+                   "level":  129
                },
                {
                    "rank":  7,
@@ -299,7 +299,7 @@
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1690,
+                        "value":  1720,
                         "breed":  7,
                         "sex":  0
                     },
