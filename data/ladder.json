@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T20:34:29.2420735+02:00",
+    "generatedAt":  "2026-08-30T20:39:29.3895746+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  478138143,
+                   "value":  479666062,
                    "breed":  11,
                    "sex":  0,
                    "level":  146
@@ -285,7 +285,7 @@
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1788,
+                        "value":  1789,
                         "breed":  11,
                         "sex":  0
                     },
