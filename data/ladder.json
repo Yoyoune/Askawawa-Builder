@@ -1,37 +1,37 @@
 {
-    "generatedAt":  "2026-08-30T18:04:29.3392183+02:00",
+    "generatedAt":  "2026-08-30T18:09:29.0664251+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  517456569,
+                   "value":  535131120,
                    "breed":  8,
                    "sex":  0,
-                   "level":  148
+                   "level":  150
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  473089574,
+                   "value":  493880438,
                    "breed":  7,
                    "sex":  0,
-                   "level":  146
+                   "level":  147
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  448544866,
+                   "value":  470661032,
                    "breed":  11,
                    "sex":  0,
-                   "level":  144
+                   "level":  145
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  417797100,
+                   "value":  439381718,
                    "breed":  9,
                    "sex":  0,
-                   "level":  142
+                   "level":  143
                },
                {
                    "rank":  5,
@@ -43,6 +43,14 @@
                },
                {
                    "rank":  6,
+                   "name":  "Bartonella",
+                   "value":  284853116,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  130
+               },
+               {
+                   "rank":  7,
                    "name":  "Aconit",
                    "value":  284580452,
                    "breed":  10,
@@ -50,20 +58,12 @@
                    "level":  130
                },
                {
-                   "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  280516580,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  129
-               },
-               {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  276067167,
+                   "value":  284229227,
                    "breed":  11,
                    "sex":  0,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  9,
@@ -278,28 +278,28 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1895,
+                        "value":  1925,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persoun",
-                        "value":  1726,
+                        "value":  1776,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1722,
+                        "value":  1772,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1720,
+                        "value":  1770,
                         "breed":  7,
                         "sex":  0
                     },
