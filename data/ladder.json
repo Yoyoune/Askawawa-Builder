@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T01:34:29.7324618+02:00",
+    "generatedAt":  "2026-08-31T01:39:29.7575126+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  362987419,
+                   "value":  365656935,
                    "breed":  6,
                    "sex":  1,
                    "level":  137
@@ -132,34 +132,34 @@
                {
                    "rank":  17,
                    "name":  "Horloge",
-                   "value":  7483225,
+                   "value":  8334367,
                    "breed":  5,
                    "sex":  1,
-                   "level":  53
+                   "level":  55
                },
                {
                    "rank":  18,
                    "name":  "Mage",
-                   "value":  7483225,
+                   "value":  8334367,
                    "breed":  17,
                    "sex":  0,
-                   "level":  53
+                   "level":  55
                },
                {
                    "rank":  19,
                    "name":  "Kardegic",
-                   "value":  7483225,
+                   "value":  8334367,
                    "breed":  7,
                    "sex":  0,
-                   "level":  53
+                   "level":  55
                },
                {
                    "rank":  20,
                    "name":  "Digoxine",
-                   "value":  7483225,
+                   "value":  8334367,
                    "breed":  4,
                    "sex":  1,
-                   "level":  53
+                   "level":  55
                },
                {
                    "rank":  21,
@@ -474,28 +474,28 @@
                     {
                         "rank":  29,
                         "name":  "Horloge",
-                        "value":  16,
+                        "value":  17,
                         "breed":  5,
                         "sex":  1
                     },
                     {
                         "rank":  30,
                         "name":  "Mage",
-                        "value":  16,
+                        "value":  17,
                         "breed":  17,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Kardegic",
-                        "value":  16,
+                        "value":  17,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Digoxine",
-                        "value":  16,
+                        "value":  17,
                         "breed":  4,
                         "sex":  1
                     },
