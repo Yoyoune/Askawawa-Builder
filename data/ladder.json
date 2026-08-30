@@ -1,21 +1,21 @@
 {
-    "generatedAt":  "2026-08-30T12:09:29.3637873+02:00",
+    "generatedAt":  "2026-08-30T12:19:29.4656625+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  424432673,
+                   "value":  434574545,
                    "breed":  8,
                    "sex":  0,
-                   "level":  142
+                   "level":  143
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  385396080,
+                   "value":  410980685,
                    "breed":  7,
                    "sex":  0,
-                   "level":  139
+                   "level":  141
                },
                {
                    "rank":  3,
@@ -278,29 +278,29 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1668,
+                        "value":  1689,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
+                        "name":  "Persotrois",
+                        "value":  1565,
+                        "breed":  7,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  3,
                         "name":  "Persoun",
                         "value":  1511,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  3,
+                        "rank":  4,
                         "name":  "Persodeux",
                         "value":  1506,
                         "breed":  9,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  4,
-                        "name":  "Persotrois",
-                        "value":  1493,
-                        "breed":  7,
                         "sex":  0
                     },
                     {
