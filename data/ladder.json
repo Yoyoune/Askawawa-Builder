@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T17:49:28.9610169+02:00",
+    "generatedAt":  "2026-08-30T17:54:29.0182286+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  515254729,
+                   "value":  517456569,
                    "breed":  8,
                    "sex":  0,
                    "level":  148
@@ -35,17 +35,17 @@
                },
                {
                    "rank":  5,
-                   "name":  "Bartonella",
-                   "value":  276712983,
-                   "breed":  6,
+                   "name":  "Belladone",
+                   "value":  284442619,
+                   "breed":  10,
                    "sex":  1,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  6,
-                   "name":  "Belladone",
-                   "value":  276491107,
-                   "breed":  10,
+                   "name":  "Bartonella",
+                   "value":  279029664,
+                   "breed":  6,
                    "sex":  1,
                    "level":  129
                },
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1875,
+                        "value":  1895,
                         "breed":  8,
                         "sex":  0
                     },
@@ -320,7 +320,7 @@
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  1251,
+                        "value":  1252,
                         "breed":  10,
                         "sex":  1
                     },
