@@ -1,37 +1,37 @@
 {
-    "generatedAt":  "2026-08-30T22:19:29.4306703+02:00",
+    "generatedAt":  "2026-08-30T22:24:29.4808258+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  572769516,
+                   "value":  593040054,
                    "breed":  8,
                    "sex":  0,
-                   "level":  152
+                   "level":  153
                },
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  513708232,
+                   "value":  527734760,
                    "breed":  7,
                    "sex":  0,
-                   "level":  148
+                   "level":  149
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  494982602,
+                   "value":  513216679,
                    "breed":  11,
                    "sex":  0,
-                   "level":  147
+                   "level":  148
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  460018711,
+                   "value":  474473932,
                    "breed":  9,
                    "sex":  0,
-                   "level":  145
+                   "level":  146
                },
                {
                    "rank":  5,
@@ -278,29 +278,29 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1939,
+                        "value":  1949,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persotrois",
-                        "value":  1793,
-                        "breed":  7,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  3,
                         "name":  "Persoun",
-                        "value":  1789,
+                        "value":  1799,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  4,
+                        "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1785,
+                        "value":  1795,
                         "breed":  9,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  4,
+                        "name":  "Persotrois",
+                        "value":  1793,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
