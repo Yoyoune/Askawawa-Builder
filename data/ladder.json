@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T18:39:29.0952998+02:00",
+    "generatedAt":  "2026-08-30T18:44:29.0307608+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  493880438,
+                   "value":  498034810,
                    "breed":  7,
                    "sex":  0,
                    "level":  147
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  473101125,
+                   "value":  474801235,
                    "breed":  11,
                    "sex":  0,
                    "level":  146
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  439381718,
+                   "value":  443640931,
                    "breed":  9,
                    "sex":  0,
                    "level":  143
@@ -228,7 +228,7 @@
                {
                    "rank":  29,
                    "name":  "Azera",
-                   "value":  760247,
+                   "value":  776784,
                    "breed":  10,
                    "sex":  0,
                    "level":  32
@@ -236,7 +236,7 @@
                {
                    "rank":  30,
                    "name":  "Azere",
-                   "value":  760241,
+                   "value":  776778,
                    "breed":  10,
                    "sex":  0,
                    "level":  32
@@ -244,7 +244,7 @@
                {
                    "rank":  31,
                    "name":  "Azerz",
-                   "value":  760241,
+                   "value":  776778,
                    "breed":  10,
                    "sex":  0,
                    "level":  32
@@ -252,7 +252,7 @@
                {
                    "rank":  32,
                    "name":  "Azerr",
-                   "value":  760241,
+                   "value":  776778,
                    "breed":  10,
                    "sex":  0,
                    "level":  32
@@ -292,14 +292,14 @@
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1772,
+                        "value":  1782,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  1770,
+                        "value":  1780,
                         "breed":  7,
                         "sex":  0
                     },
@@ -446,28 +446,28 @@
                     {
                         "rank":  25,
                         "name":  "Azere",
-                        "value":  16,
+                        "value":  17,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  26,
                         "name":  "Azerz",
-                        "value":  16,
+                        "value":  17,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  27,
                         "name":  "Azera",
-                        "value":  16,
+                        "value":  17,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  28,
                         "name":  "Azerr",
-                        "value":  16,
+                        "value":  17,
                         "breed":  10,
                         "sex":  0
                     },
