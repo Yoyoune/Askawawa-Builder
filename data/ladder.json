@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T01:14:29.6717464+02:00",
+    "generatedAt":  "2026-08-31T01:19:29.6983503+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  567872282,
+                   "value":  569446707,
                    "breed":  7,
                    "sex":  0,
                    "level":  152
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  551216763,
+                   "value":  553375779,
                    "breed":  11,
                    "sex":  0,
                    "level":  151
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  505707225,
+                   "value":  510644968,
                    "breed":  9,
                    "sex":  0,
                    "level":  148
@@ -51,19 +51,19 @@
                },
                {
                    "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  352171870,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  136
+                   "name":  "Faismoimal",
+                   "value":  356776978,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  137
                },
                {
                    "rank":  8,
-                   "name":  "Faismoimal",
-                   "value":  345456851,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  136
+                   "name":  "Bartonella",
+                   "value":  356752331,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  137
                },
                {
                    "rank":  9,
@@ -155,43 +155,43 @@
                },
                {
                    "rank":  20,
+                   "name":  "Mage",
+                   "value":  6391948,
+                   "breed":  17,
+                   "sex":  0,
+                   "level":  52
+               },
+               {
+                   "rank":  21,
+                   "name":  "Digoxine",
+                   "value":  6391948,
+                   "breed":  4,
+                   "sex":  1,
+                   "level":  52
+               },
+               {
+                   "rank":  22,
+                   "name":  "Kardegic",
+                   "value":  6391948,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  52
+               },
+               {
+                   "rank":  23,
+                   "name":  "Horloge",
+                   "value":  6391948,
+                   "breed":  5,
+                   "sex":  1,
+                   "level":  52
+               },
+               {
+                   "rank":  24,
                    "name":  "Leonardo",
                    "value":  6150231,
                    "breed":  11,
                    "sex":  0,
                    "level":  51
-               },
-               {
-                   "rank":  21,
-                   "name":  "Digoxine",
-                   "value":  5407560,
-                   "breed":  4,
-                   "sex":  1,
-                   "level":  50
-               },
-               {
-                   "rank":  22,
-                   "name":  "Kardegic",
-                   "value":  5407560,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  50
-               },
-               {
-                   "rank":  23,
-                   "name":  "Mage",
-                   "value":  5407560,
-                   "breed":  17,
-                   "sex":  0,
-                   "level":  50
-               },
-               {
-                   "rank":  24,
-                   "name":  "Horloge",
-                   "value":  5407560,
-                   "breed":  5,
-                   "sex":  1,
-                   "level":  50
                },
                {
                    "rank":  25,
@@ -235,7 +235,7 @@
                },
                {
                    "rank":  30,
-                   "name":  "Azere",
+                   "name":  "Azerz",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -243,7 +243,7 @@
                },
                {
                    "rank":  31,
-                   "name":  "Azerz",
+                   "name":  "Azere",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -285,21 +285,21 @@
                     {
                         "rank":  2,
                         "name":  "Persotrois",
-                        "value":  1854,
+                        "value":  1866,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persodeux",
-                        "value":  1846,
+                        "value":  1858,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  1840,
+                        "value":  1853,
                         "breed":  11,
                         "sex":  0
                     },
@@ -312,23 +312,23 @@
                     },
                     {
                         "rank":  6,
+                        "name":  "Faismoimal",
+                        "value":  1352,
+                        "breed":  11,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Belladone",
                         "value":  1346,
                         "breed":  10,
                         "sex":  1
                     },
                     {
-                        "rank":  7,
+                        "rank":  8,
                         "name":  "Aconit",
                         "value":  1346,
                         "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Faismoimal",
-                        "value":  1340,
-                        "breed":  11,
                         "sex":  0
                     },
                     {
@@ -474,28 +474,28 @@
                     {
                         "rank":  29,
                         "name":  "Horloge",
-                        "value":  15,
+                        "value":  16,
                         "breed":  5,
                         "sex":  1
                     },
                     {
                         "rank":  30,
                         "name":  "Mage",
-                        "value":  15,
+                        "value":  16,
                         "breed":  17,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Kardegic",
-                        "value":  15,
+                        "value":  16,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Digoxine",
-                        "value":  15,
+                        "value":  16,
                         "breed":  4,
                         "sex":  1
                     },
