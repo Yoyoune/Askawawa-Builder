@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-31T00:34:29.7542599+02:00",
+    "generatedAt":  "2026-08-31T00:39:30.6186990+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  638022683,
+                   "value":  638166391,
                    "breed":  8,
                    "sex":  0,
                    "level":  155
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  351750508,
+                   "value":  354432389,
                    "breed":  10,
                    "sex":  1,
                    "level":  136
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  350757455,
+                   "value":  353439336,
                    "breed":  10,
                    "sex":  0,
                    "level":  136
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  342627000,
+                   "value":  345260613,
                    "breed":  11,
                    "sex":  0,
                    "level":  135
