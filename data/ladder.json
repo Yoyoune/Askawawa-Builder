@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T00:39:30.6186990+02:00",
+    "generatedAt":  "2026-08-31T00:44:29.7783509+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  555768257,
+                   "value":  567872282,
                    "breed":  7,
                    "sex":  0,
-                   "level":  151
+                   "level":  152
                },
                {
                    "rank":  3,
@@ -284,23 +284,23 @@
                     },
                     {
                         "rank":  2,
+                        "name":  "Persotrois",
+                        "value":  1854,
+                        "breed":  7,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  3,
                         "name":  "Persodeux",
                         "value":  1846,
                         "breed":  9,
                         "sex":  0
                     },
                     {
-                        "rank":  3,
+                        "rank":  4,
                         "name":  "Persoun",
                         "value":  1840,
                         "breed":  11,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  4,
-                        "name":  "Persotrois",
-                        "value":  1823,
-                        "breed":  7,
                         "sex":  0
                     },
                     {
@@ -312,17 +312,17 @@
                     },
                     {
                         "rank":  6,
-                        "name":  "Aconit",
-                        "value":  1346,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  7,
                         "name":  "Belladone",
                         "value":  1346,
                         "breed":  10,
                         "sex":  1
+                    },
+                    {
+                        "rank":  7,
+                        "name":  "Aconit",
+                        "value":  1346,
+                        "breed":  10,
+                        "sex":  0
                     },
                     {
                         "rank":  8,
