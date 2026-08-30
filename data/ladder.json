@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T18:19:28.9868635+02:00",
+    "generatedAt":  "2026-08-30T18:24:29.0305337+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  542947627,
+                   "value":  543228569,
                    "breed":  8,
                    "sex":  0,
                    "level":  150
@@ -36,31 +36,31 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  288807416,
+                   "value":  294682067,
                    "breed":  10,
                    "sex":  1,
-                   "level":  130
+                   "level":  131
                },
                {
                    "rank":  6,
+                   "name":  "Aconit",
+                   "value":  294466360,
+                   "breed":  10,
+                   "sex":  0,
+                   "level":  131
+               },
+               {
+                   "rank":  7,
                    "name":  "Bartonella",
-                   "value":  286581370,
+                   "value":  288779932,
                    "breed":  6,
                    "sex":  1,
                    "level":  130
                },
                {
-                   "rank":  7,
-                   "name":  "Aconit",
-                   "value":  284580452,
-                   "breed":  10,
-                   "sex":  0,
-                   "level":  130
-               },
-               {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  284229227,
+                   "value":  288166512,
                    "breed":  11,
                    "sex":  0,
                    "level":  130
@@ -313,7 +313,7 @@
                     {
                         "rank":  6,
                         "name":  "Aconit",
-                        "value":  1255,
+                        "value":  1256,
                         "breed":  10,
                         "sex":  0
                     },
