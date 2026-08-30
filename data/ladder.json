@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T19:24:29.5678847+02:00",
+    "generatedAt":  "2026-08-30T19:29:29.3836736+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  548426264,
+                   "value":  548515988,
                    "breed":  8,
                    "sex":  0,
                    "level":  150
@@ -227,33 +227,33 @@
                },
                {
                    "rank":  29,
-                   "name":  "Catt",
-                   "value":  959497,
-                   "breed":  9,
+                   "name":  "Azera",
+                   "value":  1006709,
+                   "breed":  10,
                    "sex":  0,
-                   "level":  34
+                   "level":  35
                },
                {
                    "rank":  30,
-                   "name":  "Azera",
-                   "value":  941696,
+                   "name":  "Azere",
+                   "value":  1006703,
                    "breed":  10,
                    "sex":  0,
-                   "level":  34
+                   "level":  35
                },
                {
                    "rank":  31,
-                   "name":  "Azere",
-                   "value":  941690,
+                   "name":  "Azerz",
+                   "value":  1006703,
                    "breed":  10,
                    "sex":  0,
-                   "level":  34
+                   "level":  35
                },
                {
                    "rank":  32,
-                   "name":  "Azerz",
-                   "value":  941690,
-                   "breed":  10,
+                   "name":  "Catt",
+                   "value":  959497,
+                   "breed":  9,
                    "sex":  0,
                    "level":  34
                },
