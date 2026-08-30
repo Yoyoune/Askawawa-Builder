@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T02:39:29.5887731+02:00",
+    "generatedAt":  "2026-08-30T08:49:29.1301142+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -203,18 +203,18 @@
                },
                {
                    "rank":  26,
-                   "name":  "Latt",
-                   "value":  2930448,
-                   "breed":  1,
-                   "sex":  1,
+                   "name":  "Matt",
+                   "value":  2952040,
+                   "breed":  3,
+                   "sex":  0,
                    "level":  44
                },
                {
                    "rank":  27,
-                   "name":  "Matt",
-                   "value":  2874091,
-                   "breed":  3,
-                   "sex":  0,
+                   "name":  "Latt",
+                   "value":  2930448,
+                   "breed":  1,
+                   "sex":  1,
                    "level":  44
                },
                {
@@ -252,10 +252,10 @@
                {
                    "rank":  32,
                    "name":  "Catt",
-                   "value":  54745,
+                   "value":  77653,
                    "breed":  9,
                    "sex":  0,
-                   "level":  14
+                   "level":  16
                },
                {
                    "rank":  33,
