@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T23:59:29.5734631+02:00",
+    "generatedAt":  "2026-08-31T00:04:31.7717169+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  627056180,
+                   "value":  628062464,
                    "breed":  8,
                    "sex":  0,
                    "level":  155
@@ -36,13 +36,21 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  346308344,
+                   "value":  351750508,
                    "breed":  10,
                    "sex":  1,
                    "level":  136
                },
                {
                    "rank":  6,
+                   "name":  "Aconit",
+                   "value":  350757455,
+                   "breed":  10,
+                   "sex":  0,
+                   "level":  136
+               },
+               {
+                   "rank":  7,
                    "name":  "Bartonella",
                    "value":  345761687,
                    "breed":  6,
@@ -50,17 +58,9 @@
                    "level":  136
                },
                {
-                   "rank":  7,
-                   "name":  "Aconit",
-                   "value":  345562323,
-                   "breed":  10,
-                   "sex":  0,
-                   "level":  136
-               },
-               {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  334502065,
+                   "value":  342627000,
                    "breed":  11,
                    "sex":  0,
                    "level":  135
@@ -68,34 +68,34 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  50835220,
+                   "value":  53405416,
                    "breed":  1,
                    "sex":  1,
-                   "level":  85
+                   "level":  86
                },
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  47495183,
+                   "value":  50300516,
                    "breed":  17,
                    "sex":  1,
-                   "level":  84
+                   "level":  85
                },
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  43107455,
+                   "value":  47190679,
                    "breed":  3,
                    "sex":  0,
-                   "level":  82
+                   "level":  83
                },
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  41273992,
+                   "value":  44083186,
                    "breed":  2,
                    "sex":  0,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  13,
@@ -261,7 +261,7 @@
                    "rank":  33,
                    "name":  "Ratata",
                    "value":  208,
-                   "breed":  9,
+                   "breed":  10,
                    "sex":  0,
                    "level":  2
                },
@@ -278,7 +278,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  1970,
+                        "value":  1980,
                         "breed":  8,
                         "sex":  0
                     },
@@ -312,50 +312,50 @@
                     },
                     {
                         "rank":  6,
+                        "name":  "Belladone",
+                        "value":  1346,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Aconit",
                         "value":  1346,
                         "breed":  10,
                         "sex":  0
                     },
                     {
-                        "rank":  7,
-                        "name":  "Belladone",
-                        "value":  1325,
-                        "breed":  10,
-                        "sex":  1
-                    },
-                    {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1320,
+                        "value":  1340,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  931,
+                        "value":  952,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  822,
+                        "value":  842,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
                         "name":  "Cyano",
-                        "value":  819,
+                        "value":  839,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  800,
+                        "value":  820,
                         "breed":  2,
                         "sex":  0
                     },
@@ -503,7 +503,7 @@
                         "rank":  33,
                         "name":  "Ratata",
                         "value":  9,
-                        "breed":  9,
+                        "breed":  10,
                         "sex":  0
                     },
                     {
