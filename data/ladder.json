@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-30T16:24:29.8421568+02:00",
+    "generatedAt":  "2026-08-30T16:29:29.8355532+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  490988079,
+                   "value":  493566939,
                    "breed":  8,
                    "sex":  0,
                    "level":  147
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persotrois",
-                   "value":  458455290,
+                   "value":  458812978,
                    "breed":  7,
                    "sex":  0,
-                   "level":  144
+                   "level":  145
                },
                {
                    "rank":  3,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  22570938,
+                   "value":  22930363,
                    "breed":  1,
                    "sex":  1,
                    "level":  70
@@ -84,10 +84,10 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  21292649,
+                   "value":  22504593,
                    "breed":  3,
                    "sex":  0,
-                   "level":  69
+                   "level":  70
                },
                {
                    "rank":  12,
@@ -347,16 +347,16 @@
                     },
                     {
                         "rank":  11,
-                        "name":  "Rhizobium",
-                        "value":  666,
-                        "breed":  2,
+                        "name":  "Cyano",
+                        "value":  705,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
-                        "name":  "Cyano",
-                        "value":  595,
-                        "breed":  3,
+                        "name":  "Rhizobium",
+                        "value":  666,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
