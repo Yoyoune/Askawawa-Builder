@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-30T09:34:29.1866094+02:00",
+    "generatedAt":  "2026-08-30T09:39:29.2211451+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -195,14 +195,22 @@
                },
                {
                    "rank":  25,
+                   "name":  "Patt",
+                   "value":  3587909,
+                   "breed":  8,
+                   "sex":  1,
+                   "level":  46
+               },
+               {
+                   "rank":  26,
                    "name":  "Matt",
-                   "value":  3301173,
+                   "value":  3413749,
                    "breed":  3,
                    "sex":  0,
                    "level":  45
                },
                {
-                   "rank":  26,
+                   "rank":  27,
                    "name":  "Latt",
                    "value":  3269019,
                    "breed":  1,
@@ -210,20 +218,12 @@
                    "level":  45
                },
                {
-                   "rank":  27,
-                   "name":  "Patt",
-                   "value":  3246112,
-                   "breed":  8,
-                   "sex":  1,
-                   "level":  45
-               },
-               {
                    "rank":  28,
                    "name":  "Catt",
-                   "value":  562215,
+                   "value":  940590,
                    "breed":  9,
                    "sex":  0,
-                   "level":  29
+                   "level":  34
                },
                {
                    "rank":  29,
@@ -404,7 +404,7 @@
                     {
                         "rank":  19,
                         "name":  "Patt",
-                        "value":  264,
+                        "value":  265,
                         "breed":  8,
                         "sex":  1
                     },
@@ -439,7 +439,7 @@
                     {
                         "rank":  24,
                         "name":  "Catt",
-                        "value":  71,
+                        "value":  101,
                         "breed":  9,
                         "sex":  0
                     },
