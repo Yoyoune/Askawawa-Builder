@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T18:54:29.3857234+02:00",
+    "generatedAt":  "2026-08-31T19:04:29.3852174+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  379316675,
+                   "value":  380539487,
                    "breed":  10,
                    "sex":  1,
-                   "level":  138
+                   "level":  139
                },
                {
                    "rank":  6,
@@ -304,17 +304,17 @@
                     },
                     {
                         "rank":  6,
+                        "name":  "Belladone",
+                        "value":  1368,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Aconit",
                         "value":  1359,
                         "breed":  10,
                         "sex":  0
-                    },
-                    {
-                        "rank":  7,
-                        "name":  "Belladone",
-                        "value":  1358,
-                        "breed":  10,
-                        "sex":  1
                     },
                     {
                         "rank":  8,
