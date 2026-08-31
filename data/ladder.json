@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-31T21:54:29.6286455+02:00",
+    "generatedAt":  "2026-08-31T21:59:29.6958140+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  643397101,
+                   "value":  645137651,
                    "breed":  8,
                    "sex":  0,
                    "level":  156
@@ -51,6 +51,14 @@
                },
                {
                    "rank":  7,
+                   "name":  "Bartonella",
+                   "value":  444737473,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  144
+               },
+               {
+                   "rank":  8,
                    "name":  "Faismoimal",
                    "value":  444681420,
                    "breed":  11,
@@ -58,17 +66,9 @@
                    "level":  144
                },
                {
-                   "rank":  8,
-                   "name":  "Bartonella",
-                   "value":  443816193,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  143
-               },
-               {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  57881304,
+                   "value":  58031132,
                    "breed":  1,
                    "sex":  1,
                    "level":  88
@@ -298,7 +298,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1615,
+                        "value":  1625,
                         "breed":  6,
                         "sex":  1
                     },
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1035,
+                        "value":  1045,
                         "breed":  1,
                         "sex":  1
                     },
