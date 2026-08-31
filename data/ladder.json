@@ -1,11 +1,11 @@
 {
-    "generatedAt":  "2026-08-31T14:04:29.4488253+02:00",
+    "generatedAt":  "2026-08-31T14:09:29.0807384+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Ratata",
                    "value":  5555424000,
-                   "breed":  10,
+                   "breed":  2,
                    "sex":  0,
                    "level":  200
                },
@@ -475,7 +475,7 @@
                         "rank":  29,
                         "name":  "Ratata",
                         "value":  20,
-                        "breed":  10,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
