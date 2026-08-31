@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T20:34:29.5857232+02:00",
+    "generatedAt":  "2026-08-31T20:44:29.6759839+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -51,18 +51,18 @@
                },
                {
                    "rank":  7,
-                   "name":  "Faismoimal",
-                   "value":  388015413,
-                   "breed":  11,
-                   "sex":  0,
+                   "name":  "Bartonella",
+                   "value":  388210185,
+                   "breed":  6,
+                   "sex":  1,
                    "level":  139
                },
                {
                    "rank":  8,
-                   "name":  "Bartonella",
-                   "value":  387927169,
-                   "breed":  6,
-                   "sex":  1,
+                   "name":  "Faismoimal",
+                   "value":  388015413,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  139
                },
                {
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Cuatro",
-                   "value":  14261064,
+                   "value":  14472997,
                    "breed":  3,
                    "sex":  1,
                    "level":  63
@@ -140,7 +140,7 @@
                {
                    "rank":  18,
                    "name":  "Dos",
-                   "value":  14189783,
+                   "value":  14411329,
                    "breed":  3,
                    "sex":  0,
                    "level":  63
@@ -148,7 +148,7 @@
                {
                    "rank":  19,
                    "name":  "Uno",
-                   "value":  14189783,
+                   "value":  14398831,
                    "breed":  3,
                    "sex":  1,
                    "level":  63
@@ -156,10 +156,10 @@
                {
                    "rank":  20,
                    "name":  "Tres",
-                   "value":  14086375,
+                   "value":  14284923,
                    "breed":  3,
                    "sex":  0,
-                   "level":  62
+                   "level":  63
                },
                {
                    "rank":  21,
@@ -312,7 +312,7 @@
                     {
                         "rank":  7,
                         "name":  "Bartonella",
-                        "value":  1522,
+                        "value":  1523,
                         "breed":  6,
                         "sex":  1
                     },
@@ -431,28 +431,28 @@
                     {
                         "rank":  24,
                         "name":  "Tres",
-                        "value":  111,
+                        "value":  112,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  25,
                         "name":  "Dos",
-                        "value":  111,
+                        "value":  112,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  26,
                         "name":  "Uno",
-                        "value":  111,
+                        "value":  112,
                         "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  27,
                         "name":  "Cuatro",
-                        "value":  110,
+                        "value":  111,
                         "breed":  3,
                         "sex":  1
                     },
