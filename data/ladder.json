@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T18:19:29.9484471+02:00",
+    "generatedAt":  "2026-08-31T18:49:29.3915351+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -139,15 +139,15 @@
                },
                {
                    "rank":  18,
-                   "name":  "Kardegic",
+                   "name":  "Dos",
                    "value":  8891085,
-                   "breed":  7,
+                   "breed":  3,
                    "sex":  0,
                    "level":  56
                },
                {
                    "rank":  19,
-                   "name":  "Unos",
+                   "name":  "Uno",
                    "value":  8891085,
                    "breed":  3,
                    "sex":  1,
@@ -155,9 +155,9 @@
                },
                {
                    "rank":  20,
-                   "name":  "Mage",
+                   "name":  "Tres",
                    "value":  8882293,
-                   "breed":  17,
+                   "breed":  3,
                    "sex":  0,
                    "level":  56
                },
@@ -444,44 +444,44 @@
                     },
                     {
                         "rank":  26,
-                        "name":  "Azerz",
-                        "value":  22,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  27,
                         "name":  "Azera",
                         "value":  22,
                         "breed":  10,
                         "sex":  0
                     },
                     {
-                        "rank":  28,
+                        "rank":  27,
                         "name":  "Azere",
                         "value":  22,
                         "breed":  10,
                         "sex":  0
                     },
                     {
+                        "rank":  28,
+                        "name":  "Azerz",
+                        "value":  22,
+                        "breed":  10,
+                        "sex":  0
+                    },
+                    {
                         "rank":  29,
-                        "name":  "Unos",
+                        "name":  "Tres",
+                        "value":  20,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  30,
+                        "name":  "Uno",
                         "value":  20,
                         "breed":  3,
                         "sex":  1
                     },
                     {
-                        "rank":  30,
-                        "name":  "Kardegic",
-                        "value":  20,
-                        "breed":  7,
-                        "sex":  0
-                    },
-                    {
                         "rank":  31,
-                        "name":  "Mage",
-                        "value":  19,
-                        "breed":  17,
+                        "name":  "Dos",
+                        "value":  20,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
