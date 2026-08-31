@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-08-31T22:14:29.6599541+02:00",
+    "generatedAt":  "2026-08-31T22:19:30.5933037+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  646603301,
+                   "value":  660119408,
                    "breed":  8,
                    "sex":  0,
-                   "level":  156
+                   "level":  157
                },
                {
                    "rank":  2,
@@ -28,15 +28,15 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  510993097,
+                   "value":  519337340,
                    "breed":  9,
                    "sex":  0,
-                   "level":  148
+                   "level":  149
                },
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  454994454,
+                   "value":  456052304,
                    "breed":  10,
                    "sex":  1,
                    "level":  144
@@ -44,25 +44,25 @@
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  454322598,
+                   "value":  455382325,
                    "breed":  10,
                    "sex":  0,
                    "level":  144
                },
                {
                    "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  445756027,
-                   "breed":  6,
-                   "sex":  1,
+                   "name":  "Faismoimal",
+                   "value":  445949409,
+                   "breed":  11,
+                   "sex":  0,
                    "level":  144
                },
                {
                    "rank":  8,
-                   "name":  "Faismoimal",
-                   "value":  444899063,
-                   "breed":  11,
-                   "sex":  0,
+                   "name":  "Bartonella",
+                   "value":  445785943,
+                   "breed":  6,
+                   "sex":  1,
                    "level":  144
                },
                {
@@ -270,22 +270,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2012,
+                        "value":  2032,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persotrois",
-                        "value":  1867,
-                        "breed":  7,
+                        "name":  "Persodeux",
+                        "value":  1879,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persodeux",
-                        "value":  1859,
-                        "breed":  9,
+                        "name":  "Persotrois",
+                        "value":  1867,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
@@ -305,21 +305,21 @@
                     {
                         "rank":  6,
                         "name":  "Aconit",
-                        "value":  1562,
+                        "value":  1563,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  1562,
+                        "value":  1563,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1556,
+                        "value":  1557,
                         "breed":  11,
                         "sex":  0
                     },
