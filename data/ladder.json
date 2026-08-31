@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T21:34:29.7172002+02:00",
+    "generatedAt":  "2026-08-31T21:39:29.6667035+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -51,19 +51,19 @@
                },
                {
                    "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  426580337,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  142
+                   "name":  "Faismoimal",
+                   "value":  433679668,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  143
                },
                {
                    "rank":  8,
-                   "name":  "Faismoimal",
-                   "value":  425310350,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  142
+                   "name":  "Bartonella",
+                   "value":  433537690,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  143
                },
                {
                    "rank":  9,
@@ -99,6 +99,38 @@
                },
                {
                    "rank":  13,
+                   "name":  "Dos",
+                   "value":  20644243,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  68
+               },
+               {
+                   "rank":  14,
+                   "name":  "Cuatro",
+                   "value":  20382120,
+                   "breed":  3,
+                   "sex":  1,
+                   "level":  68
+               },
+               {
+                   "rank":  15,
+                   "name":  "Uno",
+                   "value":  20213165,
+                   "breed":  3,
+                   "sex":  1,
+                   "level":  68
+               },
+               {
+                   "rank":  16,
+                   "name":  "Tres",
+                   "value":  19861612,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  68
+               },
+               {
+                   "rank":  17,
                    "name":  "Fritz",
                    "value":  19061020,
                    "breed":  7,
@@ -106,23 +138,7 @@
                    "level":  67
                },
                {
-                   "rank":  14,
-                   "name":  "Cuatro",
-                   "value":  18917587,
-                   "breed":  3,
-                   "sex":  1,
-                   "level":  67
-               },
-               {
-                   "rank":  15,
-                   "name":  "Uno",
-                   "value":  18772123,
-                   "breed":  3,
-                   "sex":  1,
-                   "level":  67
-               },
-               {
-                   "rank":  16,
+                   "rank":  18,
                    "name":  "Frite",
                    "value":  18724823,
                    "breed":  7,
@@ -130,15 +146,7 @@
                    "level":  67
                },
                {
-                   "rank":  17,
-                   "name":  "Dos",
-                   "value":  18578942,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  67
-               },
-               {
-                   "rank":  18,
+                   "rank":  19,
                    "name":  "Frita",
                    "value":  18439157,
                    "breed":  8,
@@ -146,18 +154,10 @@
                    "level":  66
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Fritr",
                    "value":  17724689,
                    "breed":  11,
-                   "sex":  0,
-                   "level":  66
-               },
-               {
-                   "rank":  20,
-                   "name":  "Tres",
-                   "value":  17656034,
-                   "breed":  3,
                    "sex":  0,
                    "level":  66
                },
