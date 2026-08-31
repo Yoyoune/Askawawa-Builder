@@ -212,6 +212,11 @@ const CATEGORY_LABELS = {
 // items_types.Id for the "Trophée" item type (superType 13, shared with real Dofus).
 const TROPHEE_TYPE_ID = 151;
 
+/** " (id)" when the "ID" topbar toggle is on, "" otherwise - append to any item/panoplie/sort name. */
+function idSuffix(id) {
+  return showIds ? ` (${id})` : "";
+}
+
 function itemMatchesCategory(item, category) {
   if (category === "trophee") return item.slot === "dofus" && item.typeId === TROPHEE_TYPE_ID;
   if (category === "dofus") return item.slot === "dofus" && item.typeId !== TROPHEE_TYPE_ID;
@@ -407,6 +412,14 @@ let hiddenItemIds = new Set();
 /** setId set - hidden from the panoplie browser until "Réinitialiser" is pressed */
 let hiddenSetIds = new Set();
 
+/** Whether item/panoplie/sort names show their id in parentheses - off by default, toggled
+ * by the topbar "ID" button (see idSuffix). Not persisted - resets to off on reload. */
+let showIds = false;
+/** Tracks which set/breed modal is currently open, so toggling "ID" can re-render it in
+ * place instead of leaving stale text behind - null when the corresponding modal is closed. */
+let currentSetPreviewId = null;
+let currentClassBreedId = null;
+
 let activeUiSlot = null;
 /** resolved category key for the open browser: a plain dataSlot, or "dragodinde"/"trophee" */
 let activeCategory = null;
@@ -459,6 +472,16 @@ async function main() {
   renderSetsSlotTypeExcludeFilterChips();
   renderStatFilterChips();
 
+  document.getElementById("showIdsBtn").addEventListener("click", (ev) => {
+    showIds = !showIds;
+    ev.target.classList.toggle("active", showIds);
+    // Re-render every surface that currently shows a name (item ids, set ids, spell ids) -
+    // cheap and idempotent, so just always doing it beats tracking exactly what's visible.
+    renderItemList();
+    renderSetsList();
+    if (currentSetPreviewId !== null) openSetPreview(currentSetPreviewId);
+    if (currentClassBreedId !== null) openClassSpells(currentClassBreedId);
+  });
   document.getElementById("browserClose").addEventListener("click", closeSidePanel);
   document.getElementById("detailClose").addEventListener("click", closeSidePanel);
   document.getElementById("setsBrowserClose").addEventListener("click", closeSidePanel);
@@ -1632,7 +1655,7 @@ function renderItemCard(item, isEquipped, charLevel) {
   const head = document.createElement("div");
   head.className = "item-card-head";
   head.innerHTML = `<span class="name"></span><span class="item-card-head-right"><span class="level">Nv. ${item.level}</span></span>`;
-  head.querySelector(".name").textContent = item.name;
+  head.querySelector(".name").textContent = item.name + idSuffix(item.id);
   const hideBtn = document.createElement("button");
   hideBtn.type = "button";
   hideBtn.className = "hide-btn";
@@ -2608,8 +2631,9 @@ function equipEntireSet(setId) {
 function openSetPreview(setId) {
   const set = SETS_BY_ID.get(setId);
   if (!set) return;
+  currentSetPreviewId = setId;
 
-  document.getElementById("setModalTitle").textContent = set.name;
+  document.getElementById("setModalTitle").textContent = set.name + idSuffix(set.id);
   document.getElementById("setModalCompatBtn").onclick = () => openCompatibleSetsModal(setId);
   const body = document.getElementById("setModalBody");
   body.innerHTML = "";
@@ -2625,7 +2649,7 @@ function openSetPreview(setId) {
     row.appendChild(itemIconEl(item, "🎒", "item-icon"));
     const name = document.createElement("span");
     name.className = "set-item-name";
-    name.textContent = item.name;
+    name.textContent = item.name + idSuffix(item.id);
     row.appendChild(name);
     const level = document.createElement("span");
     level.className = "set-item-level";
@@ -2703,6 +2727,7 @@ function openSetPreview(setId) {
 
 function closeSetPreview() {
   document.getElementById("setModalOverlay").classList.add("hidden");
+  currentSetPreviewId = null;
 }
 
 // ---------- Sets browser ----------
@@ -3208,7 +3233,7 @@ function renderSetCard(set) {
   const titleGroup = document.createElement("div");
   titleGroup.className = "set-card-title-group";
   titleGroup.innerHTML = `<span class="set-card-title"></span><span class="set-card-count">Nv. ${SET_MAX_LEVEL.get(set.id)} · ${set.itemIds.length} pièces</span>`;
-  titleGroup.querySelector(".set-card-title").textContent = set.name;
+  titleGroup.querySelector(".set-card-title").textContent = set.name + idSuffix(set.id);
   header.appendChild(titleGroup);
 
   const headerActions = document.createElement("div");
@@ -3297,7 +3322,7 @@ function renderSetCard(set) {
 
     const name = document.createElement("span");
     name.className = "set-item-name";
-    name.textContent = item.name;
+    name.textContent = item.name + idSuffix(item.id);
     row.appendChild(name);
 
     const level = document.createElement("span");
@@ -4423,7 +4448,7 @@ function renderSpellVariantCard(spell, level) {
   const card = document.createElement("div");
   card.className = "spell-card";
   if (!grade) {
-    card.innerHTML = `<div class="spell-card-title">${escapeHtml(spell.name)}</div><div class="stat-empty">Aucune donnée de grade.</div>`;
+    card.innerHTML = `<div class="spell-card-title">${escapeHtml(spell.name + idSuffix(spell.id))}</div><div class="stat-empty">Aucune donnée de grade.</div>`;
     return card;
   }
 
@@ -4457,7 +4482,7 @@ function renderSpellVariantCard(spell, level) {
     <div class="spell-card-header">
       <span class="spell-card-icon-slot"></span>
       <div class="spell-card-header-text">
-        <div class="spell-card-title">${escapeHtml(spell.name)}</div>
+        <div class="spell-card-title">${escapeHtml(spell.name + idSuffix(spell.id))}</div>
         <div class="spell-card-level">Niveau ${grade.minPlayerLevel}${spell.obtainLevel !== grade.minPlayerLevel ? ` (débloqué Nv. ${spell.obtainLevel})` : ""}</div>
       </div>
       ${gradeTabsHtml(spell, grade)}
@@ -4478,6 +4503,7 @@ function renderSpellVariantCard(spell, level) {
 function openClassSpells(breedId) {
   const breed = BREEDS.find(b => b.id === breedId);
   if (!breed) return;
+  currentClassBreedId = breedId;
   document.getElementById("classSpellsModalTitle").textContent = breed.name;
   const body = document.getElementById("classSpellsModalBody");
   body.innerHTML = "";
@@ -4497,6 +4523,7 @@ function openClassSpells(breedId) {
 
 function closeClassSpells() {
   document.getElementById("classSpellsModalOverlay").classList.add("hidden");
+  currentClassBreedId = null;
 }
 
 function renderHiddenModalBody() {

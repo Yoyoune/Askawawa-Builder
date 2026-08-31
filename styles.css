@@ -125,6 +125,14 @@ button:hover { border-color: var(--accent); }
 }
 .topbar-link-btn:hover { border-color: var(--accent); }
 
+/* Toggles the "(id)" suffix on item/panoplie/sort names throughout the app - off by default. */
+#showIdsBtn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1b1d24;
+  font-weight: 600;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 320px 1fr 320px;
