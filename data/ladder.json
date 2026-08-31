@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T16:34:29.2669176+02:00",
+    "generatedAt":  "2026-08-31T18:19:29.9484471+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -147,9 +147,9 @@
                },
                {
                    "rank":  19,
-                   "name":  "Digoxine",
+                   "name":  "Unos",
                    "value":  8891085,
-                   "breed":  4,
+                   "breed":  3,
                    "sex":  1,
                    "level":  56
                },
@@ -444,14 +444,14 @@
                     },
                     {
                         "rank":  26,
-                        "name":  "Azera",
+                        "name":  "Azerz",
                         "value":  22,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  27,
-                        "name":  "Azerz",
+                        "name":  "Azera",
                         "value":  22,
                         "breed":  10,
                         "sex":  0
@@ -465,31 +465,31 @@
                     },
                     {
                         "rank":  29,
-                        "name":  "Horloge",
-                        "value":  19,
-                        "breed":  5,
+                        "name":  "Unos",
+                        "value":  20,
+                        "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  30,
+                        "name":  "Kardegic",
+                        "value":  20,
+                        "breed":  7,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  31,
                         "name":  "Mage",
                         "value":  19,
                         "breed":  17,
                         "sex":  0
                     },
                     {
-                        "rank":  31,
-                        "name":  "Digoxine",
-                        "value":  19,
-                        "breed":  4,
-                        "sex":  1
-                    },
-                    {
                         "rank":  32,
-                        "name":  "Kardegic",
+                        "name":  "Horloge",
                         "value":  19,
-                        "breed":  7,
-                        "sex":  0
+                        "breed":  5,
+                        "sex":  1
                     },
                     {
                         "rank":  33,
