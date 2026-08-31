@@ -30,6 +30,171 @@ const UI_SLOTS = [
 // Not vanilla Dofus values - this server is rebalanced.
 const PARCHOTAGE_STATS = ["Force", "Intelligence", "Chance", "Agilité", "Vitalité", "Sagesse"];
 
+// 2026-08-31: familiers/dragodindes have no crafting recipe (Recipes.d2o/`recipes` table) -
+// they're obtained via the Astrub exchange NPC's trade dialog instead (npcs_actions.Id=20002,
+// Type="Exchange", NpcExchangeAction.cs: Parameter0=ItemsToTakeCSV, Parameter1=
+// ItemsToReceiveCSV, "|"-separated groups positionally paired). Generated straight from that
+// row (154/154 groups matched cleanly, every ingredient id resolved) rather than hand-typed,
+// so it can't drift from what the in-game NPC actually asks for. familiarItemId -> [[ingredientItemId, quantity, name, iconId], ...] (name/iconId baked in server-side, same as item.recipe - these ingredient ids are plain crafting resources, not in items.json's own item list).
+
+const FAMILIAR_EXCHANGES = {
+  12177: [[388,5,"Poils d'Arakne Malade",54060], [2491,5,"Œil d'Arakmuté",109516]],
+  7708: [[6897,20,"Plume de Piou Bleu",53114], [287,50,"Graine de Sésame",58003]],
+  7709: [[6902,20,"Plume de Piou Jaune",53118], [287,50,"Graine de Sésame",58003]],
+  7710: [[6903,20,"Plume de Piou Rose",53119], [287,50,"Graine de Sésame",58003]],
+  7711: [[6900,20,"Plume de Piou Rouge",53117], [287,50,"Graine de Sésame",58003]],
+  7712: [[6899,20,"Plume de Piou Vert",53116], [287,50,"Graine de Sésame",58003]],
+  7713: [[6898,20,"Plume de Piou Violet",53115], [287,50,"Graine de Sésame",58003]],
+  13099: [[8680,20,"Écaille poisseuse",59626], [13727,20,"Crème à bronzer",15814]],
+  7704: [[394,7,"Noisette",58066], [653,2,"Étoffe d'Écurouille",55661]],
+  8151: [[384,20,"Laine de Bouftou",57056]],
+  9594: [[884,20,"Cuir de Bouftou Noir",56016]],
+  8000: [[3001,20,"Épaulette de Bwork",15647]],
+  8154: [[2294,5,"Viscères de Scarafeuille",15445]],
+  12994: [[2583,7,"Œil de Raul Mops",109589], [8681,2,"Peau de Raul Mops",59627]],
+  13661: [[16001,20,"Antennes de Vilinsekt",164049]],
+  17028: [[2565,5,"Rondelle de Bois",15575]],
+  2074: [[2651,5,"Ver de Feu",15627], [415,10,"Plume du Kwak de Flamme",53111]],
+  2075: [[2650,5,"Ver d'Eau",15626], [414,10,"Plume du Kwak de Glace",53112]],
+  2077: [[2649,5,"Ver de Terre",15625], [1141,10,"Plume du Kwak de Terre",53223]],
+  2076: [[2652,5,"Ver d'Air",15628], [416,10,"Plume du Kwak de Vent",53113]],
+  14854: [[2074,1,"Bwak de Feu",18003], [2651,5,"Ver de Feu",15627], [415,10,"Plume du Kwak de Flamme",53111]],
+  14838: [[2075,1,"Bwak d'Eau",18002], [2650,5,"Ver d'Eau",15626], [414,10,"Plume du Kwak de Glace",53112]],
+  14848: [[2077,1,"Bwak de Terre",18005], [2649,5,"Ver de Terre",15625], [1141,10,"Plume du Kwak de Terre",53223]],
+  14833: [[2076,1,"Bwak d'Air",18004], [2652,5,"Ver d'Air",15628], [416,10,"Plume du Kwak de Vent",53113]],
+  14827: [[2074,1,"Bwak de Feu",18003], [2075,1,"Bwak d'Eau",18002], [2077,1,"Bwak de Terre",18005], [2076,1,"Bwak d'Air",18004], [12016,20,"Plume du Kwakwa",53649]],
+  12133: [[7273,10,"Peau de Cooleuvre",59041]],
+  13667: [[16210,10,"Racine de Bulbig Brozeur",98673]],
+  7706: [[370,1,"Gelée Bleutée Royale",110407], [2437,1,"Gelée Citron Royale",110491], [2242,1,"Gelée Fraise Royale",110409], [2241,1,"Gelée Menthe Royale",110408]],
+  15469: [[11696,3,"Cagoule du Kanniboul Ebil",15784]],
+  7415: [[2502,10,"Papatte de Croc Gland",103526]],
+  9623: [[6738,3,"Crâne de Chef Crocodaille",47637], [1664,10,"Dent de Crocodaille",47234]],
+  14433: [[648,10,"Aile de Bourdard",104750]],
+  16276: [[7904,50,"Fleur de Kaliptus",35001]],
+  8561: [[7223,3,"Artefact Pandawushu Air",50105], [7222,3,"Artefact Pandawushu Eau",50104], [7225,3,"Artefact Pandawushu Feu",50107], [7224,3,"Artefact Pandawushu Terre",50106]],
+  16269: [[7278,3,"Poils de Kitsou Nakwa",54559]],
+  15607: [[18366,10,"Sable Fin",48691]],
+  15133: [[372,15,"Bandeau du Black Tiwabbit",15029]],
+  9619: [[14460,15,"Branche de Tiwabbit Kiafin",38681]],
+  1748: [[2288,15,"Patte de Wabbit",103440]],
+  7891: [[8397,20,"Poil du Wa Wabbit",54667]],
+  10863: [[16180,20,"Soie Baveuse",164060]],
+  15249: [[15182,1,"Kamatrix",15881]],
+  12982: [[11475,15,"Eau calme",15778]],
+  19139: [[13335,20,"Rouflaquettes d'Halouine",54015]],
+  18626: [[2578,10,"Œil de Cocholou",109584]],
+  1711: [[439,10,"Canine de Mergranlou",47106]],
+  6717: [[440,5,"Griffe de Muloubard",15107]],
+  13000: [[2577,20,"Scalp de Meulou",15583]],
+  11012: [[291,10,"Poils de Mulounoké",54008]],
+  6716: [[8383,20,"Peau de Moon",59613]],
+  7892: [[14518,20,"Chaussette trouée de Dramak",164025]],
+  12975: [[12845,20,"Flocon de Neige",153007]],
+  13679: [[8741,5,"Bec du Kido",47022]],
+  16295: [[13167,20,"Plume du Rasboul Majeur",53650]],
+  17023: [[17609,20,"Patte de Pupuce",103726]],
+  11765: [[17614,10,"Glande du Pounicheur",164086]],
+  7703: [[2527,3,"Clakoss",15558]],
+  19291: [[8485,20,"Étoffe de Rat Noir",55725]],
+  19286: [[8486,20,"Étoffe de Rat Blanc",55726]],
+  10802: [[8367,20,"Peau de Crocabulia",59612]],
+  9624: [[8368,5,"Dent de Crocabulia",47653]],
+  7519: [[8365,5,"Corne brisée de Crocabulia",47652]],
+  11858: [[13724,20,"Patte de Tofu Dodu",103717]],
+  10865: [[2247,20,"Plume de Tofu Royal",53413]],
+  7522: [[840,20,"Poils du Minotoror",54201]],
+  12988: [[14951,2,"Corne de Scaratos",15857]],
+  14545: [[14479,40,"Cawotte Transgénique",68013]],
+  10544: [[9389,5,"Feuille de Blop Multicolore Royal",36014], [9388,5,"Feuille de Blop Royal",36013]],
+  15978: [[15727,20,"Pixel de Fraktale",15907]],
+  7911: [[8405,20,"Poil de Skeunk",54669]],
+  11950: [[11249,5,"Étoffe de Kaniglou",55730]],
+  11777: [[11239,5,"Gland de l'Écumouth",58068]],
+  8677: [[20939,15,"Cœur du Croqueleur",51501]],
+  13603: [[8357,8,"Corne de Gliglibido",47649]],
+  13465: [[8364,8,"Lanière en cuir de Gliglitch",15744]],
+  7707: [[2510,8,"Estomac de Gliglidoudur",15532]],
+  8211: [[11225,15,"Peau de Mansobèse",59049]],
+  11015: [[11233,15,"Œuf du Mansot Royal",105643]],
+  6604: [[11232,20,"Plume du Mansot Royal",53647]],
+  11013: [[11233,3,"Œuf du Mansot Royal",105643]],
+  11104: [[11232,10,"Plume du Mansot Royal",53647], [11233,1,"Œuf du Mansot Royal",105643]],
+  10657: [[13166,20,"Calice du Tynril",35637]],
+  10866: [[8916,5,"Ambre du Tynril",50715]],
+  11011: [[8777,20,"Pistil du Tynril",36007]],
+  6978: [[8380,5,"Étoffe de Péki",55721]],
+  8155: [[7294,15,"Poils de Yokai Firefoux",54204]],
+  7705: [[7301,15,"Peau de Léopardo",59036]],
+  8153: [[6490,5,"Ambre du Chêne Mou",50669], [8496,5,"Racine d'Abraknyde Ancestral",98668]],
+  7714: [[8487,3,"Étoffe de Sphincter Cell",55727]],
+  7518: [[7406,2,"Os de Fantôme Pandore",47005]],
+  13230: [[12467,20,"Épine Dorsale de Grozilla",59050]],
+  12541: [[12468,5,"Bézoard Ardent de Grozilla",50714]],
+  15254: [[15171,20,"Griffe de Phorrêveur",15870]],
+  15243: [[15170,20,"Défense du Phossile",15869]],
+  1728: [[17620,20,"Moustache de Ush",164087]],
+  9617: [[17620,10,"Moustache de Ush",164087], [17567,10,"Biscuit de chance",164085]],
+  6718: [[17618,20,"Oreille de Chargus",106641]],
+  7524: [[17617,20,"Collier de Chakichan",15030]],
+  7523: [[17615,20,"Queue de Chasquatch",65768]],
+  15110: [[17619,20,"Dent de Chakaroze",47850]],
+  17700: [[17616,20,"Poil de Chacrebleu",54705]],
+  7414: [[17567,15,"Biscuit de chance",164085]],
+  10985: [[11341,20,"Laine de Tengu Givrefoux",57659]],
+  11783: [[11884,20,"Cuir de Fuji Givrefoux",56661]],
+  13673: [[8793,5,"Coquille du Kaskargo",111004], [8832,25,"Bave du Kaskargo",15006]],
+  11771: [[11333,20,"Scorie d'Obsidiantre",51492]],
+  9620: [[8408,2,"Sabot du Minotot",47754]],
+  13182: [[13168,20,"Ethmoïde du Minotot",47694]],
+  11955: [[11895,20,"Patte de Korriandre",103580]],
+  12963: [[20668,5,"Flocon de Neige Doré",153015]],
+  10864: [[9280,20,"Épine d'Ougah",15040]],
+  9785: [[14927,10,"Symbole des Obscuranti",15860]],
+  11971: [[11943,20,"Queue de Glourséleste",65761]],
+  11966: [[11931,20,"Griffe de Kolosso",47683]],
+  17511: [[18734,20,"Poils du Comte Razof",15961]],
+  12009: [[15176,20,"Joyau de la couronne du roi Nidas",15875]],
+  10107: [[19068,20,"Pic d'Anerice",164137]],
+  11014: [[19074,5,"Goulobule rouge",164139]],
+  10106: [[19068,10,"Pic d'Anerice",164137], [19074,2,"Goulobule rouge",164139]],
+  17379: [[17976,20,"Poil de Meno",54707]],
+  13071: [[14795,50,"Pile Steamer",15839]],
+  17813: [[17982,20,"Dentier de Dantinéa",47854]],
+  7520: [[19969,20,"Epaulette de Dazak Martegel",25162]],
+  17795: [[15445,20,"Broderie de la Reine des Voleurs",59643]],
+  16116: [[19237,20,"Plume d'Ilyzaelle",15991]],
+  8693: [[18542,20,"Cheveux de Tal Kasha",54711]],
+  17833: [[17641,3,"Cheveu d'Atcham",54706]],
+  18088: [[17626,20,"Dé du Chalœil",164090]],
+  19044: [[15715,20,"Aile de Vortex",15895]],
+  19531: [[19404,20,"Cervelle de Solar",182019]],
+  16122: [[19411,20,"Queue de Bethel Akarna",65772]],
+  30300: [[11221,10,"Laine du Royalmouth",57213]],
+  30249: [[13169,10,"Triquetrum du Maître Pandore",47693]],
+  30299: [[8405,10,"Poil de Skeunk",54669]],
+  30449: [[7283,10,"Peau de Tanukouï San",59002]],
+  30294: [[15065,10,"Paire de boules de Haute Truche",164038]],
+  30295: [[15457,10,"Cœur du Capitaine Ekarlatte",15891]],
+  30296: [[11321,10,"Poil de Ben le Ripate",54679]],
+  30297: [[18383,10,"Picot d'El Piko",47856]],
+  30302: [[15039,20,"Poils de Kanigroula",54698]],
+  30250: [[18568,20,"Œil du Père Ver",109616]],
+  30251: [[15721,20,"Corne de XLII",15901]],
+  30117: [[18543,10,"Scarabée Chrysonéfritin",15954]],
+  30118: [[19968,10,"Chope de Bière",37002]],
+  30119: [[19405,10,"Sang de Calciné",12771]],
+  30120: [[19412,10,"Coquille de Submergé",111756]],
+  30292: [[17989,20,"Aile de Larve de Koutoulou",104749]],
+  30293: [[17988,10,"Pierre Angulaire",51499]],
+  30255: [[17981,10,"Peau de Trithon",59651]],
+  30253: [[17974,10,"Parasite Aquatique",15936]],
+  30252: [[17989,10,"Aile de Larve de Koutoulou",104749], [17988,5,"Pierre Angulaire",51499]],
+  30254: [[17976,10,"Poil de Meno",54707], [17974,5,"Parasite Aquatique",15936]],
+  30301: [[17982,10,"Dentier de Dantinéa",47854], [17981,5,"Peau de Trithon",59651]],
+  30298: [[14864,20,"Barbe de Merkator",54696]],
+};
+
+
 // The dofus slot covers two distinct item pools that share the same equip location
 // in-game (dofus vs trophée). Clicking it opens a category picker before the item
 // browser.
@@ -368,18 +533,18 @@ async function main() {
   document.getElementById("atelierBtn").addEventListener("click", openAtelierModal);
   document.getElementById("atelierClearBtn").addEventListener("click", clearAtelier);
   document.getElementById("atelierModalClose").addEventListener("click", closeAtelierModal);
-  document.getElementById("atelierViewItemBtn").addEventListener("click", () => {
-    atelierViewMode = "item";
-    document.getElementById("atelierViewItemBtn").classList.add("active");
-    document.getElementById("atelierViewResourceBtn").classList.remove("active");
-    renderAtelierModal();
-  });
-  document.getElementById("atelierViewResourceBtn").addEventListener("click", () => {
-    atelierViewMode = "resource";
-    document.getElementById("atelierViewResourceBtn").classList.add("active");
-    document.getElementById("atelierViewItemBtn").classList.remove("active");
-    renderAtelierModal();
-  });
+  const atelierViewButtons = {
+    item: document.getElementById("atelierViewItemBtn"),
+    resource: document.getElementById("atelierViewResourceBtn"),
+    familiers: document.getElementById("atelierViewFamiliersBtn"),
+  };
+  for (const [mode, btn] of Object.entries(atelierViewButtons)) {
+    btn.addEventListener("click", () => {
+      atelierViewMode = mode;
+      for (const [m, b] of Object.entries(atelierViewButtons)) b.classList.toggle("active", m === mode);
+      renderAtelierModal();
+    });
+  }
   document.getElementById("atelierModalOverlay").addEventListener("click", (ev) => {
     if (ev.target.id === "atelierModalOverlay") closeAtelierModal();
   });
@@ -3544,6 +3709,12 @@ function closeAtelierModal() {
   document.getElementById("atelierModalOverlay").classList.add("hidden");
 }
 
+/** Familiers/dragodindes have no crafting recipe - they only ever show in the "Atelier des
+ * familiers" tab, never in "par item"/"par ressource" (see FAMILIAR_EXCHANGES above). */
+function isFamiliarItem(item) {
+  return !!item && dataSlotForItem(item) === "familier";
+}
+
 function renderAtelierModal() {
   const body = document.getElementById("atelierModalBody");
   body.innerHTML = "";
@@ -3553,24 +3724,55 @@ function renderAtelierModal() {
     return;
   }
 
+  if (atelierViewMode === "familiers") {
+    const familiarIds = atelierOrder.filter(id => isFamiliarItem(ITEMS_BY_ID.get(id)));
+    if (familiarIds.length === 0) {
+      body.innerHTML = '<div class="stat-empty">Aucun familier envoyé en atelier.</div>';
+      return;
+    }
+    for (const itemId of familiarIds) {
+      const item = ITEMS_BY_ID.get(itemId);
+      body.appendChild(renderAtelierCard(item, familiarRecipeIngredients(item), "Ressources inconnues pour ce familier."));
+    }
+    return;
+  }
+
+  const craftIds = atelierOrder.filter(id => {
+    const item = ITEMS_BY_ID.get(id);
+    return item && !isFamiliarItem(item);
+  });
+  if (craftIds.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Seuls des familiers sont envoyés en atelier - voir l\'onglet "Atelier des familiers".</div>';
+    return;
+  }
+
   if (atelierViewMode === "resource") {
     body.appendChild(renderAtelierResourceView());
     return;
   }
 
-  for (const itemId of atelierOrder) {
+  for (const itemId of craftIds) {
     const item = ITEMS_BY_ID.get(itemId);
-    if (!item) continue;
     body.appendChild(renderAtelierCard(item));
   }
 }
 
-/** ingredientItemId -> { name, iconId, needed, have } aggregated across every item currently in the atelier. */
+/** ingredientItemId -> real item -> {name, iconId, quantity} entries for a familiar/dragodinde,
+ * mirroring the shape of item.recipe so renderAtelierCard can render it unchanged. Returns null
+ * if this familiar isn't in FAMILIAR_EXCHANGES (shouldn't happen - all 154 are covered). */
+function familiarRecipeIngredients(item) {
+  const raw = FAMILIAR_EXCHANGES[item.id];
+  if (!raw) return null;
+  return raw.map(([ingId, qty, name, iconId]) => ({ itemId: ingId, name, iconId, quantity: qty }));
+}
+
+/** ingredientItemId -> { name, iconId, needed, have } aggregated across every non-familier item
+ * currently in the atelier (familiers/dragodindes have their own tab, see isFamiliarItem). */
 function computeAtelierResourceTotals() {
   const totals = new Map();
   for (const itemId of atelierOrder) {
     const item = ITEMS_BY_ID.get(itemId);
-    if (!item || !item.recipe) continue;
+    if (!item || isFamiliarItem(item) || !item.recipe) continue;
     const copies = Math.max(1, atelierCopies[itemId] || 1);
     const have = atelierHave[itemId] || {};
     for (const ing of item.recipe) {
@@ -3593,7 +3795,7 @@ function distributeResourceHave(ingredientItemId, totalHave) {
   let remaining = Math.max(0, totalHave);
   for (const itemId of atelierOrder) {
     const item = ITEMS_BY_ID.get(itemId);
-    if (!item || !item.recipe) continue;
+    if (!item || isFamiliarItem(item) || !item.recipe) continue;
     const ing = item.recipe.find(r => r.itemId === ingredientItemId);
     if (!ing) continue;
     const copies = Math.max(1, atelierCopies[itemId] || 1);
@@ -3715,7 +3917,10 @@ function renderAtelierResourceView() {
   return wrap;
 }
 
-function renderAtelierCard(item) {
+/** `recipeOverride`/`emptyMessage` let familiar cards reuse this exact same markup and
+ * have/copies tracking with FAMILIAR_EXCHANGES data in place of item.recipe (see
+ * familiarRecipeIngredients). Omit both for the normal item.recipe path. */
+function renderAtelierCard(item, recipeOverride, emptyMessage) {
   const card = document.createElement("div");
   card.className = "atelier-card";
 
@@ -3749,15 +3954,16 @@ function renderAtelierCard(item) {
   ingredients.className = "atelier-ingredient-list";
 
   const rowUpdaters = [];
+  const recipe = recipeOverride !== undefined ? recipeOverride : item.recipe;
 
-  if (!item.recipe || item.recipe.length === 0) {
+  if (!recipe || recipe.length === 0) {
     const none = document.createElement("div");
     none.className = "stat-empty";
-    none.textContent = "Recette inconnue pour cet objet.";
+    none.textContent = emptyMessage || "Recette inconnue pour cet objet.";
     ingredients.appendChild(none);
   } else {
     const have = atelierHave[item.id] || (atelierHave[item.id] = {});
-    for (const ing of item.recipe) {
+    for (const ing of recipe) {
       const row = document.createElement("div");
       row.className = "atelier-ingredient-row";
       row.appendChild(itemIconEl({ iconId: ing.iconId }, "🧱", "item-icon"));
