@@ -1692,8 +1692,11 @@ function renderItemCard(item, isEquipped, charLevel) {
 
   const set = item.itemSetId && item.itemSetId > 0 ? SETS_BY_ID.get(item.itemSetId) : null;
   const hasRecipe = item.recipe && item.recipe.length > 0;
+  // Familiers/dragodindes never have item.recipe (their exchange cost lives in
+  // FAMILIAR_EXCHANGES instead - see isFamiliarItem) but still need the atelier hammer icon.
+  const isFamiliar = isFamiliarItem(item);
 
-  if (set || hasRecipe) {
+  if (set || hasRecipe || isFamiliar) {
     const setRow = document.createElement("div");
     setRow.className = "set-badge";
 
@@ -1706,7 +1709,7 @@ function renderItemCard(item, isEquipped, charLevel) {
     const actions = document.createElement("div");
     actions.className = "set-badge-actions";
 
-    if (hasRecipe) {
+    if (hasRecipe || isFamiliar) {
       const atelierBtn = document.createElement("button");
       atelierBtn.type = "button";
       atelierBtn.className = "secondary atelier-send-btn";
@@ -1721,15 +1724,20 @@ function renderItemCard(item, isEquipped, charLevel) {
       });
       actions.appendChild(atelierBtn);
 
-      const recipeBtn = document.createElement("button");
-      recipeBtn.type = "button";
-      recipeBtn.className = "secondary";
-      recipeBtn.textContent = "Recette";
-      recipeBtn.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        openRecipeModal(item.id);
-      });
-      actions.appendChild(recipeBtn);
+      // "Recette" opens a modal keyed on item.recipe - familiers don't have one (their cost
+      // is FAMILIAR_EXCHANGES, shown once sent to the atelier's "Atelier des familiers" tab
+      // instead), so only offer it for real crafting recipes.
+      if (hasRecipe) {
+        const recipeBtn = document.createElement("button");
+        recipeBtn.type = "button";
+        recipeBtn.className = "secondary";
+        recipeBtn.textContent = "Recette";
+        recipeBtn.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          openRecipeModal(item.id);
+        });
+        actions.appendChild(recipeBtn);
+      }
     }
 
     if (set) {
