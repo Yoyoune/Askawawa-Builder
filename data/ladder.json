@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T21:29:29.6449302+02:00",
+    "generatedAt":  "2026-08-31T21:34:29.7172002+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  425657322,
+                   "value":  426580337,
                    "breed":  6,
                    "sex":  1,
                    "level":  142
@@ -107,6 +107,22 @@
                },
                {
                    "rank":  14,
+                   "name":  "Cuatro",
+                   "value":  18917587,
+                   "breed":  3,
+                   "sex":  1,
+                   "level":  67
+               },
+               {
+                   "rank":  15,
+                   "name":  "Uno",
+                   "value":  18772123,
+                   "breed":  3,
+                   "sex":  1,
+                   "level":  67
+               },
+               {
+                   "rank":  16,
                    "name":  "Frite",
                    "value":  18724823,
                    "breed":  7,
@@ -114,35 +130,19 @@
                    "level":  67
                },
                {
-                   "rank":  15,
+                   "rank":  17,
+                   "name":  "Dos",
+                   "value":  18578942,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  67
+               },
+               {
+                   "rank":  18,
                    "name":  "Frita",
                    "value":  18439157,
                    "breed":  8,
                    "sex":  0,
-                   "level":  66
-               },
-               {
-                   "rank":  16,
-                   "name":  "Dos",
-                   "value":  18171983,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  66
-               },
-               {
-                   "rank":  17,
-                   "name":  "Cuatro",
-                   "value":  18042754,
-                   "breed":  3,
-                   "sex":  1,
-                   "level":  66
-               },
-               {
-                   "rank":  18,
-                   "name":  "Uno",
-                   "value":  17911323,
-                   "breed":  3,
-                   "sex":  1,
                    "level":  66
                },
                {
