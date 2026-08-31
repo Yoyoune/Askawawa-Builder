@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T20:49:29.5480875+02:00",
+    "generatedAt":  "2026-08-31T20:54:29.5705453+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -51,24 +51,24 @@
                },
                {
                    "rank":  7,
-                   "name":  "Bartonella",
-                   "value":  388874289,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  139
+                   "name":  "Faismoimal",
+                   "value":  418495528,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  142
                },
                {
                    "rank":  8,
-                   "name":  "Faismoimal",
-                   "value":  388015413,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  139
+                   "name":  "Bartonella",
+                   "value":  418390317,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  142
                },
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  54132110,
+                   "value":  54465683,
                    "breed":  1,
                    "sex":  1,
                    "level":  86
@@ -131,35 +131,35 @@
                },
                {
                    "rank":  17,
-                   "name":  "Cuatro",
-                   "value":  14472997,
+                   "name":  "Dos",
+                   "value":  15716256,
                    "breed":  3,
-                   "sex":  1,
-                   "level":  63
+                   "sex":  0,
+                   "level":  64
                },
                {
                    "rank":  18,
-                   "name":  "Dos",
-                   "value":  14411329,
+                   "name":  "Cuatro",
+                   "value":  15711684,
                    "breed":  3,
-                   "sex":  0,
-                   "level":  63
+                   "sex":  1,
+                   "level":  64
                },
                {
                    "rank":  19,
                    "name":  "Uno",
-                   "value":  14398831,
+                   "value":  15617646,
                    "breed":  3,
                    "sex":  1,
-                   "level":  63
+                   "level":  64
                },
                {
                    "rank":  20,
                    "name":  "Tres",
-                   "value":  14284923,
+                   "value":  15457370,
                    "breed":  3,
                    "sex":  0,
-                   "level":  63
+                   "level":  64
                },
                {
                    "rank":  21,
@@ -235,7 +235,7 @@
                },
                {
                    "rank":  30,
-                   "name":  "Azere",
+                   "name":  "Azerz",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -243,7 +243,7 @@
                },
                {
                    "rank":  31,
-                   "name":  "Azerz",
+                   "name":  "Azere",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -297,36 +297,36 @@
                     },
                     {
                         "rank":  5,
+                        "name":  "Bartonella",
+                        "value":  1604,
+                        "breed":  6,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  6,
                         "name":  "Aconit",
                         "value":  1540,
                         "breed":  10,
                         "sex":  0
                     },
                     {
-                        "rank":  6,
+                        "rank":  7,
                         "name":  "Belladone",
                         "value":  1540,
                         "breed":  10,
                         "sex":  1
                     },
                     {
-                        "rank":  7,
-                        "name":  "Bartonella",
-                        "value":  1523,
-                        "breed":  6,
-                        "sex":  1
-                    },
-                    {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1453,
+                        "value":  1535,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  954,
+                        "value":  964,
                         "breed":  1,
                         "sex":  1
                     },
