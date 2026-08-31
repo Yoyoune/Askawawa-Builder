@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T19:24:29.4418329+02:00",
+    "generatedAt":  "2026-08-31T19:29:29.4516869+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  378386567,
+                   "value":  379893668,
                    "breed":  6,
                    "sex":  1,
                    "level":  138
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  53708544,
+                   "value":  53728572,
                    "breed":  1,
                    "sex":  1,
                    "level":  86
@@ -139,6 +139,14 @@
                },
                {
                    "rank":  18,
+                   "name":  "Tres",
+                   "value":  12109376,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  60
+               },
+               {
+                   "rank":  19,
                    "name":  "Cuatro",
                    "value":  11888006,
                    "breed":  3,
@@ -146,17 +154,9 @@
                    "level":  60
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Dos",
                    "value":  11866216,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  60
-               },
-               {
-                   "rank":  20,
-                   "name":  "Tres",
-                   "value":  11818976,
                    "breed":  3,
                    "sex":  0,
                    "level":  60
@@ -235,7 +235,7 @@
                },
                {
                    "rank":  30,
-                   "name":  "Azerz",
+                   "name":  "Azere",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -243,7 +243,7 @@
                },
                {
                    "rank":  31,
-                   "name":  "Azere",
+                   "name":  "Azerz",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
