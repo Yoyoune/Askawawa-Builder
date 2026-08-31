@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T19:34:29.4454662+02:00",
+    "generatedAt":  "2026-08-31T19:39:30.4560686+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Faismoimal",
-                   "value":  381984918,
+                   "value":  384270528,
                    "breed":  11,
                    "sex":  0,
                    "level":  139
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Bartonella",
-                   "value":  381911276,
+                   "value":  384191351,
                    "breed":  6,
                    "sex":  1,
                    "level":  139
@@ -140,7 +140,7 @@
                {
                    "rank":  18,
                    "name":  "Dos",
-                   "value":  12663691,
+                   "value":  13242091,
                    "breed":  3,
                    "sex":  0,
                    "level":  61
@@ -148,7 +148,7 @@
                {
                    "rank":  19,
                    "name":  "Uno",
-                   "value":  12663691,
+                   "value":  13242091,
                    "breed":  3,
                    "sex":  1,
                    "level":  61
@@ -156,7 +156,7 @@
                {
                    "rank":  20,
                    "name":  "Tres",
-                   "value":  12602444,
+                   "value":  13164863,
                    "breed":  3,
                    "sex":  0,
                    "level":  61
