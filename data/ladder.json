@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T20:59:29.5740616+02:00",
+    "generatedAt":  "2026-08-31T21:04:29.5865455+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Bartonella",
-                   "value":  420774887,
+                   "value":  425188637,
                    "breed":  6,
                    "sex":  1,
                    "level":  142
@@ -68,10 +68,10 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  54465683,
+                   "value":  54794491,
                    "breed":  1,
                    "sex":  1,
-                   "level":  86
+                   "level":  87
                },
                {
                    "rank":  10,
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  44597185,
+                   "value":  45388858,
                    "breed":  2,
                    "sex":  0,
-                   "level":  82
+                   "level":  83
                },
                {
                    "rank":  13,
@@ -131,6 +131,14 @@
                },
                {
                    "rank":  17,
+                   "name":  "Tres",
+                   "value":  17656034,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  66
+               },
+               {
+                   "rank":  18,
                    "name":  "Dos",
                    "value":  17602758,
                    "breed":  3,
@@ -138,7 +146,7 @@
                    "level":  66
                },
                {
-                   "rank":  18,
+                   "rank":  19,
                    "name":  "Cuatro",
                    "value":  17502424,
                    "breed":  3,
@@ -146,20 +154,12 @@
                    "level":  66
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Uno",
                    "value":  17379661,
                    "breed":  3,
                    "sex":  1,
                    "level":  66
-               },
-               {
-                   "rank":  20,
-                   "name":  "Tres",
-                   "value":  16513967,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  65
                },
                {
                    "rank":  21,
@@ -235,7 +235,7 @@
                },
                {
                    "rank":  30,
-                   "name":  "Azerz",
+                   "name":  "Azere",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -243,7 +243,7 @@
                },
                {
                    "rank":  31,
-                   "name":  "Azere",
+                   "name":  "Azerz",
                    "value":  1258058,
                    "breed":  10,
                    "sex":  0,
@@ -347,7 +347,7 @@
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  826,
+                        "value":  836,
                         "breed":  2,
                         "sex":  0
                     },
