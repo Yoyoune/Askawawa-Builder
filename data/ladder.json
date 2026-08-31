@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-31T22:04:29.7281704+02:00",
+    "generatedAt":  "2026-08-31T22:09:29.6685176+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  645137651,
+                   "value":  646603301,
                    "breed":  8,
                    "sex":  0,
                    "level":  156
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  446153386,
+                   "value":  454994454,
                    "breed":  10,
                    "sex":  1,
                    "level":  144
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  445461779,
+                   "value":  454322598,
                    "breed":  10,
                    "sex":  0,
                    "level":  144
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  58031132,
+                   "value":  58318566,
                    "breed":  1,
                    "sex":  1,
                    "level":  88
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  52462590,
+                   "value":  53600969,
                    "breed":  17,
                    "sex":  1,
                    "level":  86
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  47674421,
+                   "value":  48948469,
                    "breed":  3,
                    "sex":  0,
                    "level":  84
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  45388858,
+                   "value":  46720020,
                    "breed":  2,
                    "sex":  0,
                    "level":  83
@@ -270,7 +270,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2002,
+                        "value":  2012,
                         "breed":  8,
                         "sex":  0
                     },
@@ -304,50 +304,50 @@
                     },
                     {
                         "rank":  6,
+                        "name":  "Aconit",
+                        "value":  1562,
+                        "breed":  10,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  7,
+                        "name":  "Belladone",
+                        "value":  1562,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  8,
                         "name":  "Faismoimal",
                         "value":  1556,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  7,
-                        "name":  "Belladone",
-                        "value":  1551,
-                        "breed":  10,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Aconit",
-                        "value":  1551,
-                        "breed":  10,
-                        "sex":  0
-                    },
-                    {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1045,
+                        "value":  1065,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  878,
+                        "value":  958,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
                         "name":  "Cyano",
-                        "value":  845,
+                        "value":  925,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  836,
+                        "value":  916,
                         "breed":  2,
                         "sex":  0
                     },
@@ -367,31 +367,31 @@
                     },
                     {
                         "rank":  15,
-                        "name":  "Frite",
-                        "value":  405,
-                        "breed":  7,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  16,
                         "name":  "Fritr",
                         "value":  405,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  17,
-                        "name":  "Matt",
-                        "value":  269,
-                        "breed":  3,
+                        "rank":  16,
+                        "name":  "Frite",
+                        "value":  405,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  18,
+                        "rank":  17,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  18,
+                        "name":  "Matt",
+                        "value":  269,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  19,
