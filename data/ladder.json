@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-08-31T21:39:29.6667035+02:00",
+    "generatedAt":  "2026-08-31T21:44:29.6273029+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  641163845,
+                   "value":  642789053,
                    "breed":  8,
                    "sex":  0,
                    "level":  156
@@ -36,21 +36,29 @@
                {
                    "rank":  5,
                    "name":  "Belladone",
-                   "value":  435133429,
+                   "value":  446153386,
                    "breed":  10,
                    "sex":  1,
-                   "level":  143
+                   "level":  144
                },
                {
                    "rank":  6,
                    "name":  "Aconit",
-                   "value":  434421415,
+                   "value":  445461779,
                    "breed":  10,
                    "sex":  0,
-                   "level":  143
+                   "level":  144
                },
                {
                    "rank":  7,
+                   "name":  "Bartonella",
+                   "value":  436047753,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  143
+               },
+               {
+                   "rank":  8,
                    "name":  "Faismoimal",
                    "value":  433679668,
                    "breed":  11,
@@ -58,20 +66,12 @@
                    "level":  143
                },
                {
-                   "rank":  8,
-                   "name":  "Bartonella",
-                   "value":  433537690,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  143
-               },
-               {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  57281776,
+                   "value":  57359476,
                    "breed":  1,
                    "sex":  1,
-                   "level":  87
+                   "level":  88
                },
                {
                    "rank":  10,
@@ -298,21 +298,21 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1604,
+                        "value":  1614,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Aconit",
-                        "value":  1541,
+                        "value":  1551,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  7,
                         "name":  "Belladone",
-                        "value":  1541,
+                        "value":  1551,
                         "breed":  10,
                         "sex":  1
                     },
