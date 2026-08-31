@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-08-31T19:39:30.4560686+02:00",
+    "generatedAt":  "2026-08-31T19:49:29.4868146+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  50780825,
+                   "value":  50830395,
                    "breed":  17,
                    "sex":  1,
                    "level":  85
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Cyano",
-                   "value":  47628006,
+                   "value":  47674421,
                    "breed":  3,
                    "sex":  0,
                    "level":  84
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Rhizobium",
-                   "value":  44546861,
+                   "value":  44597185,
                    "breed":  2,
                    "sex":  0,
                    "level":  82
