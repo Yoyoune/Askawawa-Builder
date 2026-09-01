@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-01T21:39:29.1773219+02:00",
+    "generatedAt":  "2026-09-01T21:44:29.1110026+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  681419796,
+                   "value":  681682858,
                    "breed":  8,
                    "sex":  0,
                    "level":  158
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  19320952,
+                   "value":  19342337,
                    "breed":  2,
                    "sex":  0,
                    "level":  67
@@ -228,26 +228,26 @@
                {
                    "rank":  29,
                    "name":  "Azera",
-                   "value":  1850527,
+                   "value":  2023198,
                    "breed":  3,
                    "sex":  0,
-                   "level":  40
+                   "level":  41
                },
                {
                    "rank":  30,
-                   "name":  "Azerz",
-                   "value":  1850521,
+                   "name":  "Azere",
+                   "value":  2023192,
                    "breed":  3,
                    "sex":  0,
-                   "level":  40
+                   "level":  41
                },
                {
                    "rank":  31,
-                   "name":  "Azere",
-                   "value":  1834765,
+                   "name":  "Azerz",
+                   "value":  2023192,
                    "breed":  3,
                    "sex":  0,
-                   "level":  40
+                   "level":  41
                },
                {
                    "rank":  32,
