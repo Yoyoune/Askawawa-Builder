@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-01T01:14:29.9784865+02:00",
+    "generatedAt":  "2026-09-01T18:54:29.9598073+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -220,16 +220,16 @@
                {
                    "rank":  28,
                    "name":  "Azerr",
-                   "value":  2025348,
-                   "breed":  10,
+                   "value":  2035176,
+                   "breed":  3,
                    "sex":  0,
                    "level":  41
                },
                {
                    "rank":  29,
                    "name":  "Azera",
-                   "value":  1834771,
-                   "breed":  10,
+                   "value":  1850527,
+                   "breed":  3,
                    "sex":  0,
                    "level":  40
                },
@@ -466,29 +466,29 @@
                     {
                         "rank":  29,
                         "name":  "Azerr",
-                        "value":  27,
-                        "breed":  10,
+                        "value":  28,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  30,
                         "name":  "Azere",
-                        "value":  23,
+                        "value":  25,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Azerz",
-                        "value":  23,
+                        "value":  25,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Azera",
-                        "value":  23,
-                        "breed":  10,
+                        "value":  25,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
