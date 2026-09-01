@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-01T21:59:29.1859563+02:00",
+    "generatedAt":  "2026-09-01T22:04:29.0872147+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  682372092,
+                   "value":  682870158,
                    "breed":  8,
                    "sex":  0,
                    "level":  158
@@ -132,15 +132,15 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  19453604,
+                   "value":  19923968,
                    "breed":  2,
                    "sex":  0,
-                   "level":  67
+                   "level":  68
                },
                {
                    "rank":  18,
                    "name":  "Frite",
-                   "value":  18724823,
+                   "value":  19290821,
                    "breed":  7,
                    "sex":  0,
                    "level":  67
@@ -148,7 +148,7 @@
                {
                    "rank":  19,
                    "name":  "Frita",
-                   "value":  18601405,
+                   "value":  19161327,
                    "breed":  8,
                    "sex":  0,
                    "level":  67
@@ -156,7 +156,7 @@
                {
                    "rank":  20,
                    "name":  "Fritr",
-                   "value":  17724689,
+                   "value":  18269441,
                    "breed":  11,
                    "sex":  0,
                    "level":  66
@@ -270,7 +270,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2062,
+                        "value":  2065,
                         "breed":  8,
                         "sex":  0
                     },
@@ -354,28 +354,28 @@
                     {
                         "rank":  13,
                         "name":  "Fritz",
-                        "value":  435,
+                        "value":  445,
                         "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  14,
                         "name":  "Frita",
-                        "value":  408,
+                        "value":  418,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  15,
                         "name":  "Frite",
-                        "value":  405,
+                        "value":  415,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  16,
                         "name":  "Fritr",
-                        "value":  405,
+                        "value":  415,
                         "breed":  11,
                         "sex":  0
                     },
