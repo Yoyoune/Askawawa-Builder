@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-02T02:34:29.9559537+02:00",
+    "generatedAt":  "2026-09-02T18:34:29.6036146+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -61,7 +61,7 @@
                    "rank":  8,
                    "name":  "Faismoimal",
                    "value":  494365491,
-                   "breed":  11,
+                   "breed":  2,
                    "sex":  0,
                    "level":  147
                },
@@ -319,8 +319,8 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1639,
-                        "breed":  11,
+                        "value":  1640,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
