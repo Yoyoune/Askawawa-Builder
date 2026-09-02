@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-03T01:14:29.2817806+02:00",
+    "generatedAt":  "2026-09-03T01:19:29.2329203+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  651083097,
+                   "value":  661285283,
                    "breed":  6,
                    "sex":  1,
-                   "level":  156
+                   "level":  157
                },
                {
                    "rank":  3,
@@ -68,32 +68,32 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  60654796,
+                   "value":  62747766,
                    "breed":  3,
                    "sex":  0,
-                   "level":  89
+                   "level":  90
                },
                {
                    "rank":  10,
-                   "name":  "Flavodiira",
-                   "value":  58318566,
-                   "breed":  1,
+                   "name":  "Cuatro",
+                   "value":  60821234,
+                   "breed":  3,
                    "sex":  1,
-                   "level":  88
+                   "level":  89
                },
                {
                    "rank":  11,
                    "name":  "Uno",
-                   "value":  58021376,
+                   "value":  59954263,
                    "breed":  3,
                    "sex":  1,
-                   "level":  88
+                   "level":  89
                },
                {
                    "rank":  12,
-                   "name":  "Cuatro",
-                   "value":  57898068,
-                   "breed":  3,
+                   "name":  "Flavodiira",
+                   "value":  58318566,
+                   "breed":  1,
                    "sex":  1,
                    "level":  88
                },
@@ -403,23 +403,23 @@
                     {
                         "rank":  20,
                         "name":  "Dos",
-                        "value":  238,
+                        "value":  248,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  21,
-                        "name":  "Tres",
-                        "value":  238,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  22,
                         "name":  "Uno",
                         "value":  238,
                         "breed":  3,
                         "sex":  1
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Tres",
+                        "value":  238,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  23,
