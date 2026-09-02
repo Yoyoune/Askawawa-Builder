@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-02T22:04:29.9173011+02:00",
+    "generatedAt":  "2026-09-02T22:24:29.9172397+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  552370437,
+                   "value":  558435512,
                    "breed":  9,
                    "sex":  0,
                    "level":  151
@@ -277,7 +277,7 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  1932,
+                        "value":  1952,
                         "breed":  9,
                         "sex":  0
                     },
