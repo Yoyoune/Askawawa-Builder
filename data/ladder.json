@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-02T21:04:29.7520049+02:00",
+    "generatedAt":  "2026-09-02T21:09:29.8200715+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  690107962,
+                   "value":  691579922,
                    "breed":  8,
                    "sex":  0,
                    "level":  158
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Bartonella",
-                   "value":  553434090,
+                   "value":  556920303,
                    "breed":  6,
                    "sex":  1,
                    "level":  151
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Faismoimal",
-                   "value":  523896106,
+                   "value":  535694117,
                    "breed":  11,
                    "sex":  0,
-                   "level":  149
+                   "level":  150
                },
                {
                    "rank":  9,
@@ -304,23 +304,23 @@
                     },
                     {
                         "rank":  6,
+                        "name":  "Faismoimal",
+                        "value":  1700,
+                        "breed":  11,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Belladone",
                         "value":  1686,
                         "breed":  10,
                         "sex":  1
                     },
                     {
-                        "rank":  7,
+                        "rank":  8,
                         "name":  "Aconit",
                         "value":  1684,
                         "breed":  10,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  8,
-                        "name":  "Faismoimal",
-                        "value":  1640,
-                        "breed":  11,
                         "sex":  0
                     },
                     {
