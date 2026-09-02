@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-02T19:24:29.6571110+02:00",
+    "generatedAt":  "2026-09-02T19:29:29.7515230+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -27,6 +27,30 @@
                },
                {
                    "rank":  4,
+                   "name":  "Bartonella",
+                   "value":  553434090,
+                   "breed":  6,
+                   "sex":  1,
+                   "level":  151
+               },
+               {
+                   "rank":  5,
+                   "name":  "Belladone",
+                   "value":  551493940,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  151
+               },
+               {
+                   "rank":  6,
+                   "name":  "Aconit",
+                   "value":  550356768,
+                   "breed":  10,
+                   "sex":  0,
+                   "level":  150
+               },
+               {
+                   "rank":  7,
                    "name":  "Persodeux",
                    "value":  544908535,
                    "breed":  9,
@@ -34,34 +58,10 @@
                    "level":  150
                },
                {
-                   "rank":  5,
-                   "name":  "Bartonella",
-                   "value":  536544617,
-                   "breed":  6,
-                   "sex":  1,
-                   "level":  150
-               },
-               {
-                   "rank":  6,
-                   "name":  "Belladone",
-                   "value":  534865845,
-                   "breed":  10,
-                   "sex":  1,
-                   "level":  150
-               },
-               {
-                   "rank":  7,
-                   "name":  "Faismoimal",
-                   "value":  520497003,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  149
-               },
-               {
                    "rank":  8,
-                   "name":  "Aconit",
-                   "value":  518838658,
-                   "breed":  10,
+                   "name":  "Faismoimal",
+                   "value":  523896106,
+                   "breed":  11,
                    "sex":  0,
                    "level":  149
                },
@@ -100,15 +100,15 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  42604596,
+                   "value":  43724109,
                    "breed":  3,
                    "sex":  0,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  14,
                    "name":  "Cuatro",
-                   "value":  41339002,
+                   "value":  42402719,
                    "breed":  3,
                    "sex":  1,
                    "level":  81
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Uno",
-                   "value":  41072815,
+                   "value":  41923097,
                    "breed":  3,
                    "sex":  1,
                    "level":  81
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  39785699,
+                   "value":  40782203,
                    "breed":  3,
                    "sex":  0,
                    "level":  80
@@ -312,7 +312,7 @@
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  1644,
+                        "value":  1684,
                         "breed":  10,
                         "sex":  0
                     },
@@ -403,28 +403,28 @@
                     {
                         "rank":  20,
                         "name":  "Dos",
-                        "value":  225,
+                        "value":  226,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  21,
                         "name":  "Tres",
-                        "value":  225,
+                        "value":  226,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  22,
                         "name":  "Uno",
-                        "value":  225,
+                        "value":  226,
                         "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  23,
                         "name":  "Cuatro",
-                        "value":  224,
+                        "value":  225,
                         "breed":  3,
                         "sex":  1
                     },
