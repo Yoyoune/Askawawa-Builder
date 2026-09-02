@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-02T20:59:29.7683193+02:00",
+    "generatedAt":  "2026-09-02T21:04:29.7520049+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,19 +35,19 @@
                },
                {
                    "rank":  5,
+                   "name":  "Aconit",
+                   "value":  552839698,
+                   "breed":  10,
+                   "sex":  0,
+                   "level":  151
+               },
+               {
+                   "rank":  6,
                    "name":  "Belladone",
                    "value":  551493940,
                    "breed":  10,
                    "sex":  1,
                    "level":  151
-               },
-               {
-                   "rank":  6,
-                   "name":  "Aconit",
-                   "value":  550356768,
-                   "breed":  10,
-                   "sex":  0,
-                   "level":  150
                },
                {
                    "rank":  7,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  43724109,
+                   "value":  44448046,
                    "breed":  3,
                    "sex":  0,
                    "level":  82
@@ -108,15 +108,15 @@
                {
                    "rank":  14,
                    "name":  "Cuatro",
-                   "value":  42402719,
+                   "value":  43081527,
                    "breed":  3,
                    "sex":  1,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  15,
                    "name":  "Uno",
-                   "value":  41923097,
+                   "value":  42591015,
                    "breed":  3,
                    "sex":  1,
                    "level":  81
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  40782203,
+                   "value":  41416780,
                    "breed":  3,
                    "sex":  0,
-                   "level":  80
+                   "level":  81
                },
                {
                    "rank":  17,
