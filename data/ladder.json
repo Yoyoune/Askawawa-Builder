@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-02T22:54:29.9426833+02:00",
+    "generatedAt":  "2026-09-02T22:59:28.9473411+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -11,26 +11,26 @@
                },
                {
                    "rank":  2,
-                   "name":  "Bartonella",
-                   "value":  610372574,
-                   "breed":  6,
-                   "sex":  1,
+                   "name":  "Persotrois",
+                   "value":  612736939,
+                   "breed":  7,
+                   "sex":  0,
                    "level":  154
                },
                {
                    "rank":  3,
                    "name":  "Persoun",
-                   "value":  606539103,
+                   "value":  610884049,
                    "breed":  11,
                    "sex":  0,
                    "level":  154
                },
                {
                    "rank":  4,
-                   "name":  "Persotrois",
-                   "value":  603947047,
-                   "breed":  7,
-                   "sex":  0,
+                   "name":  "Bartonella",
+                   "value":  610372574,
+                   "breed":  6,
+                   "sex":  1,
                    "level":  154
                },
                {
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  558435512,
+                   "value":  561995320,
                    "breed":  9,
                    "sex":  0,
                    "level":  151
@@ -277,21 +277,21 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  1952,
+                        "value":  1964,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  1920,
+                        "value":  1951,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  1905,
+                        "value":  1936,
                         "breed":  11,
                         "sex":  0
                     },
