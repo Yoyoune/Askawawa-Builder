@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-03T17:54:29.7844142+02:00",
+    "generatedAt":  "2026-09-03T17:59:29.7815007+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  751437259,
+                   "value":  781157428,
                    "breed":  6,
                    "sex":  1,
-                   "level":  161
+                   "level":  162
                },
                {
                    "rank":  2,
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Faismoimal",
-                   "value":  688848353,
+                   "value":  714367015,
                    "breed":  11,
                    "sex":  0,
-                   "level":  158
+                   "level":  159
                },
                {
                    "rank":  6,
@@ -68,34 +68,34 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  82553831,
+                   "value":  86793798,
                    "breed":  3,
                    "sex":  0,
-                   "level":  96
+                   "level":  97
                },
                {
                    "rank":  10,
                    "name":  "Cuatro",
-                   "value":  79517734,
+                   "value":  83500549,
                    "breed":  3,
                    "sex":  1,
-                   "level":  95
+                   "level":  96
                },
                {
                    "rank":  11,
                    "name":  "Uno",
-                   "value":  79019659,
+                   "value":  83172861,
                    "breed":  3,
                    "sex":  1,
-                   "level":  95
+                   "level":  96
                },
                {
                    "rank":  12,
                    "name":  "Tres",
-                   "value":  76166271,
+                   "value":  79896417,
                    "breed":  3,
                    "sex":  0,
-                   "level":  94
+                   "level":  95
                },
                {
                    "rank":  13,
@@ -298,7 +298,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1864,
+                        "value":  1884,
                         "breed":  6,
                         "sex":  1
                     },
@@ -319,7 +319,7 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1713,
+                        "value":  1733,
                         "breed":  11,
                         "sex":  0
                     },
