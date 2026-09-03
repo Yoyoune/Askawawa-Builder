@@ -1,29 +1,29 @@
 {
-    "generatedAt":  "2026-09-03T21:49:29.1954265+02:00",
+    "generatedAt":  "2026-09-03T21:54:29.2396272+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  863708430,
+                   "value":  864487728,
                    "breed":  6,
                    "sex":  1,
                    "level":  166
                },
                {
                    "rank":  2,
+                   "name":  "Aconit",
+                   "value":  810857208,
+                   "breed":  10,
+                   "sex":  0,
+                   "level":  164
+               },
+               {
+                   "rank":  3,
                    "name":  "Belladone",
                    "value":  810624506,
                    "breed":  10,
                    "sex":  1,
                    "level":  164
-               },
-               {
-                   "rank":  3,
-                   "name":  "Aconit",
-                   "value":  790227470,
-                   "breed":  10,
-                   "sex":  0,
-                   "level":  163
                },
                {
                    "rank":  4,
@@ -311,16 +311,16 @@
                     },
                     {
                         "rank":  7,
-                        "name":  "Faismoimal",
-                        "value":  1775,
-                        "breed":  11,
+                        "name":  "Aconit",
+                        "value":  1780,
+                        "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  8,
-                        "name":  "Aconit",
-                        "value":  1768,
-                        "breed":  10,
+                        "name":  "Faismoimal",
+                        "value":  1775,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
