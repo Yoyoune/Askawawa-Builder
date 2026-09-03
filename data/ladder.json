@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-03T21:29:29.1472269+02:00",
+    "generatedAt":  "2026-09-03T21:34:29.1731178+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  847914903,
+                   "value":  849892019,
                    "breed":  6,
                    "sex":  1,
                    "level":  165
@@ -68,23 +68,23 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  92277029,
+                   "value":  92664698,
                    "breed":  3,
                    "sex":  0,
                    "level":  99
                },
                {
                    "rank":  10,
-                   "name":  "Uno",
-                   "value":  88544697,
+                   "name":  "Cuatro",
+                   "value":  89048411,
                    "breed":  3,
                    "sex":  1,
                    "level":  98
                },
                {
                    "rank":  11,
-                   "name":  "Cuatro",
-                   "value":  88380906,
+                   "name":  "Uno",
+                   "value":  88924357,
                    "breed":  3,
                    "sex":  1,
                    "level":  98
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  20187445,
+                   "value":  20394097,
                    "breed":  11,
                    "sex":  0,
                    "level":  68
@@ -140,10 +140,10 @@
                {
                    "rank":  18,
                    "name":  "Frite",
-                   "value":  19535905,
+                   "value":  19838690,
                    "breed":  7,
                    "sex":  0,
-                   "level":  67
+                   "level":  68
                },
                {
                    "rank":  19,
@@ -156,10 +156,10 @@
                {
                    "rank":  20,
                    "name":  "Fritr",
-                   "value":  18501616,
+                   "value":  18788448,
                    "breed":  11,
                    "sex":  0,
-                   "level":  66
+                   "level":  67
                },
                {
                    "rank":  21,
@@ -424,7 +424,7 @@
                     {
                         "rank":  23,
                         "name":  "Cuatro",
-                        "value":  249,
+                        "value":  250,
                         "breed":  3,
                         "sex":  1
                     },
