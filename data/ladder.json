@@ -1,21 +1,21 @@
 {
-    "generatedAt":  "2026-09-03T21:44:29.2264206+02:00",
+    "generatedAt":  "2026-09-03T21:49:29.1954265+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  854693361,
+                   "value":  863708430,
                    "breed":  6,
                    "sex":  1,
-                   "level":  165
+                   "level":  166
                },
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  790938977,
+                   "value":  810624506,
                    "breed":  10,
                    "sex":  1,
-                   "level":  163
+                   "level":  164
                },
                {
                    "rank":  3,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  92664698,
+                   "value":  93951694,
                    "breed":  3,
                    "sex":  0,
                    "level":  99
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Cuatro",
-                   "value":  89048411,
+                   "value":  90257737,
                    "breed":  3,
                    "sex":  1,
                    "level":  98
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Uno",
-                   "value":  88924357,
+                   "value":  90185421,
                    "breed":  3,
                    "sex":  1,
                    "level":  98
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Tres",
-                   "value":  85063616,
+                   "value":  86196593,
                    "breed":  3,
                    "sex":  0,
                    "level":  97
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  20645769,
+                   "value":  21048051,
                    "breed":  11,
                    "sex":  0,
                    "level":  68
@@ -298,23 +298,23 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1895,
+                        "value":  1896,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
+                        "name":  "Belladone",
+                        "value":  1781,
+                        "breed":  10,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  7,
                         "name":  "Faismoimal",
                         "value":  1775,
                         "breed":  11,
                         "sex":  0
-                    },
-                    {
-                        "rank":  7,
-                        "name":  "Belladone",
-                        "value":  1770,
-                        "breed":  10,
-                        "sex":  1
                     },
                     {
                         "rank":  8,
