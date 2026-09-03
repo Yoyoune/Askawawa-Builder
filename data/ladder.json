@@ -1,43 +1,43 @@
 {
-    "generatedAt":  "2026-09-03T18:04:29.7710976+02:00",
+    "generatedAt":  "2026-09-03T21:14:29.6383751+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  781157428,
+                   "value":  790341494,
                    "breed":  6,
                    "sex":  1,
-                   "level":  162
+                   "level":  163
                },
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  741725362,
+                   "value":  750057329,
                    "breed":  10,
                    "sex":  1,
-                   "level":  160
+                   "level":  161
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  740954929,
+                   "value":  749304076,
                    "breed":  10,
+                   "sex":  0,
+                   "level":  161
+               },
+               {
+                   "rank":  4,
+                   "name":  "Faismoimal",
+                   "value":  722373763,
+                   "breed":  11,
                    "sex":  0,
                    "level":  160
                },
                {
-                   "rank":  4,
+                   "rank":  5,
                    "name":  "Nayssen",
                    "value":  719888987,
                    "breed":  8,
-                   "sex":  0,
-                   "level":  159
-               },
-               {
-                   "rank":  5,
-                   "name":  "Faismoimal",
-                   "value":  714367015,
-                   "breed":  11,
                    "sex":  0,
                    "level":  159
                },
@@ -76,10 +76,10 @@
                {
                    "rank":  10,
                    "name":  "Cuatro",
-                   "value":  83500549,
+                   "value":  84920826,
                    "breed":  3,
                    "sex":  1,
-                   "level":  96
+                   "level":  97
                },
                {
                    "rank":  11,
@@ -319,7 +319,7 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1733,
+                        "value":  1764,
                         "breed":  11,
                         "sex":  0
                     },
