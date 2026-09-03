@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-03T22:09:29.2424535+02:00",
+    "generatedAt":  "2026-09-03T22:14:29.2643161+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  21649054,
+                   "value":  21835824,
                    "breed":  11,
                    "sex":  0,
                    "level":  69
@@ -148,10 +148,10 @@
                {
                    "rank":  19,
                    "name":  "Frita",
-                   "value":  20055591,
+                   "value":  21144222,
                    "breed":  8,
                    "sex":  0,
-                   "level":  68
+                   "level":  69
                },
                {
                    "rank":  20,
@@ -361,7 +361,7 @@
                     {
                         "rank":  14,
                         "name":  "Frita",
-                        "value":  418,
+                        "value":  419,
                         "breed":  8,
                         "sex":  0
                     },
