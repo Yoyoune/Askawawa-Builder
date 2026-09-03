@@ -1,37 +1,37 @@
 {
-    "generatedAt":  "2026-09-03T21:19:29.3863206+02:00",
+    "generatedAt":  "2026-09-03T21:24:29.1736559+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  790341494,
+                   "value":  842200171,
                    "breed":  6,
                    "sex":  1,
-                   "level":  163
+                   "level":  165
                },
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  765157571,
+                   "value":  790938977,
                    "breed":  10,
                    "sex":  1,
-                   "level":  162
+                   "level":  163
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  764435454,
+                   "value":  790227470,
                    "breed":  10,
                    "sex":  0,
-                   "level":  162
+                   "level":  163
                },
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  736885152,
+                   "value":  762043626,
                    "breed":  11,
                    "sex":  0,
-                   "level":  160
+                   "level":  161
                },
                {
                    "rank":  5,
@@ -75,16 +75,16 @@
                },
                {
                    "rank":  10,
-                   "name":  "Uno",
-                   "value":  87321349,
+                   "name":  "Cuatro",
+                   "value":  88380906,
                    "breed":  3,
                    "sex":  1,
-                   "level":  97
+                   "level":  98
                },
                {
                    "rank":  11,
-                   "name":  "Cuatro",
-                   "value":  84920826,
+                   "name":  "Uno",
+                   "value":  87321349,
                    "breed":  3,
                    "sex":  1,
                    "level":  97
