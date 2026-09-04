@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-04T22:04:29.3353754+02:00",
+    "generatedAt":  "2026-09-04T22:09:29.3211242+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Fritz",
-                   "value":  25010285,
+                   "value":  25124655,
                    "breed":  9,
                    "sex":  0,
                    "level":  71
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1116,
+                        "value":  1117,
                         "breed":  1,
                         "sex":  1
                     },
