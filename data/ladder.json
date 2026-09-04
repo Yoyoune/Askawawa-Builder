@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-04T23:19:29.4412002+02:00",
+    "generatedAt":  "2026-09-04T23:24:29.4906073+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  933156153,
+                   "value":  938031938,
                    "breed":  6,
                    "sex":  1,
-                   "level":  168
+                   "level":  169
                },
                {
                    "rank":  2,
@@ -92,15 +92,15 @@
                {
                    "rank":  12,
                    "name":  "Tres",
-                   "value":  99060199,
+                   "value":  100411600,
                    "breed":  3,
                    "sex":  0,
-                   "level":  100
+                   "level":  101
                },
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  75349697,
+                   "value":  76186862,
                    "breed":  1,
                    "sex":  1,
                    "level":  94
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1198,
+                        "value":  1208,
                         "breed":  1,
                         "sex":  1
                     },
