@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-04T22:59:29.3773479+02:00",
+    "generatedAt":  "2026-09-04T23:04:29.4334315+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  910516752,
+                   "value":  918384251,
                    "breed":  6,
                    "sex":  1,
                    "level":  168
@@ -27,17 +27,17 @@
                },
                {
                    "rank":  4,
-                   "name":  "Nayssen",
-                   "value":  822770986,
-                   "breed":  8,
+                   "name":  "Faismoimal",
+                   "value":  844524578,
+                   "breed":  11,
                    "sex":  0,
-                   "level":  164
+                   "level":  165
                },
                {
                    "rank":  5,
-                   "name":  "Faismoimal",
-                   "value":  816272813,
-                   "breed":  11,
+                   "name":  "Nayssen",
+                   "value":  822770986,
+                   "breed":  8,
                    "sex":  0,
                    "level":  164
                },
@@ -68,18 +68,18 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  104385933,
+                   "value":  108240537,
                    "breed":  3,
                    "sex":  0,
-                   "level":  102
+                   "level":  103
                },
                {
                    "rank":  10,
                    "name":  "Uno",
-                   "value":  100438391,
+                   "value":  104216454,
                    "breed":  3,
                    "sex":  1,
-                   "level":  101
+                   "level":  102
                },
                {
                    "rank":  11,
@@ -92,15 +92,15 @@
                {
                    "rank":  12,
                    "name":  "Tres",
-                   "value":  92838361,
+                   "value":  96199773,
                    "breed":  3,
                    "sex":  0,
-                   "level":  99
+                   "level":  100
                },
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  73390231,
+                   "value":  73715706,
                    "breed":  1,
                    "sex":  1,
                    "level":  93
@@ -395,38 +395,38 @@
                     },
                     {
                         "rank":  19,
+                        "name":  "Tres",
+                        "value":  282,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  20,
                         "name":  "Cuatro",
                         "value":  281,
                         "breed":  3,
                         "sex":  1
                     },
                     {
-                        "rank":  20,
+                        "rank":  21,
                         "name":  "Matt",
                         "value":  269,
                         "breed":  3,
                         "sex":  0
                     },
                     {
-                        "rank":  21,
+                        "rank":  22,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
                     },
                     {
-                        "rank":  22,
+                        "rank":  23,
                         "name":  "Patt",
                         "value":  265,
                         "breed":  8,
                         "sex":  1
-                    },
-                    {
-                        "rank":  23,
-                        "name":  "Tres",
-                        "value":  251,
-                        "breed":  3,
-                        "sex":  0
                     },
                     {
                         "rank":  24,
