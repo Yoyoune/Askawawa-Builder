@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-04T23:14:29.4363713+02:00",
+    "generatedAt":  "2026-09-04T23:19:29.4412002+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  932210276,
+                   "value":  933156153,
                    "breed":  6,
                    "sex":  1,
                    "level":  168
@@ -84,10 +84,10 @@
                {
                    "rank":  11,
                    "name":  "Cuatro",
-                   "value":  103854870,
+                   "value":  104012839,
                    "breed":  3,
                    "sex":  1,
-                   "level":  101
+                   "level":  102
                },
                {
                    "rank":  12,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  75039598,
+                   "value":  75349697,
                    "breed":  1,
                    "sex":  1,
                    "level":  94
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  62789477,
+                   "value":  65821658,
                    "breed":  2,
                    "sex":  0,
-                   "level":  90
+                   "level":  91
                },
                {
                    "rank":  17,
@@ -347,7 +347,7 @@
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  1022,
+                        "value":  1053,
                         "breed":  2,
                         "sex":  0
                     },
