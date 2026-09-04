@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-04T22:44:33.1491858+02:00",
+    "generatedAt":  "2026-09-04T22:49:29.4729491+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  892278017,
+                   "value":  893733230,
                    "breed":  6,
                    "sex":  1,
                    "level":  167
@@ -100,37 +100,45 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  71494945,
+                   "value":  72374199,
                    "breed":  1,
                    "sex":  1,
-                   "level":  92
+                   "level":  93
                },
                {
                    "rank":  14,
                    "name":  "Rubisca",
-                   "value":  66835180,
+                   "value":  69079027,
                    "breed":  17,
                    "sex":  1,
-                   "level":  91
+                   "level":  92
                },
                {
                    "rank":  15,
                    "name":  "Cyano",
-                   "value":  60198262,
+                   "value":  63552599,
                    "breed":  3,
                    "sex":  0,
-                   "level":  89
+                   "level":  90
                },
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  60013944,
+                   "value":  62789477,
                    "breed":  2,
                    "sex":  0,
-                   "level":  89
+                   "level":  90
                },
                {
                    "rank":  17,
+                   "name":  "Frite",
+                   "value":  26193562,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  72
+               },
+               {
+                   "rank":  18,
                    "name":  "Fritz",
                    "value":  26065589,
                    "breed":  9,
@@ -138,17 +146,9 @@
                    "level":  72
                },
                {
-                   "rank":  18,
-                   "name":  "Frite",
-                   "value":  25353310,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  72
-               },
-               {
                    "rank":  19,
                    "name":  "Frita",
-                   "value":  25241720,
+                   "value":  25887939,
                    "breed":  8,
                    "sex":  0,
                    "level":  72
@@ -156,7 +156,7 @@
                {
                    "rank":  20,
                    "name":  "Fritr",
-                   "value":  23810054,
+                   "value":  24840023,
                    "breed":  11,
                    "sex":  0,
                    "level":  71
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1148,
+                        "value":  1168,
                         "breed":  1,
                         "sex":  1
                     },
@@ -340,14 +340,14 @@
                     {
                         "rank":  11,
                         "name":  "Cyano",
-                        "value":  939,
+                        "value":  1030,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  930,
+                        "value":  1022,
                         "breed":  2,
                         "sex":  0
                     },
