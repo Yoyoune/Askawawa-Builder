@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-04T18:59:29.1153953+02:00",
+    "generatedAt":  "2026-09-04T19:09:29.1515699+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  64847331,
+                   "value":  65296789,
                    "breed":  1,
                    "sex":  1,
                    "level":  90
@@ -115,19 +115,19 @@
                },
                {
                    "rank":  15,
-                   "name":  "Cyano",
-                   "value":  54810751,
-                   "breed":  3,
+                   "name":  "Rhizobium",
+                   "value":  55071429,
+                   "breed":  2,
                    "sex":  0,
                    "level":  87
                },
                {
                    "rank":  16,
-                   "name":  "Rhizobium",
-                   "value":  52671979,
-                   "breed":  2,
+                   "name":  "Cyano",
+                   "value":  54810751,
+                   "breed":  3,
                    "sex":  0,
-                   "level":  86
+                   "level":  87
                },
                {
                    "rank":  17,
@@ -339,16 +339,16 @@
                     },
                     {
                         "rank":  11,
-                        "name":  "Cyano",
-                        "value":  927,
-                        "breed":  3,
+                        "name":  "Rhizobium",
+                        "value":  928,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  12,
-                        "name":  "Rhizobium",
-                        "value":  918,
-                        "breed":  2,
+                        "name":  "Cyano",
+                        "value":  927,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
