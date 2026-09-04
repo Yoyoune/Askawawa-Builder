@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-04T23:34:29.5906232+02:00",
+    "generatedAt":  "2026-09-04T23:39:29.4745839+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  946876201,
+                   "value":  954141001,
                    "breed":  6,
                    "sex":  1,
                    "level":  169
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  844524578,
+                   "value":  864871351,
                    "breed":  11,
                    "sex":  0,
-                   "level":  165
+                   "level":  166
                },
                {
                    "rank":  5,
@@ -68,18 +68,18 @@
                {
                    "rank":  9,
                    "name":  "Dos",
-                   "value":  108265963,
+                   "value":  112533762,
                    "breed":  3,
                    "sex":  0,
-                   "level":  103
+                   "level":  104
                },
                {
                    "rank":  10,
                    "name":  "Uno",
-                   "value":  104241880,
+                   "value":  108431173,
                    "breed":  3,
                    "sex":  1,
-                   "level":  102
+                   "level":  103
                },
                {
                    "rank":  11,
@@ -100,10 +100,10 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  77213018,
+                   "value":  77988067,
                    "breed":  1,
                    "sex":  1,
-                   "level":  94
+                   "level":  95
                },
                {
                    "rank":  14,
@@ -124,10 +124,10 @@
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  65821658,
+                   "value":  68553960,
                    "breed":  2,
                    "sex":  0,
-                   "level":  91
+                   "level":  92
                },
                {
                    "rank":  17,
@@ -347,7 +347,7 @@
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  1053,
+                        "value":  1064,
                         "breed":  2,
                         "sex":  0
                     },
