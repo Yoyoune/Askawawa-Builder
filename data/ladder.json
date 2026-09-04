@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-04T22:19:29.3700855+02:00",
+    "generatedAt":  "2026-09-04T22:24:29.4842785+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  69385985,
+                   "value":  70045972,
                    "breed":  1,
                    "sex":  1,
                    "level":  92
@@ -124,13 +124,21 @@
                {
                    "rank":  16,
                    "name":  "Rhizobium",
-                   "value":  58279023,
+                   "value":  60013944,
                    "breed":  2,
                    "sex":  0,
-                   "level":  88
+                   "level":  89
                },
                {
                    "rank":  17,
+                   "name":  "Fritz",
+                   "value":  25627977,
+                   "breed":  9,
+                   "sex":  0,
+                   "level":  72
+               },
+               {
+                   "rank":  18,
                    "name":  "Frite",
                    "value":  25353310,
                    "breed":  7,
@@ -138,20 +146,12 @@
                    "level":  72
                },
                {
-                   "rank":  18,
-                   "name":  "Fritz",
-                   "value":  25348210,
-                   "breed":  9,
-                   "sex":  0,
-                   "level":  72
-               },
-               {
                    "rank":  19,
                    "name":  "Frita",
-                   "value":  24834325,
+                   "value":  25241720,
                    "breed":  8,
                    "sex":  0,
-                   "level":  71
+                   "level":  72
                },
                {
                    "rank":  20,
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1127,
+                        "value":  1148,
                         "breed":  1,
                         "sex":  1
                     },
@@ -347,7 +347,7 @@
                     {
                         "rank":  12,
                         "name":  "Rhizobium",
-                        "value":  929,
+                        "value":  930,
                         "breed":  2,
                         "sex":  0
                     },
