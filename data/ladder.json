@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T01:44:29.4500517+02:00",
+    "generatedAt":  "2026-09-06T01:49:29.3824819+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rhizobium",
-                   "value":  184055255,
+                   "value":  184110680,
                    "breed":  2,
                    "sex":  0,
                    "level":  117
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  182373474,
+                   "value":  182438993,
                    "breed":  17,
                    "sex":  1,
                    "level":  117
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  169664959,
+                   "value":  169714548,
                    "breed":  3,
                    "sex":  0,
                    "level":  115
@@ -260,7 +260,7 @@
                {
                    "rank":  33,
                    "name":  "Myc├®lia",
-                   "value":  185668,
+                   "value":  190948,
                    "breed":  9,
                    "sex":  1,
                    "level":  20
@@ -268,7 +268,7 @@
                {
                    "rank":  34,
                    "name":  "Photoinhib",
-                   "value":  185668,
+                   "value":  190948,
                    "breed":  13,
                    "sex":  1,
                    "level":  20
@@ -276,7 +276,7 @@
                {
                    "rank":  35,
                    "name":  "Broute",
-                   "value":  179970,
+                   "value":  185250,
                    "breed":  18,
                    "sex":  0,
                    "level":  20
@@ -284,7 +284,7 @@
                {
                    "rank":  36,
                    "name":  "Quench",
-                   "value":  179892,
+                   "value":  185172,
                    "breed":  7,
                    "sex":  0,
                    "level":  20
@@ -365,21 +365,21 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  1506,
+                        "value":  1516,
                         "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  1481,
+                        "value":  1491,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1450,
+                        "value":  1460,
                         "breed":  3,
                         "sex":  0
                     },
@@ -526,28 +526,28 @@
                     {
                         "rank":  33,
                         "name":  "Myc├®lia",
-                        "value":  27,
+                        "value":  29,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  34,
                         "name":  "Broute",
-                        "value":  25,
+                        "value":  27,
                         "breed":  18,
                         "sex":  0
                     },
                     {
                         "rank":  35,
                         "name":  "Quench",
-                        "value":  25,
+                        "value":  27,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  36,
                         "name":  "Photoinhib",
-                        "value":  25,
+                        "value":  27,
                         "breed":  13,
                         "sex":  1
                     },
