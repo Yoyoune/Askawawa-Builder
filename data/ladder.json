@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T19:19:29.4723256+02:00",
+    "generatedAt":  "2026-09-05T19:29:29.5571241+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  946209765,
+                   "value":  946373466,
                    "breed":  8,
                    "sex":  0,
                    "level":  169
@@ -68,10 +68,10 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  161214805,
+                   "value":  163756836,
                    "breed":  1,
                    "sex":  1,
-                   "level":  113
+                   "level":  114
                },
                {
                    "rank":  10,
@@ -171,6 +171,14 @@
                },
                {
                    "rank":  22,
+                   "name":  "Azera",
+                   "value":  7017139,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  23,
                    "name":  "Donatelo",
                    "value":  7004741,
                    "breed":  11,
@@ -178,36 +186,28 @@
                    "level":  53
                },
                {
-                   "rank":  23,
+                   "rank":  24,
+                   "name":  "Azerz",
+                   "value":  7002076,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  25,
+                   "name":  "Azere",
+                   "value":  7002076,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  26,
                    "name":  "Rafaelo",
                    "value":  6975883,
                    "breed":  11,
                    "sex":  0,
                    "level":  53
-               },
-               {
-                   "rank":  24,
-                   "name":  "Azera",
-                   "value":  6884529,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  52
-               },
-               {
-                   "rank":  25,
-                   "name":  "Azerz",
-                   "value":  6869466,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  52
-               },
-               {
-                   "rank":  26,
-                   "name":  "Azere",
-                   "value":  6869466,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  52
                },
                {
                    "rank":  27,
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1541,
+                        "value":  1551,
                         "breed":  1,
                         "sex":  1
                     },
@@ -473,21 +473,21 @@
                     {
                         "rank":  30,
                         "name":  "Azere",
-                        "value":  47,
+                        "value":  48,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  31,
                         "name":  "Azerz",
-                        "value":  47,
+                        "value":  48,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  32,
                         "name":  "Azera",
-                        "value":  47,
+                        "value":  48,
                         "breed":  3,
                         "sex":  0
                     },
