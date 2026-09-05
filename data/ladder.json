@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T23:49:29.2318705+02:00",
+    "generatedAt":  "2026-09-05T23:54:29.1602581+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1116700159,
+                   "value":  1119492752,
                    "breed":  10,
                    "sex":  1,
                    "level":  175
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1115939514,
+                   "value":  1118732107,
                    "breed":  10,
                    "sex":  0,
                    "level":  175
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1062647781,
+                   "value":  1074183262,
                    "breed":  11,
                    "sex":  0,
                    "level":  173
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  188451368,
+                   "value":  188739053,
                    "breed":  1,
                    "sex":  1,
                    "level":  117
@@ -76,15 +76,15 @@
                {
                    "rank":  10,
                    "name":  "Rhizobium",
-                   "value":  181059012,
+                   "value":  182282148,
                    "breed":  2,
                    "sex":  0,
-                   "level":  116
+                   "level":  117
                },
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  178845882,
+                   "value":  180291820,
                    "breed":  17,
                    "sex":  1,
                    "level":  116
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  166384194,
+                   "value":  167663354,
                    "breed":  3,
                    "sex":  0,
                    "level":  114
@@ -260,34 +260,34 @@
                {
                    "rank":  33,
                    "name":  "Myc├®lia",
-                   "value":  27407,
+                   "value":  44884,
                    "breed":  9,
                    "sex":  1,
-                   "level":  11
+                   "level":  13
                },
                {
                    "rank":  34,
                    "name":  "Photoinhib",
-                   "value":  27407,
+                   "value":  44884,
                    "breed":  13,
                    "sex":  1,
-                   "level":  11
+                   "level":  13
                },
                {
                    "rank":  35,
                    "name":  "Broute",
-                   "value":  25385,
+                   "value":  40106,
                    "breed":  18,
                    "sex":  0,
-                   "level":  11
+                   "level":  12
                },
                {
                    "rank":  36,
                    "name":  "Quench",
-                   "value":  25307,
+                   "value":  40028,
                    "breed":  7,
                    "sex":  0,
-                   "level":  11
+                   "level":  12
                },
                {
                    "rank":  37,
@@ -337,21 +337,21 @@
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  1865,
+                        "value":  1875,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  1863,
+                        "value":  1873,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1859,
+                        "value":  1869,
                         "breed":  11,
                         "sex":  0
                     },
@@ -525,29 +525,29 @@
                     },
                     {
                         "rank":  33,
+                        "name":  "Myc├®lia",
+                        "value":  12,
+                        "breed":  9,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  34,
                         "name":  "Broute",
                         "value":  10,
                         "breed":  18,
                         "sex":  0
                     },
                     {
-                        "rank":  34,
+                        "rank":  35,
                         "name":  "Quench",
                         "value":  10,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  35,
-                        "name":  "Myc├®lia",
-                        "value":  10,
-                        "breed":  9,
-                        "sex":  1
-                    },
-                    {
                         "rank":  36,
                         "name":  "Photoinhib",
-                        "value":  8,
+                        "value":  10,
                         "breed":  13,
                         "sex":  1
                     },
