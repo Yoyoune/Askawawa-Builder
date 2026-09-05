@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T19:44:29.4737183+02:00",
+    "generatedAt":  "2026-09-05T19:49:29.4932255+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1145247647,
+                   "value":  1164800701,
                    "breed":  6,
                    "sex":  1,
                    "level":  176
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1087544297,
+                   "value":  1094853206,
                    "breed":  10,
                    "sex":  1,
                    "level":  174
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1087281296,
+                   "value":  1094590205,
                    "breed":  10,
                    "sex":  0,
                    "level":  174
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1030468132,
+                   "value":  1051140511,
                    "breed":  11,
                    "sex":  0,
-                   "level":  172
+                   "level":  173
                },
                {
                    "rank":  5,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  164611905,
+                   "value":  165275011,
                    "breed":  1,
                    "sex":  1,
                    "level":  114
@@ -298,28 +298,28 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  1977,
+                        "value":  1978,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  1862,
+                        "value":  1863,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  1861,
+                        "value":  1862,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1857,
+                        "value":  1858,
                         "breed":  11,
                         "sex":  0
                     },
