@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T23:44:29.2856646+02:00",
+    "generatedAt":  "2026-09-05T23:49:29.2318705+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  188187229,
+                   "value":  188451368,
                    "breed":  1,
                    "sex":  1,
                    "level":  117
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  126460852,
+                   "value":  127635831,
                    "breed":  3,
                    "sex":  0,
                    "level":  107
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  122064099,
+                   "value":  122152305,
                    "breed":  3,
                    "sex":  1,
                    "level":  106
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  115380448,
+                   "value":  116476104,
                    "breed":  3,
                    "sex":  0,
                    "level":  104
@@ -276,18 +276,18 @@
                {
                    "rank":  35,
                    "name":  "Broute",
-                   "value":  22881,
+                   "value":  25385,
                    "breed":  18,
                    "sex":  0,
-                   "level":  10
+                   "level":  11
                },
                {
                    "rank":  36,
                    "name":  "Quench",
-                   "value":  22803,
+                   "value":  25307,
                    "breed":  7,
                    "sex":  0,
-                   "level":  10
+                   "level":  11
                },
                {
                    "rank":  37,
@@ -420,24 +420,24 @@
                     },
                     {
                         "rank":  18,
-                        "name":  "Cuatro",
-                        "value":  305,
+                        "name":  "Tres",
+                        "value":  306,
                         "breed":  3,
-                        "sex":  1
+                        "sex":  0
                     },
                     {
                         "rank":  19,
                         "name":  "Dos",
-                        "value":  296,
+                        "value":  306,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  20,
-                        "name":  "Tres",
-                        "value":  296,
+                        "name":  "Cuatro",
+                        "value":  305,
                         "breed":  3,
-                        "sex":  0
+                        "sex":  1
                     },
                     {
                         "rank":  21,
@@ -504,14 +504,14 @@
                     },
                     {
                         "rank":  30,
-                        "name":  "Azerz",
+                        "name":  "Azere",
                         "value":  48,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  31,
-                        "name":  "Azere",
+                        "name":  "Azerz",
                         "value":  48,
                         "breed":  3,
                         "sex":  0
@@ -525,31 +525,31 @@
                     },
                     {
                         "rank":  33,
+                        "name":  "Broute",
+                        "value":  10,
+                        "breed":  18,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  34,
+                        "name":  "Quench",
+                        "value":  10,
+                        "breed":  7,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  35,
                         "name":  "Myc├®lia",
                         "value":  10,
                         "breed":  9,
                         "sex":  1
                     },
                     {
-                        "rank":  34,
-                        "name":  "Broute",
-                        "value":  8,
-                        "breed":  18,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  35,
+                        "rank":  36,
                         "name":  "Photoinhib",
                         "value":  8,
                         "breed":  13,
                         "sex":  1
-                    },
-                    {
-                        "rank":  36,
-                        "name":  "Quench",
-                        "value":  8,
-                        "breed":  7,
-                        "sex":  0
                     },
                     {
                         "rank":  37,
