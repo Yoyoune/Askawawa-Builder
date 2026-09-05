@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T14:04:29.8667082+02:00",
+    "generatedAt":  "2026-09-05T14:09:29.9282911+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -187,6 +187,14 @@
                },
                {
                    "rank":  24,
+                   "name":  "Azerr",
+                   "value":  6216585,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  51
+               },
+               {
+                   "rank":  25,
                    "name":  "Leonardo",
                    "value":  6150231,
                    "breed":  11,
@@ -194,36 +202,28 @@
                    "level":  51
                },
                {
-                   "rank":  25,
-                   "name":  "Azerr",
-                   "value":  5522009,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  50
-               },
-               {
                    "rank":  26,
                    "name":  "Azera",
-                   "value":  5226466,
+                   "value":  5900576,
                    "breed":  3,
                    "sex":  0,
-                   "level":  49
+                   "level":  51
                },
                {
                    "rank":  27,
                    "name":  "Azerz",
-                   "value":  5211403,
+                   "value":  5885513,
                    "breed":  3,
                    "sex":  0,
-                   "level":  49
+                   "level":  51
                },
                {
                    "rank":  28,
                    "name":  "Azere",
-                   "value":  5211403,
+                   "value":  5885513,
                    "breed":  3,
                    "sex":  0,
-                   "level":  49
+                   "level":  51
                },
                {
                    "rank":  29,
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1269,
+                        "value":  1270,
                         "breed":  1,
                         "sex":  1
                     },
