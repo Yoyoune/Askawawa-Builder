@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T22:14:29.7354743+02:00",
+    "generatedAt":  "2026-09-05T22:24:29.6717186+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  838006843,
+                   "value":  849204972,
                    "breed":  11,
                    "sex":  0,
                    "level":  165
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  811338098,
+                   "value":  821191735,
                    "breed":  7,
                    "sex":  0,
                    "level":  164
@@ -172,7 +172,7 @@
                {
                    "rank":  22,
                    "name":  "Azera",
-                   "value":  9740653,
+                   "value":  9766755,
                    "breed":  3,
                    "sex":  0,
                    "level":  57
@@ -180,7 +180,7 @@
                {
                    "rank":  23,
                    "name":  "Azere",
-                   "value":  9700760,
+                   "value":  9726862,
                    "breed":  3,
                    "sex":  0,
                    "level":  57
@@ -188,7 +188,7 @@
                {
                    "rank":  24,
                    "name":  "Azerz",
-                   "value":  9684208,
+                   "value":  9710310,
                    "breed":  3,
                    "sex":  0,
                    "level":  57
