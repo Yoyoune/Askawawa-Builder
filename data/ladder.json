@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T10:24:29.8741409+02:00",
+    "generatedAt":  "2026-09-05T10:34:29.5548749+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,18 +36,18 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  841594066,
+                   "value":  860779085,
                    "breed":  8,
                    "sex":  0,
-                   "level":  165
+                   "level":  166
                },
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  720778923,
+                   "value":  753938704,
                    "breed":  11,
                    "sex":  0,
-                   "level":  160
+                   "level":  161
                },
                {
                    "rank":  7,
@@ -270,22 +270,22 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2590,
+                        "value":  2620,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
-                        "name":  "Persodeux",
-                        "value":  2475,
-                        "breed":  9,
+                        "name":  "Persoun",
+                        "value":  2501,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  3,
-                        "name":  "Persoun",
-                        "value":  2460,
-                        "breed":  11,
+                        "name":  "Persodeux",
+                        "value":  2475,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -381,21 +381,21 @@
                     },
                     {
                         "rank":  17,
-                        "name":  "Dos",
-                        "value":  283,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  18,
                         "name":  "Uno",
                         "value":  283,
                         "breed":  3,
                         "sex":  1
                     },
                     {
-                        "rank":  19,
+                        "rank":  18,
                         "name":  "Tres",
+                        "value":  283,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  19,
+                        "name":  "Dos",
                         "value":  283,
                         "breed":  3,
                         "sex":  0
