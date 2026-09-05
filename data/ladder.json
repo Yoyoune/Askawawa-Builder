@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T22:54:29.8336431+02:00",
+    "generatedAt":  "2026-09-05T22:59:29.8042295+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1167291003,
+                   "value":  1169278326,
                    "breed":  6,
                    "sex":  1,
                    "level":  176
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1094853206,
+                   "value":  1098922960,
                    "breed":  10,
                    "sex":  1,
                    "level":  174
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1094590205,
+                   "value":  1098659959,
                    "breed":  10,
                    "sex":  0,
                    "level":  174
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1051140511,
+                   "value":  1055009407,
                    "breed":  11,
                    "sex":  0,
                    "level":  173
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  186389480,
+                   "value":  186833017,
                    "breed":  1,
                    "sex":  1,
                    "level":  117
@@ -132,7 +132,7 @@
                {
                    "rank":  17,
                    "name":  "Frite",
-                   "value":  28629948,
+                   "value":  28655159,
                    "breed":  7,
                    "sex":  0,
                    "level":  74
@@ -140,7 +140,7 @@
                {
                    "rank":  18,
                    "name":  "Fritz",
-                   "value":  28627302,
+                   "value":  28654062,
                    "breed":  9,
                    "sex":  0,
                    "level":  74
