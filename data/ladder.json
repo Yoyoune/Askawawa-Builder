@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T01:04:29.3280479+02:00",
+    "generatedAt":  "2026-09-06T01:09:29.2749853+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  959678964,
+                   "value":  967181251,
                    "breed":  8,
                    "sex":  0,
-                   "level":  169
+                   "level":  170
                },
                {
                    "rank":  6,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  190169298,
+                   "value":  190294026,
                    "breed":  1,
                    "sex":  1,
                    "level":  118
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Azerr",
-                   "value":  10111799,
+                   "value":  11824333,
                    "breed":  3,
                    "sex":  0,
-                   "level":  57
+                   "level":  60
                },
                {
                    "rank":  22,
                    "name":  "Azera",
-                   "value":  9766755,
+                   "value":  11485113,
                    "breed":  3,
                    "sex":  0,
-                   "level":  57
+                   "level":  59
                },
                {
                    "rank":  23,
                    "name":  "Azere",
-                   "value":  9726862,
+                   "value":  11427744,
                    "breed":  3,
                    "sex":  0,
-                   "level":  57
+                   "level":  59
                },
                {
                    "rank":  24,
                    "name":  "Azerz",
-                   "value":  9710310,
+                   "value":  11399544,
                    "breed":  3,
                    "sex":  0,
-                   "level":  57
+                   "level":  59
                },
                {
                    "rank":  25,
@@ -498,7 +498,7 @@
                     {
                         "rank":  29,
                         "name":  "Azerr",
-                        "value":  50,
+                        "value":  71,
                         "breed":  3,
                         "sex":  0
                     },
