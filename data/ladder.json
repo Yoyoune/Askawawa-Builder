@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T09:59:29.5044704+02:00",
+    "generatedAt":  "2026-09-05T10:04:29.4847656+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  825756333,
+                   "value":  831534775,
                    "breed":  8,
                    "sex":  0,
                    "level":  164
@@ -270,7 +270,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2569,
+                        "value":  2579,
                         "breed":  8,
                         "sex":  0
                     },
