@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T23:14:29.8011736+02:00",
+    "generatedAt":  "2026-09-05T23:19:29.8224141+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1098922960,
+                   "value":  1107435499,
                    "breed":  10,
                    "sex":  1,
                    "level":  174
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1098659959,
+                   "value":  1106674854,
                    "breed":  10,
                    "sex":  0,
                    "level":  174
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1055009407,
+                   "value":  1062647781,
                    "breed":  11,
                    "sex":  0,
                    "level":  173
@@ -259,6 +259,14 @@
                },
                {
                    "rank":  33,
+                   "name":  "Myc├®lia",
+                   "value":  156,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  2
+               },
+               {
+                   "rank":  34,
                    "name":  "Tamere",
                    "value":  52,
                    "breed":  2,
@@ -305,21 +313,21 @@
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  1863,
+                        "value":  1865,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  1862,
+                        "value":  1863,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1858,
+                        "value":  1859,
                         "breed":  11,
                         "sex":  0
                     },
@@ -493,6 +501,13 @@
                     },
                     {
                         "rank":  33,
+                        "name":  "Myc├®lia",
+                        "value":  5,
+                        "breed":  9,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  34,
                         "name":  "Tamere",
                         "value":  2,
                         "breed":  2,
