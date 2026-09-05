@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T00:59:29.2746053+02:00",
+    "generatedAt":  "2026-09-06T01:04:29.3280479+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  190049890,
+                   "value":  190169298,
                    "breed":  1,
                    "sex":  1,
                    "level":  118
@@ -259,35 +259,35 @@
                },
                {
                    "rank":  33,
-                   "name":  "Myc├®lia",
-                   "value":  129314,
-                   "breed":  9,
-                   "sex":  1,
-                   "level":  18
+                   "name":  "Broute",
+                   "value":  147030,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  19
                },
                {
                    "rank":  34,
-                   "name":  "Photoinhib",
-                   "value":  129314,
-                   "breed":  13,
-                   "sex":  1,
-                   "level":  18
+                   "name":  "Quench",
+                   "value":  146952,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  19
                },
                {
                    "rank":  35,
-                   "name":  "Broute",
-                   "value":  124450,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  18
+                   "name":  "Photoinhib",
+                   "value":  145246,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  19
                },
                {
                    "rank":  36,
-                   "name":  "Quench",
-                   "value":  124372,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  18
+                   "name":  "Myc├®lia",
+                   "value":  145246,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  19
                },
                {
                    "rank":  37,
@@ -526,28 +526,28 @@
                     {
                         "rank":  33,
                         "name":  "Myc├®lia",
-                        "value":  19,
+                        "value":  22,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  34,
                         "name":  "Broute",
-                        "value":  17,
+                        "value":  20,
                         "breed":  18,
                         "sex":  0
                     },
                     {
                         "rank":  35,
                         "name":  "Quench",
-                        "value":  17,
+                        "value":  20,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  36,
                         "name":  "Photoinhib",
-                        "value":  17,
+                        "value":  20,
                         "breed":  13,
                         "sex":  1
                     },
