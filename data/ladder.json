@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T17:04:29.2228206+02:00",
+    "generatedAt":  "2026-09-05T17:09:29.2439373+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1113100160,
+                   "value":  1114304032,
                    "breed":  6,
                    "sex":  1,
                    "level":  175
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  927035584,
+                   "value":  933743306,
                    "breed":  8,
                    "sex":  0,
                    "level":  168
@@ -91,6 +91,14 @@
                },
                {
                    "rank":  12,
+                   "name":  "Flavodiira",
+                   "value":  113862496,
+                   "breed":  1,
+                   "sex":  1,
+                   "level":  104
+               },
+               {
+                   "rank":  13,
                    "name":  "Tres",
                    "value":  113470351,
                    "breed":  3,
@@ -98,20 +106,12 @@
                    "level":  104
                },
                {
-                   "rank":  13,
-                   "name":  "Flavodiira",
-                   "value":  113094282,
-                   "breed":  1,
-                   "sex":  1,
-                   "level":  104
-               },
-               {
                    "rank":  14,
                    "name":  "Rubisca",
-                   "value":  111701113,
+                   "value":  112545368,
                    "breed":  17,
                    "sex":  1,
-                   "level":  103
+                   "level":  104
                },
                {
                    "rank":  15,
