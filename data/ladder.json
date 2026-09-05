@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T22:49:29.7376955+02:00",
+    "generatedAt":  "2026-09-05T22:54:29.8336431+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1164800701,
+                   "value":  1167291003,
                    "breed":  6,
                    "sex":  1,
                    "level":  176
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  186370261,
+                   "value":  186389480,
                    "breed":  1,
                    "sex":  1,
                    "level":  117
