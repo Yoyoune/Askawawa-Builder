@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T14:19:29.9279307+02:00",
+    "generatedAt":  "2026-09-05T14:24:29.9945004+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  879807701,
+                   "value":  888904349,
                    "breed":  8,
                    "sex":  0,
-                   "level":  166
+                   "level":  167
                },
                {
                    "rank":  6,
@@ -116,10 +116,10 @@
                {
                    "rank":  15,
                    "name":  "Rhizobium",
-                   "value":  85308116,
+                   "value":  88518566,
                    "breed":  2,
                    "sex":  0,
-                   "level":  97
+                   "level":  98
                },
                {
                    "rank":  16,
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1341,
+                        "value":  1342,
                         "breed":  1,
                         "sex":  1
                     },
@@ -339,16 +339,16 @@
                     },
                     {
                         "rank":  11,
-                        "name":  "Cyano",
-                        "value":  1073,
-                        "breed":  3,
+                        "name":  "Rhizobium",
+                        "value":  1137,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  12,
-                        "name":  "Rhizobium",
-                        "value":  1064,
-                        "breed":  2,
+                        "name":  "Cyano",
+                        "value":  1073,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
