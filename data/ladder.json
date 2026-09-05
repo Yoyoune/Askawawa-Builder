@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T23:19:29.8224141+02:00",
+    "generatedAt":  "2026-09-05T23:24:29.8317742+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1177558415,
+                   "value":  1178657748,
                    "breed":  6,
                    "sex":  1,
                    "level":  177
@@ -267,6 +267,14 @@
                },
                {
                    "rank":  34,
+                   "name":  "Photoinhib",
+                   "value":  156,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  2
+               },
+               {
+                   "rank":  35,
                    "name":  "Tamere",
                    "value":  52,
                    "breed":  2,
@@ -375,35 +383,35 @@
                     },
                     {
                         "rank":  15,
-                        "name":  "Fritr",
-                        "value":  446,
-                        "breed":  11,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  16,
                         "name":  "Frite",
                         "value":  446,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  17,
-                        "name":  "Dos",
-                        "value":  296,
-                        "breed":  3,
+                        "rank":  16,
+                        "name":  "Fritr",
+                        "value":  446,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  18,
+                        "rank":  17,
                         "name":  "Uno",
                         "value":  296,
                         "breed":  3,
                         "sex":  1
                     },
                     {
-                        "rank":  19,
+                        "rank":  18,
                         "name":  "Tres",
+                        "value":  296,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  19,
+                        "name":  "Dos",
                         "value":  296,
                         "breed":  3,
                         "sex":  0
@@ -417,17 +425,17 @@
                     },
                     {
                         "rank":  21,
-                        "name":  "Matt",
-                        "value":  269,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  22,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Matt",
+                        "value":  269,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  23,
@@ -508,6 +516,13 @@
                     },
                     {
                         "rank":  34,
+                        "name":  "Photoinhib",
+                        "value":  2,
+                        "breed":  13,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  35,
                         "name":  "Tamere",
                         "value":  2,
                         "breed":  2,
