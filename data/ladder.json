@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T18:14:29.3179164+02:00",
+    "generatedAt":  "2026-09-05T18:19:29.3698719+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  941160284,
+                   "value":  942719772,
                    "breed":  8,
                    "sex":  0,
                    "level":  169
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  804494208,
+                   "value":  806790504,
                    "breed":  7,
                    "sex":  0,
                    "level":  163
@@ -75,18 +75,18 @@
                },
                {
                    "rank":  10,
-                   "name":  "Rubisca",
-                   "value":  150787204,
-                   "breed":  17,
-                   "sex":  1,
+                   "name":  "Rhizobium",
+                   "value":  152129901,
+                   "breed":  2,
+                   "sex":  0,
                    "level":  111
                },
                {
                    "rank":  11,
-                   "name":  "Rhizobium",
-                   "value":  147250116,
-                   "breed":  2,
-                   "sex":  0,
+                   "name":  "Rubisca",
+                   "value":  150787204,
+                   "breed":  17,
+                   "sex":  1,
                    "level":  111
                },
                {
