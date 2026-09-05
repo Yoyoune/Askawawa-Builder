@@ -1514,6 +1514,7 @@ function openBrowser(uiSlotId, category) {
   document.getElementById("levelMinInput").value = "";
   document.getElementById("levelMaxInput").value = getCharLevel();
   document.getElementById("sortSelect").value = "level-desc";
+  renderStatFilterChips();
   renderItemList();
   renderCurrentlyEquipped();
   renderPaperdoll();
@@ -2808,59 +2809,78 @@ function getEffectComparableValue(effect) {
   return sign * raw;
 }
 
+/** Builds one toggle-chip-group (chip + its "minimum value" box) for a single stat, shared
+ * by the normal filter row and the weapon-only "PV rendus" chip prepended to it below. */
+function createStatFilterChipGroup(stat) {
+  const existing = activeStatFilters.find(f => f.stat === stat);
+
+  const group = document.createElement("div");
+  group.className = "stat-toggle-chip-group" + (existing ? " active" : "");
+
+  const chip = document.createElement("button");
+  chip.type = "button";
+  chip.className = "filter-chip" + (existing ? " active" : "");
+  chip.textContent = stat;
+  group.appendChild(chip);
+
+  const valueBox = document.createElement("div");
+  valueBox.className = "stat-toggle-chip-value-box";
+  const valueInput = document.createElement("input");
+  valueInput.type = "number";
+  valueInput.className = "stat-toggle-chip-value";
+  valueInput.min = "0";
+  valueInput.placeholder = "Valeur mini";
+  valueInput.value = existing ? existing.minValue : 0;
+  valueInput.addEventListener("input", () => {
+    const f = activeStatFilters.find(f => f.stat === stat);
+    if (!f) return;
+    const v = parseInt(valueInput.value, 10);
+    f.minValue = isNaN(v) ? 0 : v;
+    renderItemList();
+  });
+  valueBox.appendChild(valueInput);
+  group.appendChild(valueBox);
+
+  chip.addEventListener("click", () => {
+    const idx = activeStatFilters.findIndex(f => f.stat === stat);
+    if (idx >= 0) {
+      activeStatFilters.splice(idx, 1);
+      group.classList.remove("active");
+      chip.classList.remove("active");
+    } else {
+      activeStatFilters.push({ stat, minValue: 0 });
+      valueInput.value = 0;
+      group.classList.add("active");
+      chip.classList.add("active");
+      valueInput.focus();
+    }
+    renderItemList();
+  });
+
+  return group;
+}
+
 /** Stat filters render as toggle chips (like the other boolean filter rows); activating one
-    reveals a small value box directly beneath it to set the minimum threshold. */
+    reveals a small value box directly beneath it to set the minimum threshold. Weapon-only
+    raw-roll stats ("(dommages X)"/"(vol X)"/"(PV rendus)", isWeaponEffect) are excluded from
+    this generic list - "PV rendus" gets its own chip prepended below, shown only while
+    browsing the "Arme" slot since it's meaningless anywhere else. */
 function renderStatFilterChips() {
   const row = document.getElementById("statFilterChipRow");
   const options = sortStatEntries(EFFECT_LABELS.filter(l => !isWeaponEffect(l)).map(l => [l])).map(([l]) => l);
   row.innerHTML = "";
+
+  if (activeCategory === "arme" && EFFECT_LABELS.includes("(PV rendus)")) {
+    row.appendChild(createStatFilterChipGroup("(PV rendus)"));
+  } else {
+    // Leaving the Arme panel: drop a lingering "(PV rendus)" filter rather than leave it
+    // silently active (and unreachable) against a category it can never match on.
+    const idx = activeStatFilters.findIndex(f => f.stat === "(PV rendus)");
+    if (idx >= 0) activeStatFilters.splice(idx, 1);
+  }
+
   for (const stat of options) {
-    const existing = activeStatFilters.find(f => f.stat === stat);
-
-    const group = document.createElement("div");
-    group.className = "stat-toggle-chip-group" + (existing ? " active" : "");
-
-    const chip = document.createElement("button");
-    chip.type = "button";
-    chip.className = "filter-chip" + (existing ? " active" : "");
-    chip.textContent = stat;
-    group.appendChild(chip);
-
-    const valueBox = document.createElement("div");
-    valueBox.className = "stat-toggle-chip-value-box";
-    const valueInput = document.createElement("input");
-    valueInput.type = "number";
-    valueInput.className = "stat-toggle-chip-value";
-    valueInput.min = "0";
-    valueInput.placeholder = "Valeur mini";
-    valueInput.value = existing ? existing.minValue : 0;
-    valueInput.addEventListener("input", () => {
-      const f = activeStatFilters.find(f => f.stat === stat);
-      if (!f) return;
-      const v = parseInt(valueInput.value, 10);
-      f.minValue = isNaN(v) ? 0 : v;
-      renderItemList();
-    });
-    valueBox.appendChild(valueInput);
-    group.appendChild(valueBox);
-
-    chip.addEventListener("click", () => {
-      const idx = activeStatFilters.findIndex(f => f.stat === stat);
-      if (idx >= 0) {
-        activeStatFilters.splice(idx, 1);
-        group.classList.remove("active");
-        chip.classList.remove("active");
-      } else {
-        activeStatFilters.push({ stat, minValue: 0 });
-        valueInput.value = 0;
-        group.classList.add("active");
-        chip.classList.add("active");
-        valueInput.focus();
-      }
-      renderItemList();
-    });
-
-    row.appendChild(group);
+    row.appendChild(createStatFilterChipGroup(stat));
   }
 }
 
