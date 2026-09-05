@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T16:49:29.2099624+02:00",
+    "generatedAt":  "2026-09-05T16:54:29.2049010+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1101153440,
+                   "value":  1104643336,
                    "breed":  6,
                    "sex":  1,
                    "level":  174
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  925824050,
+                   "value":  926177420,
                    "breed":  8,
                    "sex":  0,
                    "level":  168
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Rubisca",
-                   "value":  109440589,
+                   "value":  111701113,
                    "breed":  17,
                    "sex":  1,
                    "level":  103
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Rhizobium",
-                   "value":  104422883,
+                   "value":  106803037,
                    "breed":  2,
                    "sex":  0,
                    "level":  102
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Cyano",
-                   "value":  99883787,
+                   "value":  101995279,
                    "breed":  3,
                    "sex":  0,
                    "level":  101
@@ -270,7 +270,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2620,
+                        "value":  2630,
                         "breed":  8,
                         "sex":  0
                     },
@@ -333,21 +333,21 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  1331,
+                        "value":  1351,
                         "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  1306,
+                        "value":  1327,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1274,
+                        "value":  1295,
                         "breed":  3,
                         "sex":  0
                     },
