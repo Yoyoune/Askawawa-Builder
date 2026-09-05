@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T15:34:29.2581224+02:00",
+    "generatedAt":  "2026-09-05T15:39:29.1760130+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1061170637,
+                   "value":  1061677481,
                    "breed":  6,
                    "sex":  1,
                    "level":  173
@@ -52,10 +52,10 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  743599343,
+                   "value":  764670936,
                    "breed":  7,
                    "sex":  0,
-                   "level":  161
+                   "level":  162
                },
                {
                    "rank":  8,
@@ -179,6 +179,14 @@
                },
                {
                    "rank":  23,
+                   "name":  "Azerr",
+                   "value":  6973649,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  24,
                    "name":  "Michelangelo",
                    "value":  6703392,
                    "breed":  11,
@@ -186,42 +194,34 @@
                    "level":  52
                },
                {
-                   "rank":  24,
-                   "name":  "Azerr",
-                   "value":  6216585,
+                   "rank":  25,
+                   "name":  "Azera",
+                   "value":  6653851,
                    "breed":  3,
                    "sex":  0,
-                   "level":  51
-               },
-               {
-                   "rank":  25,
-                   "name":  "Leonardo",
-                   "value":  6150231,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  51
+                   "level":  52
                },
                {
                    "rank":  26,
-                   "name":  "Azera",
-                   "value":  5900576,
+                   "name":  "Azere",
+                   "value":  6638788,
                    "breed":  3,
                    "sex":  0,
-                   "level":  51
+                   "level":  52
                },
                {
                    "rank":  27,
                    "name":  "Azerz",
-                   "value":  5885513,
+                   "value":  6638788,
                    "breed":  3,
                    "sex":  0,
-                   "level":  51
+                   "level":  52
                },
                {
                    "rank":  28,
-                   "name":  "Azere",
-                   "value":  5885513,
-                   "breed":  3,
+                   "name":  "Leonardo",
+                   "value":  6150231,
+                   "breed":  11,
                    "sex":  0,
                    "level":  51
                },
