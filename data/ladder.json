@@ -1,45 +1,45 @@
 {
-    "generatedAt":  "2026-09-05T15:59:29.1845259+02:00",
+    "generatedAt":  "2026-09-05T16:04:29.1624604+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1077564773,
+                   "value":  1084966814,
                    "breed":  6,
                    "sex":  1,
-                   "level":  173
+                   "level":  174
                },
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  999687470,
+                   "value":  1021599934,
                    "breed":  10,
                    "sex":  1,
-                   "level":  171
+                   "level":  172
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  999424469,
+                   "value":  1021336933,
                    "breed":  10,
                    "sex":  0,
-                   "level":  171
+                   "level":  172
                },
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  946358120,
+                   "value":  967219407,
                    "breed":  11,
                    "sex":  0,
-                   "level":  169
+                   "level":  170
                },
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  905069791,
+                   "value":  912746536,
                    "breed":  8,
                    "sex":  0,
-                   "level":  167
+                   "level":  168
                },
                {
                    "rank":  6,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  109676728,
+                   "value":  110131163,
                    "breed":  1,
                    "sex":  1,
                    "level":  103
@@ -319,14 +319,14 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1806,
+                        "value":  1836,
                         "breed":  11,
                         "sex":  0
                     },
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1440,
+                        "value":  1450,
                         "breed":  1,
                         "sex":  1
                     },
