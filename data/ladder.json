@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T19:14:29.4827409+02:00",
+    "generatedAt":  "2026-09-05T19:19:29.4723256+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  159472509,
+                   "value":  161214805,
                    "breed":  1,
                    "sex":  1,
                    "level":  113
@@ -326,7 +326,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1531,
+                        "value":  1541,
                         "breed":  1,
                         "sex":  1
                     },
