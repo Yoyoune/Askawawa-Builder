@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-05T19:29:29.5571241+02:00",
+    "generatedAt":  "2026-09-05T19:34:29.4683084+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1140811986,
+                   "value":  1145247647,
                    "breed":  6,
                    "sex":  1,
-                   "level":  175
+                   "level":  176
                },
                {
                    "rank":  2,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  946373466,
+                   "value":  948049902,
                    "breed":  8,
                    "sex":  0,
                    "level":  169
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  834636151,
+                   "value":  838006843,
                    "breed":  11,
                    "sex":  0,
                    "level":  165
@@ -52,15 +52,15 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  806790504,
+                   "value":  811338098,
                    "breed":  7,
                    "sex":  0,
-                   "level":  163
+                   "level":  164
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  750990993,
+                   "value":  756980909,
                    "breed":  9,
                    "sex":  0,
                    "level":  161
@@ -68,13 +68,21 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  163756836,
+                   "value":  164154534,
                    "breed":  1,
                    "sex":  1,
                    "level":  114
                },
                {
                    "rank":  10,
+                   "name":  "Rhizobium",
+                   "value":  157961409,
+                   "breed":  2,
+                   "sex":  0,
+                   "level":  113
+               },
+               {
+                   "rank":  11,
                    "name":  "Rubisca",
                    "value":  152506451,
                    "breed":  17,
@@ -82,20 +90,12 @@
                    "level":  112
                },
                {
-                   "rank":  11,
-                   "name":  "Rhizobium",
-                   "value":  152482146,
-                   "breed":  2,
-                   "sex":  0,
-                   "level":  112
-               },
-               {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  137950562,
+                   "value":  141449420,
                    "breed":  3,
                    "sex":  0,
-                   "level":  109
+                   "level":  110
                },
                {
                    "rank":  13,
@@ -164,40 +164,40 @@
                {
                    "rank":  21,
                    "name":  "Azerr",
-                   "value":  7210187,
+                   "value":  7576452,
                    "breed":  3,
                    "sex":  0,
-                   "level":  53
+                   "level":  54
                },
                {
                    "rank":  22,
                    "name":  "Azera",
-                   "value":  7017139,
+                   "value":  7246588,
                    "breed":  3,
                    "sex":  0,
                    "level":  53
                },
                {
                    "rank":  23,
-                   "name":  "Donatelo",
-                   "value":  7004741,
-                   "breed":  11,
+                   "name":  "Azere",
+                   "value":  7231525,
+                   "breed":  3,
                    "sex":  0,
                    "level":  53
                },
                {
                    "rank":  24,
                    "name":  "Azerz",
-                   "value":  7002076,
+                   "value":  7231525,
                    "breed":  3,
                    "sex":  0,
                    "level":  53
                },
                {
                    "rank":  25,
-                   "name":  "Azere",
-                   "value":  7002076,
-                   "breed":  3,
+                   "name":  "Donatelo",
+                   "value":  7004741,
+                   "breed":  11,
                    "sex":  0,
                    "level":  53
                },
@@ -326,14 +326,14 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1551,
+                        "value":  1561,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  1381,
+                        "value":  1411,
                         "breed":  2,
                         "sex":  0
                     },
@@ -347,7 +347,7 @@
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1325,
+                        "value":  1345,
                         "breed":  3,
                         "sex":  0
                     },
@@ -466,7 +466,7 @@
                     {
                         "rank":  29,
                         "name":  "Azerr",
-                        "value":  49,
+                        "value":  50,
                         "breed":  3,
                         "sex":  0
                     },
