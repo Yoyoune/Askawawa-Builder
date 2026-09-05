@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T23:24:29.8317742+02:00",
+    "generatedAt":  "2026-09-05T23:29:29.1297710+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1178657748,
+                   "value":  1187809518,
                    "breed":  6,
                    "sex":  1,
                    "level":  177
@@ -12,18 +12,18 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1107435499,
+                   "value":  1116700159,
                    "breed":  10,
                    "sex":  1,
-                   "level":  174
+                   "level":  175
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1106674854,
+                   "value":  1115939514,
                    "breed":  10,
                    "sex":  0,
-                   "level":  174
+                   "level":  175
                },
                {
                    "rank":  4,
@@ -275,6 +275,14 @@
                },
                {
                    "rank":  35,
+                   "name":  "Broute",
+                   "value":  78,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  1
+               },
+               {
+                   "rank":  36,
                    "name":  "Tamere",
                    "value":  52,
                    "breed":  2,
@@ -516,13 +524,20 @@
                     },
                     {
                         "rank":  34,
+                        "name":  "Broute",
+                        "value":  2,
+                        "breed":  18,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  35,
                         "name":  "Photoinhib",
                         "value":  2,
                         "breed":  13,
                         "sex":  1
                     },
                     {
-                        "rank":  35,
+                        "rank":  36,
                         "name":  "Tamere",
                         "value":  2,
                         "breed":  2,
