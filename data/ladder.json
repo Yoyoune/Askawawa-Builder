@@ -1,37 +1,37 @@
 {
-    "generatedAt":  "2026-09-05T15:29:29.2108658+02:00",
+    "generatedAt":  "2026-09-05T15:34:29.2581224+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1047017364,
+                   "value":  1061170637,
                    "breed":  6,
                    "sex":  1,
-                   "level":  172
+                   "level":  173
                },
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  986826888,
+                   "value":  999687470,
                    "breed":  10,
                    "sex":  1,
-                   "level":  170
+                   "level":  171
                },
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  986563887,
+                   "value":  999424469,
                    "breed":  10,
                    "sex":  0,
-                   "level":  170
+                   "level":  171
                },
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  934206263,
+                   "value":  946358120,
                    "breed":  11,
                    "sex":  0,
-                   "level":  168
+                   "level":  169
                },
                {
                    "rank":  5,
@@ -99,35 +99,35 @@
                },
                {
                    "rank":  13,
-                   "name":  "Flavodiira",
-                   "value":  104406322,
-                   "breed":  1,
+                   "name":  "Rubisca",
+                   "value":  109440589,
+                   "breed":  17,
                    "sex":  1,
-                   "level":  102
+                   "level":  103
                },
                {
                    "rank":  14,
-                   "name":  "Rubisca",
-                   "value":  103949789,
-                   "breed":  17,
+                   "name":  "Flavodiira",
+                   "value":  108467558,
+                   "breed":  1,
                    "sex":  1,
-                   "level":  102
+                   "level":  103
                },
                {
                    "rank":  15,
                    "name":  "Rhizobium",
-                   "value":  95940264,
+                   "value":  101424457,
                    "breed":  2,
                    "sex":  0,
-                   "level":  100
+                   "level":  101
                },
                {
                    "rank":  16,
                    "name":  "Cyano",
-                   "value":  94807254,
+                   "value":  99883787,
                    "breed":  3,
                    "sex":  0,
-                   "level":  99
+                   "level":  101
                },
                {
                    "rank":  17,
@@ -333,22 +333,22 @@
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  1263,
+                        "value":  1306,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
-                        "name":  "Rhizobium",
-                        "value":  1231,
-                        "breed":  2,
+                        "name":  "Cyano",
+                        "value":  1274,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
-                        "name":  "Cyano",
-                        "value":  1169,
-                        "breed":  3,
+                        "name":  "Rhizobium",
+                        "value":  1265,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
