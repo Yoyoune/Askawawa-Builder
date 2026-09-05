@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T17:59:29.3220767+02:00",
+    "generatedAt":  "2026-09-05T18:04:29.3680305+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1139988183,
+                   "value":  1140811986,
                    "breed":  6,
                    "sex":  1,
                    "level":  175
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1072329526,
+                   "value":  1073078341,
                    "breed":  10,
                    "sex":  1,
                    "level":  173
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1072066525,
+                   "value":  1072815340,
                    "breed":  10,
                    "sex":  0,
                    "level":  173
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1029756252,
+                   "value":  1030468132,
                    "breed":  11,
                    "sex":  0,
                    "level":  172
@@ -44,7 +44,7 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  816298963,
+                   "value":  830191160,
                    "breed":  11,
                    "sex":  0,
                    "level":  164
@@ -52,7 +52,7 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  791453967,
+                   "value":  804494208,
                    "breed":  7,
                    "sex":  0,
                    "level":  163
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  746149569,
+                   "value":  750990993,
                    "breed":  9,
                    "sex":  0,
                    "level":  161
@@ -68,10 +68,10 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  151158515,
+                   "value":  152555323,
                    "breed":  1,
                    "sex":  1,
-                   "level":  111
+                   "level":  112
                },
                {
                    "rank":  10,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  126201637,
+                   "value":  126460852,
                    "breed":  3,
                    "sex":  0,
                    "level":  107
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  121850271,
+                   "value":  122104204,
                    "breed":  3,
                    "sex":  1,
                    "level":  106
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  120781694,
+                   "value":  121025963,
                    "breed":  3,
                    "sex":  1,
                    "level":  105
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  115147158,
+                   "value":  115380448,
                    "breed":  3,
                    "sex":  0,
                    "level":  104
@@ -163,6 +163,14 @@
                },
                {
                    "rank":  21,
+                   "name":  "Azerr",
+                   "value":  7210187,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  22,
                    "name":  "Donatelo",
                    "value":  7004741,
                    "breed":  11,
@@ -170,7 +178,7 @@
                    "level":  53
                },
                {
-                   "rank":  22,
+                   "rank":  23,
                    "name":  "Rafaelo",
                    "value":  6975883,
                    "breed":  11,
@@ -178,25 +186,17 @@
                    "level":  53
                },
                {
-                   "rank":  23,
-                   "name":  "Azerr",
-                   "value":  6973649,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  53
-               },
-               {
                    "rank":  24,
-                   "name":  "Michelangelo",
-                   "value":  6703392,
-                   "breed":  11,
+                   "name":  "Azera",
+                   "value":  6884529,
+                   "breed":  3,
                    "sex":  0,
                    "level":  52
                },
                {
                    "rank":  25,
-                   "name":  "Azera",
-                   "value":  6653851,
+                   "name":  "Azerz",
+                   "value":  6869466,
                    "breed":  3,
                    "sex":  0,
                    "level":  52
@@ -204,16 +204,16 @@
                {
                    "rank":  26,
                    "name":  "Azere",
-                   "value":  6638788,
+                   "value":  6869466,
                    "breed":  3,
                    "sex":  0,
                    "level":  52
                },
                {
                    "rank":  27,
-                   "name":  "Azerz",
-                   "value":  6638788,
-                   "breed":  3,
+                   "name":  "Michelangelo",
+                   "value":  6703392,
+                   "breed":  11,
                    "sex":  0,
                    "level":  52
                },
@@ -277,21 +277,21 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2567,
+                        "value":  2568,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  2516,
+                        "value":  2557,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  2501,
+                        "value":  2542,
                         "breed":  11,
                         "sex":  0
                     },
@@ -382,28 +382,28 @@
                     {
                         "rank":  17,
                         "name":  "Dos",
-                        "value":  295,
+                        "value":  296,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  18,
                         "name":  "Uno",
-                        "value":  295,
+                        "value":  296,
                         "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  19,
                         "name":  "Tres",
-                        "value":  295,
+                        "value":  296,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  20,
                         "name":  "Cuatro",
-                        "value":  294,
+                        "value":  295,
                         "breed":  3,
                         "sex":  1
                     },
