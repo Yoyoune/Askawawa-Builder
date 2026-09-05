@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-05T16:04:29.1624604+02:00",
+    "generatedAt":  "2026-09-05T16:14:29.7826322+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1084966814,
+                   "value":  1097549029,
                    "breed":  6,
                    "sex":  1,
                    "level":  174
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1021599934,
+                   "value":  1033202793,
                    "breed":  10,
                    "sex":  1,
                    "level":  172
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1021336933,
+                   "value":  1032939792,
                    "breed":  10,
                    "sex":  0,
                    "level":  172
@@ -28,15 +28,15 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  967219407,
+                   "value":  992344720,
                    "breed":  11,
                    "sex":  0,
-                   "level":  170
+                   "level":  171
                },
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  912746536,
+                   "value":  925791752,
                    "breed":  8,
                    "sex":  0,
                    "level":  168
@@ -44,26 +44,26 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  792389041,
+                   "value":  816298963,
                    "breed":  11,
                    "sex":  0,
-                   "level":  163
+                   "level":  164
                },
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  764670936,
+                   "value":  791453967,
                    "breed":  7,
                    "sex":  0,
-                   "level":  162
+                   "level":  163
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  702888113,
+                   "value":  721784517,
                    "breed":  9,
                    "sex":  0,
-                   "level":  159
+                   "level":  160
                },
                {
                    "rank":  9,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Flavodiira",
-                   "value":  110131163,
+                   "value":  111057134,
                    "breed":  1,
                    "sex":  1,
                    "level":  103
@@ -116,10 +116,10 @@
                {
                    "rank":  15,
                    "name":  "Rhizobium",
-                   "value":  101424457,
+                   "value":  104422883,
                    "breed":  2,
                    "sex":  0,
-                   "level":  101
+                   "level":  102
                },
                {
                    "rank":  16,
@@ -276,23 +276,23 @@
                     },
                     {
                         "rank":  2,
+                        "name":  "Persodeux",
+                        "value":  2527,
+                        "breed":  9,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  3,
                         "name":  "Persotrois",
                         "value":  2516,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  3,
+                        "rank":  4,
                         "name":  "Persoun",
                         "value":  2501,
                         "breed":  11,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  4,
-                        "name":  "Persodeux",
-                        "value":  2486,
-                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -326,29 +326,29 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1450,
+                        "value":  1481,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
+                        "name":  "Rhizobium",
+                        "value":  1331,
+                        "breed":  2,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  11,
                         "name":  "Rubisca",
                         "value":  1306,
                         "breed":  17,
                         "sex":  1
                     },
                     {
-                        "rank":  11,
+                        "rank":  12,
                         "name":  "Cyano",
                         "value":  1274,
                         "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  12,
-                        "name":  "Rhizobium",
-                        "value":  1265,
-                        "breed":  2,
                         "sex":  0
                     },
                     {
@@ -381,21 +381,21 @@
                     },
                     {
                         "rank":  17,
+                        "name":  "Dos",
+                        "value":  285,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  18,
                         "name":  "Uno",
                         "value":  285,
                         "breed":  3,
                         "sex":  1
                     },
                     {
-                        "rank":  18,
-                        "name":  "Tres",
-                        "value":  285,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
                         "rank":  19,
-                        "name":  "Dos",
+                        "name":  "Tres",
                         "value":  285,
                         "breed":  3,
                         "sex":  0
