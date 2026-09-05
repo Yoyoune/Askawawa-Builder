@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-05T14:29:29.9466264+02:00",
+    "generatedAt":  "2026-09-05T14:34:30.0811412+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -99,24 +99,24 @@
                },
                {
                    "rank":  13,
-                   "name":  "Flavodiira",
-                   "value":  96929354,
-                   "breed":  1,
+                   "name":  "Rubisca",
+                   "value":  97336396,
+                   "breed":  17,
                    "sex":  1,
                    "level":  100
                },
                {
                    "rank":  14,
-                   "name":  "Rubisca",
-                   "value":  95986828,
-                   "breed":  17,
+                   "name":  "Flavodiira",
+                   "value":  97054191,
+                   "breed":  1,
                    "sex":  1,
                    "level":  100
                },
                {
                    "rank":  15,
                    "name":  "Rhizobium",
-                   "value":  88518566,
+                   "value":  88736469,
                    "breed":  2,
                    "sex":  0,
                    "level":  98
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Cyano",
-                   "value":  85241841,
+                   "value":  88311710,
                    "breed":  3,
                    "sex":  0,
                    "level":  97
@@ -326,29 +326,29 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1353,
+                        "value":  1363,
                         "breed":  1,
                         "sex":  1
                     },
                     {
                         "rank":  10,
                         "name":  "Rubisca",
-                        "value":  1229,
+                        "value":  1261,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  11,
-                        "name":  "Rhizobium",
-                        "value":  1137,
-                        "breed":  2,
+                        "name":  "Cyano",
+                        "value":  1167,
+                        "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  12,
-                        "name":  "Cyano",
-                        "value":  1073,
-                        "breed":  3,
+                        "name":  "Rhizobium",
+                        "value":  1158,
+                        "breed":  2,
                         "sex":  0
                     },
                     {
