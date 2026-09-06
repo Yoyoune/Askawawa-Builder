@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T13:09:29.5727612+02:00",
+    "generatedAt":  "2026-09-06T13:14:29.5648855+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,31 +68,31 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  222508712,
+                   "value":  222823041,
                    "breed":  1,
                    "sex":  1,
                    "level":  122
                },
                {
                    "rank":  10,
-                   "name":  "Rhizobium",
-                   "value":  214632076,
-                   "breed":  2,
-                   "sex":  0,
-                   "level":  121
-               },
-               {
-                   "rank":  11,
                    "name":  "Rubisca",
-                   "value":  214589295,
+                   "value":  214914334,
                    "breed":  17,
                    "sex":  1,
                    "level":  121
                },
                {
+                   "rank":  11,
+                   "name":  "Rhizobium",
+                   "value":  214907032,
+                   "breed":  2,
+                   "sex":  0,
+                   "level":  121
+               },
+               {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  190616083,
+                   "value":  193022311,
                    "breed":  3,
                    "sex":  0,
                    "level":  118
