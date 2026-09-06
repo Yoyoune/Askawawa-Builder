@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T15:14:29.6886757+02:00",
+    "generatedAt":  "2026-09-06T15:19:29.6949846+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Belladone",
-                   "value":  1147931047,
+                   "value":  1162264724,
                    "breed":  10,
                    "sex":  1,
                    "level":  176
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1147448277,
+                   "value":  1161781954,
                    "breed":  10,
                    "sex":  0,
                    "level":  176
@@ -61,7 +61,7 @@
                    "rank":  8,
                    "name":  "Persodeux",
                    "value":  782126421,
-                   "breed":  9,
+                   "breed":  12,
                    "sex":  0,
                    "level":  162
                },
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  136423122,
+                   "value":  140934504,
                    "breed":  3,
                    "sex":  0,
                    "level":  109
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  136299486,
+                   "value":  136397535,
                    "breed":  3,
                    "sex":  1,
                    "level":  109
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  135288760,
+                   "value":  135385059,
                    "breed":  3,
                    "sex":  1,
                    "level":  108
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  129213845,
+                   "value":  129308420,
                    "breed":  3,
                    "sex":  0,
                    "level":  107
@@ -310,7 +310,7 @@
                         "rank":  2,
                         "name":  "Persodeux",
                         "value":  2568,
-                        "breed":  9,
+                        "breed":  12,
                         "sex":  0
                     },
                     {
@@ -414,28 +414,28 @@
                     {
                         "rank":  17,
                         "name":  "Uno",
-                        "value":  340,
+                        "value":  341,
                         "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  18,
                         "name":  "Tres",
-                        "value":  340,
+                        "value":  341,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  19,
                         "name":  "Dos",
-                        "value":  340,
+                        "value":  341,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  20,
                         "name":  "Cuatro",
-                        "value":  339,
+                        "value":  340,
                         "breed":  3,
                         "sex":  1
                     },
