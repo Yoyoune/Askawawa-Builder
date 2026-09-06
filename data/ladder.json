@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T16:59:29.9024402+02:00",
+    "generatedAt":  "2026-09-06T17:04:29.9938531+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  243271465,
+                   "value":  243533135,
                    "breed":  1,
                    "sex":  1,
                    "level":  125
@@ -139,6 +139,14 @@
                },
                {
                    "rank":  18,
+                   "name":  "Azerz",
+                   "value":  43660706,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  82
+               },
+               {
+                   "rank":  19,
                    "name":  "Azera",
                    "value":  43506355,
                    "breed":  3,
@@ -146,17 +154,9 @@
                    "level":  82
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Azere",
                    "value":  43254618,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  82
-               },
-               {
-                   "rank":  20,
-                   "name":  "Azerz",
-                   "value":  43089200,
                    "breed":  3,
                    "sex":  0,
                    "level":  82
@@ -259,6 +259,22 @@
                },
                {
                    "rank":  33,
+                   "name":  "Broute",
+                   "value":  763394,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  32
+               },
+               {
+                   "rank":  34,
+                   "name":  "Quench",
+                   "value":  763394,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  32
+               },
+               {
+                   "rank":  35,
                    "name":  "Myc├®lia",
                    "value":  760158,
                    "breed":  9,
@@ -266,28 +282,12 @@
                    "level":  32
                },
                {
-                   "rank":  34,
+                   "rank":  36,
                    "name":  "Photoinhib",
                    "value":  758937,
                    "breed":  13,
                    "sex":  1,
                    "level":  32
-               },
-               {
-                   "rank":  35,
-                   "name":  "Broute",
-                   "value":  752213,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  31
-               },
-               {
-                   "rank":  36,
-                   "name":  "Quench",
-                   "value":  752213,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  31
                },
                {
                    "rank":  37,
@@ -497,21 +497,21 @@
                     },
                     {
                         "rank":  29,
+                        "name":  "Azerz",
+                        "value":  80,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  30,
                         "name":  "Azerr",
                         "value":  72,
                         "breed":  3,
                         "sex":  0
                     },
                     {
-                        "rank":  30,
-                        "name":  "Azere",
-                        "value":  70,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
                         "rank":  31,
-                        "name":  "Azerz",
+                        "name":  "Azere",
                         "value":  70,
                         "breed":  3,
                         "sex":  0
@@ -525,24 +525,24 @@
                     },
                     {
                         "rank":  33,
-                        "name":  "Myc├®lia",
-                        "value":  45,
-                        "breed":  9,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  34,
                         "name":  "Broute",
-                        "value":  43,
+                        "value":  45,
                         "breed":  18,
                         "sex":  0
                     },
                     {
-                        "rank":  35,
+                        "rank":  34,
                         "name":  "Quench",
-                        "value":  43,
+                        "value":  45,
                         "breed":  7,
                         "sex":  0
+                    },
+                    {
+                        "rank":  35,
+                        "name":  "Myc├®lia",
+                        "value":  45,
+                        "breed":  9,
+                        "sex":  1
                     },
                     {
                         "rank":  36,
