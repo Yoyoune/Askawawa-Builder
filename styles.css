@@ -275,24 +275,7 @@ button:hover { border-color: var(--accent); }
 .build-row button.load-btn, .build-row button.share-btn, .build-row button.category-btn { padding: 4px 6px; font-size: 13px; line-height: 1; }
 .build-row-icon { width: 13px; height: 13px; object-fit: contain; vertical-align: -1px; }
 
-/* ---- Ressources nécessaires ---- */
-.resources-panel {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-}
-.resources-panel h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent);
-  font-family: "Cinzel Decorative", "Segoe UI", serif;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
-}
+/* ---- Recette (modal) ---- */
 .resource-row {
   display: flex;
   align-items: center;
