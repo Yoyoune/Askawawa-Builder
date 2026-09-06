@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T02:14:29.7066362+02:00",
+    "generatedAt":  "2026-09-06T02:19:29.5826545+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  765574155,
+                   "value":  782126421,
                    "breed":  9,
                    "sex":  0,
                    "level":  162
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rhizobium",
-                   "value":  197640937,
+                   "value":  198025370,
                    "breed":  2,
                    "sex":  0,
                    "level":  119
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  196423392,
+                   "value":  196877849,
                    "breed":  17,
                    "sex":  1,
                    "level":  119
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  183285254,
+                   "value":  183722243,
                    "breed":  3,
                    "sex":  0,
                    "level":  117
