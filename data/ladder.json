@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T15:59:29.8096939+02:00",
+    "generatedAt":  "2026-09-06T16:04:29.8020686+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,23 +36,23 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  989387799,
+                   "value":  1001192113,
                    "breed":  8,
                    "sex":  0,
-                   "level":  170
+                   "level":  171
                },
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  870793939,
+                   "value":  889037333,
                    "breed":  11,
                    "sex":  0,
-                   "level":  166
+                   "level":  167
                },
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  840131195,
+                   "value":  856202657,
                    "breed":  7,
                    "sex":  0,
                    "level":  165
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  787576529,
+                   "value":  796475621,
                    "breed":  12,
                    "sex":  0,
                    "level":  163
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Azerr",
-                   "value":  19278913,
+                   "value":  25127570,
                    "breed":  3,
                    "sex":  0,
-                   "level":  67
+                   "level":  71
                },
                {
                    "rank":  22,
                    "name":  "Azera",
-                   "value":  18957440,
+                   "value":  24828295,
                    "breed":  3,
                    "sex":  0,
-                   "level":  67
+                   "level":  71
                },
                {
                    "rank":  23,
                    "name":  "Azere",
-                   "value":  18843341,
+                   "value":  24680901,
                    "breed":  3,
                    "sex":  0,
-                   "level":  67
+                   "level":  71
                },
                {
                    "rank":  24,
                    "name":  "Azerz",
-                   "value":  18769677,
+                   "value":  24585042,
                    "breed":  3,
                    "sex":  0,
-                   "level":  67
+                   "level":  71
                },
                {
                    "rank":  25,
@@ -260,18 +260,18 @@
                {
                    "rank":  33,
                    "name":  "Myc├®lia",
-                   "value":  697863,
+                   "value":  760158,
                    "breed":  9,
                    "sex":  1,
-                   "level":  31
+                   "level":  32
                },
                {
                    "rank":  34,
                    "name":  "Photoinhib",
-                   "value":  696642,
+                   "value":  758937,
                    "breed":  13,
                    "sex":  1,
-                   "level":  31
+                   "level":  32
                },
                {
                    "rank":  35,
