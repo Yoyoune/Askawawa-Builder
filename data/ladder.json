@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-06T16:14:29.8435306+02:00",
+    "generatedAt":  "2026-09-06T16:19:29.8376996+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -533,21 +533,21 @@
                     {
                         "rank":  34,
                         "name":  "Broute",
-                        "value":  42,
+                        "value":  43,
                         "breed":  18,
                         "sex":  0
                     },
                     {
                         "rank":  35,
                         "name":  "Quench",
-                        "value":  42,
+                        "value":  43,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  36,
                         "name":  "Photoinhib",
-                        "value":  42,
+                        "value":  43,
                         "breed":  13,
                         "sex":  1
                     },
