@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-06T14:29:29.6538878+02:00",
+    "generatedAt":  "2026-09-06T14:34:29.6835045+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1205080661,
+                   "value":  1206054972,
                    "breed":  6,
                    "sex":  1,
                    "level":  177
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rubisca",
-                   "value":  214914334,
+                   "value":  215883495,
                    "breed":  17,
                    "sex":  1,
                    "level":  121
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rhizobium",
-                   "value":  214907032,
+                   "value":  215726854,
                    "breed":  2,
                    "sex":  0,
                    "level":  121
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  193022311,
+                   "value":  193946635,
                    "breed":  3,
                    "sex":  0,
                    "level":  118
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  2078,
+                        "value":  2098,
                         "breed":  6,
                         "sex":  1
                     },
@@ -526,28 +526,28 @@
                     {
                         "rank":  33,
                         "name":  "Myc├®lia",
-                        "value":  31,
+                        "value":  33,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  34,
                         "name":  "Broute",
-                        "value":  29,
+                        "value":  31,
                         "breed":  18,
                         "sex":  0
                     },
                     {
                         "rank":  35,
                         "name":  "Quench",
-                        "value":  29,
+                        "value":  31,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  36,
                         "name":  "Photoinhib",
-                        "value":  29,
+                        "value":  31,
                         "breed":  13,
                         "sex":  1
                     },
