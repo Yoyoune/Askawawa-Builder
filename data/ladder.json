@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-06T14:54:29.7595277+02:00",
+    "generatedAt":  "2026-09-06T14:59:29.7662349+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1224932051,
+                   "value":  1236311729,
                    "breed":  6,
                    "sex":  1,
                    "level":  178
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Faismoimal",
-                   "value":  1082451213,
+                   "value":  1117240186,
                    "breed":  11,
                    "sex":  0,
-                   "level":  174
+                   "level":  175
                },
                {
                    "rank":  5,
@@ -108,26 +108,26 @@
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  131954853,
+                   "value":  136299486,
+                   "breed":  3,
+                   "sex":  1,
+                   "level":  109
+               },
+               {
+                   "rank":  15,
+                   "name":  "Cuatro",
+                   "value":  135288760,
                    "breed":  3,
                    "sex":  1,
                    "level":  108
                },
                {
-                   "rank":  15,
-                   "name":  "Cuatro",
-                   "value":  127496245,
-                   "breed":  3,
-                   "sex":  1,
-                   "level":  107
-               },
-               {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  121682719,
+                   "value":  129213845,
                    "breed":  3,
                    "sex":  0,
-                   "level":  106
+                   "level":  107
                },
                {
                    "rank":  17,
@@ -351,7 +351,7 @@
                     {
                         "rank":  8,
                         "name":  "Faismoimal",
-                        "value":  1899,
+                        "value":  1980,
                         "breed":  11,
                         "sex":  0
                     },
