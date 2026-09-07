@@ -618,8 +618,27 @@ async function main() {
     ev.target.classList.toggle("active", paPmWithPanoFilterActive);
     renderPaPmList();
   });
+  document.getElementById("allEquipModalClose").addEventListener("click", closeAllEquipList);
+  document.getElementById("allEquipModalOverlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "allEquipModalOverlay") closeAllEquipList();
+  });
+  document.getElementById("allEquipSearchInput").addEventListener("input", renderAllEquipList);
+  document.getElementById("allEquipSortSelect").addEventListener("change", renderAllEquipList);
+  document.getElementById("allEquipLevelMinInput").addEventListener("input", renderAllEquipList);
+  document.getElementById("allEquipLevelMaxInput").addEventListener("input", renderAllEquipList);
+  document.getElementById("allEquipAddStatFilterBtn").addEventListener("click", addAllEquipStatFilter);
+  document.getElementById("allEquipNoPanoFilterBtn").addEventListener("click", (ev) => {
+    allEquipNoPanoFilterActive = !allEquipNoPanoFilterActive;
+    ev.target.classList.toggle("active", allEquipNoPanoFilterActive);
+    renderAllEquipList();
+  });
+  document.getElementById("allEquipWithPanoFilterBtn").addEventListener("click", (ev) => {
+    allEquipWithPanoFilterActive = !allEquipWithPanoFilterActive;
+    ev.target.classList.toggle("active", allEquipWithPanoFilterActive);
+    renderAllEquipList();
+  });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeAtelierModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); }
+    if (ev.key === "Escape") { closeSetPreview(); closeCompareModal(); closeCategoryPicker(); closeCompatibleSetsModal(); closeRecipeModal(); closeAtelierModal(); closeHiddenModal(); closeWeaponDamageModal(); closeClassPicker(); closeClassSpells(); closePaPmPicker(); closePaPmList(); closeAllEquipList(); }
   });
   const doSaveBuild = () => {
     const input = document.getElementById("buildNameInput");
@@ -1263,11 +1282,11 @@ function renderPaperdoll() {
 
   const dofusSlots = UI_SLOTS.filter(s => s.group === "dofus");
 
-  let firstEmptySeen = false;
+  let emptySlotIndex = 0;
   for (const slotId of PAPERDOLL_LAYOUT) {
     if (slotId === null) {
-      root.appendChild(renderEmptySlotEl(!firstEmptySeen));
-      firstEmptySeen = true;
+      root.appendChild(renderEmptySlotEl(emptySlotIndex));
+      emptySlotIndex++;
       continue;
     }
     root.appendChild(renderSlotEl(UI_SLOTS.find(s => s.id === slotId)));
@@ -1284,10 +1303,11 @@ function renderPaperdoll() {
   root.appendChild(dofusWrap);
 }
 
-function renderEmptySlotEl(withAtelierButton) {
+function renderEmptySlotEl(emptySlotIndex) {
   const el = document.createElement("div");
-  el.className = "slot slot-empty" + (withAtelierButton ? " atelier-all-slot" : "");
-  if (withAtelierButton) {
+  el.className = "slot slot-empty" +
+    (emptySlotIndex === 0 ? " atelier-all-slot" : emptySlotIndex === 1 ? " all-equip-slot" : "");
+  if (emptySlotIndex === 0) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "atelier-send-all-btn";
@@ -1297,6 +1317,17 @@ function renderEmptySlotEl(withAtelierButton) {
     img.alt = "";
     btn.appendChild(img);
     btn.addEventListener("click", () => sendAllEquippedToAtelier());
+    el.appendChild(btn);
+  } else if (emptySlotIndex === 1) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "all-equip-btn";
+    btn.title = "Parcourir tout l'équipement";
+    const img = document.createElement("img");
+    img.src = "icons/ui/tout-equipement.png";
+    img.alt = "";
+    btn.appendChild(img);
+    btn.addEventListener("click", () => openAllEquipList());
     el.appendChild(btn);
   }
   return el;
@@ -4411,6 +4442,165 @@ function renderPaPmList() {
 
 function closePaPmList() {
   document.getElementById("paPmListModalOverlay").classList.add("hidden");
+}
+
+// ---------- Tout l'équipement (browse every equipable slot type at once, click equips to
+// the item's own logical slot - same click-to-equip fallback the PA/PM list already relies
+// on, see renderItemCard/findUiSlotForItem) ----------
+const ALL_EQUIP_SLOT_FILTER_DEFS = [
+  { key: "coiffe", label: "Coiffe" },
+  { key: "cape", label: "Cape" },
+  { key: "amulette", label: "Amulette" },
+  { key: "anneau", label: "Anneau" },
+  { key: "ceinture", label: "Ceinture" },
+  { key: "bottes", label: "Bottes" },
+  { key: "arme", label: "Arme" },
+  { key: "bouclier", label: "Bouclier" },
+];
+const ALL_EQUIP_SLOT_TYPES = new Set(ALL_EQUIP_SLOT_FILTER_DEFS.map(d => d.key));
+
+let allEquipNoPanoFilterActive = false;
+let allEquipWithPanoFilterActive = false;
+let allEquipActiveStatFilters = [];
+let allEquipActiveSlotFilters = new Set();
+
+function renderAllEquipSlotFilterChips() {
+  const row = document.getElementById("allEquipSlotFilterRow");
+  row.innerHTML = "";
+  for (const def of ALL_EQUIP_SLOT_FILTER_DEFS) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip";
+    chip.textContent = def.label;
+    chip.addEventListener("click", () => {
+      if (allEquipActiveSlotFilters.has(def.key)) allEquipActiveSlotFilters.delete(def.key);
+      else allEquipActiveSlotFilters.add(def.key);
+      chip.classList.toggle("active", allEquipActiveSlotFilters.has(def.key));
+      renderAllEquipList();
+    });
+    row.appendChild(chip);
+  }
+}
+
+function populateAllEquipStatFilterSelect() {
+  const select = document.getElementById("allEquipStatFilterSelect");
+  const options = sortStatEntries(EFFECT_LABELS.filter(l => !isWeaponEffect(l)).map(l => [l])).map(([l]) => l);
+  select.innerHTML = options.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
+}
+
+function addAllEquipStatFilter() {
+  const stat = document.getElementById("allEquipStatFilterSelect").value;
+  const minValue = parseInt(document.getElementById("allEquipStatFilterValue").value, 10) || 0;
+  if (!stat) return;
+  const existingIdx = allEquipActiveStatFilters.findIndex(f => f.stat === stat);
+  if (existingIdx >= 0) allEquipActiveStatFilters[existingIdx].minValue = minValue;
+  else allEquipActiveStatFilters.push({ stat, minValue });
+  renderAllEquipActiveStatFilters();
+  renderAllEquipList();
+}
+
+function removeAllEquipStatFilter(stat) {
+  allEquipActiveStatFilters = allEquipActiveStatFilters.filter(f => f.stat !== stat);
+  renderAllEquipActiveStatFilters();
+  renderAllEquipList();
+}
+
+function renderAllEquipActiveStatFilters() {
+  const container = document.getElementById("allEquipActiveStatFilters");
+  container.innerHTML = "";
+  for (const f of allEquipActiveStatFilters) {
+    const chip = document.createElement("span");
+    chip.className = "stat-filter-chip";
+    const label = document.createElement("span");
+    label.textContent = `${f.stat} ≥ `;
+    chip.appendChild(label);
+    const valueInput = document.createElement("input");
+    valueInput.type = "number";
+    valueInput.className = "stat-filter-chip-value";
+    valueInput.value = f.minValue;
+    valueInput.addEventListener("input", () => {
+      const v = parseInt(valueInput.value, 10);
+      f.minValue = isNaN(v) ? 0 : v;
+      renderAllEquipList();
+    });
+    chip.appendChild(valueInput);
+    const rm = document.createElement("button");
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.title = "Retirer ce filtre";
+    rm.addEventListener("click", () => removeAllEquipStatFilter(f.stat));
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  }
+}
+
+function itemMatchesAllEquipStatFilters(item) {
+  if (allEquipActiveStatFilters.length === 0) return true;
+  return allEquipActiveStatFilters.every(({ stat, minValue }) =>
+    (item.effects || []).some(eff => stripSign(eff.label) === stat && getEffectComparableValue(eff) >= minValue)
+  );
+}
+
+function openAllEquipList() {
+  // Cleared so the item-card click handler always falls back to findUiSlotForItem(item)
+  // (the item's own logical slot) rather than a stale activeUiSlot from an earlier
+  // single-slot browse that might coincidentally share the same dataSlot.
+  activeUiSlot = null;
+  document.getElementById("allEquipSearchInput").value = "";
+  document.getElementById("allEquipLevelMinInput").value = "";
+  document.getElementById("allEquipLevelMaxInput").value = getCharLevel();
+  document.getElementById("allEquipSortSelect").value = "level-desc";
+  allEquipNoPanoFilterActive = false;
+  allEquipWithPanoFilterActive = false;
+  allEquipActiveStatFilters = [];
+  allEquipActiveSlotFilters = new Set();
+  document.getElementById("allEquipNoPanoFilterBtn").classList.remove("active");
+  document.getElementById("allEquipWithPanoFilterBtn").classList.remove("active");
+  populateAllEquipStatFilterSelect();
+  renderAllEquipActiveStatFilters();
+  renderAllEquipSlotFilterChips();
+  document.getElementById("allEquipModalOverlay").classList.remove("hidden");
+  renderAllEquipList();
+}
+
+function renderAllEquipList() {
+  if (document.getElementById("allEquipModalOverlay").classList.contains("hidden")) return;
+  const search = document.getElementById("allEquipSearchInput").value.trim().toLowerCase();
+  const sort = document.getElementById("allEquipSortSelect").value;
+  const levelMin = parseInt(document.getElementById("allEquipLevelMinInput").value, 10);
+  const levelMax = parseInt(document.getElementById("allEquipLevelMaxInput").value, 10);
+
+  let items = ITEMS.filter(i => ALL_EQUIP_SLOT_TYPES.has(i.slot));
+  if (search) items = items.filter(i => i.name.toLowerCase().includes(search));
+  if (!isNaN(levelMin)) items = items.filter(i => i.level >= levelMin);
+  if (!isNaN(levelMax)) items = items.filter(i => i.level <= levelMax);
+  if (allEquipNoPanoFilterActive) items = items.filter(i => !i.itemSetId || i.itemSetId <= 0);
+  if (allEquipWithPanoFilterActive) items = items.filter(i => i.itemSetId && i.itemSetId > 0);
+  if (allEquipActiveSlotFilters.size > 0) items = items.filter(i => allEquipActiveSlotFilters.has(i.slot));
+  items = items.filter(itemMatchesAllEquipStatFilters);
+
+  if (sort === "level-asc") items.sort((a, b) => a.level - b.level);
+  else if (sort === "level-desc") items.sort((a, b) => b.level - a.level);
+  else items.sort((a, b) => a.name.localeCompare(b.name));
+
+  const body = document.getElementById("allEquipModalBody");
+  body.innerHTML = "";
+  if (items.length === 0) {
+    body.innerHTML = '<div class="stat-empty">Aucun objet trouvé.</div>';
+    return;
+  }
+  const charLevel = getCharLevel();
+  const frag = document.createDocumentFragment();
+  for (const item of items) {
+    const matchingSlotIds = UI_SLOTS.filter(s => s.dataSlot === item.slot).map(s => s.id);
+    const isEquipped = matchingSlotIds.some(id => equipped[id] && equipped[id].id === item.id);
+    frag.appendChild(renderItemCard(item, isEquipped, charLevel));
+  }
+  body.appendChild(frag);
+}
+
+function closeAllEquipList() {
+  document.getElementById("allEquipModalOverlay").classList.add("hidden");
 }
 
 // ---------- Classe / sorts ----------

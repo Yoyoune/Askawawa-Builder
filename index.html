@@ -281,6 +281,43 @@
   </div>
 </div>
 
+<div class="modal-overlay hidden" id="allEquipModalOverlay">
+  <div class="modal modal-wide" id="allEquipModal">
+    <div class="browser-header">
+      <h2>Tout l'équipement</h2>
+      <button id="allEquipModalClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="browser-controls">
+        <input type="search" id="allEquipSearchInput" placeholder="Rechercher un objet...">
+        <select id="allEquipSortSelect">
+          <option value="level-asc">Niveau croissant</option>
+          <option value="level-desc">Niveau décroissant</option>
+          <option value="name-asc">Nom (A-Z)</option>
+        </select>
+      </div>
+      <div class="level-range-row">
+        <label>Niv. min <input type="number" id="allEquipLevelMinInput" min="1" max="200" placeholder="Min"></label>
+        <label>Niv. max <input type="number" id="allEquipLevelMaxInput" min="1" max="200" placeholder="Max"></label>
+      </div>
+      <div class="sets-filter-row">
+        <button type="button" class="filter-chip" id="allEquipNoPanoFilterBtn">Item sans pano</button>
+        <button type="button" class="filter-chip" id="allEquipWithPanoFilterBtn">Item avec pano</button>
+      </div>
+      <div class="sets-filter-row" id="allEquipSlotFilterRow"></div>
+      <div class="stat-filter-builder">
+        <div class="stat-filter-add-row">
+          <select id="allEquipStatFilterSelect"></select>
+          <input type="number" id="allEquipStatFilterValue" value="0" min="0" placeholder="Valeur mini">
+          <button id="allEquipAddStatFilterBtn" type="button">+ Ajouter</button>
+        </div>
+        <div class="stat-filter-active" id="allEquipActiveStatFilters"></div>
+      </div>
+      <div class="item-list" id="allEquipModalBody"></div>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay hidden" id="atelierModalOverlay">
   <div class="modal modal-xwide" id="atelierModal">
     <div class="browser-header">
