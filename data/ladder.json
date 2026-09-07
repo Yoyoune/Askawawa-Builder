@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-08T01:09:29.2067211+02:00",
+    "generatedAt":  "2026-09-08T01:14:29.1123390+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -100,34 +100,34 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  178607661,
+                   "value":  185868893,
                    "breed":  3,
                    "sex":  0,
-                   "level":  116
+                   "level":  117
                },
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  173557303,
+                   "value":  180722996,
                    "breed":  3,
                    "sex":  1,
-                   "level":  115
+                   "level":  116
                },
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  171432458,
+                   "value":  178698033,
                    "breed":  3,
                    "sex":  1,
-                   "level":  115
+                   "level":  116
                },
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  165571584,
+                   "value":  172592810,
                    "breed":  3,
                    "sex":  0,
-                   "level":  114
+                   "level":  115
                },
                {
                    "rank":  17,
