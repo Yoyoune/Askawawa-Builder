@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-07T23:54:29.0191835+02:00",
+    "generatedAt":  "2026-09-07T23:59:29.0168792+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -30,14 +30,14 @@
                    "name":  "Aconit",
                    "value":  1319051488,
                    "breed":  10,
-                   "sex":  0,
+                   "sex":  1,
                    "level":  181
                },
                {
                    "rank":  5,
                    "name":  "Eternelle",
                    "value":  1274916723,
-                   "breed":  5,
+                   "breed":  11,
                    "sex":  1,
                    "level":  179
                },
@@ -346,13 +346,13 @@
                         "name":  "Aconit",
                         "value":  2161,
                         "breed":  10,
-                        "sex":  0
+                        "sex":  1
                     },
                     {
                         "rank":  8,
                         "name":  "Eternelle",
                         "value":  2057,
-                        "breed":  5,
+                        "breed":  11,
                         "sex":  1
                     },
                     {
