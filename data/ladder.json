@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-08T00:24:29.0377928+02:00",
+    "generatedAt":  "2026-09-08T00:29:29.0707967+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1385043453,
+                   "value":  1385210191,
                    "breed":  6,
                    "sex":  1,
                    "level":  182
@@ -116,18 +116,18 @@
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  159259995,
+                   "value":  163734339,
                    "breed":  3,
                    "sex":  1,
-                   "level":  113
+                   "level":  114
                },
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  153744661,
+                   "value":  158116275,
                    "breed":  3,
                    "sex":  0,
-                   "level":  112
+                   "level":  113
                },
                {
                    "rank":  17,
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  2308,
+                        "value":  2309,
                         "breed":  6,
                         "sex":  1
                     },
@@ -428,14 +428,14 @@
                     {
                         "rank":  19,
                         "name":  "Tres",
-                        "value":  386,
+                        "value":  398,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  20,
                         "name":  "Cuatro",
-                        "value":  375,
+                        "value":  387,
                         "breed":  3,
                         "sex":  1
                     },
