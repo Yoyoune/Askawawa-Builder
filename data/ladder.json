@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-07T22:09:29.4748136+02:00",
+    "generatedAt":  "2026-09-07T22:14:29.4316800+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,10 +28,10 @@
                {
                    "rank":  4,
                    "name":  "Nayssen",
-                   "value":  1278164991,
+                   "value":  1299105739,
                    "breed":  8,
                    "sex":  0,
-                   "level":  179
+                   "level":  180
                },
                {
                    "rank":  5,
@@ -52,18 +52,18 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  1066638951,
+                   "value":  1081063983,
                    "breed":  7,
                    "sex":  0,
-                   "level":  173
+                   "level":  174
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  996233846,
+                   "value":  1023880790,
                    "breed":  9,
                    "sex":  0,
-                   "level":  171
+                   "level":  172
                },
                {
                    "rank":  9,
@@ -302,21 +302,21 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2751,
+                        "value":  2782,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2658,
+                        "value":  2689,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  2647,
+                        "value":  2648,
                         "breed":  7,
                         "sex":  0
                     },
