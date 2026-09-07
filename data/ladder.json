@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-08T00:14:29.0579027+02:00",
+    "generatedAt":  "2026-09-08T00:19:29.0863063+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Bartonella",
-                   "value":  1384383635,
+                   "value":  1384454405,
                    "breed":  6,
                    "sex":  1,
                    "level":  182
@@ -36,10 +36,10 @@
                {
                    "rank":  5,
                    "name":  "Eternelle",
-                   "value":  1274916723,
+                   "value":  1335839389,
                    "breed":  11,
                    "sex":  1,
-                   "level":  179
+                   "level":  181
                },
                {
                    "rank":  6,
@@ -108,10 +108,10 @@
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  161469784,
+                   "value":  164082878,
                    "breed":  3,
                    "sex":  1,
-                   "level":  113
+                   "level":  114
                },
                {
                    "rank":  15,
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  2297,
+                        "value":  2308,
                         "breed":  6,
                         "sex":  1
                     },
@@ -351,7 +351,7 @@
                     {
                         "rank":  8,
                         "name":  "Eternelle",
-                        "value":  2057,
+                        "value":  2158,
                         "breed":  11,
                         "sex":  1
                     },
@@ -414,7 +414,7 @@
                     {
                         "rank":  17,
                         "name":  "Uno",
-                        "value":  387,
+                        "value":  399,
                         "breed":  3,
                         "sex":  1
                     },
