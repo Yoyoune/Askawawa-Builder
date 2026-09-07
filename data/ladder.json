@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-07T23:44:28.9995248+02:00",
+    "generatedAt":  "2026-09-07T23:49:29.0398594+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,10 +35,10 @@
                },
                {
                    "rank":  5,
-                   "name":  "Faismoimal",
+                   "name":  "Eternelle",
                    "value":  1274916723,
-                   "breed":  11,
-                   "sex":  0,
+                   "breed":  5,
+                   "sex":  1,
                    "level":  179
                },
                {
@@ -350,10 +350,10 @@
                     },
                     {
                         "rank":  8,
-                        "name":  "Faismoimal",
+                        "name":  "Eternelle",
                         "value":  2057,
-                        "breed":  11,
-                        "sex":  0
+                        "breed":  5,
+                        "sex":  1
                     },
                     {
                         "rank":  9,
