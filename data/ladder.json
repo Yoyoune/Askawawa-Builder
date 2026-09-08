@@ -1,8 +1,16 @@
 {
-    "generatedAt":  "2026-09-08T23:19:29.0627029+02:00",
+    "generatedAt":  "2026-09-08T23:24:29.0748415+02:00",
     "xp":  [
                {
                    "rank":  1,
+                   "name":  "Nayssen",
+                   "value":  1394290992,
+                   "breed":  8,
+                   "sex":  0,
+                   "level":  182
+               },
+               {
+                   "rank":  2,
                    "name":  "Bartonella",
                    "value":  1392290872,
                    "breed":  6,
@@ -10,7 +18,7 @@
                    "level":  182
                },
                {
-                   "rank":  2,
+                   "rank":  3,
                    "name":  "Aconit",
                    "value":  1389546633,
                    "breed":  10,
@@ -18,7 +26,7 @@
                    "level":  182
                },
                {
-                   "rank":  3,
+                   "rank":  4,
                    "name":  "Belladone",
                    "value":  1389383539,
                    "breed":  10,
@@ -26,19 +34,11 @@
                    "level":  182
                },
                {
-                   "rank":  4,
+                   "rank":  5,
                    "name":  "Eternelle",
                    "value":  1389054427,
                    "breed":  11,
                    "sex":  1,
-                   "level":  182
-               },
-               {
-                   "rank":  5,
-                   "name":  "Nayssen",
-                   "value":  1382814691,
-                   "breed":  8,
-                   "sex":  0,
                    "level":  182
                },
                {
@@ -52,10 +52,10 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  1146461237,
+                   "value":  1177504050,
                    "breed":  7,
                    "sex":  0,
-                   "level":  176
+                   "level":  177
                },
                {
                    "rank":  8,
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2824,
+                        "value":  2834,
                         "breed":  8,
                         "sex":  0
                     },
@@ -316,7 +316,7 @@
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  2698,
+                        "value":  2719,
                         "breed":  7,
                         "sex":  0
                     },
