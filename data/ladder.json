@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-08T22:54:30.0796254+02:00",
+    "generatedAt":  "2026-09-08T22:59:30.0734695+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Nayssen",
-                   "value":  1368807227,
+                   "value":  1379614606,
                    "breed":  8,
                    "sex":  0,
                    "level":  182
@@ -44,10 +44,10 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  1197096758,
+                   "value":  1215355727,
                    "breed":  11,
                    "sex":  0,
-                   "level":  177
+                   "level":  178
                },
                {
                    "rank":  7,
@@ -60,10 +60,10 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1071112959,
+                   "value":  1082336857,
                    "breed":  9,
                    "sex":  0,
-                   "level":  173
+                   "level":  174
                },
                {
                    "rank":  9,
@@ -302,14 +302,14 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2814,
+                        "value":  2824,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2709,
+                        "value":  2720,
                         "breed":  9,
                         "sex":  0
                     },
@@ -323,7 +323,7 @@
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  2663,
+                        "value":  2674,
                         "breed":  11,
                         "sex":  0
                     },
