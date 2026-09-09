@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-09T22:04:29.6866596+02:00",
+    "generatedAt":  "2026-09-09T22:09:29.6398132+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -164,7 +164,7 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  40100264,
+                   "value":  40514746,
                    "breed":  11,
                    "sex":  0,
                    "level":  80
@@ -172,7 +172,7 @@
                {
                    "rank":  22,
                    "name":  "Frite",
-                   "value":  37143130,
+                   "value":  38920672,
                    "breed":  7,
                    "sex":  0,
                    "level":  79
@@ -180,7 +180,7 @@
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  37001387,
+                   "value":  38258442,
                    "breed":  8,
                    "sex":  0,
                    "level":  79
@@ -188,7 +188,7 @@
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  35216175,
+                   "value":  36922655,
                    "breed":  11,
                    "sex":  0,
                    "level":  78
@@ -393,21 +393,21 @@
                     {
                         "rank":  14,
                         "name":  "Frita",
-                        "value":  470,
+                        "value":  481,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  15,
                         "name":  "Frite",
-                        "value":  466,
+                        "value":  478,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  16,
                         "name":  "Fritr",
-                        "value":  466,
+                        "value":  478,
                         "breed":  11,
                         "sex":  0
                     },
