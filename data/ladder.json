@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-10T23:59:29.3206561+02:00",
+    "generatedAt":  "2026-09-11T00:04:29.1804585+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -37,7 +37,7 @@
                    "rank":  5,
                    "name":  "Eternelle",
                    "value":  1389054427,
-                   "breed":  11,
+                   "breed":  9,
                    "sex":  1,
                    "level":  182
                },
@@ -352,7 +352,7 @@
                         "rank":  8,
                         "name":  "Eternelle",
                         "value":  2234,
-                        "breed":  11,
+                        "breed":  9,
                         "sex":  1
                     },
                     {
