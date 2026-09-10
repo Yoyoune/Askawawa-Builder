@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-11T01:29:29.1287551+02:00",
+    "generatedAt":  "2026-09-11T01:34:29.0105936+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Bartonella",
-                   "value":  1395346137,
+                   "value":  1396344841,
                    "breed":  6,
                    "sex":  1,
                    "level":  182
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Aconit",
-                   "value":  1391973341,
+                   "value":  1393316281,
                    "breed":  10,
                    "sex":  1,
                    "level":  182
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Belladone",
-                   "value":  1391540612,
+                   "value":  1392734336,
                    "breed":  10,
                    "sex":  1,
                    "level":  182
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Eternelle",
-                   "value":  1391306110,
+                   "value":  1392552191,
                    "breed":  9,
                    "sex":  1,
                    "level":  182
@@ -330,28 +330,28 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  2424,
+                        "value":  2455,
                         "breed":  6,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  2309,
+                        "value":  2340,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  2307,
+                        "value":  2338,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  8,
                         "name":  "Eternelle",
-                        "value":  2304,
+                        "value":  2335,
                         "breed":  9,
                         "sex":  1
                     },
