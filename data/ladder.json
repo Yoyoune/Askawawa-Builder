@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-10T21:14:29.8982453+02:00",
+    "generatedAt":  "2026-09-10T21:19:29.9224211+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1449946882,
+                   "value":  1451697656,
                    "breed":  8,
                    "sex":  0,
                    "level":  183
@@ -131,19 +131,19 @@
                },
                {
                    "rank":  17,
-                   "name":  "Azere",
-                   "value":  141439125,
+                   "name":  "Azerz",
+                   "value":  141644052,
                    "breed":  3,
                    "sex":  0,
                    "level":  110
                },
                {
                    "rank":  18,
-                   "name":  "Azerz",
-                   "value":  139748085,
+                   "name":  "Azere",
+                   "value":  141439125,
                    "breed":  3,
                    "sex":  0,
-                   "level":  109
+                   "level":  110
                },
                {
                    "rank":  19,
@@ -172,7 +172,7 @@
                {
                    "rank":  22,
                    "name":  "Frite",
-                   "value":  38947567,
+                   "value":  40029167,
                    "breed":  7,
                    "sex":  0,
                    "level":  80
@@ -180,7 +180,7 @@
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  38258442,
+                   "value":  38284604,
                    "breed":  8,
                    "sex":  0,
                    "level":  79
@@ -189,7 +189,7 @@
                    "rank":  24,
                    "name":  "Fritr",
                    "value":  36948450,
-                   "breed":  11,
+                   "breed":  14,
                    "sex":  0,
                    "level":  78
                },
@@ -422,7 +422,7 @@
                         "rank":  18,
                         "name":  "Fritr",
                         "value":  478,
-                        "breed":  11,
+                        "breed":  14,
                         "sex":  0
                     },
                     {
