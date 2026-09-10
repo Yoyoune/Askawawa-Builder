@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-10T22:49:29.1080737+02:00",
+    "generatedAt":  "2026-09-10T22:54:29.0945392+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1467812301,
+                   "value":  1496399162,
                    "breed":  8,
                    "sex":  0,
                    "level":  184
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  257594082,
+                   "value":  258145061,
                    "breed":  1,
                    "sex":  1,
                    "level":  127
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  230787959,
+                   "value":  232535841,
                    "breed":  3,
                    "sex":  0,
-                   "level":  123
+                   "level":  124
                },
                {
                    "rank":  13,
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2857,
+                        "value":  2877,
                         "breed":  8,
                         "sex":  0
                     },
