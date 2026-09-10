@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-10T22:34:29.0573855+02:00",
+    "generatedAt":  "2026-09-10T22:39:29.0864123+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1459993873,
+                   "value":  1467812301,
                    "breed":  8,
                    "sex":  0,
-                   "level":  183
+                   "level":  184
                },
                {
                    "rank":  2,
@@ -44,31 +44,31 @@
                {
                    "rank":  6,
                    "name":  "Persoun",
-                   "value":  1265819792,
+                   "value":  1284647518,
                    "breed":  11,
                    "sex":  0,
-                   "level":  179
+                   "level":  180
                },
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  1196991354,
+                   "value":  1214778675,
                    "breed":  7,
                    "sex":  0,
-                   "level":  177
+                   "level":  178
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1130443581,
+                   "value":  1146832218,
                    "breed":  9,
                    "sex":  0,
-                   "level":  175
+                   "level":  176
                },
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  256375941,
+                   "value":  256383659,
                    "breed":  1,
                    "sex":  1,
                    "level":  126
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  228948525,
+                   "value":  230787959,
                    "breed":  3,
                    "sex":  0,
                    "level":  123
@@ -323,7 +323,7 @@
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  2696,
+                        "value":  2707,
                         "breed":  11,
                         "sex":  0
                     },
@@ -379,7 +379,7 @@
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1614,
+                        "value":  1634,
                         "breed":  3,
                         "sex":  0
                     },
