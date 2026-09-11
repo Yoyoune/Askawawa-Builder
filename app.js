@@ -332,7 +332,7 @@ function statIcon(label) {
 
 const STORAGE_KEY = "populus-builder-equipped-v1";
 const STORAGE_KEY_CUSTOM = "populus-builder-customization-v1";
-const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Multi", "DoPou", "Tank", "Sagesse", "PP"];
+const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Multi", "Bi-élément", "DoPou", "Tank", "Sagesse", "PP"];
 
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
