@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T00:04:29.2625524+02:00",
+    "generatedAt":  "2026-09-12T00:09:29.2881937+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1781975470,
+                   "value":  1784430975,
                    "breed":  8,
                    "sex":  0,
                    "level":  187
@@ -27,6 +27,14 @@
                },
                {
                    "rank":  4,
+                   "name":  "Aconit",
+                   "value":  1461682769,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  183
+               },
+               {
+                   "rank":  5,
                    "name":  "Eternelle",
                    "value":  1456073551,
                    "breed":  9,
@@ -34,25 +42,17 @@
                    "level":  183
                },
                {
-                   "rank":  5,
+                   "rank":  6,
                    "name":  "Neisseria",
-                   "value":  1454249529,
+                   "value":  1454344569,
                    "breed":  15,
                    "sex":  1,
                    "level":  183
                },
                {
-                   "rank":  6,
+                   "rank":  7,
                    "name":  "Belladone",
                    "value":  1452449973,
-                   "breed":  10,
-                   "sex":  1,
-                   "level":  183
-               },
-               {
-                   "rank":  7,
-                   "name":  "Aconit",
-                   "value":  1438428734,
                    "breed":  10,
                    "sex":  1,
                    "level":  183
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  334137793,
+                   "value":  334160269,
                    "breed":  1,
                    "sex":  1,
                    "level":  134
