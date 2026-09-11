@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-11T21:34:29.0257263+02:00",
+    "generatedAt":  "2026-09-11T21:39:29.0269266+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1666018969,
+                   "value":  1669977778,
                    "breed":  8,
                    "sex":  0,
                    "level":  186
@@ -12,10 +12,10 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  1438950423,
+                   "value":  1464914994,
                    "breed":  11,
                    "sex":  0,
-                   "level":  183
+                   "level":  184
                },
                {
                    "rank":  3,
@@ -68,10 +68,10 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  265313459,
+                   "value":  266486215,
                    "breed":  1,
                    "sex":  1,
-                   "level":  127
+                   "level":  128
                },
                {
                    "rank":  10,
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  234777540,
+                   "value":  240840176,
                    "breed":  3,
                    "sex":  0,
-                   "level":  124
+                   "level":  125
                },
                {
                    "rank":  13,
@@ -371,17 +371,17 @@
                     },
                     {
                         "rank":  11,
+                        "name":  "Cyano",
+                        "value":  1726,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  12,
                         "name":  "Rubisca",
                         "value":  1685,
                         "breed":  17,
                         "sex":  1
-                    },
-                    {
-                        "rank":  12,
-                        "name":  "Cyano",
-                        "value":  1654,
-                        "breed":  3,
-                        "sex":  0
                     },
                     {
                         "rank":  13,
