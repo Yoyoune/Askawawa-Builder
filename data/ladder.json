@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T00:29:29.3522663+02:00",
+    "generatedAt":  "2026-09-12T00:34:29.3373425+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Neisseria",
-                   "value":  1467184351,
+                   "value":  1491709035,
                    "breed":  15,
                    "sex":  1,
                    "level":  184
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  337573075,
+                   "value":  337867422,
                    "breed":  1,
                    "sex":  1,
                    "level":  135
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Rhizobium",
-                   "value":  332172091,
+                   "value":  333074304,
                    "breed":  2,
                    "sex":  0,
                    "level":  134
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  322268480,
+                   "value":  323021818,
                    "breed":  17,
                    "sex":  1,
                    "level":  133
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  308367222,
+                   "value":  309223054,
                    "breed":  3,
                    "sex":  0,
                    "level":  132
@@ -228,33 +228,33 @@
                {
                    "rank":  29,
                    "name":  "Myc├®lia",
-                   "value":  3838149,
+                   "value":  3962292,
                    "breed":  9,
                    "sex":  1,
-                   "level":  46
+                   "level":  47
                },
                {
                    "rank":  30,
                    "name":  "Photoinhib",
-                   "value":  3828589,
+                   "value":  3952732,
                    "breed":  13,
                    "sex":  1,
                    "level":  46
                },
                {
                    "rank":  31,
-                   "name":  "Patt",
-                   "value":  3649833,
-                   "breed":  8,
-                   "sex":  1,
+                   "name":  "Broute",
+                   "value":  3714023,
+                   "breed":  18,
+                   "sex":  0,
                    "level":  46
                },
                {
                    "rank":  32,
-                   "name":  "Broute",
-                   "value":  3589880,
-                   "breed":  18,
-                   "sex":  0,
+                   "name":  "Patt",
+                   "value":  3649833,
+                   "breed":  8,
+                   "sex":  1,
                    "level":  46
                },
                {
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Neisseria",
-                        "value":  2538,
+                        "value":  2568,
                         "breed":  15,
                         "sex":  1
                     },
@@ -365,21 +365,21 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  1881,
+                        "value":  1882,
                         "breed":  2,
                         "sex":  0
                     },
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  1869,
+                        "value":  1870,
                         "breed":  17,
                         "sex":  1
                     },
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1848,
+                        "value":  1849,
                         "breed":  3,
                         "sex":  0
                     },
@@ -491,21 +491,21 @@
                     {
                         "rank":  28,
                         "name":  "Myc├®lia",
-                        "value":  111,
+                        "value":  114,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  29,
                         "name":  "Photoinhib",
-                        "value":  109,
+                        "value":  112,
                         "breed":  13,
                         "sex":  1
                     },
                     {
                         "rank":  30,
                         "name":  "Broute",
-                        "value":  109,
+                        "value":  112,
                         "breed":  18,
                         "sex":  0
                     },
