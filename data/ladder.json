@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-11T23:49:29.2585399+02:00",
+    "generatedAt":  "2026-09-11T23:54:29.2294618+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1769222170,
+                   "value":  1781975470,
                    "breed":  8,
                    "sex":  0,
                    "level":  187
@@ -27,35 +27,35 @@
                },
                {
                    "rank":  4,
-                   "name":  "Aconit",
-                   "value":  1402701109,
-                   "breed":  10,
+                   "name":  "Eternelle",
+                   "value":  1454384425,
+                   "breed":  9,
                    "sex":  1,
-                   "level":  182
+                   "level":  183
                },
                {
                    "rank":  5,
                    "name":  "Neisseria",
-                   "value":  1402532966,
+                   "value":  1452749112,
                    "breed":  15,
                    "sex":  1,
-                   "level":  182
+                   "level":  183
                },
                {
                    "rank":  6,
-                   "name":  "Eternelle",
-                   "value":  1398997684,
-                   "breed":  9,
+                   "name":  "Belladone",
+                   "value":  1452449973,
+                   "breed":  10,
                    "sex":  1,
-                   "level":  182
+                   "level":  183
                },
                {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  1398956031,
+                   "name":  "Aconit",
+                   "value":  1438428734,
                    "breed":  10,
                    "sex":  1,
-                   "level":  182
+                   "level":  183
                },
                {
                    "rank":  8,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  331692159,
+                   "value":  331997659,
                    "breed":  1,
                    "sex":  1,
                    "level":  134
@@ -100,34 +100,34 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  214832355,
+                   "value":  244286961,
                    "breed":  3,
                    "sex":  0,
-                   "level":  121
+                   "level":  125
                },
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  208425454,
+                   "value":  237637895,
                    "breed":  3,
                    "sex":  1,
-                   "level":  120
+                   "level":  124
                },
                {
                    "rank":  15,
                    "name":  "Cuatro",
-                   "value":  206616793,
+                   "value":  235765984,
                    "breed":  3,
                    "sex":  1,
-                   "level":  120
+                   "level":  124
                },
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  200633332,
+                   "value":  229578762,
                    "breed":  3,
                    "sex":  0,
-                   "level":  119
+                   "level":  123
                },
                {
                    "rank":  17,
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2908,
+                        "value":  2918,
                         "breed":  8,
                         "sex":  0
                     },
@@ -385,31 +385,31 @@
                     },
                     {
                         "rank":  13,
-                        "name":  "Dos",
-                        "value":  743,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  14,
                         "name":  "Uno",
                         "value":  743,
                         "breed":  3,
                         "sex":  1
                     },
                     {
+                        "rank":  14,
+                        "name":  "Dos",
+                        "value":  743,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
                         "rank":  15,
+                        "name":  "Tres",
+                        "value":  742,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  16,
                         "name":  "Cuatro",
                         "value":  731,
                         "breed":  3,
                         "sex":  1
-                    },
-                    {
-                        "rank":  16,
-                        "name":  "Tres",
-                        "value":  651,
-                        "breed":  3,
-                        "sex":  0
                     },
                     {
                         "rank":  17,
@@ -427,16 +427,16 @@
                     },
                     {
                         "rank":  19,
-                        "name":  "Fritr",
+                        "name":  "Frite",
                         "value":  499,
-                        "breed":  14,
+                        "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  20,
-                        "name":  "Frite",
+                        "name":  "Fritr",
                         "value":  499,
-                        "breed":  7,
+                        "breed":  14,
                         "sex":  0
                     },
                     {
