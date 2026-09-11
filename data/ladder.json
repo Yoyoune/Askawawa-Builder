@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-11T20:44:28.9546898+02:00",
+    "generatedAt":  "2026-09-11T20:49:28.9890863+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1627338608,
+                   "value":  1637896554,
                    "breed":  8,
                    "sex":  0,
                    "level":  186
@@ -52,15 +52,15 @@
                {
                    "rank":  7,
                    "name":  "Persotrois",
-                   "value":  1325966018,
+                   "value":  1359433592,
                    "breed":  7,
                    "sex":  0,
-                   "level":  181
+                   "level":  182
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1253463589,
+                   "value":  1261392587,
                    "breed":  9,
                    "sex":  0,
                    "level":  179
@@ -139,27 +139,27 @@
                },
                {
                    "rank":  18,
-                   "name":  "Azerz",
-                   "value":  158443387,
+                   "name":  "Azera",
+                   "value":  158723679,
                    "breed":  3,
                    "sex":  0,
                    "level":  113
                },
                {
                    "rank":  19,
-                   "name":  "Azera",
-                   "value":  154989589,
+                   "name":  "Azerr",
+                   "value":  158632322,
                    "breed":  3,
                    "sex":  0,
-                   "level":  112
+                   "level":  113
                },
                {
                    "rank":  20,
-                   "name":  "Azerr",
-                   "value":  154908810,
+                   "name":  "Azerz",
+                   "value":  158443387,
                    "breed":  3,
                    "sex":  0,
-                   "level":  112
+                   "level":  113
                },
                {
                    "rank":  21,
