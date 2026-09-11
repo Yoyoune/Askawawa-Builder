@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-11T22:49:29.1329090+02:00",
+    "generatedAt":  "2026-09-11T22:54:29.1139128+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1724537382,
+                   "value":  1727809788,
                    "breed":  8,
                    "sex":  0,
                    "level":  187
@@ -164,24 +164,24 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  43122408,
+                   "value":  44085870,
                    "breed":  11,
                    "sex":  0,
                    "level":  82
                },
                {
                    "rank":  22,
-                   "name":  "Frita",
-                   "value":  41768755,
-                   "breed":  8,
+                   "name":  "Frite",
+                   "value":  42927114,
+                   "breed":  7,
                    "sex":  0,
                    "level":  81
                },
                {
                    "rank":  23,
-                   "name":  "Frite",
-                   "value":  41114967,
-                   "breed":  7,
+                   "name":  "Frita",
+                   "value":  42355547,
+                   "breed":  8,
                    "sex":  0,
                    "level":  81
                },
