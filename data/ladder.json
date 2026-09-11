@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-11T20:54:29.0153604+02:00",
+    "generatedAt":  "2026-09-11T20:59:28.9756581+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  260396707,
+                   "value":  260564798,
                    "breed":  1,
                    "sex":  1,
                    "level":  127
@@ -132,13 +132,21 @@
                {
                    "rank":  17,
                    "name":  "Azere",
-                   "value":  159061846,
+                   "value":  162818601,
                    "breed":  3,
                    "sex":  0,
                    "level":  113
                },
                {
                    "rank":  18,
+                   "name":  "Azerz",
+                   "value":  162189469,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  113
+               },
+               {
+                   "rank":  19,
                    "name":  "Azera",
                    "value":  158723679,
                    "breed":  3,
@@ -146,17 +154,9 @@
                    "level":  113
                },
                {
-                   "rank":  19,
+                   "rank":  20,
                    "name":  "Azerr",
                    "value":  158632322,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  113
-               },
-               {
-                   "rank":  20,
-                   "name":  "Azerz",
-                   "value":  158443387,
                    "breed":  3,
                    "sex":  0,
                    "level":  113
@@ -358,7 +358,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1902,
+                        "value":  1913,
                         "breed":  1,
                         "sex":  1
                     },
