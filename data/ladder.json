@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T00:14:29.2787671+02:00",
+    "generatedAt":  "2026-09-12T00:19:29.5593556+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1788275415,
+                   "value":  1794213963,
                    "breed":  8,
                    "sex":  0,
                    "level":  187
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  1551182721,
+                   "value":  1575644586,
                    "breed":  11,
                    "sex":  0,
                    "level":  185
@@ -20,13 +20,29 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  1468111374,
+                   "value":  1492008863,
                    "breed":  7,
                    "sex":  0,
                    "level":  184
                },
                {
                    "rank":  4,
+                   "name":  "Eternelle",
+                   "value":  1465150734,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  184
+               },
+               {
+                   "rank":  5,
+                   "name":  "Belladone",
+                   "value":  1464930704,
+                   "breed":  10,
+                   "sex":  1,
+                   "level":  184
+               },
+               {
+                   "rank":  6,
                    "name":  "Aconit",
                    "value":  1464433145,
                    "breed":  10,
@@ -34,41 +50,25 @@
                    "level":  184
                },
                {
-                   "rank":  5,
-                   "name":  "Eternelle",
-                   "value":  1460773120,
-                   "breed":  9,
-                   "sex":  1,
-                   "level":  183
-               },
-               {
-                   "rank":  6,
-                   "name":  "Neisseria",
-                   "value":  1454344569,
-                   "breed":  15,
-                   "sex":  1,
-                   "level":  183
-               },
-               {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  1452449973,
-                   "breed":  10,
+                   "name":  "Neisseria",
+                   "value":  1459981920,
+                   "breed":  15,
                    "sex":  1,
                    "level":  183
                },
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1395274099,
+                   "value":  1405031591,
                    "breed":  9,
                    "sex":  0,
-                   "level":  182
+                   "level":  183
                },
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  335035689,
+                   "value":  336575743,
                    "breed":  1,
                    "sex":  1,
                    "level":  135
@@ -100,18 +100,18 @@
                {
                    "rank":  13,
                    "name":  "Dos",
-                   "value":  244286961,
+                   "value":  248773371,
                    "breed":  3,
                    "sex":  0,
-                   "level":  125
+                   "level":  126
                },
                {
                    "rank":  14,
                    "name":  "Uno",
-                   "value":  237637895,
+                   "value":  240838650,
                    "breed":  3,
                    "sex":  1,
-                   "level":  124
+                   "level":  125
                },
                {
                    "rank":  15,
@@ -124,39 +124,39 @@
                {
                    "rank":  16,
                    "name":  "Tres",
-                   "value":  229578762,
+                   "value":  232716653,
                    "breed":  3,
                    "sex":  0,
-                   "level":  123
+                   "level":  124
                },
                {
                    "rank":  17,
-                   "name":  "Azera",
-                   "value":  183566632,
+                   "name":  "Azere",
+                   "value":  192069657,
                    "breed":  3,
                    "sex":  0,
-                   "level":  117
+                   "level":  118
                },
                {
                    "rank":  18,
-                   "name":  "Azerr",
-                   "value":  183405413,
+                   "name":  "Azerz",
+                   "value":  191277064,
                    "breed":  3,
                    "sex":  0,
-                   "level":  117
+                   "level":  118
                },
                {
                    "rank":  19,
-                   "name":  "Azere",
-                   "value":  183176596,
+                   "name":  "Azera",
+                   "value":  187899100,
                    "breed":  3,
                    "sex":  0,
                    "level":  117
                },
                {
                    "rank":  20,
-                   "name":  "Azerz",
-                   "value":  182408212,
+                   "name":  "Azerr",
+                   "value":  187726135,
                    "breed":  3,
                    "sex":  0,
                    "level":  117
@@ -227,6 +227,22 @@
                },
                {
                    "rank":  29,
+                   "name":  "Myc├®lia",
+                   "value":  3743652,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  46
+               },
+               {
+                   "rank":  30,
+                   "name":  "Photoinhib",
+                   "value":  3734092,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  46
+               },
+               {
+                   "rank":  31,
                    "name":  "Patt",
                    "value":  3649833,
                    "breed":  8,
@@ -234,7 +250,7 @@
                    "level":  46
                },
                {
-                   "rank":  30,
+                   "rank":  32,
                    "name":  "Latt",
                    "value":  3500741,
                    "breed":  1,
@@ -242,27 +258,11 @@
                    "level":  45
                },
                {
-                   "rank":  31,
+                   "rank":  33,
                    "name":  "Matt",
                    "value":  3413749,
                    "breed":  3,
                    "sex":  0,
-                   "level":  45
-               },
-               {
-                   "rank":  32,
-                   "name":  "Myc├®lia",
-                   "value":  3335415,
-                   "breed":  9,
-                   "sex":  1,
-                   "level":  45
-               },
-               {
-                   "rank":  33,
-                   "name":  "Photoinhib",
-                   "value":  3325855,
-                   "breed":  13,
-                   "sex":  1,
                    "level":  45
                },
                {
@@ -309,21 +309,21 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2815,
+                        "value":  2816,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  2784,
+                        "value":  2795,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  2758,
+                        "value":  2768,
                         "breed":  11,
                         "sex":  0
                     },
@@ -386,21 +386,21 @@
                     {
                         "rank":  13,
                         "name":  "Uno",
-                        "value":  743,
+                        "value":  744,
                         "breed":  3,
                         "sex":  1
                     },
                     {
                         "rank":  14,
                         "name":  "Dos",
-                        "value":  743,
+                        "value":  744,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  15,
                         "name":  "Tres",
-                        "value":  742,
+                        "value":  743,
                         "breed":  3,
                         "sex":  0
                     },
@@ -491,23 +491,23 @@
                     {
                         "rank":  28,
                         "name":  "Myc├®lia",
-                        "value":  110,
+                        "value":  111,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  29,
+                        "name":  "Photoinhib",
+                        "value":  109,
+                        "breed":  13,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  30,
                         "name":  "Broute",
                         "value":  108,
                         "breed":  18,
                         "sex":  0
-                    },
-                    {
-                        "rank":  30,
-                        "name":  "Photoinhib",
-                        "value":  108,
-                        "breed":  13,
-                        "sex":  1
                     },
                     {
                         "rank":  31,
@@ -540,14 +540,14 @@
                     {
                         "rank":  35,
                         "name":  "Azerz",
-                        "value":  94,
+                        "value":  95,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  36,
                         "name":  "Azere",
-                        "value":  94,
+                        "value":  95,
                         "breed":  3,
                         "sex":  0
                     },
