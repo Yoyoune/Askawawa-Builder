@@ -1,24 +1,32 @@
 {
-    "generatedAt":  "2026-09-11T20:29:29.9255490+02:00",
+    "generatedAt":  "2026-09-11T20:34:28.9501682+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1597049079,
+                   "value":  1610721474,
                    "breed":  8,
                    "sex":  0,
                    "level":  185
                },
                {
                    "rank":  2,
+                   "name":  "Persoun",
+                   "value":  1413521061,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  183
+               },
+               {
+                   "rank":  3,
                    "name":  "Bartonella",
-                   "value":  1402495962,
+                   "value":  1402514474,
                    "breed":  6,
                    "sex":  1,
                    "level":  182
                },
                {
-                   "rank":  3,
+                   "rank":  4,
                    "name":  "Aconit",
                    "value":  1402282088,
                    "breed":  10,
@@ -26,7 +34,7 @@
                    "level":  182
                },
                {
-                   "rank":  4,
+                   "rank":  5,
                    "name":  "Eternelle",
                    "value":  1398958802,
                    "breed":  9,
@@ -34,19 +42,11 @@
                    "level":  182
                },
                {
-                   "rank":  5,
+                   "rank":  6,
                    "name":  "Belladone",
                    "value":  1398918783,
                    "breed":  10,
                    "sex":  1,
-                   "level":  182
-               },
-               {
-                   "rank":  6,
-                   "name":  "Persoun",
-                   "value":  1362102499,
-                   "breed":  11,
-                   "sex":  0,
                    "level":  182
                },
                {
@@ -132,34 +132,34 @@
                {
                    "rank":  17,
                    "name":  "Azere",
-                   "value":  148365073,
+                   "value":  153169746,
                    "breed":  3,
                    "sex":  0,
-                   "level":  111
+                   "level":  112
                },
                {
                    "rank":  18,
                    "name":  "Azerz",
-                   "value":  147777002,
+                   "value":  152568026,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  112
+               },
+               {
+                   "rank":  19,
+                   "name":  "Azera",
+                   "value":  149133508,
                    "breed":  3,
                    "sex":  0,
                    "level":  111
                },
                {
-                   "rank":  19,
-                   "name":  "Azera",
-                   "value":  144358597,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  110
-               },
-               {
                    "rank":  20,
                    "name":  "Azerr",
-                   "value":  144307933,
+                   "value":  149069318,
                    "breed":  3,
                    "sex":  0,
-                   "level":  110
+                   "level":  111
                },
                {
                    "rank":  21,
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Bartonella",
-                        "value":  2516,
+                        "value":  2526,
                         "breed":  6,
                         "sex":  1
                     },
