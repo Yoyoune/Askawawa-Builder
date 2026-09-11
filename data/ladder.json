@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-11T23:54:29.2294618+02:00",
+    "generatedAt":  "2026-09-11T23:59:29.2895420+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Neisseria",
-                   "value":  1452749112,
+                   "value":  1454249529,
                    "breed":  15,
                    "sex":  1,
                    "level":  183
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1382642814,
+                   "value":  1395274099,
                    "breed":  9,
                    "sex":  0,
                    "level":  182
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  331997659,
+                   "value":  332249884,
                    "breed":  1,
                    "sex":  1,
                    "level":  134
@@ -309,7 +309,7 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2805,
+                        "value":  2815,
                         "breed":  9,
                         "sex":  0
                     },
@@ -358,7 +358,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  2063,
+                        "value":  2073,
                         "breed":  1,
                         "sex":  1
                     },
