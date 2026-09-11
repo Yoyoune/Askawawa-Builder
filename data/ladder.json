@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-11T22:09:29.0859920+02:00",
+    "generatedAt":  "2026-09-11T22:14:29.1055621+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  271627186,
+                   "value":  272435816,
                    "breed":  1,
                    "sex":  1,
                    "level":  128
@@ -180,7 +180,7 @@
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  40238347,
+                   "value":  40508753,
                    "breed":  8,
                    "sex":  0,
                    "level":  80
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  2877,
+                        "value":  2878,
                         "breed":  8,
                         "sex":  0
                     },
@@ -358,7 +358,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  1973,
+                        "value":  1983,
                         "breed":  1,
                         "sex":  1
                     },
