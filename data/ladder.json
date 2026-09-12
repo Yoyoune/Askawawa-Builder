@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T22:29:29.7181899+02:00",
+    "generatedAt":  "2026-09-12T22:34:29.6874774+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  2133231312,
+                   "value":  2133753644,
                    "breed":  8,
                    "sex":  0,
                    "level":  190
@@ -164,7 +164,7 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  52502305,
+                   "value":  52653197,
                    "breed":  11,
                    "sex":  0,
                    "level":  86
@@ -211,6 +211,38 @@
                },
                {
                    "rank":  27,
+                   "name":  "Myc├®lia",
+                   "value":  6936565,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  52
+               },
+               {
+                   "rank":  28,
+                   "name":  "Broute",
+                   "value":  6925683,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  52
+               },
+               {
+                   "rank":  29,
+                   "name":  "Photoinhib",
+                   "value":  6920894,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  52
+               },
+               {
+                   "rank":  30,
+                   "name":  "Quench",
+                   "value":  6794259,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  52
+               },
+               {
+                   "rank":  31,
                    "name":  "Michelangelo",
                    "value":  6703392,
                    "breed":  11,
@@ -218,44 +250,12 @@
                    "level":  52
                },
                {
-                   "rank":  28,
+                   "rank":  32,
                    "name":  "Leonardo",
                    "value":  6150231,
                    "breed":  11,
                    "sex":  0,
                    "level":  51
-               },
-               {
-                   "rank":  29,
-                   "name":  "Myc├®lia",
-                   "value":  4468545,
-                   "breed":  9,
-                   "sex":  1,
-                   "level":  48
-               },
-               {
-                   "rank":  30,
-                   "name":  "Photoinhib",
-                   "value":  4452874,
-                   "breed":  13,
-                   "sex":  1,
-                   "level":  48
-               },
-               {
-                   "rank":  31,
-                   "name":  "Broute",
-                   "value":  4213610,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  47
-               },
-               {
-                   "rank":  32,
-                   "name":  "Quench",
-                   "value":  4086639,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  47
                },
                {
                    "rank":  33,
@@ -441,17 +441,17 @@
                     },
                     {
                         "rank":  21,
-                        "name":  "Matt",
-                        "value":  269,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  22,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Matt",
+                        "value":  269,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  23,
@@ -469,14 +469,14 @@
                     },
                     {
                         "rank":  25,
-                        "name":  "Azerz",
+                        "name":  "Azera",
                         "value":  230,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  26,
-                        "name":  "Azera",
+                        "name":  "Azerz",
                         "value":  230,
                         "breed":  3,
                         "sex":  0
@@ -504,44 +504,44 @@
                     },
                     {
                         "rank":  30,
-                        "name":  "Michelangelo",
-                        "value":  169,
-                        "breed":  11,
-                        "sex":  0
+                        "name":  "Myc├®lia",
+                        "value":  185,
+                        "breed":  9,
+                        "sex":  1
                     },
                     {
                         "rank":  31,
+                        "name":  "Photoinhib",
+                        "value":  183,
+                        "breed":  13,
+                        "sex":  1
+                    },
+                    {
+                        "rank":  32,
+                        "name":  "Broute",
+                        "value":  183,
+                        "breed":  18,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  33,
+                        "name":  "Quench",
+                        "value":  180,
+                        "breed":  7,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  34,
                         "name":  "Leonardo",
                         "value":  169,
                         "breed":  11,
                         "sex":  0
                     },
                     {
-                        "rank":  32,
-                        "name":  "Myc├®lia",
-                        "value":  135,
-                        "breed":  9,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  33,
-                        "name":  "Broute",
-                        "value":  133,
-                        "breed":  18,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  34,
-                        "name":  "Photoinhib",
-                        "value":  133,
-                        "breed":  13,
-                        "sex":  1
-                    },
-                    {
                         "rank":  35,
-                        "name":  "Quench",
-                        "value":  130,
-                        "breed":  7,
+                        "name":  "Michelangelo",
+                        "value":  169,
+                        "breed":  11,
                         "sex":  0
                     },
                     {
