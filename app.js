@@ -2354,8 +2354,13 @@ function damageRollLines(effects, criticalEffects) {
       else kind = "dommages";
       // Effect_DamageBestElement (id 2822, plain "(dommages)" label, no fixed element) -
       // e.g. Flamiche/Foudroiement/Marteau de Moon - resolved to a concrete element from
-      // the current build's stats at simulation time (see findBestElement).
-      if (!element && e.effectId === 2822) element = "Meilleur";
+      // the current build's stats at simulation time (see findBestElement). Same deal for
+      // Effect_StealHPBestElement (2824, "vol de vie meilleur élément" - Félintion
+      // Prismatique etc., added in a later session): server picks the element the exact
+      // same way (DirectDamage.FindBestElementSchool), so it reuses findBestElement() too -
+      // its "(vol meilleur élément)" label (see EffectLabelOverrides in Worker.cs) already
+      // gets kind="vol" from the check below, this only needs to resolve its element.
+      if (!element && (e.effectId === 2822 || e.effectId === 2824)) element = "Meilleur";
       if (!element && kind !== "regen" && kind !== "poussee") continue; // e.g. "(Retrait PA)" - not a damage/regen/poussée roll
       out.push({ effect: e, element: element || null, kind });
     }
