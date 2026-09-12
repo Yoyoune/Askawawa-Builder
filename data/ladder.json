@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T12:29:29.7810500+02:00",
+    "generatedAt":  "2026-09-12T12:34:29.7527779+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1925731636,
+                   "value":  1926624290,
                    "breed":  8,
                    "sex":  0,
                    "level":  188
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  1710259459,
+                   "value":  1710627725,
                    "breed":  11,
                    "sex":  0,
                    "level":  187
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  1582821725,
+                   "value":  1605515875,
                    "breed":  7,
                    "sex":  0,
                    "level":  185
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Persodeux",
-                   "value":  1489668926,
+                   "value":  1511086727,
                    "breed":  9,
                    "sex":  0,
                    "level":  184
@@ -309,7 +309,7 @@
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2837,
+                        "value":  2848,
                         "breed":  9,
                         "sex":  0
                     },
@@ -323,7 +323,7 @@
                     {
                         "rank":  4,
                         "name":  "Persotrois",
-                        "value":  2816,
+                        "value":  2827,
                         "breed":  7,
                         "sex":  0
                     },
