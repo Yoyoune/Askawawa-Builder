@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T22:44:29.7160493+02:00",
+    "generatedAt":  "2026-09-12T22:49:29.7380430+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  1826108611,
+                   "value":  1859267037,
                    "breed":  11,
                    "sex":  0,
                    "level":  188
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  1722733751,
+                   "value":  1756962790,
                    "breed":  7,
                    "sex":  0,
                    "level":  187
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  1619212295,
+                   "value":  1646498671,
                    "breed":  9,
                    "sex":  0,
                    "level":  186
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  347395660,
+                   "value":  349243815,
                    "breed":  1,
                    "sex":  1,
                    "level":  136
@@ -76,18 +76,18 @@
                {
                    "rank":  10,
                    "name":  "Rhizobium",
-                   "value":  341871549,
+                   "value":  346421296,
                    "breed":  2,
                    "sex":  0,
-                   "level":  135
+                   "level":  136
                },
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  331182511,
+                   "value":  334981725,
                    "breed":  17,
                    "sex":  1,
-                   "level":  134
+                   "level":  135
                },
                {
                    "rank":  12,
