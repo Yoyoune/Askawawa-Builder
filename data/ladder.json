@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T10:59:29.6076816+02:00",
+    "generatedAt":  "2026-09-12T11:04:29.5715421+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -116,18 +116,18 @@
                {
                    "rank":  15,
                    "name":  "Azera",
-                   "value":  256065285,
+                   "value":  259329691,
                    "breed":  3,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  16,
                    "name":  "Azerr",
-                   "value":  255739502,
+                   "value":  258994913,
                    "breed":  3,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  17,
