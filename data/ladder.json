@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T23:29:29.7729233+02:00",
+    "generatedAt":  "2026-09-12T23:34:29.7853737+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  1756962790,
+                   "value":  1756962796,
                    "breed":  7,
                    "sex":  0,
                    "level":  187
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  371005355,
+                   "value":  372717417,
                    "breed":  1,
                    "sex":  1,
                    "level":  138
@@ -358,7 +358,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  2135,
+                        "value":  2145,
                         "breed":  1,
                         "sex":  1
                     },
