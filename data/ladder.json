@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T09:39:29.4364145+02:00",
+    "generatedAt":  "2026-09-12T09:44:29.4686092+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -132,34 +132,34 @@
                {
                    "rank":  17,
                    "name":  "Azere",
-                   "value":  210893819,
+                   "value":  221225611,
                    "breed":  3,
                    "sex":  0,
-                   "level":  121
+                   "level":  122
                },
                {
                    "rank":  18,
                    "name":  "Azerz",
-                   "value":  210048702,
+                   "value":  220352131,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  122
+               },
+               {
+                   "rank":  19,
+                   "name":  "Azera",
+                   "value":  216929899,
                    "breed":  3,
                    "sex":  0,
                    "level":  121
                },
                {
-                   "rank":  19,
-                   "name":  "Azera",
-                   "value":  206710817,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  120
-               },
-               {
                    "rank":  20,
                    "name":  "Azerr",
-                   "value":  206485512,
+                   "value":  216704594,
                    "breed":  3,
                    "sex":  0,
-                   "level":  120
+                   "level":  121
                },
                {
                    "rank":  21,
