@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-12T21:49:29.6650248+02:00",
+    "generatedAt":  "2026-09-12T21:54:29.6219888+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  44085870,
+                   "value":  47927740,
                    "breed":  11,
                    "sex":  0,
-                   "level":  82
+                   "level":  84
                },
                {
                    "rank":  22,
                    "name":  "Frite",
-                   "value":  42927114,
+                   "value":  46444454,
                    "breed":  7,
                    "sex":  0,
-                   "level":  81
+                   "level":  83
                },
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  42355547,
+                   "value":  45924309,
                    "breed":  8,
                    "sex":  0,
-                   "level":  81
+                   "level":  83
                },
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  41072089,
+                   "value":  44167759,
                    "breed":  14,
                    "sex":  0,
-                   "level":  81
+                   "level":  82
                },
                {
                    "rank":  25,
@@ -235,6 +235,14 @@
                },
                {
                    "rank":  30,
+                   "name":  "Quench",
+                   "value":  3967012,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  47
+               },
+               {
+                   "rank":  31,
                    "name":  "Myc├®lia",
                    "value":  3962292,
                    "breed":  9,
@@ -242,7 +250,7 @@
                    "level":  47
                },
                {
-                   "rank":  31,
+                   "rank":  32,
                    "name":  "Broute",
                    "value":  3961086,
                    "breed":  18,
@@ -250,19 +258,11 @@
                    "level":  47
                },
                {
-                   "rank":  32,
+                   "rank":  33,
                    "name":  "Patt",
                    "value":  3649833,
                    "breed":  8,
                    "sex":  1,
-                   "level":  46
-               },
-               {
-                   "rank":  33,
-                   "name":  "Quench",
-                   "value":  3589880,
-                   "breed":  7,
-                   "sex":  0,
                    "level":  46
                },
                {
