@@ -133,6 +133,14 @@ button:hover { border-color: var(--accent); }
   font-weight: 600;
 }
 
+/* Toggles body.mobile-mode (see the mobile-mode block at the end of this file) - off by default. */
+#mobileModeBtn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1b1d24;
+  font-weight: 600;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 320px 1fr 320px;
@@ -1484,3 +1492,152 @@ button:hover { border-color: var(--accent); }
 .spell-card-params-item::before { content: "•"; color: var(--text-dim); }
 .spell-card-params-item.has-icon::before { content: none; }
 .spell-card-effects { margin-top: 10px; }
+
+/* ==========================================================================
+   Mode mobile (bouton "📱 Mobile" dans la topbar - body.mobile-mode)
+   Ergonomie tactile : mise en page empilée sur une seule colonne, cibles
+   tactiles agrandies, fenêtres modales plein écran. Ne s'active jamais tout
+   seul (pas de @media ici) - c'est un choix manuel de l'utilisateur, qui
+   reste mémorisé (localStorage) d'une visite à l'autre.
+   ========================================================================== */
+body.mobile-mode { font-size: 15px; }
+
+/* ---- Topbar : passe en plusieurs lignes plutôt que de déborder ---- */
+body.mobile-mode .topbar {
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  padding: 10px 12px;
+}
+body.mobile-mode .topbar-title-group { flex-wrap: wrap; row-gap: 8px; }
+body.mobile-mode .topbar h1 { font-size: 15px; }
+body.mobile-mode .topbar-actions {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+body.mobile-mode .topbar-actions label { display: flex; align-items: center; gap: 6px; }
+
+/* ---- Cibles tactiles : boutons/inputs/selects agrandis partout ---- */
+body.mobile-mode button,
+body.mobile-mode .topbar-link-btn,
+body.mobile-mode select,
+body.mobile-mode input[type=text],
+body.mobile-mode input[type=search],
+body.mobile-mode input[type=number] {
+  font-size: 15px;
+  padding: 9px 12px;
+  min-height: 40px;
+}
+body.mobile-mode .topbar-actions input[type=number] { width: 56px; min-height: 36px; padding: 6px 8px; }
+body.mobile-mode .filter-chip,
+body.mobile-mode .category-choice-btn,
+body.mobile-mode .stat-filter-chip {
+  min-height: 38px;
+  padding: 8px 12px;
+}
+body.mobile-mode .slot .remove-btn,
+body.mobile-mode .slot .edit-btn,
+body.mobile-mode .slot .slot-set-btn {
+  min-height: 0;
+  padding: 6px;
+}
+body.mobile-mode .browser-header button,
+body.mobile-mode #browserClose,
+body.mobile-mode #detailClose,
+body.mobile-mode #setsBrowserClose,
+body.mobile-mode #setModalClose,
+body.mobile-mode #categoryPickerClose,
+body.mobile-mode #compareModalClose,
+body.mobile-mode #recipeModalClose,
+body.mobile-mode #classPickerModalClose,
+body.mobile-mode #classSpellsModalClose,
+body.mobile-mode #weaponDamageModalClose,
+body.mobile-mode #paPmPickerModalClose,
+body.mobile-mode #paPmListModalClose,
+body.mobile-mode #allEquipModalClose {
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 18px;
+}
+
+/* ---- Mise en page principale : une seule colonne empilée ---- */
+body.mobile-mode .layout {
+  /* Plain "1fr" keeps its implicit minmax(auto,1fr) sizing - the column would stay as wide
+     as its widest descendant's min-content and blow out past the viewport. minmax(0,1fr)
+     forces it down to the available width instead, letting overflowing content wrap/scroll
+     internally rather than widening the whole page. */
+  grid-template-columns: minmax(0, 1fr);
+  padding: 10px;
+  gap: 12px;
+}
+body.mobile-mode .left-column,
+body.mobile-mode .browser,
+body.mobile-mode .stats { min-width: 0; }
+body.mobile-mode .stats { position: static; }
+
+/* ---- Pierre angulaire de la page (équipement) : colonnes un peu plus serrées ---- */
+body.mobile-mode .paperdoll { gap: 8px; padding: 12px; }
+body.mobile-mode .slot { min-height: 76px; }
+
+/* ---- Modales : plein écran plutôt qu'une petite boîte centrée ---- */
+body.mobile-mode .modal-overlay { padding: 0; align-items: stretch; }
+body.mobile-mode .modal,
+body.mobile-mode .modal-wide,
+body.mobile-mode .modal-medium,
+body.mobile-mode .modal-narrow,
+body.mobile-mode .modal-xwide {
+  max-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+body.mobile-mode .modal-body,
+body.mobile-mode .browser-content,
+body.mobile-mode .detail-body {
+  overflow-x: auto;
+}
+/* Every panel/modal header (title + close + assorted extra buttons: "Cachés", view-mode
+   toggles, "Vider"...) is a single no-wrap flex row sized for a wide desktop modal - on a
+   narrow screen it must wrap onto several lines instead of clipping its last button(s). */
+body.mobile-mode .browser-header { flex-wrap: wrap; row-gap: 8px; }
+body.mobile-mode .atelier-view-toggle { flex-wrap: wrap; }
+
+/* ---- Filtres/recherche : empilés au lieu d'une rangée trop étroite ---- */
+body.mobile-mode .browser-controls,
+body.mobile-mode .level-range-row,
+body.mobile-mode .compare-select-row,
+body.mobile-mode .stat-filter-add-row {
+  flex-wrap: wrap;
+}
+body.mobile-mode .browser-controls select { flex: 1 1 100%; }
+body.mobile-mode .level-range-row label { flex: 1 1 45%; }
+body.mobile-mode .level-range-row input { flex: 1; width: auto; }
+body.mobile-mode .compare-select-row select { flex: 1 1 100%; }
+body.mobile-mode .compare-vs { flex: 0 0 100%; text-align: center; }
+
+/* "Équiper la panoplie" etc. - compact action-button rows that don't wrap by default and,
+   once the buttons above are enlarged for touch, would rather overflow their card than wrap.
+   More specific than the plain "body.mobile-mode button" rule above, so it wins on top of it. */
+body.mobile-mode .set-badge { flex-direction: column; align-items: stretch; }
+body.mobile-mode .set-badge-actions { flex-wrap: wrap; width: 100%; }
+/* .set-card-header-actions sits NEXT TO a title in the same flex row (not stacked below like
+   .set-badge-actions above) - it must stay an auto-width flex item so it can wrap onto its own
+   line under the title instead of stretching to 100% and overlapping it. */
+body.mobile-mode .set-card-header { flex-wrap: wrap; }
+body.mobile-mode .set-card-header-actions { flex-wrap: wrap; }
+body.mobile-mode .set-badge-actions button,
+body.mobile-mode .set-card-header-actions button {
+  flex: 1 1 auto;
+  min-height: 34px;
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+body.mobile-mode .item-list { max-height: none; }
+body.mobile-mode .item-icon { width: 44px; height: 44px; }
+body.mobile-mode .equipped-tooltip { max-width: 90vw; }

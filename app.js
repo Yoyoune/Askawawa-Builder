@@ -337,6 +337,20 @@ const BUILD_CATEGORIES = ["Feu", "Eau", "Air", "Terre", "Multi", "Bi-élément",
 const STORAGE_KEY_BUILDS = "populus-builder-saved-builds-v1";
 const STORAGE_KEY_HIDDEN = "populus-builder-hidden-v1";
 const STORAGE_KEY_ATELIER = "populus-builder-atelier-v1";
+const STORAGE_KEY_MOBILE_MODE = "populus-builder-mobile-mode-v1";
+
+// Applied as soon as the script runs (before main()'s async data fetch resolves) so there's
+// no flash of the desktop layout on a phone that already had the mode turned on last visit.
+// Falls back to auto-detecting a narrow/touch device the very first time (no stored choice
+// yet) - after that the button's explicit on/off always wins, it's never re-guessed.
+(function initMobileMode() {
+  let stored = null;
+  try { stored = localStorage.getItem(STORAGE_KEY_MOBILE_MODE); } catch (e) { /* storage unavailable - ignore */ }
+  const enabled = stored !== null
+    ? stored === "1"
+    : (window.matchMedia && window.matchMedia("(max-width: 820px)").matches);
+  document.body.classList.toggle("mobile-mode", enabled);
+})();
 
 // "bonus" filters check the set's bonus tiers; "item" filters check whether any
 // individual piece in the set grants that stat; "other" catches sets with none of
@@ -471,6 +485,14 @@ async function main() {
   renderSetsSlotTypeFilterChips();
   renderSetsSlotTypeExcludeFilterChips();
   renderStatFilterChips();
+
+  const mobileModeBtn = document.getElementById("mobileModeBtn");
+  mobileModeBtn.classList.toggle("active", document.body.classList.contains("mobile-mode"));
+  mobileModeBtn.addEventListener("click", (ev) => {
+    const enabled = document.body.classList.toggle("mobile-mode");
+    ev.target.classList.toggle("active", enabled);
+    try { localStorage.setItem(STORAGE_KEY_MOBILE_MODE, enabled ? "1" : "0"); } catch (e) { /* storage unavailable - ignore */ }
+  });
 
   document.getElementById("showIdsBtn").addEventListener("click", (ev) => {
     showIds = !showIds;
