@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T10:29:29.5051867+02:00",
+    "generatedAt":  "2026-09-12T10:34:29.5480967+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1890065120,
+                   "value":  1891607588,
                    "breed":  8,
                    "sex":  0,
                    "level":  188
@@ -107,6 +107,22 @@
                },
                {
                    "rank":  14,
+                   "name":  "Azera",
+                   "value":  250294398,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  126
+               },
+               {
+                   "rank":  15,
+                   "name":  "Azerr",
+                   "value":  249977688,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  126
+               },
+               {
+                   "rank":  16,
                    "name":  "Azerz",
                    "value":  249200872,
                    "breed":  3,
@@ -114,7 +130,7 @@
                    "level":  126
                },
                {
-                   "rank":  15,
+                   "rank":  17,
                    "name":  "Azere",
                    "value":  248995450,
                    "breed":  3,
@@ -122,7 +138,7 @@
                    "level":  126
                },
                {
-                   "rank":  16,
+                   "rank":  18,
                    "name":  "Uno",
                    "value":  243868155,
                    "breed":  3,
@@ -130,27 +146,11 @@
                    "level":  125
                },
                {
-                   "rank":  17,
+                   "rank":  19,
                    "name":  "Cuatro",
                    "value":  242066766,
                    "breed":  3,
                    "sex":  1,
-                   "level":  125
-               },
-               {
-                   "rank":  18,
-                   "name":  "Azera",
-                   "value":  240814794,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  125
-               },
-               {
-                   "rank":  19,
-                   "name":  "Azerr",
-                   "value":  240524199,
-                   "breed":  3,
-                   "sex":  0,
                    "level":  125
                },
                {
@@ -491,7 +491,7 @@
                     {
                         "rank":  28,
                         "name":  "Azerr",
-                        "value":  153,
+                        "value":  154,
                         "breed":  3,
                         "sex":  0
                     },
@@ -504,15 +504,15 @@
                     },
                     {
                         "rank":  30,
-                        "name":  "Azere",
+                        "name":  "Azera",
                         "value":  152,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  31,
-                        "name":  "Azera",
-                        "value":  151,
+                        "name":  "Azere",
+                        "value":  152,
                         "breed":  3,
                         "sex":  0
                     },
@@ -525,17 +525,17 @@
                     },
                     {
                         "rank":  33,
-                        "name":  "Photoinhib",
-                        "value":  112,
-                        "breed":  13,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  34,
                         "name":  "Broute",
                         "value":  112,
                         "breed":  18,
                         "sex":  0
+                    },
+                    {
+                        "rank":  34,
+                        "name":  "Photoinhib",
+                        "value":  112,
+                        "breed":  13,
+                        "sex":  1
                     },
                     {
                         "rank":  35,
