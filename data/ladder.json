@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-12T12:54:29.7616274+02:00",
+    "generatedAt":  "2026-09-12T12:59:29.8078374+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  1927717111,
+                   "value":  1931835761,
                    "breed":  8,
                    "sex":  0,
-                   "level":  188
+                   "level":  189
                },
                {
                    "rank":  2,
@@ -100,10 +100,10 @@
                {
                    "rank":  13,
                    "name":  "Azere",
-                   "value":  279890568,
+                   "value":  284750812,
                    "breed":  3,
                    "sex":  0,
-                   "level":  129
+                   "level":  130
                },
                {
                    "rank":  14,
@@ -462,28 +462,28 @@
                     },
                     {
                         "rank":  24,
+                        "name":  "Azere",
+                        "value":  211,
+                        "breed":  3,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  25,
                         "name":  "Azerr",
                         "value":  200,
                         "breed":  3,
                         "sex":  0
                     },
                     {
-                        "rank":  25,
+                        "rank":  26,
                         "name":  "Azerz",
                         "value":  198,
                         "breed":  3,
                         "sex":  0
                     },
                     {
-                        "rank":  26,
-                        "name":  "Azera",
-                        "value":  198,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
                         "rank":  27,
-                        "name":  "Azere",
+                        "name":  "Azera",
                         "value":  198,
                         "breed":  3,
                         "sex":  0
