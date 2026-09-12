@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-12T22:04:29.7538413+02:00",
+    "generatedAt":  "2026-09-12T22:09:29.6977961+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  2120298636,
+                   "value":  2127055512,
                    "breed":  8,
                    "sex":  0,
                    "level":  190
@@ -68,10 +68,10 @@
                {
                    "rank":  9,
                    "name":  "Flavodiira",
-                   "value":  345287332,
+                   "value":  345447211,
                    "breed":  1,
                    "sex":  1,
-                   "level":  135
+                   "level":  136
                },
                {
                    "rank":  10,
@@ -164,34 +164,34 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  47927740,
+                   "value":  50298150,
                    "breed":  11,
                    "sex":  0,
-                   "level":  84
+                   "level":  85
                },
                {
                    "rank":  22,
                    "name":  "Frite",
-                   "value":  46444454,
+                   "value":  48597777,
                    "breed":  7,
                    "sex":  0,
-                   "level":  83
+                   "level":  84
                },
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  45924309,
+                   "value":  48109111,
                    "breed":  8,
                    "sex":  0,
-                   "level":  83
+                   "level":  84
                },
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  44167759,
+                   "value":  46040098,
                    "breed":  14,
                    "sex":  0,
-                   "level":  82
+                   "level":  83
                },
                {
                    "rank":  25,
@@ -227,19 +227,19 @@
                },
                {
                    "rank":  29,
-                   "name":  "Myc├®lia",
-                   "value":  4406354,
-                   "breed":  9,
+                   "name":  "Photoinhib",
+                   "value":  4426137,
+                   "breed":  13,
                    "sex":  1,
                    "level":  48
                },
                {
                    "rank":  30,
-                   "name":  "Photoinhib",
-                   "value":  4199795,
-                   "breed":  13,
+                   "name":  "Myc├®lia",
+                   "value":  4406354,
+                   "breed":  9,
                    "sex":  1,
-                   "level":  47
+                   "level":  48
                },
                {
                    "rank":  31,
