@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T14:29:29.1599091+02:00",
+    "generatedAt":  "2026-09-13T14:34:29.1474641+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -195,6 +195,38 @@
                },
                {
                    "rank":  25,
+                   "name":  "Myc├®lia",
+                   "value":  7207776,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  53
+               },
+               {
+                   "rank":  26,
+                   "name":  "Broute",
+                   "value":  7196894,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  27,
+                   "name":  "Photoinhib",
+                   "value":  7192105,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  53
+               },
+               {
+                   "rank":  28,
+                   "name":  "Quench",
+                   "value":  7065470,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  53
+               },
+               {
+                   "rank":  29,
                    "name":  "Donatelo",
                    "value":  7004741,
                    "breed":  11,
@@ -202,44 +234,12 @@
                    "level":  53
                },
                {
-                   "rank":  26,
+                   "rank":  30,
                    "name":  "Rafaelo",
                    "value":  6975883,
                    "breed":  11,
                    "sex":  0,
                    "level":  53
-               },
-               {
-                   "rank":  27,
-                   "name":  "Myc├®lia",
-                   "value":  6936565,
-                   "breed":  9,
-                   "sex":  1,
-                   "level":  52
-               },
-               {
-                   "rank":  28,
-                   "name":  "Broute",
-                   "value":  6925683,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  52
-               },
-               {
-                   "rank":  29,
-                   "name":  "Photoinhib",
-                   "value":  6920894,
-                   "breed":  13,
-                   "sex":  1,
-                   "level":  52
-               },
-               {
-                   "rank":  30,
-                   "name":  "Quench",
-                   "value":  6794259,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  52
                },
                {
                    "rank":  31,
