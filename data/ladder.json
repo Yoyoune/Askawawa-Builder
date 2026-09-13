@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T21:44:29.8988974+02:00",
+    "generatedAt":  "2026-09-13T21:49:29.9770945+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  436258623,
+                   "value":  439554046,
                    "breed":  1,
                    "sex":  1,
                    "level":  143
@@ -84,18 +84,18 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  407924876,
+                   "value":  430043992,
                    "breed":  17,
                    "sex":  1,
-                   "level":  141
+                   "level":  142
                },
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  399121872,
+                   "value":  421079977,
                    "breed":  3,
                    "sex":  0,
-                   "level":  140
+                   "level":  142
                },
                {
                    "rank":  13,
