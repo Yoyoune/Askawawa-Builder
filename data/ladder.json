@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T21:34:29.8347699+02:00",
+    "generatedAt":  "2026-09-13T21:39:29.8986513+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -68,7 +68,7 @@
                {
                    "rank":  9,
                    "name":  "Rhizobium",
-                   "value":  444589205,
+                   "value":  445329533,
                    "breed":  2,
                    "sex":  0,
                    "level":  144
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  436247397,
+                   "value":  436258623,
                    "breed":  1,
                    "sex":  1,
                    "level":  143
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  407219847,
+                   "value":  407924876,
                    "breed":  17,
                    "sex":  1,
                    "level":  141
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  398427152,
+                   "value":  399121872,
                    "breed":  3,
                    "sex":  0,
                    "level":  140
@@ -196,7 +196,7 @@
                {
                    "rank":  25,
                    "name":  "Myc├®lia",
-                   "value":  10424562,
+                   "value":  10536045,
                    "breed":  9,
                    "sex":  1,
                    "level":  58
@@ -204,7 +204,7 @@
                {
                    "rank":  26,
                    "name":  "Broute",
-                   "value":  10407274,
+                   "value":  10518757,
                    "breed":  18,
                    "sex":  0,
                    "level":  58
@@ -212,7 +212,7 @@
                {
                    "rank":  27,
                    "name":  "Photoinhib",
-                   "value":  10402215,
+                   "value":  10513698,
                    "breed":  13,
                    "sex":  1,
                    "level":  58
@@ -220,7 +220,7 @@
                {
                    "rank":  28,
                    "name":  "Quench",
-                   "value":  10267495,
+                   "value":  10378978,
                    "breed":  7,
                    "sex":  0,
                    "level":  58
