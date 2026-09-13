@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T17:59:29.5473538+02:00",
+    "generatedAt":  "2026-09-13T18:04:29.5737206+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,10 +76,10 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  430056617,
+                   "value":  430953860,
                    "breed":  1,
                    "sex":  1,
-                   "level":  142
+                   "level":  143
                },
                {
                    "rank":  11,
@@ -92,10 +92,10 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  385491252,
+                   "value":  392552924,
                    "breed":  3,
                    "sex":  0,
-                   "level":  139
+                   "level":  140
                },
                {
                    "rank":  13,
@@ -203,6 +203,14 @@
                },
                {
                    "rank":  26,
+                   "name":  "Quench",
+                   "value":  9437903,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  57
+               },
+               {
+                   "rank":  27,
                    "name":  "Broute",
                    "value":  9427604,
                    "breed":  18,
@@ -210,20 +218,12 @@
                    "level":  57
                },
                {
-                   "rank":  27,
+                   "rank":  28,
                    "name":  "Photoinhib",
                    "value":  9422545,
                    "breed":  13,
                    "sex":  1,
                    "level":  57
-               },
-               {
-                   "rank":  28,
-                   "name":  "Quench",
-                   "value":  8777860,
-                   "breed":  7,
-                   "sex":  0,
-                   "level":  56
                },
                {
                    "rank":  29,
@@ -358,7 +358,7 @@
                     {
                         "rank":  9,
                         "name":  "Flavodiira",
-                        "value":  2227,
+                        "value":  2237,
                         "breed":  1,
                         "sex":  1
                     },
@@ -379,7 +379,7 @@
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  1947,
+                        "value":  2008,
                         "breed":  3,
                         "sex":  0
                     },
