@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T15:34:29.2946197+02:00",
+    "generatedAt":  "2026-09-13T15:39:29.2962136+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -84,7 +84,7 @@
                {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  382171600,
+                   "value":  382439853,
                    "breed":  17,
                    "sex":  1,
                    "level":  139
@@ -372,7 +372,7 @@
                     {
                         "rank":  11,
                         "name":  "Rubisca",
-                        "value":  1964,
+                        "value":  1965,
                         "breed":  17,
                         "sex":  1
                     },
