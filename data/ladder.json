@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T16:24:29.3582952+02:00",
+    "generatedAt":  "2026-09-13T16:29:29.3820053+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -196,34 +196,34 @@
                {
                    "rank":  25,
                    "name":  "Myc├®lia",
-                   "value":  7513145,
+                   "value":  7740097,
                    "breed":  9,
                    "sex":  1,
-                   "level":  53
+                   "level":  54
                },
                {
                    "rank":  26,
                    "name":  "Broute",
-                   "value":  7502263,
+                   "value":  7729215,
                    "breed":  18,
                    "sex":  0,
-                   "level":  53
+                   "level":  54
                },
                {
                    "rank":  27,
                    "name":  "Photoinhib",
-                   "value":  7497474,
+                   "value":  7724426,
                    "breed":  13,
                    "sex":  1,
-                   "level":  53
+                   "level":  54
                },
                {
                    "rank":  28,
                    "name":  "Quench",
-                   "value":  7370839,
+                   "value":  7597791,
                    "breed":  7,
                    "sex":  0,
-                   "level":  53
+                   "level":  54
                },
                {
                    "rank":  29,
@@ -505,28 +505,28 @@
                     {
                         "rank":  30,
                         "name":  "Myc├®lia",
-                        "value":  185,
+                        "value":  186,
                         "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  31,
                         "name":  "Photoinhib",
-                        "value":  183,
+                        "value":  184,
                         "breed":  13,
                         "sex":  1
                     },
                     {
                         "rank":  32,
                         "name":  "Broute",
-                        "value":  183,
+                        "value":  184,
                         "breed":  18,
                         "sex":  0
                     },
                     {
                         "rank":  33,
                         "name":  "Quench",
-                        "value":  180,
+                        "value":  181,
                         "breed":  7,
                         "sex":  0
                     },
