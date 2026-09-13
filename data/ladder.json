@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T18:19:29.5170740+02:00",
+    "generatedAt":  "2026-09-13T18:24:29.5404343+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -67,24 +67,24 @@
                },
                {
                    "rank":  9,
+                   "name":  "Rhizobium",
+                   "value":  444589205,
+                   "breed":  2,
+                   "sex":  0,
+                   "level":  144
+               },
+               {
+                   "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  433912252,
+                   "value":  435665087,
                    "breed":  1,
                    "sex":  1,
                    "level":  143
                },
                {
-                   "rank":  10,
-                   "name":  "Rhizobium",
-                   "value":  431631485,
-                   "breed":  2,
-                   "sex":  0,
-                   "level":  143
-               },
-               {
                    "rank":  11,
                    "name":  "Rubisca",
-                   "value":  405417857,
+                   "value":  407219847,
                    "breed":  17,
                    "sex":  1,
                    "level":  141
@@ -92,7 +92,7 @@
                {
                    "rank":  12,
                    "name":  "Cyano",
-                   "value":  392552924,
+                   "value":  398427152,
                    "breed":  3,
                    "sex":  0,
                    "level":  140
@@ -196,34 +196,34 @@
                {
                    "rank":  25,
                    "name":  "Myc├®lia",
-                   "value":  10161706,
+                   "value":  10424562,
                    "breed":  9,
                    "sex":  1,
                    "level":  58
                },
                {
                    "rank":  26,
-                   "name":  "Quench",
-                   "value":  9437903,
-                   "breed":  7,
+                   "name":  "Broute",
+                   "value":  10407274,
+                   "breed":  18,
                    "sex":  0,
-                   "level":  57
+                   "level":  58
                },
                {
                    "rank":  27,
-                   "name":  "Broute",
-                   "value":  9427604,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  57
+                   "name":  "Photoinhib",
+                   "value":  10402215,
+                   "breed":  13,
+                   "sex":  1,
+                   "level":  58
                },
                {
                    "rank":  28,
-                   "name":  "Photoinhib",
-                   "value":  9422545,
-                   "breed":  13,
-                   "sex":  1,
-                   "level":  57
+                   "name":  "Quench",
+                   "value":  10267495,
+                   "breed":  7,
+                   "sex":  0,
+                   "level":  58
                },
                {
                    "rank":  29,
@@ -365,7 +365,7 @@
                     {
                         "rank":  10,
                         "name":  "Rhizobium",
-                        "value":  2041,
+                        "value":  2051,
                         "breed":  2,
                         "sex":  0
                     },
@@ -379,7 +379,7 @@
                     {
                         "rank":  12,
                         "name":  "Cyano",
-                        "value":  2008,
+                        "value":  2018,
                         "breed":  3,
                         "sex":  0
                     },
