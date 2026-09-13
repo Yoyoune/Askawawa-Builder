@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T16:54:29.4117931+02:00",
+    "generatedAt":  "2026-09-13T16:59:29.4362443+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -76,7 +76,7 @@
                {
                    "rank":  10,
                    "name":  "Flavodiira",
-                   "value":  421560738,
+                   "value":  421716828,
                    "breed":  1,
                    "sex":  1,
                    "level":  142
@@ -195,27 +195,27 @@
                },
                {
                    "rank":  25,
-                   "name":  "Myc├®lia",
-                   "value":  7740097,
-                   "breed":  9,
+                   "name":  "Photoinhib",
+                   "value":  8143785,
+                   "breed":  13,
                    "sex":  1,
-                   "level":  54
+                   "level":  55
                },
                {
                    "rank":  26,
-                   "name":  "Broute",
-                   "value":  7729215,
-                   "breed":  18,
-                   "sex":  0,
-                   "level":  54
+                   "name":  "Myc├®lia",
+                   "value":  8140188,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  55
                },
                {
                    "rank":  27,
-                   "name":  "Photoinhib",
-                   "value":  7724426,
-                   "breed":  13,
-                   "sex":  1,
-                   "level":  54
+                   "name":  "Broute",
+                   "value":  8134099,
+                   "breed":  18,
+                   "sex":  0,
+                   "level":  55
                },
                {
                    "rank":  28,
