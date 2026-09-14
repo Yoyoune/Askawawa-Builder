@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-14T22:24:29.3003569+02:00",
+    "generatedAt":  "2026-09-14T22:29:29.2904521+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -164,7 +164,7 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  58832114,
+                   "value":  59090788,
                    "breed":  11,
                    "sex":  0,
                    "level":  88
@@ -188,10 +188,10 @@
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  52339660,
+                   "value":  54758620,
                    "breed":  14,
                    "sex":  0,
-                   "level":  86
+                   "level":  87
                },
                {
                    "rank":  25,
@@ -427,31 +427,31 @@
                     },
                     {
                         "rank":  19,
+                        "name":  "Fritr",
+                        "value":  531,
+                        "breed":  14,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  20,
                         "name":  "Frita",
                         "value":  524,
                         "breed":  8,
                         "sex":  0
                     },
                     {
-                        "rank":  20,
-                        "name":  "Fritr",
-                        "value":  511,
-                        "breed":  14,
-                        "sex":  0
-                    },
-                    {
                         "rank":  21,
-                        "name":  "Matt",
-                        "value":  269,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  22,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Matt",
+                        "value":  269,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  23,
@@ -469,14 +469,14 @@
                     },
                     {
                         "rank":  25,
-                        "name":  "Azerz",
+                        "name":  "Azera",
                         "value":  231,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  26,
-                        "name":  "Azera",
+                        "name":  "Azerz",
                         "value":  231,
                         "breed":  3,
                         "sex":  0
