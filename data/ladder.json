@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-14T22:39:29.3475416+02:00",
+    "generatedAt":  "2026-09-14T22:44:29.3305664+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -172,7 +172,7 @@
                {
                    "rank":  22,
                    "name":  "Frite",
-                   "value":  57322669,
+                   "value":  57733222,
                    "breed":  7,
                    "sex":  0,
                    "level":  88
@@ -180,7 +180,7 @@
                {
                    "rank":  23,
                    "name":  "Frita",
-                   "value":  55154250,
+                   "value":  56953732,
                    "breed":  8,
                    "sex":  0,
                    "level":  87
@@ -188,7 +188,7 @@
                {
                    "rank":  24,
                    "name":  "Fritr",
-                   "value":  54758620,
+                   "value":  54923966,
                    "breed":  14,
                    "sex":  0,
                    "level":  87
@@ -420,23 +420,23 @@
                     },
                     {
                         "rank":  18,
+                        "name":  "Frita",
+                        "value":  534,
+                        "breed":  8,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  19,
                         "name":  "Frite",
                         "value":  531,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  19,
+                        "rank":  20,
                         "name":  "Fritr",
                         "value":  531,
                         "breed":  14,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  20,
-                        "name":  "Frita",
-                        "value":  524,
-                        "breed":  8,
                         "sex":  0
                     },
                     {
