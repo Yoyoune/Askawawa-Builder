@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-15T22:29:29.9001058+02:00",
+    "generatedAt":  "2026-09-15T22:34:29.9189179+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  2321834933,
+                   "value":  2361401523,
                    "breed":  8,
                    "sex":  0,
-                   "level":  191
+                   "level":  192
                },
                {
                    "rank":  2,
@@ -20,18 +20,18 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  1874096893,
+                   "value":  1939332823,
                    "breed":  7,
                    "sex":  0,
-                   "level":  188
+                   "level":  189
                },
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  1793719365,
+                   "value":  1820406581,
                    "breed":  9,
                    "sex":  0,
-                   "level":  187
+                   "level":  188
                },
                {
                    "rank":  5,
@@ -302,21 +302,21 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3066,
+                        "value":  3086,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  2885,
+                        "value":  2886,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  2874,
+                        "value":  2875,
                         "breed":  7,
                         "sex":  0
                     },
