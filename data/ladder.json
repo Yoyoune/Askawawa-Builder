@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-15T21:59:29.8452513+02:00",
+    "generatedAt":  "2026-09-15T22:04:29.9038801+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  2299905963,
+                   "value":  2321834933,
                    "breed":  8,
                    "sex":  0,
                    "level":  191
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  1755829697,
+                   "value":  1793719365,
                    "breed":  9,
                    "sex":  0,
                    "level":  187
@@ -164,7 +164,7 @@
                {
                    "rank":  21,
                    "name":  "Fritz",
-                   "value":  61503617,
+                   "value":  61938869,
                    "breed":  11,
                    "sex":  0,
                    "level":  89
