@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-20T00:59:29.1740288+02:00",
+    "generatedAt":  "2026-09-20T01:04:29.1305139+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,17 +35,17 @@
                },
                {
                    "rank":  5,
-                   "name":  "Aconit",
-                   "value":  1684464024,
-                   "breed":  10,
+                   "name":  "Neisseria",
+                   "value":  1686339724,
+                   "breed":  15,
                    "sex":  1,
                    "level":  186
                },
                {
                    "rank":  6,
-                   "name":  "Neisseria",
-                   "value":  1679840322,
-                   "breed":  15,
+                   "name":  "Aconit",
+                   "value":  1684464024,
+                   "breed":  10,
                    "sex":  1,
                    "level":  186
                },
