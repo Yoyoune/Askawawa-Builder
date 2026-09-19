@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-20T01:24:29.4024089+02:00",
+    "generatedAt":  "2026-09-20T01:29:29.1679671+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  3607798593,
+                   "value":  3664644006,
                    "breed":  8,
                    "sex":  0,
                    "level":  198
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Neisseria",
-                   "value":  1686339724,
+                   "value":  1708615164,
                    "breed":  15,
                    "sex":  1,
                    "level":  186
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3156,
+                        "value":  3166,
                         "breed":  8,
                         "sex":  0
                     },
