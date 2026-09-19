@@ -1,16 +1,24 @@
 {
-    "generatedAt":  "2026-09-19T11:14:29.8934038+02:00",
+    "generatedAt":  "2026-09-19T11:19:29.9247619+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  3263775641,
+                   "value":  3329899705,
                    "breed":  8,
                    "sex":  0,
                    "level":  197
                },
                {
                    "rank":  2,
+                   "name":  "Persoun",
+                   "value":  3001967421,
+                   "breed":  11,
+                   "sex":  0,
+                   "level":  195
+               },
+               {
+                   "rank":  3,
                    "name":  "Persotrois",
                    "value":  2909987353,
                    "breed":  7,
@@ -18,17 +26,9 @@
                    "level":  195
                },
                {
-                   "rank":  3,
-                   "name":  "Persoun",
-                   "value":  2889020677,
-                   "breed":  11,
-                   "sex":  0,
-                   "level":  195
-               },
-               {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  2728274445,
+                   "value":  2789815505,
                    "breed":  9,
                    "sex":  0,
                    "level":  194
@@ -99,6 +99,14 @@
                },
                {
                    "rank":  13,
+                   "name":  "Azere",
+                   "value":  423260297,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  142
+               },
+               {
+                   "rank":  14,
                    "name":  "Azerz",
                    "value":  421798793,
                    "breed":  3,
@@ -106,7 +114,7 @@
                    "level":  142
                },
                {
-                   "rank":  14,
+                   "rank":  15,
                    "name":  "Azera",
                    "value":  420476510,
                    "breed":  3,
@@ -114,17 +122,9 @@
                    "level":  142
                },
                {
-                   "rank":  15,
+                   "rank":  16,
                    "name":  "Azerr",
                    "value":  419261740,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  142
-               },
-               {
-                   "rank":  16,
-                   "name":  "Azere",
-                   "value":  418731391,
                    "breed":  3,
                    "sex":  0,
                    "level":  142
