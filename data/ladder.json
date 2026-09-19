@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-20T01:34:29.1207851+02:00",
+    "generatedAt":  "2026-09-20T01:39:29.2097781+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Neisseria",
-                   "value":  1711630674,
+                   "value":  1722761487,
                    "breed":  15,
                    "sex":  1,
                    "level":  187
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Neisseria",
-                        "value":  2572,
+                        "value":  2602,
                         "breed":  15,
                         "sex":  1
                     },
