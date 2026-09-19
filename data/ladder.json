@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-20T01:19:29.1274713+02:00",
+    "generatedAt":  "2026-09-20T01:24:29.4024089+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,40 +28,40 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  3049159029,
+                   "value":  3074503677,
                    "breed":  9,
                    "sex":  0,
-                   "level":  195
+                   "level":  196
                },
                {
                    "rank":  5,
-                   "name":  "Neisseria",
-                   "value":  1686339724,
-                   "breed":  15,
+                   "name":  "Aconit",
+                   "value":  1731108127,
+                   "breed":  10,
                    "sex":  1,
-                   "level":  186
+                   "level":  187
                },
                {
                    "rank":  6,
-                   "name":  "Aconit",
-                   "value":  1684464024,
+                   "name":  "Belladone",
+                   "value":  1724867592,
                    "breed":  10,
                    "sex":  1,
-                   "level":  186
+                   "level":  187
                },
                {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  1678641118,
-                   "breed":  10,
+                   "name":  "Eternelle",
+                   "value":  1722867286,
+                   "breed":  9,
                    "sex":  1,
-                   "level":  186
+                   "level":  187
                },
                {
                    "rank":  8,
-                   "name":  "Eternelle",
-                   "value":  1677680007,
-                   "breed":  9,
+                   "name":  "Neisseria",
+                   "value":  1686339724,
+                   "breed":  15,
                    "sex":  1,
                    "level":  186
                },
@@ -337,14 +337,14 @@
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  2455,
+                        "value":  2456,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
                         "name":  "Aconit",
-                        "value":  2453,
+                        "value":  2454,
                         "breed":  10,
                         "sex":  1
                     },
