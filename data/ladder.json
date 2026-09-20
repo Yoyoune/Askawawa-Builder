@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-21T00:44:29.4447902+02:00",
+    "generatedAt":  "2026-09-21T00:49:29.2810081+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  3973749836,
+                   "value":  3996779904,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -35,17 +35,17 @@
                },
                {
                    "rank":  5,
-                   "name":  "Belladone",
-                   "value":  1818959753,
-                   "breed":  10,
+                   "name":  "Neisseria",
+                   "value":  1833326707,
+                   "breed":  15,
                    "sex":  1,
                    "level":  188
                },
                {
                    "rank":  6,
-                   "name":  "Neisseria",
-                   "value":  1816769556,
-                   "breed":  15,
+                   "name":  "Belladone",
+                   "value":  1818959753,
+                   "breed":  10,
                    "sex":  1,
                    "level":  188
                },
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Azere",
-                   "value":  449282343,
+                   "value":  450388597,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Azerz",
-                   "value":  447743738,
+                   "value":  448846329,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Azera",
-                   "value":  446477564,
+                   "value":  447587481,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Azerr",
-                   "value":  445189367,
+                   "value":  446295621,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3258,
+                        "value":  3268,
                         "breed":  8,
                         "sex":  0
                     },
