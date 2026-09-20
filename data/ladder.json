@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-20T23:54:29.1456374+02:00",
+    "generatedAt":  "2026-09-20T23:59:29.2326296+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  3946893782,
+                   "value":  3951868178,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -60,7 +60,7 @@
                {
                    "rank":  8,
                    "name":  "Neisseria",
-                   "value":  1757789305,
+                   "value":  1763681311,
                    "breed":  15,
                    "sex":  1,
                    "level":  187
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Azere",
-                   "value":  448747871,
+                   "value":  449107233,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Azerz",
-                   "value":  447210947,
+                   "value":  447569119,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Azera",
-                   "value":  445941411,
+                   "value":  446301963,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Azerr",
-                   "value":  444654895,
+                   "value":  445014257,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -330,7 +330,7 @@
                     {
                         "rank":  5,
                         "name":  "Neisseria",
-                        "value":  2602,
+                        "value":  2603,
                         "breed":  15,
                         "sex":  1
                     },
