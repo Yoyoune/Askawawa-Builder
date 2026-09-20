@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-21T00:19:29.1778256+02:00",
+    "generatedAt":  "2026-09-21T00:24:29.2336460+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  3968227992,
+                   "value":  3968520492,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -35,33 +35,33 @@
                },
                {
                    "rank":  5,
-                   "name":  "Aconit",
-                   "value":  1779542272,
+                   "name":  "Belladone",
+                   "value":  1818959753,
                    "breed":  10,
                    "sex":  1,
-                   "level":  187
+                   "level":  188
                },
                {
                    "rank":  6,
-                   "name":  "Neisseria",
-                   "value":  1775196584,
-                   "breed":  15,
+                   "name":  "Aconit",
+                   "value":  1816713463,
+                   "breed":  10,
                    "sex":  1,
-                   "level":  187
+                   "level":  188
                },
                {
                    "rank":  7,
-                   "name":  "Belladone",
-                   "value":  1772971749,
-                   "breed":  10,
+                   "name":  "Eternelle",
+                   "value":  1816270033,
+                   "breed":  9,
                    "sex":  1,
-                   "level":  187
+                   "level":  188
                },
                {
                    "rank":  8,
-                   "name":  "Eternelle",
-                   "value":  1770641458,
-                   "breed":  9,
+                   "name":  "Neisseria",
+                   "value":  1798550554,
+                   "breed":  15,
                    "sex":  1,
                    "level":  187
                },
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Azere",
-                   "value":  449107233,
+                   "value":  449282343,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Azerz",
-                   "value":  447569119,
+                   "value":  447743738,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Azera",
-                   "value":  446301963,
+                   "value":  446477564,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Azerr",
-                   "value":  445014257,
+                   "value":  445189367,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -132,34 +132,34 @@
                {
                    "rank":  17,
                    "name":  "Dos",
-                   "value":  250587778,
+                   "value":  258069095,
                    "breed":  3,
                    "sex":  0,
-                   "level":  126
+                   "level":  127
                },
                {
                    "rank":  18,
                    "name":  "Uno",
-                   "value":  243868155,
+                   "value":  251255579,
                    "breed":  3,
                    "sex":  1,
-                   "level":  125
+                   "level":  126
                },
                {
                    "rank":  19,
                    "name":  "Cuatro",
-                   "value":  242066766,
+                   "value":  249557751,
                    "breed":  3,
                    "sex":  1,
-                   "level":  125
+                   "level":  126
                },
                {
                    "rank":  20,
                    "name":  "Tres",
-                   "value":  235686818,
+                   "value":  242929525,
                    "breed":  3,
                    "sex":  0,
-                   "level":  124
+                   "level":  125
                },
                {
                    "rank":  21,
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3247,
+                        "value":  3248,
                         "breed":  8,
                         "sex":  0
                     },
@@ -330,29 +330,29 @@
                     {
                         "rank":  5,
                         "name":  "Neisseria",
-                        "value":  2603,
+                        "value":  2613,
                         "breed":  15,
                         "sex":  1
                     },
                     {
                         "rank":  6,
                         "name":  "Belladone",
-                        "value":  2486,
+                        "value":  2497,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
-                        "name":  "Aconit",
-                        "value":  2484,
-                        "breed":  10,
+                        "name":  "Eternelle",
+                        "value":  2493,
+                        "breed":  9,
                         "sex":  1
                     },
                     {
                         "rank":  8,
-                        "name":  "Eternelle",
-                        "value":  2482,
-                        "breed":  9,
+                        "name":  "Aconit",
+                        "value":  2485,
+                        "breed":  10,
                         "sex":  1
                     },
                     {
@@ -442,28 +442,28 @@
                     {
                         "rank":  21,
                         "name":  "Azerr",
-                        "value":  317,
+                        "value":  318,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  22,
                         "name":  "Azera",
-                        "value":  315,
+                        "value":  316,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  23,
                         "name":  "Azerz",
-                        "value":  315,
+                        "value":  316,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  24,
                         "name":  "Azere",
-                        "value":  315,
+                        "value":  316,
                         "breed":  3,
                         "sex":  0
                     },
