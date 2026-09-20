@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-20T02:14:29.2016483+02:00",
+    "generatedAt":  "2026-09-20T02:19:29.1946903+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  3074503677,
+                   "value":  3160177133,
                    "breed":  9,
                    "sex":  0,
                    "level":  196
@@ -308,23 +308,23 @@
                     },
                     {
                         "rank":  2,
+                        "name":  "Persodeux",
+                        "value":  3106,
+                        "breed":  9,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  3,
                         "name":  "Persotrois",
                         "value":  3085,
                         "breed":  7,
                         "sex":  0
                     },
                     {
-                        "rank":  3,
+                        "rank":  4,
                         "name":  "Persoun",
                         "value":  3077,
                         "breed":  12,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  4,
-                        "name":  "Persodeux",
-                        "value":  3066,
-                        "breed":  9,
                         "sex":  0
                     },
                     {
@@ -385,17 +385,17 @@
                     },
                     {
                         "rank":  13,
-                        "name":  "Dos",
-                        "value":  744,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  14,
                         "name":  "Uno",
                         "value":  744,
                         "breed":  3,
                         "sex":  1
+                    },
+                    {
+                        "rank":  14,
+                        "name":  "Dos",
+                        "value":  744,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  15,
