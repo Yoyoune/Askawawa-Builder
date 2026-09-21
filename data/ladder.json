@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-21T22:49:29.3607491+02:00",
+    "generatedAt":  "2026-09-21T22:54:29.3755657+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -100,7 +100,7 @@
                {
                    "rank":  13,
                    "name":  "Azere",
-                   "value":  454750013,
+                   "value":  455315827,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -108,7 +108,7 @@
                {
                    "rank":  14,
                    "name":  "Azerz",
-                   "value":  453193303,
+                   "value":  453757458,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -116,7 +116,7 @@
                {
                    "rank":  15,
                    "name":  "Azera",
-                   "value":  451963339,
+                   "value":  452530810,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -124,7 +124,7 @@
                {
                    "rank":  16,
                    "name":  "Azerr",
-                   "value":  450657037,
+                   "value":  451222851,
                    "breed":  3,
                    "sex":  0,
                    "level":  144
@@ -442,28 +442,28 @@
                     {
                         "rank":  21,
                         "name":  "Azerr",
-                        "value":  318,
+                        "value":  320,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  22,
                         "name":  "Azera",
-                        "value":  316,
+                        "value":  318,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  23,
                         "name":  "Azerz",
-                        "value":  316,
+                        "value":  318,
                         "breed":  3,
                         "sex":  0
                     },
                     {
                         "rank":  24,
                         "name":  "Azere",
-                        "value":  316,
+                        "value":  318,
                         "breed":  3,
                         "sex":  0
                     },
