@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-22T00:39:29.2287976+02:00",
+    "generatedAt":  "2026-09-22T00:44:29.2536689+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -21,7 +21,7 @@
                    "rank":  3,
                    "name":  "Persotrois",
                    "value":  3730328384,
-                   "breed":  7,
+                   "breed":  9,
                    "sex":  0,
                    "level":  199
                },
@@ -317,7 +317,7 @@
                         "rank":  3,
                         "name":  "Persotrois",
                         "value":  3179,
-                        "breed":  7,
+                        "breed":  9,
                         "sex":  0
                     },
                     {
