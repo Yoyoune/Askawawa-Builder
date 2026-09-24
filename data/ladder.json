@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-24T22:34:29.5437272+02:00",
+    "generatedAt":  "2026-09-24T22:39:29.7843713+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  4472326669,
+                   "value":  4476811948,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  4140280077,
+                   "value":  4169939253,
                    "breed":  12,
                    "sex":  0,
                    "level":  199
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  3976807264,
+                   "value":  4008360970,
                    "breed":  7,
                    "sex":  0,
                    "level":  199
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  3858949209,
+                   "value":  3889057932,
                    "breed":  9,
                    "sex":  0,
                    "level":  199
@@ -302,28 +302,28 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3399,
+                        "value":  3400,
                         "breed":  8,
                         "sex":  0
                     },
                     {
                         "rank":  2,
                         "name":  "Persodeux",
-                        "value":  3257,
+                        "value":  3269,
                         "breed":  9,
                         "sex":  0
                     },
                     {
                         "rank":  3,
                         "name":  "Persotrois",
-                        "value":  3236,
+                        "value":  3248,
                         "breed":  7,
                         "sex":  0
                     },
                     {
                         "rank":  4,
                         "name":  "Persoun",
-                        "value":  3228,
+                        "value":  3240,
                         "breed":  12,
                         "sex":  0
                     },
