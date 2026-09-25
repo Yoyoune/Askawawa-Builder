@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-25T18:54:29.5402240+02:00",
+    "generatedAt":  "2026-09-25T18:59:29.4759359+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  4476811948,
+                   "value":  4480064592,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -43,6 +43,14 @@
                },
                {
                    "rank":  6,
+                   "name":  "Neisseria",
+                   "value":  2618505225,
+                   "breed":  15,
+                   "sex":  1,
+                   "level":  193
+               },
+               {
+                   "rank":  7,
                    "name":  "Belladone",
                    "value":  2616811260,
                    "breed":  10,
@@ -50,18 +58,10 @@
                    "level":  193
                },
                {
-                   "rank":  7,
+                   "rank":  8,
                    "name":  "Eternelle",
                    "value":  2611762657,
                    "breed":  9,
-                   "sex":  1,
-                   "level":  193
-               },
-               {
-                   "rank":  8,
-                   "name":  "Neisseria",
-                   "value":  2609265869,
-                   "breed":  15,
                    "sex":  1,
                    "level":  193
                },
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3400,
+                        "value":  3410,
                         "breed":  8,
                         "sex":  0
                     },
