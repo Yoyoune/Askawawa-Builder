@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-25T23:14:30.0211256+02:00",
+    "generatedAt":  "2026-09-25T23:19:29.9522840+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -12,7 +12,7 @@
                {
                    "rank":  2,
                    "name":  "Persoun",
-                   "value":  4178245589,
+                   "value":  4220662235,
                    "breed":  12,
                    "sex":  0,
                    "level":  199
@@ -20,7 +20,7 @@
                {
                    "rank":  3,
                    "name":  "Persotrois",
-                   "value":  4017158023,
+                   "value":  4063442653,
                    "breed":  7,
                    "sex":  0,
                    "level":  199
@@ -28,7 +28,7 @@
                {
                    "rank":  4,
                    "name":  "Persodeux",
-                   "value":  3897480710,
+                   "value":  3940815183,
                    "breed":  9,
                    "sex":  0,
                    "level":  199
