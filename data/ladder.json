@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-25T14:49:29.0820947+02:00",
+    "generatedAt":  "2026-09-25T14:54:29.1600616+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -36,7 +36,7 @@
                {
                    "rank":  5,
                    "name":  "Neisseria",
-                   "value":  2552890789,
+                   "value":  2590895773,
                    "breed":  15,
                    "sex":  1,
                    "level":  193
@@ -132,34 +132,34 @@
                {
                    "rank":  17,
                    "name":  "Dos",
-                   "value":  346716487,
+                   "value":  361848486,
                    "breed":  3,
                    "sex":  0,
-                   "level":  136
+                   "level":  137
                },
                {
                    "rank":  18,
                    "name":  "Uno",
-                   "value":  338788240,
+                   "value":  359202275,
                    "breed":  3,
                    "sex":  1,
-                   "level":  135
+                   "level":  137
                },
                {
                    "rank":  19,
                    "name":  "Cuatro",
-                   "value":  337634099,
+                   "value":  358160354,
                    "breed":  3,
                    "sex":  1,
-                   "level":  135
+                   "level":  137
                },
                {
                    "rank":  20,
                    "name":  "Tres",
-                   "value":  329098191,
+                   "value":  349194182,
                    "breed":  3,
                    "sex":  0,
-                   "level":  134
+                   "level":  136
                },
                {
                    "rank":  21,
