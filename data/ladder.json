@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-25T19:14:29.5223130+02:00",
+    "generatedAt":  "2026-09-25T19:19:29.4818693+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -35,17 +35,17 @@
                },
                {
                    "rank":  5,
-                   "name":  "Neisseria",
-                   "value":  2643068702,
-                   "breed":  15,
+                   "name":  "Aconit",
+                   "value":  2679222204,
+                   "breed":  10,
                    "sex":  1,
-                   "level":  193
+                   "level":  194
                },
                {
                    "rank":  6,
-                   "name":  "Aconit",
-                   "value":  2626026635,
-                   "breed":  10,
+                   "name":  "Neisseria",
+                   "value":  2647880524,
+                   "breed":  15,
                    "sex":  1,
                    "level":  193
                },
@@ -330,21 +330,21 @@
                     {
                         "rank":  5,
                         "name":  "Neisseria",
-                        "value":  2996,
+                        "value":  3016,
                         "breed":  15,
                         "sex":  1
                     },
                     {
                         "rank":  6,
-                        "name":  "Belladone",
-                        "value":  2859,
+                        "name":  "Aconit",
+                        "value":  2898,
                         "breed":  10,
                         "sex":  1
                     },
                     {
                         "rank":  7,
-                        "name":  "Aconit",
-                        "value":  2857,
+                        "name":  "Belladone",
+                        "value":  2859,
                         "breed":  10,
                         "sex":  1
                     },
@@ -385,17 +385,17 @@
                     },
                     {
                         "rank":  13,
-                        "name":  "Uno",
-                        "value":  804,
-                        "breed":  3,
-                        "sex":  1
-                    },
-                    {
-                        "rank":  14,
                         "name":  "Dos",
                         "value":  804,
                         "breed":  3,
                         "sex":  0
+                    },
+                    {
+                        "rank":  14,
+                        "name":  "Uno",
+                        "value":  804,
+                        "breed":  3,
+                        "sex":  1
                     },
                     {
                         "rank":  15,
