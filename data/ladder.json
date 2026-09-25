@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-25T14:34:29.1882166+02:00",
+    "generatedAt":  "2026-09-25T14:39:29.1080493+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -43,6 +43,14 @@
                },
                {
                    "rank":  6,
+                   "name":  "Eternelle",
+                   "value":  2510346997,
+                   "breed":  9,
+                   "sex":  1,
+                   "level":  193
+               },
+               {
+                   "rank":  7,
                    "name":  "Belladone",
                    "value":  2502833211,
                    "breed":  10,
@@ -50,18 +58,10 @@
                    "level":  193
                },
                {
-                   "rank":  7,
-                   "name":  "Neisseria",
-                   "value":  2489607808,
-                   "breed":  15,
-                   "sex":  1,
-                   "level":  192
-               },
-               {
                    "rank":  8,
-                   "name":  "Eternelle",
-                   "value":  2474261960,
-                   "breed":  9,
+                   "name":  "Neisseria",
+                   "value":  2501975232,
+                   "breed":  15,
                    "sex":  1,
                    "level":  192
                },
