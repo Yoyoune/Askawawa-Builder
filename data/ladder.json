@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-25T02:54:29.8926240+02:00",
+    "generatedAt":  "2026-09-25T02:59:29.9245265+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -51,17 +51,17 @@
                },
                {
                    "rank":  7,
-                   "name":  "Neisseria",
-                   "value":  2464467863,
-                   "breed":  15,
+                   "name":  "Eternelle",
+                   "value":  2474261960,
+                   "breed":  9,
                    "sex":  1,
                    "level":  192
                },
                {
                    "rank":  8,
-                   "name":  "Eternelle",
-                   "value":  2457395531,
-                   "breed":  9,
+                   "name":  "Neisseria",
+                   "value":  2464467863,
+                   "breed":  15,
                    "sex":  1,
                    "level":  192
                },
