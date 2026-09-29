@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-29T21:39:29.3706425+02:00",
+    "generatedAt":  "2026-09-29T21:44:29.4015159+02:00",
     "xp":  [
                {
                    "rank":  1,
@@ -67,6 +67,38 @@
                },
                {
                    "rank":  9,
+                   "name":  "Azere",
+                   "value":  542593107,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  150
+               },
+               {
+                   "rank":  10,
+                   "name":  "Azerz",
+                   "value":  540830918,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  150
+               },
+               {
+                   "rank":  11,
+                   "name":  "Azera",
+                   "value":  539245843,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  150
+               },
+               {
+                   "rank":  12,
+                   "name":  "Azerr",
+                   "value":  537751856,
+                   "breed":  3,
+                   "sex":  0,
+                   "level":  150
+               },
+               {
+                   "rank":  13,
                    "name":  "Rhizobium",
                    "value":  489208733,
                    "breed":  2,
@@ -74,7 +106,7 @@
                    "level":  147
                },
                {
-                   "rank":  10,
+                   "rank":  14,
                    "name":  "Flavodiira",
                    "value":  481828377,
                    "breed":  1,
@@ -82,7 +114,7 @@
                    "level":  146
                },
                {
-                   "rank":  11,
+                   "rank":  15,
                    "name":  "Rubisca",
                    "value":  468798673,
                    "breed":  17,
@@ -90,44 +122,12 @@
                    "level":  145
                },
                {
-                   "rank":  12,
+                   "rank":  16,
                    "name":  "Cyano",
                    "value":  462792984,
                    "breed":  3,
                    "sex":  0,
                    "level":  145
-               },
-               {
-                   "rank":  13,
-                   "name":  "Azere",
-                   "value":  460942219,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  145
-               },
-               {
-                   "rank":  14,
-                   "name":  "Azerz",
-                   "value":  459349782,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  145
-               },
-               {
-                   "rank":  15,
-                   "name":  "Azera",
-                   "value":  458158059,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  144
-               },
-               {
-                   "rank":  16,
-                   "name":  "Azerr",
-                   "value":  456832640,
-                   "breed":  3,
-                   "sex":  0,
-                   "level":  144
                },
                {
                    "rank":  17,
