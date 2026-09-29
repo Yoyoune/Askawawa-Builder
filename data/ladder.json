@@ -1,10 +1,10 @@
 {
-    "generatedAt":  "2026-09-30T00:19:29.7754726+02:00",
+    "generatedAt":  "2026-09-30T00:24:29.7641590+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  5174667060,
+                   "value":  5261658668,
                    "breed":  8,
                    "sex":  0,
                    "level":  199
@@ -68,34 +68,34 @@
                {
                    "rank":  9,
                    "name":  "Azere",
-                   "value":  739797903,
+                   "value":  802704071,
                    "breed":  10,
                    "sex":  0,
-                   "level":  160
+                   "level":  163
                },
                {
                    "rank":  10,
                    "name":  "Azerz",
-                   "value":  737618682,
+                   "value":  801704730,
                    "breed":  9,
                    "sex":  0,
-                   "level":  160
+                   "level":  163
                },
                {
                    "rank":  11,
                    "name":  "Azera",
-                   "value":  718129223,
+                   "value":  795783586,
                    "breed":  10,
                    "sex":  0,
-                   "level":  159
+                   "level":  163
                },
                {
                    "rank":  12,
                    "name":  "Azerr",
-                   "value":  715384100,
+                   "value":  792622628,
                    "breed":  9,
                    "sex":  0,
-                   "level":  159
+                   "level":  163
                },
                {
                    "rank":  13,
@@ -441,45 +441,45 @@
                     },
                     {
                         "rank":  21,
-                        "name":  "Azere",
+                        "name":  "Azerr",
+                        "value":  372,
+                        "breed":  9,
+                        "sex":  0
+                    },
+                    {
+                        "rank":  22,
+                        "name":  "Azera",
                         "value":  370,
                         "breed":  10,
                         "sex":  0
                     },
                     {
-                        "rank":  22,
+                        "rank":  23,
                         "name":  "Azerz",
                         "value":  370,
                         "breed":  9,
                         "sex":  0
                     },
                     {
-                        "rank":  23,
-                        "name":  "Azerr",
-                        "value":  341,
-                        "breed":  9,
-                        "sex":  0
-                    },
-                    {
                         "rank":  24,
-                        "name":  "Azera",
-                        "value":  339,
+                        "name":  "Azere",
+                        "value":  370,
                         "breed":  10,
                         "sex":  0
                     },
                     {
                         "rank":  25,
-                        "name":  "Matt",
-                        "value":  269,
-                        "breed":  3,
-                        "sex":  0
-                    },
-                    {
-                        "rank":  26,
                         "name":  "Latt",
                         "value":  269,
                         "breed":  1,
                         "sex":  1
+                    },
+                    {
+                        "rank":  26,
+                        "name":  "Matt",
+                        "value":  269,
+                        "breed":  3,
+                        "sex":  0
                     },
                     {
                         "rank":  27,
