@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-09-30T22:39:30.0614565+02:00",
+    "generatedAt":  "2026-09-30T22:44:30.0827322+02:00",
     "xp":  [
                {
                    "rank":  1,
                    "name":  "Nayssen",
-                   "value":  5481523716,
+                   "value":  5581715844,
                    "breed":  8,
                    "sex":  0,
-                   "level":  199
+                   "level":  200
                },
                {
                    "rank":  2,
@@ -67,35 +67,35 @@
                },
                {
                    "rank":  9,
-                   "name":  "Azerz",
-                   "value":  968757866,
-                   "breed":  9,
+                   "name":  "Azera",
+                   "value":  1048483818,
+                   "breed":  10,
                    "sex":  0,
-                   "level":  170
+                   "level":  172
                },
                {
                    "rank":  10,
-                   "name":  "Azera",
-                   "value":  967028234,
-                   "breed":  10,
+                   "name":  "Azerz",
+                   "value":  1048270602,
+                   "breed":  9,
                    "sex":  0,
-                   "level":  170
+                   "level":  172
                },
                {
                    "rank":  11,
                    "name":  "Azere",
-                   "value":  966807643,
+                   "value":  1044953187,
                    "breed":  10,
                    "sex":  0,
-                   "level":  170
+                   "level":  172
                },
                {
                    "rank":  12,
                    "name":  "Azerr",
-                   "value":  962935844,
+                   "value":  1043268524,
                    "breed":  9,
                    "sex":  0,
-                   "level":  169
+                   "level":  172
                },
                {
                    "rank":  13,
@@ -302,7 +302,7 @@
                     {
                         "rank":  1,
                         "name":  "Nayssen",
-                        "value":  3450,
+                        "value":  3451,
                         "breed":  8,
                         "sex":  0
                     },
